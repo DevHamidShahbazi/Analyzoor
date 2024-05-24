@@ -1,12 +1,12 @@
-@extends('layouts.layout site.index')
-@section('body',"hold-transition login-page")
+@extends('layouts.layout public.index')
+
 
 @section('content')
 
     <div class=" login-box" >
         <h3 class="text-center"><b>بازیابی رمز</b></h3>
-        @include('alert.alert.error')
-        @include('alert.alert.success')
+        @include('alert.toastr.error')
+        @include('alert.toastr.success')
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">رمز عبور جدید را وارد کنید</p>

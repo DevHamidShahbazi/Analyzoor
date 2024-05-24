@@ -32,6 +32,11 @@ class ResetPasswordController extends Controller
     protected $redirectTo = RouteServiceProvider::HOME;
 
 
+    public function selectType()
+    {
+        return view('auth.passwords.select-type');
+    }
+
     protected function resetPassword($user, $password)
     {
         $user->update([

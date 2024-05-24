@@ -1,22 +1,26 @@
-@extends('layouts.layout site.index')
-@section('body',"hold-transition login-page")
+@extends('layouts.layout public.index')
+
+
+@section('style')
+    <style>
+
+        .captcha img {
+            width: 100%;
+        }
+    </style>
+@endsection
+
 
 @section('content')
 
     <div class=" login-box" >
         <h3 class="text-center"><b>کد ارسال شده را وارد کنید</b></h3>
-        @include('alert.alert.error')
-        @include('alert.alert.success')
+        @include('alert.toastr.error')
+        @include('alert.toastr.success')
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">کد به شماره {{ request()->session()->get('phone') }} ارسال شده است</p>
-                @if($errors->any())
-                    <div style="text-align: center" class="alert alert-danger">
-                        @foreach($errors->all() as $error)
-                            <p>{{ $error }}</p>
-                        @endforeach
-                    </div>
-                @endif
+                @include('alert.form.error')
                 <form method="POST" action="{{ route('password.reset.verify.phone') }}">
                     <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                     <div class="input-group mb-3">
@@ -32,7 +36,7 @@
                         </div>
                     </div>
 
-                    @captcha
+                    @include('components.captcha.captcha')
                     <br>
                     <button  type="submit" class="btn btn-block btn-flat btn-info">
                         تایید

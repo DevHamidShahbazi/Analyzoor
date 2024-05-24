@@ -39,7 +39,7 @@ class SocialiteController extends Controller
             }
             return redirect()->route('Home');
         }catch (\Exception $exception){
-            return 'error';
+            return 'Error';
         }
 
     }

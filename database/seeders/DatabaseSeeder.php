@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
          User::factory(10)->create();
 
-        //create user admin
+        //create user Developer
         User::factory()->count(1)->create([
             'name'=>'حمید شهبازی',
             'phone'=>'09363933499',

@@ -72,7 +72,7 @@
                         </form>
 
                         <p class="mb-1 mt-3">
-{{--                            <a class="text-danger" href="{{ route('reset.password.selectType') }}">رمز عبورم را فراموش کرده ام!!</a>--}}
+                            <a class="text-danger" href="{{ route('reset.password.selectType') }}">رمز عبورم را فراموش کرده ام!!</a>
                         </p>
 
                         <p class="mb-0 mt-4">

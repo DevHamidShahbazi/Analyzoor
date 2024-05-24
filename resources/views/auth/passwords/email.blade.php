@@ -1,15 +1,26 @@
-@extends('layouts.layout site.index')
-@section('body',"hold-transition login-page")
+@extends('layouts.layout public.index')
+
+
+@section('style')
+    <style>
+
+        .captcha img {
+            width: 100%;
+        }
+    </style>
+@endsection
+
 
 @section('content')
 
     <div class=" login-box" >
         <h3 class="text-center"><b>ایمیل خود را وارد کنید</b></h3>
-        @include('alert.alert.error')
-        @include('alert.alert.success')
+        @include('alert.toastr.error')
+        @include('alert.toastr.success')
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">ایمیلی که زمان ثبت نام وارد کردید را وارد کنید</p>
+                @include('alert.form.error')
                 <form method="POST" action="{{ route('password.email') }}">
                     <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
                     <div class="input-group mb-3">
@@ -20,7 +31,7 @@
                             <span class="fa fa-envelope  input-group-text"></span>
                         </div>
                     </div>
-                    @captcha
+                    @include('components.captcha.captcha')
                     <br>
                     <button  type="submit" class="btn btn-block btn-flat royal font-weight-bold">
                         تایید

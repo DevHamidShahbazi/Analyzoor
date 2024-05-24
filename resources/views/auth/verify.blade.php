@@ -1,12 +1,20 @@
 @extends('layouts.layout public.index')
-@section('body',"hold-transition login-page")
+
+@section('style')
+    <style>
+
+        .captcha img {
+            width: 100%;
+        }
+    </style>
+@endsection
 
 @section('content')
 
     <div class=" login-box" >
         <h3 class="text-center"><b>کد ارسال شده را وارد کنید</b></h3>
-        @include('alert.alert.error')
-        @include('alert.alert.success')
+        @include('alert.toastr.error')
+        @include('alert.toastr.success')
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">کد به شماره {{ auth()->user()->phone }} ارسال شده است</p>

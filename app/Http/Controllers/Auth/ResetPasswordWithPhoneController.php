@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\Auth\ResetPasswordWithPhone;
 use App\Models\ActiveCode;
 use App\Notifications\public\ActiveCodeNotification;
 use Illuminate\Http\Request;
-use ResetPasswordWithPhone;
 
 class ResetPasswordWithPhoneController extends Controller
 {
@@ -65,5 +65,26 @@ class ResetPasswordWithPhoneController extends Controller
     }
 
 
+    public function passwordResetSmsAgainSend()
+    {
+
+        if (!(\request()->session()->has('phone'))){
+            return redirect(route('password.request.phone'));
+        }
+        if ($this->checkCookieAgainCode()){
+            return redirect()->back()->with('error','پیامک برای شما ارسال شده است لطفا صبور باشد');
+        }
+
+
+        $phone = \request()->session()->get('phone');
+        $checkUser = $this->CheckPhoneIsValid($phone);
+        if ($checkUser) {
+            $code = ActiveCode::SendActiveCode($checkUser);
+            $checkUser->notify(new ActiveCodeNotification($code,$checkUser['phone']));
+
+            return redirect()->back()->with('success','کد برای شما ارسال شد');
+        }
+        return redirect()->back()->with('error','نا معتبر');
+    }
 
 }

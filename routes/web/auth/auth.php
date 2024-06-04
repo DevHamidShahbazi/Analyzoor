@@ -4,7 +4,6 @@ use App\Http\Controllers\Auth\CaptchaController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordWithPhoneController;
 use App\Http\Controllers\Auth\SocialiteController;
-use App\Http\Controllers\Auth\VerifyController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -40,3 +39,7 @@ Route::post('/phone/password/reset/verify/', [ResetPasswordWithPhoneController::
 
 //resetPassword with email
 Route::get('/password/reset', [ResetPasswordController::class, 'showLinkRequestForm'])->name('password.request'); //show form request
+
+Route::middleware('throttle:5,2')->group(function () {
+    Route::post('/phone/password/reset/again/send/', [ResetPasswordWithPhoneController::class, 'passwordResetSmsAgainSend'])->name('password.reset.phone.again.send');
+});

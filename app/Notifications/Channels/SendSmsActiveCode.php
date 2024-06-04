@@ -14,12 +14,13 @@ class SendSmsActiveCode
     {
         try
         {
-            $template = "activeCode";
+            $template = "ActiveCode";
             $code = $notification->code;
             $receptor = $notification->phone;
             $type = 1; // 1: sms , 2: voice
             $api = new \Ghasedak\GhasedakApi(env('GHASEDAKAPI_KEY'));
-            $api->Verify( $receptor, $type, $template, $code);
+            $api->Verify( $receptor, $template, $code);
+
         }
         catch(ApiException $e){
             throw $e;

@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Http\Traits\Auth;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -32,5 +34,15 @@ trait ResetPasswordWithPhone
     private function CheckPhoneIsValid($phone)
     {
         return $user = User::wherePhone($phone)->first();
+    }
+
+    private function checkCookieAgainCode(): bool
+    {
+        $CheckCookie = request()->cookie('ActiveCodeAgain');
+        if (is_null($CheckCookie)){
+            cookie()->queue('ActiveCodeAgain',1,1);
+            return false;
+        }
+        return true;
     }
 }

@@ -9,6 +9,7 @@
         @include('alert.toastr.success')
         <div class="card">
             <div class="card-body login-card-body">
+                @include('alert.form.error')
                 <p class="login-box-msg">رمز عبور جدید را وارد کنید</p>
                 <form method="POST" action="{{ route('password.update') }}">
                     @csrf

@@ -49,6 +49,15 @@ class ResetPasswordController extends Controller
         $this->guard()->login($user);
     }
 
+    protected function rules()
+    {
+        return [
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => ['required', 'confirmed'],
+        ];
+    }
+
 
     protected function setUserPassword($user, $password)
     {

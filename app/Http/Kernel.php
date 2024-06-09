@@ -55,6 +55,7 @@ class Kernel extends HttpKernel
     protected $middlewareAliases = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'verify' => \App\Http\Middleware\Verify::class,
+        'Visit' => \App\Http\Middleware\Visit::class,
         'HtmlOptimize' => \App\Http\Middleware\HtmlOptimize::class,
         'verifyNumber' => \App\Http\Middleware\VerifyNumber::class,
         'LevelAdmin' => \App\Http\Middleware\LevelAdmin::class,

@@ -40,7 +40,7 @@ class RouteServiceProvider extends ServiceProvider
     private function mapAdminRoutes()
     {
         Route::middleware(['web','auth','verify','LevelAdmin'])
-            ->prefix('admin/')
+            ->prefix('admin-panel/')
             ->name('admin.')
             ->group(function () {
                 foreach (glob(base_path('routes/web/admin/*.php')) as $fileName) {
@@ -51,7 +51,7 @@ class RouteServiceProvider extends ServiceProvider
 
     private function mapPublicRoutes()
     {
-        Route::middleware(['web','HtmlOptimize'])
+        Route::middleware(['web','HtmlOptimize','Visit'])
             ->group(function () {
                 foreach (glob(base_path('routes/web/public/*.php')) as $fileName) {
                     require $fileName;
@@ -61,7 +61,7 @@ class RouteServiceProvider extends ServiceProvider
 
     private function mapUserPanelRoutes()
     {
-        Route::middleware(['web','HtmlOptimize','auth','verify'])
+        Route::middleware(['web','HtmlOptimize','auth','verify','Visit'])
             ->prefix('user-panel/')
             ->name('userPanel.')
             ->group(function () {

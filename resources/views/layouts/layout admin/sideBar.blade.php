@@ -8,7 +8,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3">
                 <div  style="text-align: center"></div>
-                <a href="#" style="text-align: center" class="d-block">test</a>
+                <a href="#" style="text-align: center" class="d-block">Fanoram</a>
             </div>
 
 
@@ -22,6 +22,18 @@
                             <p>
                                 داشبورد
                             </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.user.index') }}" class="nav-link @section('users') @show">
+                            <i class="fa fa-users"></i>
+                            <p>
+                                لیست کاربران
+                            </p>
+                            @if(notify_user_new())
+                                <span class="badge badge-danger right">{{ notify_user_new() }}</span>
+                            @endif
                         </a>
                     </li>
 

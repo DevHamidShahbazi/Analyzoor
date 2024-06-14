@@ -36,7 +36,7 @@ class CategoryController extends Controller
         $img=$this->FileUploader($request['image'],'/Upload/image/category/');
 
         $ArrayData = $this->RequestsArray($request);
-        $data = collect($ArrayData)->merge(['image'=>$img,'slug'=>convert_name_to_slug($request['name'])])->toArray();
+        $data = collect($ArrayData)->merge(['image'=>$img])->toArray();
         Category::create($data);
 
         return redirect(route('admin.category.index'))->with('success', 'اضافه شد');

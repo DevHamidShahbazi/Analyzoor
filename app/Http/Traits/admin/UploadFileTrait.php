@@ -2,6 +2,7 @@
 
 namespace App\Http\Traits\admin;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 trait UploadFileTrait
@@ -25,5 +26,12 @@ trait UploadFileTrait
         $path = public_path($dir);
         $file->move($path, $fileNewName);
         return $dir . $fileNewName;
+    }
+
+    public function UploadFilePrivate($file,$dir)
+    {
+        $filename = $file->getClientOriginalName();
+        Storage::putFileAs($dir,$file,$filename);
+        return $dir.$filename;
     }
 }

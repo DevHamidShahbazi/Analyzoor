@@ -47,6 +47,26 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="{{ route('admin.article.index') }}" class="nav-link @section('Articles') @show">
+                            <i class="fa fa-book"></i>
+                            <p>
+                                مقالات
+                            </p>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.file.index') }}" class="nav-link @section('files') @show">
+                            <i class="fas fa-images"></i>
+                            <p>
+                                بارگذاری ها
+                            </p>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item">
                         <a href="{{ route('admin.setting.index') }}" class="nav-link @section('setting') @show">
                             <i class="fa fa-cogs"></i>
                             <p>

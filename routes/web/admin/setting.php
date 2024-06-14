@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\userPanel\UserPanelController;
+use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\SettingController;
+use App\Http\Controllers\admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',[UserPanelController::class,'index'])->name('dashboard');
+Route::resource('setting', SettingController::class)->except(['show','create','edit','destroy','update']);
+

@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\CaptchaController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordWithPhoneController;
 use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\Auth\VerifyController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,6 +27,18 @@ Route::post('/refresh/captcha', [CaptchaController::class, 'refresh'])->name('re
 Route::get('/auth/google/', [SocialiteController::class, 'redirectGoogle'])->name('auth.google');
 Route::get('/auth/google/callback/', [SocialiteController::class, 'callbackGoogle']);
 /*Google Socialite*/
+
+/*Verify Sms*/
+Route::middleware('auth')->group(function () {
+
+    Route::get('/verify', [VerifyController::class, 'verify_Show'])->name('verify.show');
+    Route::post('/verify', [VerifyController::class, 'verify_code'])->name('verify.code');
+
+    Route::middleware('throttle:5,2')->group(function () {
+        Route::post('/verify/again', [VerifyController::class, 'verify_again_code'])->name('verify.again.code');
+    });
+});
+/*Verify Sms*/
 
 
 Route::get('/select-type/reset-password/', [ResetPasswordController::class, 'selectType'])->name('reset.password.selectType');

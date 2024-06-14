@@ -28,12 +28,30 @@
                     <li class="nav-item">
                         <a href="{{ route('admin.user.index') }}" class="nav-link @section('users') @show">
                             <i class="fa fa-users"></i>
-                            <p>
-                                لیست کاربران
-                            </p>
                             @if(notify_user_new())
                                 <span class="badge badge-danger right">{{ notify_user_new() }}</span>
                             @endif
+                            <p>
+                                لیست کاربران
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.category.index') }}" class="nav-link @section('category') @show">
+                            <i class="nav-icon fa fa-list-ol"></i>
+                            <p>
+                                 دسته بندی ها
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.setting.index') }}" class="nav-link @section('setting') @show">
+                            <i class="fa fa-cogs"></i>
+                            <p>
+                                تنظیمات
+                            </p>
                         </a>
                     </li>
 

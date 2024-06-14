@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Setting;
 use App\Models\User;
 
 if (!function_exists('to_english_numbers')) {
@@ -17,5 +18,19 @@ if (!function_exists('notify_user_new')) {
     function notify_user_new()
     {
         return count(User::whereDate('created_at','>',Carbon\Carbon::now()->subDays(3))->latest()->get());
+    }
+}
+
+if (!function_exists('setting_with_key')) {
+    function setting_with_key($key)
+    {
+        return Setting::where('key',$key)->first();
+    }
+}
+
+if (!function_exists('convert_name_to_slug')) {
+    function convert_name_to_slug($name)
+    {
+        return str_replace(" ", "-", $name);
     }
 }

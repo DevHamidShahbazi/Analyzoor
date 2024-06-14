@@ -1,8 +1,6 @@
 @extends('layouts.layout admin.index')
 
 @section('Header','لیست کاربران')
-@section('UserAdmin-open','menu-open')
-@section('user-admin','active')
 @section('users','active')
 @section('script')
     <script>
@@ -42,7 +40,7 @@
                             </div>
                             @include('admin.user.create')
                         </div>
-                        @include('components.admin-user-filter.index')
+                        @include('components.admin-select-box-filter.index',['name_checkbox'=>'status','value_selectBox'=>config('fanoram.userLevel')])
                     </div>
                 </div>
                 <!-- /.card-header -->

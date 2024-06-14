@@ -25,7 +25,7 @@ class VerifyController extends Controller
 //                return redirect()->route('basket.index');
 //            }
             else{
-                return redirect()->route('Panel');
+                return redirect()->route('userPanel.dashboard');
             }
 //        }
     }
@@ -45,7 +45,7 @@ class VerifyController extends Controller
 //                if (count(Cart::all()) > 0){
 //                    return redirect()->route('basket.index');
 //                }else{
-                    return redirect()->route('Panel');
+                    return redirect()->route('userPanel.dashboard');
 //                }
             }elseif($checkVerifyCode == 'expire'){
                 return redirect()->back()->with('error','کد منقضی شده است');
@@ -93,7 +93,7 @@ class VerifyController extends Controller
     }
 
     private function SendCodeAndCreateCache(){
-        cookie()->queue('AcCode',auth()->user()->phone,8);
+        cookie()->queue('ActiveCode',auth()->user()->phone,8);
         $user = auth()->user();
         $code = ActiveCode::SendActiveCode($user);
         $user->notify(new ActiveCodeNotification($code,$user['phone']));

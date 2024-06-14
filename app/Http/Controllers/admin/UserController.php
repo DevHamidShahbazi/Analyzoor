@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserAdminRequest;
 use App\Http\Traits\admin\UserTrait;
 use App\Models\User;
 use App\Notifications\CreateUserNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 
 class UserController extends Controller
@@ -30,16 +32,9 @@ class UserController extends Controller
         }
     }
 
-    public function store(Request $request)
+    public function store(UserAdminRequest $request)
     {
-        $user = User::create([
-            'name' => $request['name'],
-            'phone' => $request['phone'],
-            'level' => $request['level'],
-            'verify' => $request['verify'],
-            'password' => Hash::make($request['password']),
-            'crypt' => Crypt::encrypt($request['password']),
-        ]);
+        $user = User::create($this->arrayRequest($request));
 
         if ($request->has('sendCode')){
             $user->notify(new CreateUserNotification($request['phone'],$request['password']));
@@ -48,23 +43,9 @@ class UserController extends Controller
     }
 
 
-    public function update(Request $request, User $user)
+    public function update(UserAdminRequest $request, User $user)
     {
-        $this->validate(request(),[
-            'name' => ['required'],
-            'verify' => ['required'],
-            'level' => ['required'],
-        ]);
-
-        $user->update([
-            'name' => $request['name'],
-            'phone' => $request['phone'],
-            'email' => $request['email'],
-            'verify' => $request['verify'],
-            'level' => $request['level'],
-            'password' => Hash::make($request['password']),
-            'crypt' => Crypt::encrypt($request['password']),
-        ]);
+        $user->update($this->arrayRequest($request));
         return redirect()->back()->with('success','تغییرات اعمال شد');
     }
 

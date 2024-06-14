@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\userPanel\UserPanelController;
+use App\Http\Controllers\admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',[UserPanelController::class,'index'])->name('dashboard');
+Route::resource('category', CategoryController::class)->except(['show','create','edit']);
+

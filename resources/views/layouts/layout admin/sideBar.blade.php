@@ -65,6 +65,15 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="{{ route('admin.private-file.index') }}" class="nav-link @section('private_files') @show">
+                            <i class="fas fa-lock"></i>
+                            <p>
+                                بارگذاری های خصوصی
+                            </p>
+                        </a>
+                    </li>
+
 
                     <li class="nav-item">
                         <a href="{{ route('admin.setting.index') }}" class="nav-link @section('setting') @show">

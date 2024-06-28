@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\admin\FileTrait;
 use App\Http\Traits\admin\UploadFileTrait;
 use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-class FileController extends Controller
+class FilePublicController extends Controller
 {
     use UploadFileTrait;
+    use FileTrait;
+
+
     public function index()
     {
         $files = File::files();
@@ -19,7 +24,7 @@ class FileController extends Controller
     public function store(Request $request)
     {
         $file = $request->file('file');
-        if($img=$this->FileUploader($file,'/Upload/file/')){
+        if($img=$this->FileUploader($file,'/Upload/files/')){
             File::create([
                 'file' => $img,
                 'alt' => '0',
@@ -33,16 +38,19 @@ class FileController extends Controller
 
     public function update(Request $request, File $file)
     {
+
         if($request->hasFile('file')){
             \Illuminate\Support\Facades\File::delete(public_path($file['file']));
-            $get_file = $request['file'];
-            $img=$this->FileUploaderNotRename($file,$get_file,'/Upload/file/');
+            $file_request = $request['file'];
+            $img=$this->FileUploaderNotRename($file['file'],$file_request,'/Upload/files/');
             $file->update(['file' => $img]);
         }
         $file->update([
             'alt' => $request['alt'],
+            'for_download' => $request['for_download'],
         ]);
         return redirect()->back()->with('success', 'تغییرات اعمال شد');
+
     }
 
     public function destroy(File $file)

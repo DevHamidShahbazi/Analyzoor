@@ -21,7 +21,7 @@ trait UploadFileTrait
     {
 //        set_time_limit(1800);
 //        ini_set('memory_limit','10G');
-        $fileOldName=pathinfo($oldName->image, PATHINFO_FILENAME);
+        $fileOldName=pathinfo($oldName, PATHINFO_FILENAME);
         $fileNewName = $fileOldName.'.'.$file->getClientOriginalExtension();
         $path = public_path($dir);
         $file->move($path, $fileNewName);
@@ -30,8 +30,17 @@ trait UploadFileTrait
 
     public function UploadFilePrivate($file,$dir)
     {
+
         $filename = $file->getClientOriginalName();
-        Storage::putFileAs($dir,$file,$filename);
+        Storage::disk('public')->put($dir.'/'.$filename,file_get_contents($file));
         return $dir.$filename;
+    }
+
+    public function UploadFilePrivateNotRename($oldName,$file,$dir)
+    {
+        $fileOldName=pathinfo($oldName, PATHINFO_FILENAME);
+        $fileNewName = $fileOldName.'.'.$file->getClientOriginalExtension();
+        Storage::disk('public')->put($dir.'/'.$fileNewName,file_get_contents($file));
+        return $dir.$fileNewName;
     }
 }

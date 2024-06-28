@@ -13,7 +13,7 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         $parent = collect(['0']);
-        $type = collect(['tool','course','article']);
+        $type = collect(['article','tool','course']);
         return [
             'name' => $this->faker->name(),
             'type' => $type->random(),

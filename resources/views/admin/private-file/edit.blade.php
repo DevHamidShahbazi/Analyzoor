@@ -24,7 +24,7 @@
 
                        @include('alert.form.error')
 
-                        <form {{--id="SubmitForm"--}} method="POST" action="{{ route('admin.file.update',$val->id) }}"  enctype="multipart/form-data">
+                        <form {{--id="SubmitForm"--}} method="POST" action="{{ route('admin.private-file.update', $val->id) }}"  enctype="multipart/form-data">
                             @csrf
                             {{ method_field('PATCH') }}
                             <div class="modal-body mb-1">
@@ -47,7 +47,7 @@
                                                 </span>
                                         @else
                                             <div class="text-center">
-                                                <img  src="{{$val->file}}" class="rounded col-12" alt="{{$val->alt}}">
+                                                <img  src="{{\Illuminate\Support\Facades\Storage::disk('public')->url($val->file) }}" class="rounded col-12" alt="{{$val->alt}}">
                                             </div>
                                         @endif
 

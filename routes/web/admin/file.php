@@ -1,7 +1,8 @@
 <?php
 
 
-use App\Http\Controllers\admin\FileController;
+use App\Http\Controllers\admin\FilePrivateController;
+use App\Http\Controllers\admin\FilePublicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,5 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::resource('file', FileController::class)->except(['show','create','edit']);
+Route::resource('file', FilePublicController::class)->except(['show','create','edit']);
+
+Route::resource('private-file', FilePrivateController::class)->except(['show','create','edit']);
 

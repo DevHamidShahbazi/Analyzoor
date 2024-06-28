@@ -1,7 +1,7 @@
 @extends('layouts.layout admin.index')
 
-@section('Header','بارگزاری ها')
-@section('files','active')
+@section('Header','بارگزاری های خصوصی')
+@section('private_files','active')
 
 @section('content')
     @include('alert.toastr.error')
@@ -11,7 +11,7 @@
         <div class="col-12">
 
             <div class="card" style="background-color: #353b5000">
-                <form role="form" method="post" class="dropzone" action="{{ route('admin.file.store') }}" enctype="multipart/form-data" id="dZUpload">
+                <form role="form" method="post" class="dropzone" action="{{ route('admin.private-file.store') }}" enctype="multipart/form-data" id="dZUpload">
                     @csrf
                     <div class="fallback">
                         <input  type="file" name="file" />
@@ -20,7 +20,7 @@
                 <br>
                 <div class="col-sm-12 float-sm-right mb-2">
                     <div style="text-align: initial;" class="m-b-30 text-light">
-                        <a href="{{ route('admin.file.index') }}" type="button"  class="btn  btn-primary btn-sm">
+                        <a href="{{ route('admin.private-file.index') }}" type="button"  class="btn  btn-primary btn-sm">
                             <i class="fa fa-recycle"></i>
                             <i  style="margin: inherit; ">مشاهده</i></a>
                     </div>
@@ -30,7 +30,7 @@
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover">
-                        <tr style="background-color: #343a40;" >
+                        <tr style="background-color: #105a8d;" >
                             <th  class="text-center text-light" scope="col">ردیف</th>
                             <th  class="text-center text-light" scope="col">لینک فایل</th>
                             <th  class="text-center text-light" scope="col">فایل</th>
@@ -45,7 +45,7 @@
                                     <td style="padding:1.5rem 0" class="Dlt text-center font-weight-bold">{{ $loop->count-$key }}</td>
 
                                     <td  style="padding:1.5rem 0">
-                                        <input  id="input_{{$val->id}}" class="col-8 input_url" type="text"  style="direction: ltr" value="{{ url($val->file)}}">
+                                        <input  id="input_{{$val->id}}" class="col-8 input_url" type="text"  style="direction: ltr" value="{{  asset('storage/'.$val->file) }}">
                                         <button  style="margin-right:10px;" class="btn btn-primary btn-sm btn-copy-url" > کپی کردن</button>
 
                                         <span class="badge bg-primary">
@@ -61,7 +61,7 @@
                                                     برای دانلود
                                                 </span>
                                             @else
-                                                <img width="100" class="img-thumbnail" src="{{ $val->file }}" alt="{{ $val->alt }}">
+                                                <img width="100" class="img-thumbnail" src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($val->file) }}" alt="{{ $val->alt }}">
                                             @endif
 
                                         </i>
@@ -73,10 +73,10 @@
                                     <td style="padding:1.5rem 0" class="text-center font-weight-bold">
                                         <button data-toggle="modal" data-target="#modalLRFormDemo{{$key}}" type="button" style="width: max-content;" class="btn btn-info btn-sm"><i class="fa fa-edit"></i><i style="margin: inherit;">ویرایش</i></button>
                                     </td>
-                                    @include('admin.file.edit',['key'=>$key])
+                                    @include('admin.private-file.edit',['key'=>$key])
 
                                     <td  style="padding:1.5rem 0" class="text-center  text-light ">
-                                        <a href="#" data-id="{{ $val->id }}" data-route="{{ route('admin.file.destroy',$val->id) }}"  type="submit" style="width: max-content;" class="btn-sm btn-danger btnDelete" ><i style="margin: 0 0 0 5px;" class="fa fa-trash"></i><i style="margin: inherit;">حذف</i></a>
+                                        <a href="#" data-id="{{ $val->id }}" data-route="{{ route('admin.private-file.destroy',$val->id) }}"  type="submit" style="width: max-content;" class="btn-sm btn-danger btnDelete" ><i style="margin: 0 0 0 5px;" class="fa fa-trash"></i><i style="margin: inherit;">حذف</i></a>
                                     </td>
                                 </tr>
                             @endforeach

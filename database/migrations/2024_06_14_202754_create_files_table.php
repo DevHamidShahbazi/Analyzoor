@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('fileable_type');
             $table->text('file');
             $table->string('alt')->nullable();
+            $table->enum('is_private',['0','1'])->default('0');
+            $table->enum('for_download',['0','1'])->default('0');
             $table->timestamps();
         });
     }

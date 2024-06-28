@@ -57,6 +57,17 @@
 
 
                     <li class="nav-item">
+                        <a href="{{ route('admin.comment.index') }}" class="nav-link @section('comment') @show">
+                            <i class="fa fa-comment 2x"></i>
+                            <p>نظرات</p>
+                            @if(notify_comment_new())
+                                <span class="badge badge-danger right">{{ notify_comment_new() }}</span>
+                            @endif
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item">
                         <a href="{{ route('admin.file.index') }}" class="nav-link @section('files') @show">
                             <i class="fas fa-images"></i>
                             <p>

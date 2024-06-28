@@ -36,8 +36,8 @@ class Article extends Model
         return $this->morphMany(File::class,'fileable');
     }
 
-//    public function comments()
-//    {
-//        return $this->hasMany(Comment::class);
-//    }
+    public function comments()
+    {
+        return $this->morphMany(Comment::class,'commentable');
+    }
 }

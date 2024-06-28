@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\ArticleController;
-use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\FileArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('article', ArticleController::class);
 
+Route::resource('article-file', FileArticleController::class);

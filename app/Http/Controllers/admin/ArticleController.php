@@ -15,10 +15,22 @@ class ArticleController extends Controller
     use UploadFileTrait;
     use ArticleTrait;
 
-    public function index()
+    public function index(Request $request)
     {
-        $articles=Article::latest()->get();
-        return view('admin.article.index',compact('articles'));
+
+        if ($request->has('category_id')&& $request['category_id'] != '0'){
+            if ($articles = $this->filter($request)){
+                $checkbox = [
+                    'category_id'=>$request['category_id'],
+                ];
+                return view('admin.article.index',compact('articles','checkbox'));
+            }
+        }else{
+
+            $articles=Article::latest()->get();
+            return view('admin.article.index',compact('articles'));
+        }
+
     }
 
 

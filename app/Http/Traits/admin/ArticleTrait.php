@@ -2,10 +2,26 @@
 
 namespace App\Http\Traits\admin;
 
+use App\Models\Article;
 use Illuminate\Support\Facades\File;
 
 trait ArticleTrait
 {
+
+    private function filter($request)
+    {
+        $all = collect([]);
+        $category_id = $request['category_id'];
+
+        $query = Article::query();
+        $query->when($category_id, function ($qu) use ($category_id) {
+            $qu->where('category_id', $category_id)->latest();
+        });
+
+        $all [] = $query->latest()->get();
+
+        return $all->collapse();
+    }
 
     private function RequestsArray($request)
     {

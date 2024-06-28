@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Traits\admin\FileTrait;
 use App\Http\Traits\admin\UploadFileTrait;
 use App\Models\File;
 use Illuminate\Http\Request;
@@ -12,7 +11,6 @@ use Illuminate\Support\Facades\Storage;
 class FilePrivateController extends Controller
 {
     use UploadFileTrait;
-    use FileTrait;
 
     public function index()
     {

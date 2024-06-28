@@ -1,7 +1,19 @@
 @extends('layouts.layout admin.index')
 
-@section('Header','بارگزاری ها')
-@section('files','active')
+@section('Header',$article->name.' بارگزاری های مقاله ')
+@section('Articles','active')
+
+@section('address')
+    <li class="breadcrumb-item">
+        <a href="{{ route('admin.article.index') }}">لیست مقالات</a>
+    </li>
+
+    <li class="breadcrumb-item">
+        <a href="{{ route('admin.article.edit',$article->id) }}"> مشاهده مقاله {{ $article->name }}</a>
+    </li>
+
+    <li class="breadcrumb-item">{{ $article->name }}</li>
+@endsection
 
 @section('content')
     @include('alert.toastr.error')
@@ -11,16 +23,18 @@
         <div class="col-12">
 
             <div class="card" style="background-color: #353b5000">
-                <form role="form" method="post" class="dropzone" action="{{ route('admin.file.store') }}" enctype="multipart/form-data" id="dZUpload">
+                <form role="form" method="post" class="dropzone" action="{{ route('admin.article-file.store') }}" enctype="multipart/form-data" id="dZUpload">
                     @csrf
                     <div class="fallback">
                         <input  type="file" name="file" />
                     </div>
+                    <input style="display: none" type="text" name="article" value="{{$article->id}}">
+                    <input style="display: none" type="text" name="class" value="{{get_class($article)}}">
                 </form>
                 <br>
                 <div class="col-sm-12 float-sm-right mb-2">
                     <div style="text-align: initial;" class="m-b-30 text-light">
-                        <a href="{{ route('admin.file.index') }}" type="button"  class="btn  btn-primary btn-sm">
+                        <a href="{{ route('admin.article-file.index',['id'=>$article->id]) }}" type="button"  class="btn  btn-primary btn-sm">
                             <i class="fa fa-recycle"></i>
                             <i  style="margin: inherit; ">مشاهده</i></a>
                     </div>
@@ -73,10 +87,10 @@
                                     <td style="padding:1.5rem 0" class="text-center font-weight-bold">
                                         <button data-toggle="modal" data-target="#modalLRFormDemo{{$key}}" type="button" style="width: max-content;" class="btn btn-info btn-sm"><i class="fa fa-edit"></i><i style="margin: inherit;">ویرایش</i></button>
                                     </td>
-                                    @include('admin.file.edit',['key'=>$key])
+                                    @include('admin.article.file.edit',['key'=>$key])
 
                                     <td  style="padding:1.5rem 0" class="text-center  text-light ">
-                                        <a href="#" data-id="{{ $val->id }}" data-route="{{ route('admin.file.destroy',$val->id) }}"  type="submit" style="width: max-content;" class="btn-sm btn-danger btnDelete" ><i style="margin: 0 0 0 5px;" class="fa fa-trash"></i><i style="margin: inherit;">حذف</i></a>
+                                        <a href="#" data-id="{{ $val->id }}" data-route="{{ route('admin.article-file.destroy',['article_file'=>$val->id]) }}"  type="submit" style="width: max-content;" class="btn-sm btn-danger btnDelete" ><i style="margin: 0 0 0 5px;" class="fa fa-trash"></i><i style="margin: inherit;">حذف</i></a>
                                     </td>
                                 </tr>
                             @endforeach

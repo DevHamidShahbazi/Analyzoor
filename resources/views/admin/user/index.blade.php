@@ -40,7 +40,7 @@
                             </div>
                             @include('admin.user.create')
                         </div>
-                        @include('components.admin-select-box-filter.index',['name_checkbox'=>'status','value_selectBox'=>config('fanoram.userLevel')])
+                        @include('components.admin-select-box-filter-with-static-value.index',['name_checkbox'=>'status','value_selectBox'=>config('fanoram.userLevel'),'label'=>'نوع کاربر'])
                     </div>
                 </div>
                 <!-- /.card-header -->

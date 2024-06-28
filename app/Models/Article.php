@@ -31,6 +31,11 @@ class Article extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function files()
+    {
+        return $this->morphMany(File::class,'fileable');
+    }
+
 //    public function comments()
 //    {
 //        return $this->hasMany(Comment::class);

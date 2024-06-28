@@ -74,6 +74,14 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="{{ route('admin.menu.index') }}" class="nav-link @section('menus') @show">
+                            <i class="fas fa-stream"></i>
+                            <p>
+                                منو ها
+                            </p>
+                        </a>
+                    </li>
 
                     <li class="nav-item">
                         <a href="{{ route('admin.setting.index') }}" class="nav-link @section('setting') @show">

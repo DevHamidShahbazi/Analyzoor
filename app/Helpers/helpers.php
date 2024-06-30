@@ -36,6 +36,13 @@ if (!function_exists('notify_comment_new')) {
     }
 }
 
+if (!function_exists('notify_message_new')) {
+    function notify_message_new()
+    {
+        return count(\App\Models\Message::whereDate('created_at','>',Carbon\Carbon::now()->subDays(2))->latest()->get());
+    }
+}
+
 if (!function_exists('convert_name_to_slug')) {
     function convert_name_to_slug($name)
     {

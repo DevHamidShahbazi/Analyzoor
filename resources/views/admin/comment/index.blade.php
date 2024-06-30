@@ -33,9 +33,10 @@
                                             @else
                                             پاسخ به <span class="text-primary">{{ $val->parent->comment }}</span>
                                         @endif
+                                            @include('components.admin-is-active.index')
                                     </td>
                                     <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{$val?->user?->name ?? 'بدون ثبت نام'}} </td>
-                                    <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{$val->commentable->name}} @include('components.admin-is-active.index')</td>
+                                    <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{$val->commentable->name}}</td>
                                     <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >
 
                                          <span data-toggle="tooltip" data-placement="right"

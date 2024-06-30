@@ -85,6 +85,18 @@
                         </a>
                     </li>
 
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.message.index') }}" class="nav-link @section('messages') @show">
+                            <i class="fas fa-envelope"></i>
+                            @if(notify_message_new())
+                                <span class="badge badge-danger right">{{ notify_message_new() }}</span>
+                            @endif
+                            <p>تماس با ما</p>
+                        </a>
+                    </li>
+
+
                     <li class="nav-item">
                         <a href="{{ route('admin.menu.index') }}" class="nav-link @section('menus') @show">
                             <i class="fas fa-stream"></i>

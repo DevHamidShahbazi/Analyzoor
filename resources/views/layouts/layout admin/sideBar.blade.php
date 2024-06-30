@@ -59,10 +59,10 @@
                     <li class="nav-item">
                         <a href="{{ route('admin.comment.index') }}" class="nav-link @section('comment') @show">
                             <i class="fa fa-comment 2x"></i>
-                            <p>نظرات</p>
                             @if(notify_comment_new())
                                 <span class="badge badge-danger right">{{ notify_comment_new() }}</span>
                             @endif
+                            <p>نظرات</p>
                         </a>
                     </li>
 

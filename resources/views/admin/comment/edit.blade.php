@@ -12,7 +12,7 @@
                     <li class="nav-item ">
                         <a class="nav-link text-light" data-toggle="tab" href="#panel17" role="tab">
                             <i class="fa fa-plus"></i>
-                            {{$val->Product->name}}
+                            {{$val->commentable->name}}
                         </a>
                     </li>
                 </ul>

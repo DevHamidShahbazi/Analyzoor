@@ -15,6 +15,7 @@
                         <tr style="background-color: #343a40;" >
                             <th  class="text-center text-light" scope="col">ردیف</th>
                             <th  class="text-center text-light" scope="col" >نوع نظر</th>
+                            <th  class="text-center text-light" scope="col" >کاربر ثبت شده</th>
                             <th  class="text-center text-light" scope="col" >برای مقاله</th>
                             <th  class="text-center text-light" scope="col" >تاریخ ثبت</th>
                             <th  class="text-center text-light" scope="col" >تصویر</th>
@@ -33,8 +34,17 @@
                                             پاسخ به <span class="text-primary">{{ $val->parent->comment }}</span>
                                         @endif
                                     </td>
+                                    <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{$val?->user?->name ?? 'بدون ثبت نام'}} </td>
                                     <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{$val->commentable->name}} @include('components.admin-is-active.index')</td>
-                                    <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{ Verta::instance($val->created_at)->formatDate() }}</td>
+                                    <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >
+
+                                         <span data-toggle="tooltip" data-placement="right"
+                                               data-html="true"
+                                               data-original-title="ساعت : {{$val->getCreateHourAttribute()}}">
+                                                {{ $val->getCreateDateAttribute() }}
+                                            </span>
+
+                                    </td>
                                     <td style="padding:1.5rem 0" class="text-center font-weight-bold">
                                         <i>
                                             <img width="100" class="img-thumbnail" src="{{ $val->commentable->image}}">

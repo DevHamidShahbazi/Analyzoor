@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Crypt;
@@ -23,5 +24,6 @@ class DatabaseSeeder extends Seeder
         ]);
         Category::factory()->count(10)->create();
         Article::factory()->count(10)->create();
+        Comment::factory()->count(150)->create();
     }
 }

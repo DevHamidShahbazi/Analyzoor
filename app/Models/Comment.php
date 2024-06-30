@@ -20,6 +20,11 @@ class Comment extends Model
         return $this->morphTo();
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function getCreateDateAttribute()
     {
         return Verta::instance($this->created_at)->format('Y/n/j');

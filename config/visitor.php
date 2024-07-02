@@ -16,7 +16,7 @@ return [
 
 
     //name of the table which visit records should save in
-    'table_name' =>  'shetabit_visits',
+    'table_name' =>  'visits',
 
     /*
     |--------------------------------------------------------------------------

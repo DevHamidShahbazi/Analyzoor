@@ -50,6 +50,7 @@
     <script type="text/javascript" src="/admin/js/toastr.js"></script>
     <script type="text/javascript" src="/admin/js/select2.full.min.js"></script>
     <script type="text/javascript" src="/admin/js/custom.js"></script>
+    <script src="{{ asset('react/js/app.js') }}" > </script>
     @yield('script')
     </body>
 </html>

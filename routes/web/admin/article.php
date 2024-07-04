@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\ArticleController;
 use App\Http\Controllers\admin\FileArticleController;
+use App\Http\Controllers\admin\UrlArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 Route::resource('article', ArticleController::class);
 
 Route::resource('article-file', FileArticleController::class);
+
+Route::resource('article-url', UrlArticleController::class);

@@ -79,6 +79,11 @@
                                                 <i class="fas fa-file"></i>
                                             </a>
 
+                                            <a data-toggle="tooltip" data-placement="top" title="لینک های دانلود" href="{{ route('admin.article-url.index',['id'=>$val->id ]) }}"  style="width: max-content;" class="btn-sm btn-primary  col-lg-12">
+                                                <i>{{  count($val->urls()->get()) ?? '' }}</i>
+                                                <i class="fas fa-download"></i>
+                                            </a>
+
                                             <a data-toggle="tooltip" data-placement="top" title="ویرایش" href="{{ route('admin.article.edit',$val->id) }}"  style="width: max-content;" class="btn-sm btn-info col-lg-12">
                                                 <i class="fa fa-edit"></i>
                                             </a>

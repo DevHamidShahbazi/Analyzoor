@@ -66,6 +66,14 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="{{ route('admin.url.index') }}" class="nav-link @section('files') @show">
+                            <i class="fas fa-download"></i>
+                            <p>
+                                لینک های دانلود
+                            </p>
+                        </a>
+                    </li>
 
                     <li class="nav-item">
                         <a href="{{ route('admin.file.index') }}" class="nav-link @section('files') @show">
@@ -137,15 +145,6 @@
 {{--                                </a>--}}
 {{--                            </li>--}}
 {{--                        </ul>--}}
-{{--                    </li>--}}
-
-{{--                    <li class="nav-item">--}}
-{{--                        <a href="{{ route('setting.index') }}" class="nav-link @section('setting') @show">--}}
-{{--                            <i class="fa fa-cogs"></i>--}}
-{{--                            <p>--}}
-{{--                                تنظیمات--}}
-{{--                            </p>--}}
-{{--                        </a>--}}
 {{--                    </li>--}}
 
                 </ul>

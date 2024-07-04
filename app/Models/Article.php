@@ -40,4 +40,9 @@ class Article extends Model
     {
         return $this->morphMany(Comment::class,'commentable');
     }
+
+    public function urls()
+    {
+        return $this->morphMany(Url::class,'urlable');
+    }
 }

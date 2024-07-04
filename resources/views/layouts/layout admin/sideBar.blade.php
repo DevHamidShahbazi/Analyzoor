@@ -38,6 +38,15 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="{{ route('admin.visit.index') }}" class="nav-link @section('visits') @show">
+                            <i class="fas fa-chart-bar"></i>
+                            <p>
+                                آمار بازدید
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href="{{ route('admin.category.index') }}" class="nav-link @section('category') @show">
                             <i class="nav-icon fa fa-list-ol"></i>
                             <p>

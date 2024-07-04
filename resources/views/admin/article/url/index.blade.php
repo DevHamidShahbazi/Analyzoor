@@ -43,6 +43,7 @@
                             <th  class="text-center text-light" scope="col">ردیف</th>
                             <th  class="text-center text-light" scope="col" >نام</th>
                             <th  class="text-center text-light" scope="col" >url</th>
+                            <th  class="text-center text-light" scope="col" >برای دانلود</th>
                             <th  class="text-center text-light" scope="col" >ویرایش</th>
                             <th  class="text-center text-light" scope="col" >حذف</th>
                         </tr>
@@ -53,6 +54,18 @@
                                     <td   scope="row" class="Dlt text-center font-weight-bold">{{ $loop->count-$key }}</td>
                                     <td  class="text-center font-weight-bold" >{{$val->name}}</td>
                                     <td  class="text-center font-weight-bold" >{{$val->url}}</td>
+
+                                    <td  class="text-center font-weight-bold" >
+                                        @if($val->for_download)
+                                            <span class="badge bg-success" >
+                                                   تایید
+                                            </span>
+                                        @else
+                                            <span class="badge bg-danger" >
+                                                عدم تایید
+                                            </span>
+                                        @endif
+                                    </td>
 
                                     <td class="text-center font-weight-bold">
                                         <button data-toggle="modal" data-target="#modalLRFormDemo{{$key}}" type="button" style="width: max-content;" class="btn btn-info btn-sm"><i class="fa fa-edit"></i><i style="margin: inherit;">ویرایش</i></button>

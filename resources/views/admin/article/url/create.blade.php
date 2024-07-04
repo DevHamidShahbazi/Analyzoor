@@ -40,7 +40,18 @@
 
                                 <div class="md-form mb-2">
                                     <label class="m-0" >لینک</label>
-                                    <input value="{{ old('url')  }}" id="url" type="text" class="form-control" name="url" >
+                                    <input required value="{{ old('url')  }}" id="url" type="text" class="form-control" name="url" >
+                                </div>
+
+
+                                <div class="md-form mb-2">
+
+                                    <label class="m-0" >برای دانلود</label>
+                                    <select class="form-control" name="for_download">
+                                        <option value="1" selected>تایید</option>
+                                        <option value="0" >عدم تایید</option>
+                                    </select>
+
                                 </div>
 
                                 <div class="text-center mt-2">

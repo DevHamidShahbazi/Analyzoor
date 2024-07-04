@@ -9,7 +9,7 @@ class Url extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['urlable_id', 'urlable_type', 'name', 'url'];
+    protected $fillable = ['urlable_id', 'urlable_type', 'name', 'url','for_download'];
 
 
     public function urlable(): \Illuminate\Database\Eloquent\Relations\MorphTo

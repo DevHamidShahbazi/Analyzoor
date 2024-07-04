@@ -11,6 +11,7 @@ trait UrlTrait
             'urlable_id'=>'0',
             'name'=>$request['name'],
             'url'=>$request['url'],
+            'for_download'=> '1',
         ];
     }
 }

@@ -25,6 +25,7 @@ class UrlArticleController extends Controller
             'urlable_id'=> $request['article'],
             'name'=>$request['name'],
             'url'=>$request['url'],
+            'for_download'=>$request['for_download'],
         ]);
         return redirect(route('admin.article-url.index',['id'=>$request['article']]))->with('success', 'اضافه شد');
     }
@@ -34,6 +35,7 @@ class UrlArticleController extends Controller
         $article_url->update([
             'name'=>$request['name'],
             'url'=>$request['url'],
+            'for_download'=>$request['for_download'],
         ]);
         return redirect(route('admin.article-url.index',['id'=>$request['article']]))->with('success', 'تغییرات اعمال شد');
     }

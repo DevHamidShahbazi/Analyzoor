@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('urlable_type');
             $table->string('name');
             $table->longText('url');
+            $table->enum('for_download',['0','1'])->default('0');
             $table->timestamps();
         });
     }

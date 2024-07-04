@@ -12,4 +12,5 @@
             @csrf
         </form>
     @endauth
+
 @endsection

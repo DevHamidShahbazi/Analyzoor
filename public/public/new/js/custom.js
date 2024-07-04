@@ -1,0 +1,38 @@
+export default (window) => window.innerWidth > 1200;
+
+/*--------*Toast*--------*/
+const toastTrigger = document.getElementById("liveToastBtn")
+const toastLiveExample = document.getElementById("liveToast")
+if (toastTrigger) {
+    toastTrigger.addEventListener("click", () => {
+        const toast = new bootstrap.Toast(toastLiveExample)
+
+        toast.show()
+    })
+}
+/*--------*Toast*--------*/
+
+
+var owl = $('.product-carousel');
+owl.owlCarousel({
+    rtl:true,
+    loop:true,
+    dots: true,
+    autoplay:true,
+    margin:8,
+    nav:false,
+    navText : ['<i class="fas fa-arrow-right btn-outline-dark rounded p-2"></i>','<i class="fas fa-arrow-left btn-outline-dark rounded p-2"></i>'],
+    autoplayHoverPause:true,
+    responsive:{
+        0:{
+            items:2
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+})
+

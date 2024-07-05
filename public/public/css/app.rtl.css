@@ -13285,11 +13285,7 @@ textarea.form-control-lg {
  * Copyright 2019-2023 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/icons/blob/main/LICENSE)
  */
-@font-face {
-    font-display: block;
-    font-family: bootstrap-icons;
-    src: url(./fonts/bootstrap-icons.woff2) format("woff")
-}
+
 
 .bi:before, [class^=bi-]:before, [class*=" bi-"]:before {
     display: inline-block;
@@ -22489,7 +22485,7 @@ body .bi:before, [class^=bi-]:before, [class*=" bi-"]:before {
     margin-right: 0
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 0){ /*min-width : 1200*/
     #sidebar .sidebar-wrapper {
         right: 0
     }

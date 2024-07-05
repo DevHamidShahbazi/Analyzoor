@@ -21,18 +21,17 @@
         @yield('style')
     </head>
     <body>
-    <div id="app">
-        @yield('content')
-    </div>
     @php $menus = \App\Models\Menu::orderBy('sort','asc')->get() @endphp
-        @include('layouts.layout public.navbar')
-        @include('layouts.layout public.sidebar')
-
-        @include('layouts.layout public.footer')
-
-
-
+    <div id="app">
+        <div id="main" class="layout-horizontal">
+            @include('layouts.layout public.navbar')
+            @include('layouts.layout public.sidebar')
+            @yield('content')
+            @include('layouts.layout public.footer')
+        </div>
+    </div>
 {{--        <script type="text/javascript" src="/public/js/Aos.js?{{$js}}"></script>--}}
+
         <script type="text/javascript" src="/public/js/dark.js?{{$js}}"></script>
         <script type="text/javascript" src="/public/js/app.js?{{$js}}"></script>
     <script type="text/javascript" src="/public/js/custom.js?{{$js}}"></script>

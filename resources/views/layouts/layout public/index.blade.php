@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fa">
+<html lang="fa" >
     <head>
         <meta charset="UTF-8">
         @php $js='ver=0.0.1';$css='1.0'; @endphp
@@ -13,29 +13,29 @@
         <meta name="keywords" content="@yield('keywords')">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 {{--        <meta name=robots content="INDEX,FOLLOW"/>--}}
+        <link rel="stylesheet" href="/public/css/app.rtl.css?{{$css}}">
+        <link rel="stylesheet" href="/public/css/app-dark.rtl.css?{{$css}}">
         <link rel="stylesheet" href="/public/css/font.min.css?{{$css}}">
-        <link rel="stylesheet" href="/public/css/bootstrap.min.css?{{$css}}">
-        <link rel="stylesheet" href="/public/css/bootstrap-rtl.min.css?{{$css}}">
-        <link rel="stylesheet" href="/public/css/owl.carousel.css?{{$css}}">
-        <link rel="stylesheet" href="/public/css/owl.theme.css?{{$css}}">
-        <link rel="stylesheet" href="/public/css/Aos.css?{{$css}}">
-        <link rel="stylesheet" href="/public/css/custom-style.css?{{$css}}">
+{{--        <link rel="stylesheet" href="/public/css/Aos.css?{{$css}}">--}}
+{{--        <link rel="stylesheet" href="/public/css/custom-style.css?{{$css}}">--}}
         @yield('style')
     </head>
-    <body class="mdb-skin " style="background-color: #f8f8f8" >
-{{--    @php $menus = \App\Models\Menu::orderBy('sort','asc')->get() @endphp--}}
-{{--        @include('layouts.layout site.navBar')--}}
-{{--        @include('layouts.layout site.sideBar')--}}
+    <body>
+    <div id="app">
         @yield('content')
-{{--        @include('layouts.layout site.footer')--}}
-        <script type="text/javascript" src="/public/js/jquery.min.js?{{$js}}"></script>
-        <script type="text/javascript" src="/public/js/popper.min.js?{{$js}}"></script>
-        <script type="text/javascript" src="/public/js/bootstrap.bundle.min.js?{{$js}}"></script>
-        <script type="text/javascript" src="/public/js/bootstrap.min.js?{{$js}}"></script>
-        <script type="text/javascript" src="/public/js/owl.carousel.js?{{$js}}"></script>
-        <script type="text/javascript" src="/public/js/Aos.js?{{$js}}"></script>
-        <script type="text/javascript" src="/public/js/toastr.js?{{$js}}"></script>
-        <script type="text/javascript" src="/public/js/custom.js?{{$js}}"></script>
+    </div>
+    @php $menus = \App\Models\Menu::orderBy('sort','asc')->get() @endphp
+        @include('layouts.layout public.navbar')
+        @include('layouts.layout public.sidebar')
+
+        @include('layouts.layout public.footer')
+
+
+
+{{--        <script type="text/javascript" src="/public/js/Aos.js?{{$js}}"></script>--}}
+        <script type="text/javascript" src="/public/js/dark.js?{{$js}}"></script>
+        <script type="text/javascript" src="/public/js/app.js?{{$js}}"></script>
+    <script type="text/javascript" src="/public/js/custom.js?{{$js}}"></script>
     @yield('script')
     </body>
 </html>

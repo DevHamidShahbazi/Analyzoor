@@ -16,19 +16,17 @@
         <link rel="stylesheet" href="/public/css/app.rtl.css?{{$css}}">
         <link rel="stylesheet" href="/public/css/app-dark.rtl.css?{{$css}}">
         <link rel="stylesheet" href="/public/css/font.min.css?{{$css}}">
+        <link rel="stylesheet" href="/public/css/custom-style.css?{{$css}}">
 {{--        <link rel="stylesheet" href="/public/css/Aos.css?{{$css}}">--}}
-{{--        <link rel="stylesheet" href="/public/css/custom-style.css?{{$css}}">--}}
         @yield('style')
     </head>
     <body>
     @php $menus = \App\Models\Menu::orderBy('sort','asc')->get() @endphp
-    <div id="app">
-        <div id="main" class="layout-horizontal">
-            @include('layouts.layout public.navbar')
-            @include('layouts.layout public.sidebar')
-            @yield('content')
-            @include('layouts.layout public.footer')
-        </div>
+    <div id="app" class="layout-horizontal">
+        @include('layouts.layout public.navbar')
+        @include('layouts.layout public.sidebar')
+        @yield('content')
+        @include('layouts.layout public.footer')
     </div>
 {{--        <script type="text/javascript" src="/public/js/Aos.js?{{$js}}"></script>--}}
 

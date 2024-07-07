@@ -193,17 +193,12 @@
     <div class="col-12 position-relative">
         <img  class="right-position-obj" src="./public/img/obj/2.2.png" alt="">
     </div>
-    <div class="col-12">
-
-        <div class="bg-section-1-home" >
-            <div class="row m-0">
-                <img class="col-3" src="./public/img/vectors/home.png" alt="">
-            </div>
-        </div>
-    </div>
 
 
 
+
+
+    <hr>
 
     <div class="container">
 
@@ -311,6 +306,18 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+
+
+
+    <div class="col-12">
+        <div class="bg-section-1-home" >
+            <div class="row m-0 justify-content-center">
+                <a href="#" class="col-md-8 col-sm-10 col-12">
+                    <img class="col-12" src="./public/img/obj/instagram.jpg" alt="فانورام">
+                </a>
+            </div>
         </div>
     </div>
 

@@ -1,7 +1,7 @@
 
 
-<div class="col-lg-12 text-center mt-3 no-print" style="height: 20px;background: radial-gradient(circle at 50% 175%, #1a2236, #192032, #151521, #141420 57%)">
-    <a id="GoTop" href="#top" class="text-white">
+<div class="col-lg-12 text-center mt-5 no-print" style="height: 20px;background: radial-gradient(circle at 50% 175%, #1a2236, #192032, #151521, #141420 57%)">
+    <a id="GoTop" href="#top" class="text-white py-5">
         برگشت به بالا
     </a>
 </div>
@@ -11,26 +11,23 @@
         <div class="row text-white m-0">
             <div class="col-md-9 col-12">
                 <div style="font-size: larger" class="col-12  text-center font-weight-bold mt-2">
-                    اطلاعات
+                    دسته بندی ها
                 </div>
                 <hr/>
                 <div class="container-fluid">
                     <div class="row m-0">
-                        <div class="col-4">
-                            <p>test</p>
-                            <p>test</p>
-                            <p>test</p>
-                        </div>
-                        <div class="col-4">
-                            <p>test</p>
-                            <p>test</p>
-                            <p>test</p>
-                        </div>
-                        <div class="col-4">
-                            <p>about</p>
-                            <p>contact us</p>
-                            <p>test</p>
-                        </div>
+                        @foreach(\App\Models\Category::where('type','article')->where('parent_id',0)->get() as $key => $parentCategory)
+                            <div class="col-4">
+                                <a target="_blank" href="{{route('parent.article.category',$parentCategory->slug)}}">
+                                    <h4 class="text-center text-decoration-underline text-white">{{$parentCategory->name}}</h4>
+                                </a>
+                                @foreach(\App\Models\Category::where('parent_id',$parentCategory->id)->get() as $key => $childCategory)
+                                    <a target="_blank" href="{{route('child.article.category',$childCategory->slug)}}">
+                                        <h5 class="text-center">{{$childCategory->name}}</h5>
+                                    </a>
+                                @endforeach
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -40,7 +37,7 @@
                 </div>
                 <hr/>
                 {{--                @component('layouts.layout site.components.footer.categories')@endcomponent--}}
-                <p>
+                <p class="text-center">
                     فثسف ثسف ثسفثس
                 </p>
             </div>

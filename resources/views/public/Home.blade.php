@@ -34,17 +34,23 @@
 
                         <div class="card">
                             <div class="card-content">
-                                <a href="{{route('parent.article.category',$parentArticleCategory->slug)}}">
-                                    <div class="row m-0">
+
+                                    <div class="row m-0 ">
                                         <div class="col-md-5 card-body ">
-                                            <div class="d-flex flex-column justify-content-between height-100">
-                                                <h4 class="card-title text-center">{{$parentArticleCategory->name}}</h4>
+                                            <div class="d-flex flex-column justify-content-evenly height-100">
+                                                <a href="{{route('parent.article.category',$parentArticleCategory->slug)}}">
+                                                    <h4 class="card-title text-center">{{$parentArticleCategory->name}}</h4>
+                                                </a>
                                                 <p class="text-center text-body">{{$parentArticleCategory->description}}</p>
                                             </div>
                                         </div>
-                                        <img style="border-radius: 16px" class="col-md-7 py-2" src="{{$parentArticleCategory->image}}" alt="{{$parentArticleCategory->alt}}"/>
+                                        <a class="col-md-7 py-3" href="{{route('parent.article.category',$parentArticleCategory->slug)}}">
+                                            <div class="d-flex justify-content-end">
+                                                <img style="border-radius: 16px" class="col-11" src="{{$parentArticleCategory->image}}" alt="{{$parentArticleCategory->alt}}"/>
+                                            </div>
+                                        </a>
                                     </div>
-                                </a>
+
                             </div>
                         </div>
 

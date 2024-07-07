@@ -37,12 +37,13 @@
                     </div>
                     @include('admin.category.create')
                 </div>
-            @include('components.admin-select-box-filter.index',['name_checkbox'=>'type','value_selectBox'=>config('fanoram.categoryType')])
+            @include('components.admin-select-box-filter-with-static-value.index',['name_checkbox'=>'type','value_selectBox'=>config('fanoram.categoryType'),'label'=>'نوع دسته بندی'])
                 <!-- /.card-header -->
+                تعداد مقالات {{ $categories->count() }}
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover">
                         <tr style="background-color: #343a40;" >
-                            <th  class="text-center text-light" scope="col">ردیف</th>
+                            <th  class="text-center text-light" scope="col">id</th>
                             <th  class="text-center text-light" scope="col" >نام</th>
                             <th  class="text-center text-light" scope="col" >نوع دسته بندی</th>
                             <th  class="text-center text-light" scope="col" >زیر مجموعه</th>
@@ -54,7 +55,7 @@
                         @if(!empty($categories ))
                             @foreach($categories as $key=> $val)
                                 <tr class="item{{$val->id}}">
-                                    <td style="padding:1.5rem 0" class="Dlt text-center font-weight-bold">{{ $loop->count-$key }}</td>
+                                    <td style="padding:1.5rem 0" class="Dlt text-center font-weight-bold">{{ $val->id }}</td>
                                     <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{$val->name}}</td>
                                     <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{array_search($val->type,config('fanoram.categoryType'))}}</td>
                                     <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >

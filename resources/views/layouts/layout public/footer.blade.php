@@ -21,7 +21,7 @@
                                 <a target="_blank" href="{{route('parent.article.category',$parentCategory->slug)}}">
                                     <h4 class="text-center text-decoration-underline text-white">{{$parentCategory->name}}</h4>
                                 </a>
-                                @foreach(\App\Models\Category::where('parent_id',$parentCategory->id)->get() as $key => $childCategory)
+                                @foreach($parentCategory->children()->get() as $key => $childCategory)
                                     <a target="_blank" href="{{route('child.article.category',$childCategory->slug)}}">
                                         <h5 class="text-center">{{$childCategory->name}}</h5>
                                     </a>

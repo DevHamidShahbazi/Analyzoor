@@ -1,16 +1,6 @@
 @extends('layouts.layout public.index')
 @section('content')
 
-            @auth()
-                <a style="text-align: right;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                   href="{{ route('logout') }}" class="nav-link ">
-                    <i class="fa fa-power-off"></i>خروج
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            @endauth
-
     @include('components.public-circle-background.index',
     [
         'class' => 'left-position-obj',

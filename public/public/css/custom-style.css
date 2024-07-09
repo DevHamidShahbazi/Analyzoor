@@ -46,4 +46,8 @@
     height: 100%;
 }
 
+.font-weight-bold {
+    font-weight: bold !important;
+}
+
 

@@ -85,9 +85,9 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware(['web','HtmlOptimize','auth','verify','Visit'])
             ->prefix('user-panel/')
-            ->name('userPanel.')
+            ->name('user-panel.')
             ->group(function () {
-                foreach (glob(base_path('routes/web/userPanel/*.php')) as $fileName) {
+                foreach (glob(base_path('routes/web/user-panel/*.php')) as $fileName) {
                     require $fileName;
                 }
             });

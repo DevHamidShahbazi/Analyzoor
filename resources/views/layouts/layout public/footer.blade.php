@@ -1,7 +1,7 @@
 
 
-<div class="col-lg-12 text-center mt-5 no-print" style="height: 20px;background: radial-gradient(circle at 50% 175%, #1a2236, #192032, #151521, #141420 57%)">
-    <a id="GoTop" href="#top" class="text-white py-5">
+<div class="col-lg-12 text-center mt-5 py-1 no-print" style="background: radial-gradient(circle at 50% 175%, #1a2236, #192032, #151521, #141420 57%)">
+    <a id="GoTop" href="#top" class="text-white">
         برگشت به بالا
     </a>
 </div>
@@ -17,7 +17,7 @@
                 <div class="container-fluid">
                     <div class="row m-0">
                         @foreach(\App\Models\Category::where('type','article')->where('parent_id',0)->get() as $key => $parentCategory)
-                            <div class="col-4">
+                            <div class="col-sm-4 pb-4">
                                 <a target="_blank" href="{{route('parent.article.category',$parentCategory->slug)}}">
                                     <h4 class="text-center text-decoration-underline text-white">{{$parentCategory->name}}</h4>
                                 </a>

@@ -35,20 +35,8 @@ class Category extends Model
         return $this->hasMany(Category::class,'parent_id','id');
     }
 
-
-
-//    public function courses()
-//    {
-//        return $this->hasMany(Course::class);
-//    }
-//
-//    public function tools()
-//    {
-//        return $this->hasMany(Tool::class);
-//    }
-//
-//    public function articles()
-//    {
-//        return $this->hasMany(Article::class);
-//    }
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
 }

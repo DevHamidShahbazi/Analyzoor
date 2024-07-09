@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Auth::routes();
 
 // article categories
 Route::get('parent/article/category/{parentArticleCategory}', [ParentCategoryController::class, 'index'])->name('parent.article.category');

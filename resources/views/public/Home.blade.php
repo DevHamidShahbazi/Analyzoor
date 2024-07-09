@@ -34,10 +34,8 @@
                                                 <p class="text-center text-body">{{$parentArticleCategory->description}}</p>
                                             </div>
                                         </div>
-                                        <a class="col-md-7 py-3" href="{{route('parent.article.category',$parentArticleCategory->slug)}}">
-                                            <div class="d-flex justify-content-end">
-                                                <img style="border-radius: 16px" class="col-11" src="{{$parentArticleCategory->image}}" alt="{{$parentArticleCategory->alt}}"/>
-                                            </div>
+                                        <a class="col-md-7 p-3" href="{{route('parent.article.category',$parentArticleCategory->slug)}}">
+                                            <img style="border-radius: 16px" class="col-12" src="{{$parentArticleCategory->image}}" alt="{{$parentArticleCategory->alt}}"/>
                                         </a>
                                     </div>
 

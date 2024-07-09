@@ -22637,7 +22637,7 @@ body .bi:before, [class^=bi-]:before, [class*=" bi-"]:before {
 }
 
 .sidebar-wrapper .menu .submenu .submenu-item a {
-    padding: .7rem 2rem;
+   /* padding: .7rem 2rem;*/
     display: block;
     color: #25396f;
     font-size: .85rem;
@@ -22647,7 +22647,7 @@ body .bi:before, [class^=bi-]:before, [class*=" bi-"]:before {
 }
 
 .sidebar-wrapper .menu .submenu .submenu-item a:hover {
-    margin-right: .3rem;
+    /*margin-right: .3rem;*/
     color: #435ebe
 }
 

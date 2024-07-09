@@ -9379,13 +9379,13 @@ html[data-bs-theme=dark] .sidebar-wrapper {
 }
 
 html[data-bs-theme=dark] .sidebar-wrapper .sidebar-header {
-    padding: 2rem 2rem 1rem;
+    padding: 1rem 1rem 1rem;
     font-size: 2rem;
     font-weight: 700
 }
 
 html[data-bs-theme=dark] .sidebar-wrapper .sidebar-header img {
-    height: 1.2rem
+    height: 5rem
 }
 
 html[data-bs-theme=dark] .sidebar-wrapper .sidebar-toggler.x {
@@ -9496,7 +9496,7 @@ html[data-bs-theme=dark] .sidebar-wrapper .menu .submenu .submenu-item.active > 
 }
 
 html[data-bs-theme=dark] .sidebar-wrapper .menu .submenu .submenu-item a {
-    padding: .7rem 2rem;
+    /*padding: .7rem 2rem;*/
     display: block;
     color: #9899ac;
     font-size: .85rem;
@@ -9506,7 +9506,7 @@ html[data-bs-theme=dark] .sidebar-wrapper .menu .submenu .submenu-item a {
 }
 
 html[data-bs-theme=dark] .sidebar-wrapper .menu .submenu .submenu-item a:hover {
-    margin-right: .3rem;
+    /*margin-right: .3rem;*/
     color: #fff
 }
 

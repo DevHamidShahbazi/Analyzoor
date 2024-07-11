@@ -22,28 +22,10 @@
     </div>
 
     <div class="container">
-        <div class="row m-0">
+        <div class="row flex-row-reverse m-0">
 
-            {{--left--}}
-            <div class="col-lg-3">
-                @foreach($articles_children->take(5) as $key => $article_child)
-                    <div class="card mb-2">
-                        <a href="{{route('article.detail',$article_child->slug)}}">
-                            <div class="card-content">
-                                <img class="card-img-top img-fluid p-2"
-                                     style="border-top-left-radius: 16px;border-top-right-radius: 16px"
-                                     src="{{$article_child->image}}" alt="{{$article_child->alt}}"/>
-                                <div class="card-body p-1">
-                                    <h4 class="card-title text-center">{{$article_child->name}}</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-
-            <div class="col-6">
-
+            {{--Right--}}
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8">
                 @foreach($articles as $key => $article)
                     <div class="card mb-3">
                         <div class="row m-0 ">
@@ -63,38 +45,44 @@
                 @endforeach
             </div>
 
-            {{--right--}}
-            <div class="col-3">
-                @foreach($children as $key => $child)
-                    <div class="card mb-2">
-                        <a href="{{route('child.article.category',$child->slug)}}">
-                            <div class="card-content">
-                                <img class="card-img-top img-fluid p-2"
-                                     style="border-top-left-radius: 16px;border-top-right-radius: 16px"
-                                     src="{{$child->image}}" alt="{{$child->alt}}"/>
-                                <div class="card-body p-1">
-                                    <h4 class="card-title text-center">{{$child->name}}</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4 pr-lg-3">
+               <div class="row m-0">
+                   @foreach($children as $key => $child)
+                       <div class="col-md-6">
+                           <div class="card mb-2">
+                               <a href="{{route('child.article.category',$child->slug)}}">
+                                   <div class="card-content">
+                                       <img class="card-img-top img-fluid p-2"
+                                            style="border-top-left-radius: 16px;border-top-right-radius: 16px"
+                                            src="{{$child->image}}" alt="{{$child->alt}}"/>
+                                       <div class="card-body p-1">
+                                           <p class="card-title text-center">{{$child->name}}</p>
+                                       </div>
+                                   </div>
+                               </a>
+                           </div>
+                       </div>
+                   @endforeach
 
-                @foreach($articles_children->skip(5)->take(5) as $key => $article_child)
-                    <div class="card mb-2">
-                        <a href="{{route('article.detail',$article_child->slug)}}">
-                            <div class="card-content">
-                                <img class="card-img-top img-fluid p-2"
-                                     style="border-top-left-radius: 16px;border-top-right-radius: 16px"
-                                     src="{{$article_child->image}}" alt="{{$article_child->alt}}"/>
-                                <div class="card-body p-1">
-                                    <h4 class="card-title text-center">{{$article_child->name}}</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
+                   @foreach($articles_children->take(5) as $key => $article_child)
+                       <div class="col-md-6">
+                           <div class="card mb-2">
+                               <a href="{{route('article.detail',$article_child->slug)}}">
+                                   <div class="card-content">
+                                       <img class="card-img-top img-fluid p-2"
+                                            style="border-top-left-radius: 16px;border-top-right-radius: 16px"
+                                            src="{{$article_child->image}}" alt="{{$article_child->alt}}"/>
+                                       <div class="card-body p-1">
+                                           <p class="card-title text-center">{{$article_child->name}}</p>
+                                       </div>
+                                   </div>
+                               </a>
+                           </div>
+                       </div>
+                   @endforeach
+               </div>
             </div>
+
 
         </div>
 

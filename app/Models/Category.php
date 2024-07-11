@@ -43,8 +43,6 @@ class Category extends Model
     }
 
 
-
-
     public function allDescendants()
     {
         $descendants = collect($this->children);
@@ -67,13 +65,11 @@ class Category extends Model
         return $articles;
     }
 
-
     public function allParents()
     {
         $parents = $this->parent ? $this->parent->allParents() : collect();
         return $parents->push($this->parent)->filter();
     }
-
 
     public function getRootParent()
     {
@@ -83,7 +79,6 @@ class Category extends Model
 
         return $this;
     }
-
 
     public function getAllParentArticles()
     {

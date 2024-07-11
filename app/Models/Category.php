@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use function Laravel\Prompts\form;
 
 class Category extends Model
 {
@@ -38,5 +40,39 @@ class Category extends Model
     public function articles()
     {
         return $this->hasMany(Article::class);
+    }
+
+
+
+
+    public function allDescendants()
+    {
+        $descendants = collect($this->children);
+
+        foreach ($this->children as $child) {
+            $descendants = $descendants->merge($child->allDescendants());
+        }
+
+        return $descendants;
+    }
+
+    public function allArticles()
+    {
+        $articles = $this->articles;
+
+        foreach ($this->allDescendants() as $descendant) {
+            $articles = $articles->merge($descendant->articles);
+        }
+
+        return $articles;
+    }
+
+    public function getRootParent()
+    {
+        if ($this->parent) {
+            return $this->parent->getRootParent();
+        }
+
+        return $this;
     }
 }

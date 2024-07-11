@@ -15,15 +15,15 @@
 
             {{--left--}}
             <div class="col-lg-3">
-                @foreach(\App\Models\Article::where('is_active','1')->where('category_id','!=',$category->id)->take(5)->latest() as $key => $suggestArticle)
+                @foreach($articles_children->take(5) as $key => $article_child)
                     <div class="card mb-2">
-                        <a href="{{route('article.detail',$suggestArticle->slug)}}">
+                        <a href="{{route('article.detail',$article_child->slug)}}">
                             <div class="card-content">
                                 <img class="card-img-top img-fluid p-2"
                                      style="border-top-left-radius: 16px;border-top-right-radius: 16px"
-                                     src="{{$suggestArticle->image}}" alt="{{$suggestArticle->alt}}"/>
+                                     src="{{$article_child->image}}" alt="{{$article_child->alt}}"/>
                                 <div class="card-body p-1">
-                                    <h4 class="card-title text-center">{{$suggestArticle->name}}</h4>
+                                    <h4 class="card-title text-center">{{$article_child->name}}</h4>
                                 </div>
                             </div>
                         </a>
@@ -69,15 +69,15 @@
                     </div>
                 @endforeach
 
-                @foreach(\App\Models\Article::where('is_active','1')->where('category_id','!=',$category->id)->skip(5)->take(5)->latest() as $key => $suggestArticle)
+                @foreach($articles_children->skip(5)->take(5) as $key => $article_child)
                     <div class="card mb-2">
-                        <a href="{{route('article.detail',$suggestArticle->slug)}}">
+                        <a href="{{route('article.detail',$article_child->slug)}}">
                             <div class="card-content">
                                 <img class="card-img-top img-fluid p-2"
                                      style="border-top-left-radius: 16px;border-top-right-radius: 16px"
-                                     src="{{$suggestArticle->image}}" alt="{{$suggestArticle->alt}}"/>
+                                     src="{{$article_child->image}}" alt="{{$article_child->alt}}"/>
                                 <div class="card-body p-1">
-                                    <h4 class="card-title text-center">{{$suggestArticle->name}}</h4>
+                                    <h4 class="card-title text-center">{{$article_child->name}}</h4>
                                 </div>
                             </div>
                         </a>

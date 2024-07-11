@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone')->unique()->nullable();
             $table->enum('verify',['0','1'])->default('0');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('image')->default('public/img/avatar/user.png');
+            $table->string('image')->default('/public/img/avatar/user.png');
             $table->string('password');
             $table->string('crypt');
             $table->rememberToken();

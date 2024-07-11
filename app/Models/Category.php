@@ -86,4 +86,12 @@ class Category extends Model
 
         return $articles->merge($this->articles);
     }
+
+    // Recursive method to get all categories from child to father
+    public function getAllCategoriesFromChildToFather()
+    {
+        $categories = $this->parent ? $this->parent->getAllCategoriesFromChildToFather() : collect();
+
+        return $categories->push($this);
+    }
 }

@@ -46,10 +46,8 @@ class Article extends Model
         return $this->morphMany(Url::class,'urlable');
     }
 
-
-
-    public function getAllParentCategoryArticles()
+    public function getAllCategories()
     {
-        return $this->category ? $this->category->getAllParentArticles() : collect();
+        return $this->category ? $this->category->getAllCategoriesFromChildToFather() : collect();
     }
 }

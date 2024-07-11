@@ -10,6 +10,7 @@ class ArticleController extends Controller
 {
     public function index(Article $article)
     {
-        return view('public.article',compact('article'));
+        $all_categories = $article->getAllCategories();
+        return view('public.article',compact('article','all_categories'));
     }
 }

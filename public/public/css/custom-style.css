@@ -50,4 +50,73 @@
     font-weight: bold !important;
 }
 
+body {
+    font-size: 16px; /* Default font-size */
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-size: 2rem;
+}
+
+p,a {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 1200px) {
+    body {
+        font-size: 15px;
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        font-size: 1.8rem;
+    }
+
+    p,a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        font-size: 1.6rem;
+    }
+
+    p,a {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 13px;
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        font-size: 1.4rem;
+    }
+
+    p,a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        font-size: 12px;
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        font-size: 1.2rem;
+    }
+
+    p,a {
+        font-size: .9rem;
+    }
+}
+
+
 

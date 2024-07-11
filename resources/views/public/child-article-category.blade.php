@@ -38,7 +38,7 @@
                 @foreach($articles as $key => $article)
                     <div class="card mb-3">
                         <div class="row m-0 ">
-                            <div class="col-md-8 card-body ">
+                            <div class="col-8 card-body ">
                                 <div class="d-flex flex-column justify-content-evenly height-100">
                                     <a href="{{route('article.detail',$article->slug)}}">
                                         <h4 class="card-title text-center">{{$article->name}}</h4>
@@ -46,7 +46,7 @@
                                     <p class="text-center text-body">{{$article->description}}</p>
                                 </div>
                             </div>
-                            <a class="col-md-4 d-flex justify-content-center align-items-center py-2" href="{{route('article.detail',$article->slug)}}">
+                            <a class="col-4 d-flex justify-content-center align-items-center py-2" href="{{route('article.detail',$article->slug)}}">
                                 <img style="border-radius: 8px" class="col-12" src="{{$article->image}}" alt="{{$article->alt}}"/>
                             </a>
                         </div>

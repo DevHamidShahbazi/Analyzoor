@@ -58,6 +58,23 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-4 pr-lg-3">
 
                 <div class="row m-0">
+                    @foreach($articles_parents->take(5) as $key => $article_child)
+                        <div class="col-md-6">
+                            <div class="card mb-2">
+                                <a href="{{route('article.detail',$article_child->slug)}}">
+                                    <div class="card-content">
+                                        <img class="card-img-top img-fluid p-2"
+                                             style="border-top-left-radius: 16px;border-top-right-radius: 16px"
+                                             src="{{$article_child->image}}" alt="{{$article_child->alt}}"/>
+                                        <div class="card-body p-1">
+                                            <p class="card-title text-center">{{$article_child->name}}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+
                     @foreach($articles_parents->skip(5)->take(5) as $key => $article_child)
                         <div class="col-md-6">
                             <div class="card mb-2">
@@ -74,22 +91,8 @@
                             </div>
                         </div>
                     @endforeach
-                    <div class="col-md-6">
-                        @foreach($articles_parents->take(5) as $key => $article_child)
-                            <div class="card mb-2">
-                                <a href="{{route('article.detail',$article_child->slug)}}">
-                                    <div class="card-content">
-                                        <img class="card-img-top img-fluid p-2"
-                                             style="border-top-left-radius: 16px;border-top-right-radius: 16px"
-                                             src="{{$article_child->image}}" alt="{{$article_child->alt}}"/>
-                                        <div class="card-body p-1">
-                                            <p class="card-title text-center">{{$article_child->name}}</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        @endforeach
-                    </div>
+
+
                 </div>
 
             </div>

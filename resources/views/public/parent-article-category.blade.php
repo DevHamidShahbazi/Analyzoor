@@ -4,6 +4,17 @@
 @section('keywords'){{$category->keywords}}@endsection
 @section('content')
 
+
+
+    <div class="col-12 text-center p-1">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" dir="rtl">
+                <li class="breadcrumb-item"><a href="{{route('Home')}}">صفحه اصلی</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{$category->name}}</li>
+            </ol>
+        </nav>
+    </div>
+
     <div class="col-12 text-center pb-3">
         <h1>
             {{$category->name}}

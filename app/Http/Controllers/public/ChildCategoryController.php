@@ -10,9 +10,10 @@ class ChildCategoryController extends Controller
 {
     public function index(Category $category)
     {
+        $all_parents = $category->allParents();
         $articles = $category->articles()->where('is_active','1')->latest()->paginate(15);
-        $articles_children = $category->allArticles()->whereNotIn('id',$articles->pluck('id')->toArray());
+        $articles_parents = $category->getAllParentArticles()->whereNotIn('id',$articles->pluck('id')->toArray());
         $children = $category->children()->get();
-        return view('public.child-article-category',compact('category','articles','children','articles_children'));
+        return view('public.child-article-category',compact('category','articles','children','articles_parents','all_parents'));
     }
 }

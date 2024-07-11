@@ -4,6 +4,25 @@
 @section('keywords'){{$category->keywords}}@endsection
 @section('content')
 
+
+    <div class="col-12 text-center p-1">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" dir="rtl">
+                <li class="breadcrumb-item"><a href="{{route('Home')}}">صفحه اصلی</a></li>
+
+                @foreach($all_parents as $parent)
+                    <li class="breadcrumb-item"><a
+                            href="{{route($parent->parent ? 'child.article.category' : 'parent.article.category',$parent->slug)}}"
+                        >
+                            {{$parent->name}}</a></li>
+                @endforeach
+
+                <li class="breadcrumb-item active" aria-current="page">{{$category->name}}</li>
+            </ol>
+        </nav>
+    </div>
+
+
     <div class="col-12 text-center pb-3">
         <h1>
             {{$category->name}}
@@ -15,7 +34,7 @@
 
             {{--left--}}
             <div class="col-lg-3">
-                @foreach($articles_children->take(5) as $key => $article_child)
+                @foreach($articles_parents->skip(5)->take(5) as $key => $article_child)
                     <div class="card mb-2">
                         <a href="{{route('article.detail',$article_child->slug)}}">
                             <div class="card-content">
@@ -69,20 +88,22 @@
                     </div>
                 @endforeach
 
-                @foreach($articles_children->skip(5)->take(5) as $key => $article_child)
-                    <div class="card mb-2">
-                        <a href="{{route('article.detail',$article_child->slug)}}">
-                            <div class="card-content">
-                                <img class="card-img-top img-fluid p-2"
-                                     style="border-top-left-radius: 16px;border-top-right-radius: 16px"
-                                     src="{{$article_child->image}}" alt="{{$article_child->alt}}"/>
-                                <div class="card-body p-1">
-                                    <h4 class="card-title text-center">{{$article_child->name}}</h4>
+                    @foreach($articles_parents->take(5) as $key => $article_child)
+                        <div class="card mb-2">
+                            <a href="{{route('article.detail',$article_child->slug)}}">
+                                <div class="card-content">
+                                    <img class="card-img-top img-fluid p-2"
+                                         style="border-top-left-radius: 16px;border-top-right-radius: 16px"
+                                         src="{{$article_child->image}}" alt="{{$article_child->alt}}"/>
+                                    <div class="card-body p-1">
+                                        <h4 class="card-title text-center">{{$article_child->name}}</h4>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                @endforeach
+                            </a>
+                        </div>
+                    @endforeach
+
+
             </div>
 
         </div>

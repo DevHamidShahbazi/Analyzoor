@@ -58,7 +58,7 @@ class Category extends Model
 
     public function allArticles()
     {
-        $articles = $this->articles;
+        $articles = $this->articles()->where('is_active','1')->get();
 
         foreach ($this->allDescendants() as $descendant) {
             $articles = $articles->merge($descendant->articles);
@@ -67,6 +67,14 @@ class Category extends Model
         return $articles;
     }
 
+
+    public function allParents()
+    {
+        $parents = $this->parent ? $this->parent->allParents() : collect();
+        return $parents->push($this->parent)->filter();
+    }
+
+
     public function getRootParent()
     {
         if ($this->parent) {
@@ -74,5 +82,13 @@ class Category extends Model
         }
 
         return $this;
+    }
+
+
+    public function getAllParentArticles()
+    {
+        $articles = $this->parent ? $this->parent->getAllParentArticles() : collect();
+
+        return $articles->merge($this->articles);
     }
 }

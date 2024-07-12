@@ -44,36 +44,14 @@
 
                 <div class="row flex-row-reverse m-0">
                     @foreach($articles->take(5) as $key => $article_child)
-                        <div class="col-md-6">
-                            <div class="card mb-2">
-                                <a href="{{route('article.detail',$article_child->slug)}}">
-                                    <div class="card-content">
-                                        <img class="card-img-top img-fluid p-2"
-                                             style="border-top-left-radius: 16px;border-top-right-radius: 16px"
-                                             src="{{$article_child->image}}" alt="{{$article_child->alt}}"/>
-                                        <div class="card-body p-1">
-                                            <p class="card-title text-center">{{$article_child->name}}</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                        <div class="col-md-12">
+                            @include('components.public-item-article.index',['article'=>$article_child,'side'=>true])
                         </div>
                     @endforeach
 
                     @foreach($articles->skip(5)->take(5) as $key => $article_child)
-                        <div class="col-md-6">
-                            <div class="card mb-2">
-                                <a href="{{route('article.detail',$article_child->slug)}}">
-                                    <div class="card-content">
-                                        <img class="card-img-top img-fluid p-2"
-                                             style="border-top-left-radius: 16px;border-top-right-radius: 16px"
-                                             src="{{$article_child->image}}" alt="{{$article_child->alt}}"/>
-                                        <div class="card-body p-1">
-                                            <p class="card-title text-center">{{$article_child->name}}</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                        <div class="col-md-12">
+                            @include('components.public-item-article.index',['article'=>$article_child,'side'=>true])
                         </div>
                     @endforeach
 

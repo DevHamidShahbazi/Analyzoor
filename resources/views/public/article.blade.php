@@ -30,14 +30,20 @@
                         </div>
                         <div class="col-12 text-center py-3">
                             <h1>
-                                {{$article->name}}
+                                {{$article->h1 ?? $article->name}}
                             </h1>
+                            @if($article->h2)
+                                <h2>
+                                    {{$article->h2}}
+                                </h2>
+                            @endif
                         </div>
                     </div>
                     <div class="card-body" dir="rtl">
                         {!! $article->body !!}
                     </div>
                 </div>
+                @include('components.public-comment.index',['item'=>$article])
             </div>
 
             <div class="col-12 col-sm-12 col-md-12 col-lg-4 pr-lg-3">

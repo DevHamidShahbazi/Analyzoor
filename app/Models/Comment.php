@@ -25,6 +25,18 @@ class Comment extends Model
         return $this->belongsTo(User::class);
     }
 
+
+    public function parent()
+    {
+        return $this->belongsTo(Comment::class,'parent_id','id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Comment::class,'parent_id','id');
+    }
+
+
     public function getCreateDateAttribute()
     {
         return Verta::instance($this->created_at)->format('Y/n/j');

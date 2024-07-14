@@ -13,7 +13,7 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         $article_id = collect(Article::get()->pluck('id')->toArray());
-        $user_id = collect(User::get()->pluck('id')->toArray())->merge([null]);
+        $user_id = collect(User::get()->pluck('id')->toArray());
         $is_active = collect(['0','1']);
 
         return [

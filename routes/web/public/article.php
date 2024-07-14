@@ -15,3 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('article/detail/{ArticleDetail}', [ArticleController::class, 'index'])->name('article.detail');
+
+#comments
+
+Route::middleware('throttle:100,2')->group(function () {
+    Route::post('article/store/comment', [ArticleController::class, 'store_comment'])->name('article.store.comment')->middleware('auth');
+    Route::post('article/result/comment', [ArticleController::class, 'result_comment'])->name('article.result.comment')->middleware('auth');
+});

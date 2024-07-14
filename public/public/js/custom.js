@@ -1,26 +1,12 @@
 
 
 
-
 const body = document.body;
 const theme = localStorage.getItem('theme')
 
 if (theme)
     document.documentElement.setAttribute('data-bs-theme', theme)
 
-
-
-/*--------*Toast*--------*/
-const toastTrigger = document.getElementById("liveToastBtn")
-const toastLiveExample = document.getElementById("liveToast")
-if (toastTrigger) {
-    toastTrigger.addEventListener("click", () => {
-        const toast = new bootstrap.Toast(toastLiveExample)
-
-        toast.show()
-    })
-}
-/*--------*Toast*--------*/
 
 
 // var owl = $('.product-carousel');

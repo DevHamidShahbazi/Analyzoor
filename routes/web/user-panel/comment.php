@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\userPanel\UserPanelController;
+use App\Http\Controllers\userPanel\UserPanelCommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',[UserPanelController::class,'index'])->name('dashboard');
-Route::post('/update-password',[UserPanelController::class,'update_password'])->name('update.password');
-Route::patch('/update-profile',[UserPanelController::class,'update_profile'])->name('update.profile');
+Route::get('/comment',[UserPanelCommentController::class,'index'])->name('comment');

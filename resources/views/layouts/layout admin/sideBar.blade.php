@@ -132,30 +132,6 @@
                         </a>
                     </li>
 
-{{--                    <li class="nav-item has-treeview @section('ArticleCategory-open') @show">--}}
-{{--                        <a href="#" class="nav-link @section('list-article') @show">--}}
-{{--                            <i class="fa fa-book"></i>--}}
-{{--                            <p>--}}
-{{--                                مدیریت مقالات--}}
-{{--                                <i class="right fa fa-angle-left"></i>--}}
-{{--                            </p>--}}
-{{--                        </a>--}}
-{{--                        <ul class="nav nav-treeview">--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a href="{{ route('article.index') }}" class="nav-link @section('Articles') @show ">--}}
-{{--                                    <p>مقالات</p>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a href="{{ route('ArticleCategory.index') }}" class="nav-link @section('ArticleCategory') @show">--}}
-{{--                                    <p>--}}
-{{--                                        دسته بندی مقالات--}}
-{{--                                    </p>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                    </li>--}}
-
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

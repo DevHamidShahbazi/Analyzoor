@@ -1,4 +1,4 @@
-<div class="card col-12 border-white shadow-lg">
+<div class="card col-12 border-white shadow-lg" id="{{$comment->id}}">
     <div class="row p-2">
         <div class="col-lg-12">
             <div class="d-flex justify-content-between">
@@ -17,7 +17,6 @@
                             data-bs-target="#ResultComment{{$comment->id}}">
                         <b>پاسخ</b>
                     </button>
-
                 </div>
             </div>
             @include('components.public-comment.modal-result')

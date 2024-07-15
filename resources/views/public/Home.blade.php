@@ -1,4 +1,7 @@
 @extends('layouts.layout public.index')
+@section('title'){{setting_with_key('title')->value}} @parent @endsection
+@section('description'){{setting_with_key('description')->value}}@endsection
+@section('keywords'){{setting_with_key('keywords')->value}}@endsection
 @section('content')
 
     @include('components.public-circle-background.index',

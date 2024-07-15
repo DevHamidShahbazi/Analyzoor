@@ -25,7 +25,7 @@ class VerifyController extends Controller
 //                return redirect()->route('basket.index');
 //            }
             else{
-                return redirect()->route('userPanel.dashboard');
+                return redirect()->route('user-panel.dashboard');
             }
 //        }
     }
@@ -45,7 +45,7 @@ class VerifyController extends Controller
 //                if (count(Cart::all()) > 0){
 //                    return redirect()->route('basket.index');
 //                }else{
-                    return redirect()->route('userPanel.dashboard');
+                    return redirect()->route('user-panel.dashboard');
 //                }
             }elseif($checkVerifyCode == 'expire'){
                 return redirect()->back()->with('error','کد منقضی شده است');

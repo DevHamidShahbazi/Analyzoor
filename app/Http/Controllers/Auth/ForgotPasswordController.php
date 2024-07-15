@@ -28,4 +28,14 @@ class ForgotPasswordController extends Controller
             ? new JsonResponse(['message' => trans($response)], 200)
             : back()->with('success', 'ایمیل بازیابی رمز برای شما ارسال شد');
     }
+
+    protected function validateEmail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'captcha' => ['required', 'captcha'],
+        ],[
+            'captcha.captcha' => 'کد تایید شما اشتباه می باشد',
+        ]);
+    }
 }

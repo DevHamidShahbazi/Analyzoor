@@ -18,7 +18,7 @@ Route::get('article/detail/{ArticleDetail}', [ArticleController::class, 'index']
 
 #comments
 
-Route::middleware('throttle:100,2')->group(function () {
-    Route::post('article/store/comment', [ArticleController::class, 'store_comment'])->name('article.store.comment')->middleware('auth');
-    Route::post('article/result/comment', [ArticleController::class, 'result_comment'])->name('article.result.comment')->middleware('auth');
+Route::middleware(['auth','throttle:100,2'])->group(function () {
+    Route::post('article/store/comment', [ArticleController::class, 'store_comment'])->name('article.store.comment');
+    Route::post('article/result/comment', [ArticleController::class, 'result_comment'])->name('article.result.comment');
 });

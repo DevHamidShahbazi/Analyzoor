@@ -1,50 +1,60 @@
 @extends('layouts.layout public.index')
 
+@section('style')
+    <style>
+
+        .captcha img {
+            width: 100%;
+        }
+    </style>
+@endsection
 
 @section('content')
 
-    <div class=" login-box" >
-        <h3 class="text-center"><b>شماره موبایل خود را وارد کنید</b></h3>
-        @include('alert.toastr.error')
-        @include('alert.toastr.success')
-        <div class="card">
-            <div class="card-body login-card-body">
-                <p class="login-box-msg">شماره موبایلی که زمان ثبت نام وارد کردید را وارد کنید</p>
-                @include('alert.form.error')
-                <form method="POST" action="{{ route('password.reset.phone.send') }}">
-                    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-                    <div class="input-group mb-3">
 
-                        <input
-                            name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus
+    <div class="col-12">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="col-lg-3">
+                <h3 class="text-center"><b>شماره موبایل خود را وارد کنید</b></h3>
+                <div class="card p-3 border-white shadow-lg">
+                    @include('alert.form.error')
+                    <p class="text-center">شماره موبایلی که زمان ثبت نام وارد کردید را وارد کنید</p>
+                    <form method="POST" action="{{ route('password.reset.phone.send') }}">
 
-                            type="number" class="form-control @error('email') is-invalid @enderror" placeholder="شماره موبایل خود را وارد کنید">
+                        <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+
+                        <div class="input-group mb-3">
+
+                            <input
+                                name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus dir="rtl"
+
+                                type="number" class="form-control @error('email') is-invalid @enderror" placeholder="شماره موبایل خود را وارد کنید">
 
 
-                        <div class="input-group-append">
+                            <div class="input-group-append input-group-text">
 
-                            <span class="fas fa-mobile-alt input-group-text"></span>
+                                <span class="fas fa-mobile-alt"></span>
+                            </div>
                         </div>
-                    </div>
-                    @include('components.captcha.captcha')
-                    <br>
-                    <button  type="submit" class="btn btn-block btn-flat royal-dark font-weight-bold">
-                        تایید
-                    </button>
+                        @include('components.captcha.captcha')
+                        <button  type="submit" class="btn btn-block btn-primary font-weight-bold my-4">
+                            تایید
+                        </button>
+                    </form>
+                    <p class="mb-1 mt-3" style="text-align: end">
+                        <a dir="rtl" href="{{ route('reset.password.selectType') }}" class="text-center">بازگشت</a>
+                    </p>
 
-                </form>
-
-                <p class="mb-0 mt-4">
-                    <a href="{{ route('reset.password.selectType') }}" class="text-center">بازگشت</a>
-                </p>
-
+                </div>
             </div>
-            <!-- /.login-card-body -->
         </div>
     </div>
+
+
 @endsection
 
 @section('script')
+    <script type="text/javascript" src="/public/js/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){var c=$("#token").val();$.ajaxSetup({headers:{"X-CSRF-TOKEN":c}}),$(".btnRefresh").click(function(){$.ajax({url:"/refresh/captcha",type:"POST",success:function(c){$(".captcha").html(c.captcha)},error:function(c){}})})});
     </script>

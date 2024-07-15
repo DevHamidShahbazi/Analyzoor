@@ -1,88 +1,95 @@
 @extends('layouts.layout public.index')
+
+@section('style')
+    <style>
+
+        .captcha img {
+            width: 100%;
+        }
+    </style>
+@endsection
+
 @section('content')
 
-    @include('alert.toastr.error')
-    @include('alert.toastr.success')
-    <div class="register-box">
+    <div class="col-12">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="col-lg-3">
+                <h1 class="text-center">ثبت نام</h1>
+                <div class="card p-3 border-white shadow-lg">
+                    @include('alert.form.error')
+                    <p class="text-center">فرم زیر را تکمیل کنید و دکمه ثبت نام را بزنید</p>
+                    <form method="POST" action="{{ route('register') }}">
 
-        <div class="register-logo">
-            <b class="font-weight-bold">ثبت نام</b>
-        </div>
+                        <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 
-        <div class="card">
-            <div class="card-body register-card-body">
-                <p class="login-box-msg">فرم زیر را تکمیل کنید و دکمه ثبت نام را بزنید</p>
-                @include('alert.form.error')
-                <form method="POST" action="{{ route('register') }}">
 
-                    <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-
-                    <div class="input-group mb-3">
-                        <input
-                            name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
-                            type="text" class="form-control" placeholder="نام و نام خانوادگی">
-                        <div class="input-group-append">
-                            <span class="fa fa-user input-group-text"></span>
+                        <div class="input-group mb-3">
+                            <input dir="rtl"
+                                name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
+                                type="text" class="form-control" placeholder="نام و نام خانوادگی">
+                            <div class="input-group-append input-group-text">
+                                <span class="fa fa-user "></span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input name="phone" value="{{ old('phone') }}" required autocomplete="phone"
-                               type="number" class="form-control" placeholder="شماره موبایل">
-                        <div class="input-group-append">
-                            <span class="fas fa-mobile-alt input-group-text"></span>
-                        </div>
-                    </div>
-
-                    <div class="input-group mb-3" id="show_hide_password" >
-                        <div class="input-group-append">
-                            <a href="">
-                                <i class="fa fa-eye-slash input-group-text" aria-hidden="true"></i>
-                            </a>
+                        <div class="input-group mb-3">
+                            <input dir="rtl" name="phone" value="{{ old('phone') }}" required autocomplete="phone"
+                                   type="number" class="form-control" placeholder="شماره موبایل">
+                            <div class="input-group-append input-group-text">
+                                <span class="fas fa-mobile-alt"></span>
+                            </div>
                         </div>
 
-                        <input name="password" value="{{ old('password') }}" required autocomplete="new-password"
-                               type="password" class="form-control" placeholder="رمز عبور">
-
-                            <div class="input-group-append">
-                                <span class="fa fa-lock input-group-text"></span>
+                        <div class="input-group mb-3" id="show_hide_password" >
+                            <div class="input-group-append input-group-text">
+                                <a href="" class="d-flex align-items-center">
+                                    <i class="fa fa-eye-slash " ></i>
+                                </a>
                             </div>
 
-                    </div>
-                    <div class="input-group mb-3">
+                            <input dir="rtl" name="password" value="{{ old('password') }}" required autocomplete="new-password"
+                                   type="password" class="form-control" placeholder="رمز عبور">
 
-                        <input name="password_confirmation" required autocomplete="password_confirmation"
-                               type="password" class="form-control" placeholder="تکرار رمز عبور">
-                        <div class="input-group-append">
-                            <span class="fa fa-lock input-group-text"></span>
+                            <div class="input-group-append input-group-text">
+                                <span class="fa fa-lock"></span>
+                            </div>
+
                         </div>
-                    </div>
-                    @include('components.captcha.captcha')
-                    <br>
-                    <button  type="submit" class="btn btn-block btn-flat font-weight-bold royal">
-                        <i class="fas fa-sign-in-alt"></i>
-                        ثبت نام
-                    </button>
-                    <a href="{{ route('auth.google') }}" class="btn btn-block btn-warning text-dark font-weight-bold">
-                        <i class="fab fa-google"></i>
-                        ورود با اکانت گوگل
-                    </a>
-                </form>
-                <br>
-                <a href="{{ route('login') }}" class="text-center text-primary">من قبلا ثبت نام کرده ام!!</a>
+                        <div class="input-group mb-3">
+
+                            <input dir="rtl" name="password_confirmation" required autocomplete="password_confirmation"
+                                   type="password" class="form-control" placeholder="تکرار رمز عبور">
+                            <div class="input-group-append input-group-text">
+                                <span class="fa fa-lock"></span>
+                            </div>
+                        </div>
+                        @include('components.captcha.captcha')
+
+                        <button  type="submit" class="btn btn-block btn-primary font-weight-bold  my-4">
+                            <i class="fas fa-sign-in-alt"></i>
+                            ثبت نام
+                        </button>
+                        <a href="{{ route('auth.google') }}" class="btn btn-block btn-outline-light font-weight-bold">
+                            <i class="fab fa-google"></i>
+                            ورود با اکانت گوگل
+                        </a>
+
+                    </form>
+
+                    <p class="mb-0 mt-4" style="text-align: end">
+                        <a dir="rtl" href="{{ route('login') }}" class="text-center ">من قبلا ثبت نام کرده ام!!</a>
+                    </p>
+
+                </div>
             </div>
-            <!-- /.form-box -->
-        </div><!-- /.card -->
+        </div>
     </div>
-
-
-    <br><br><br>
-    <br><br><br>
 
 
 @endsection
 
 
 @section('script')
+    <script type="text/javascript" src="/public/js/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){$("#show_hide_password a").on("click",function(s){s.preventDefault(),"text"==$("#show_hide_password input").attr("type")?($("#show_hide_password input").attr("type","password"),$("#show_hide_password i").addClass("fa-eye-slash"),$("#show_hide_password i").removeClass("fa-eye")):"password"==$("#show_hide_password input").attr("type")&&($("#show_hide_password input").attr("type","text"),$("#show_hide_password i").removeClass("fa-eye-slash"),$("#show_hide_password i").addClass("fa-eye"))});var s=$("#token").val();$.ajaxSetup({headers:{"X-CSRF-TOKEN":s}}),$(".btnRefresh").click(function(){$.ajax({url:"/refresh/captcha",type:"POST",success:function(s){$(".captcha").html(s.captcha)},error:function(s){}})})});
     </script>

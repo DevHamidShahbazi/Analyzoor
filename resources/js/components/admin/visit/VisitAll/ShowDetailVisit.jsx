@@ -1,5 +1,11 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
+import {GetLocation} from "./components/GetData";
 export default function ShowDetailVisit({ShowDetail}) {
+    const [Loading,setLoading] = useState(false);
+    const [Location,setLocation] = useState(null);
+    useEffect(()=>{
+
+    },[Loading]);
     return (
         <React.Fragment>
             <a id="BtnShow" type="button" data-toggle="modal"
@@ -28,7 +34,14 @@ export default function ShowDetailVisit({ShowDetail}) {
                                         <tr className="item" key={index}>
                                             <td className="text-center font-weight-bold ">{ index+1 }</td>
                                             <td className="text-center font-weight-bold ">{ item.CreateHour+' '+item.Create_Date }</td>
-                                            <td className="text-center font-weight-bold ">{ item.ip }</td>
+                                            <td onClick={() => GetLocation(item.ip,index,setLoading,setLocation,Location)} className="text-center font-weight-bold ">
+                                                {item.ip+' '}
+                                                {Loading?
+                                                    Location.index=== index? <div className="loader-min"/>:null
+                                                    :
+                                                    Location!=null ? Location.index === index?<span style={{color:'red'}}>{Location?.city}</span>:null : null
+                                                }
+                                            </td>
                                             <td className="text-center font-weight-bold ">{ item.url }</td>
                                             <td className="text-center font-weight-bold ">{ item.browser }</td>
                                             <td className="text-center font-weight-bold ">{ item.platform }</td>

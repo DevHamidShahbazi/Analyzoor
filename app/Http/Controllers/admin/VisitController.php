@@ -7,13 +7,14 @@ use App\Http\Resources\admin\VisitResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Shetabit\Visitor\Models\Visit;
+use Stevebauman\Location\Facades\Location;
 
 class VisitController extends Controller
 {
     public function __construct()
     {
         DB::table('visits')->where('method','!=','GET')->delete();
-        DB::table('visits')->whereIn('visitor_id',['1','2'])->delete();
+        DB::table('visits')->whereIn('visitor_id',['1'])->delete();
     }
 
     public function index()
@@ -37,6 +38,10 @@ class VisitController extends Controller
         ];
     }
 
+    public function location(Request $request)
+    {
+        return response()->json(Location::get($request['ip'])?Location::get($request['ip'])?->cityName:null);
+    }
 
     private function Get_Visits()
     {

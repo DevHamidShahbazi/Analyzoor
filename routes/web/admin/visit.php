@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/visit', [VisitController::class, 'index'])->name('visit.index');
 Route::post('/visit', [VisitController::class, 'chart']);
+Route::post('/visit/location', [VisitController::class, 'location']);

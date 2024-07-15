@@ -11,14 +11,14 @@ class Visit
 {
     public function handle(Request $request, Closure $next): Response
     {
-//        $ip = Location::get($request->ip());
-//        $countryName = null;
-//        if (isset( $ip->countryName)){
-//            $countryName = $ip->countryName;
-//        }
-//        if ($countryName == 'Iran'){
+        $ip = Location::get($request->ip());
+        $countryName = null;
+        if (isset( $ip->countryName)){
+            $countryName = $ip->countryName;
+        }
+        if ($countryName == 'Iran'){
             visitor()->visit();
-//        }
+        }
         return $next($request);
     }
 }

@@ -72,7 +72,7 @@ class ArticleController extends Controller
             $this->UpdateImage($file,$article);
         }
         $article->update(collect($this->RequestsArray($request))->toArray());
-        return redirect(route('admin.article.index'))->with('success', 'تغیرات اعمال شد');
+        return redirect()->back()->with('success', 'تغیرات اعمال شد');
     }
 
 

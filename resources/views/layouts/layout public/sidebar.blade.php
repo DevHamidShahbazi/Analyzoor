@@ -24,6 +24,19 @@
                 @endforeach
 
 
+                    @auth()
+                        @can('admin')
+                            <li class="sidebar-item ">
+                                <a target="_blank" href="{{url('/admin-panel')}}" class='sidebar-link justify-content-center'>
+                                    <span>پنل مدیریت</span>
+                                </a>
+                            </li>
+
+                        @endcan
+                    @endauth
+
+
+
                 @foreach( \App\Models\Category::with('children')->where('parent_id','0')->get() as $key => $parentCategory)
                     <li
                         class="sidebar-item  has-sub">

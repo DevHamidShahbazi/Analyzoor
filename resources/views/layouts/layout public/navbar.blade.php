@@ -59,6 +59,18 @@
         <div class="d-flex justify-content-center container">
             <ul>
 
+                @auth()
+                    @can('admin')
+
+                        <li
+                            class="menu-item  ">
+                            <a target="_blank" href="{{url('/admin-panel')}}" class='menu-link'>
+                            <span>پنل مدیریت</span>
+                            </a>
+                        </li>
+                    @endcan
+                @endauth
+
                 @foreach($menus as $key => $menu)
                     <li
                         class="menu-item  ">

@@ -9,6 +9,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Gate;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -41,6 +42,10 @@ class RouteServiceProvider extends ServiceProvider
 
         /*ArticleDetail*/
         Route::bind('ArticleDetail',function ($value) {
+            $article = Article::whereSlug($value)->firstOrFail();
+            if($article && auth()->check() && Gate::allows('admin')) {
+                return $article;
+            }
             return Article::where('is_active','1')->whereSlug($value)->firstOrFail();
         });
         /*ArticleDetail*/

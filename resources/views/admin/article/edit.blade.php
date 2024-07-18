@@ -26,6 +26,13 @@
 
         <!-- /.card-header -->
             <br>
+            <div class="text-center mt-2">
+                <div style="text-align: right" class="col-lg-12">
+                    <a target="_blank" href="{{ route('article.detail',$article->slug) }}" class="btn btn-primary btn-sm">پیش نمایش</a>
+                </div>
+
+            </div>
+            <br>
 
             @if($article->image==null)
                 <div class="col-12">

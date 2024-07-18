@@ -19,7 +19,7 @@
         </nav>
     </div>
 
-    <div class="container">
+    <div class="container-lg">
 
         <div class="row flex-row-reverse m-0">
             <div class="col-12 col-sm-12 col-md-12 col-lg-8">

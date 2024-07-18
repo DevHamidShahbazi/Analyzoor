@@ -109,3 +109,12 @@ function PriceNumber(Number)
 /*Input MultiSelect*/
 $('.select2').select2();
 /*Input MultiSelect*/
+
+var config = {
+    extraPlugins: 'codesnippet',
+    codeSnippet_theme: 'monokai_sublime',
+    height: 356,
+    removeButtons: 'PasteFromWord'
+};
+
+CKEDITOR.replace('ckeditor', config);

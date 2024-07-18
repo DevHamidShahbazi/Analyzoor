@@ -3105,8 +3105,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// axios.defaults.baseURL = 'https://fanoram.com/';
-axios.defaults.baseURL = 'http://localhost:8000/';
+axios.defaults.baseURL = 'https://fanoram.ir/';
+// axios.defaults.baseURL = 'http://localhost:8000/';
 
 
 function Chart() {

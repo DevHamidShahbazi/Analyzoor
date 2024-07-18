@@ -76,7 +76,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('admin.url.index') }}" class="nav-link @section('files') @show">
+                        <a href="{{ route('admin.url.index') }}" class="nav-link @section('urls') @show">
                             <i class="fas fa-download"></i>
                             <p>
                                 لینک های دانلود

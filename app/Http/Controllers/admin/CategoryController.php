@@ -60,15 +60,15 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
-        if ($category->children()->count()){
-            return response()->json(['error' => true, 'message' => 'این دسته بندی اصلی است و دسته بندی های دیگری زیرمجموعه خود دارد ابتدا آن دسته بندی هارا حذف کنید']);
-        }
-        if ($category->courses()->count()){
-            return response()->json(['error' => true, 'message' => 'این دسته بندی دارای دوره است ابتدا آن ها را حذف کنید']);
-        }
-        if ($category->tools()->count()){
-            return response()->json(['error' => true, 'message' => 'این دسته بندی دارای ابزار است ابتدا آن ها را حذف کنید']);
-        }
+//        if ($category->children()->count()){
+//            return response()->json(['error' => true, 'message' => 'این دسته بندی اصلی است و دسته بندی های دیگری زیرمجموعه خود دارد ابتدا آن دسته بندی هارا حذف کنید']);
+//        }
+//        if ($category->courses()->count()){
+//            return response()->json(['error' => true, 'message' => 'این دسته بندی دارای دوره است ابتدا آن ها را حذف کنید']);
+//        }
+//        if ($category->tools()->count()){
+//            return response()->json(['error' => true, 'message' => 'این دسته بندی دارای ابزار است ابتدا آن ها را حذف کنید']);
+//        }
         if ($category->articles()->count()){
             return response()->json(['error' => true, 'message' => 'این دسته بندی دارای مقاله است ابتدا آن ها را حذف کنید']);
         }

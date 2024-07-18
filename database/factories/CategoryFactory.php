@@ -16,7 +16,7 @@ class CategoryFactory extends Factory
         $type = collect(['article','tool','course']);
         return [
             'name' => $this->faker->name(),
-            'type' => $type->random(),
+            'type' => 'article',
             'slug' => $this->faker->name(),
             'parent_id' => $parent->random(),
             'title' => $this->faker->title,

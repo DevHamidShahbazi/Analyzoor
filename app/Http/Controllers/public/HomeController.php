@@ -10,8 +10,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $arrayParentCategory = ['2'];
-        $arrayChildCategory = ['1','3','4','5'];
+        $arrayParentCategory = ['1'];
+        $arrayChildCategory = ['2','3','4','5'];
 
         $parentArticleCategories = Category::
         where('parent_id',0)

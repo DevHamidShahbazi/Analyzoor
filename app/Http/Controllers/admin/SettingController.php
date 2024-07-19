@@ -32,6 +32,6 @@ class SettingController extends Controller
             if ($setting = setting_with_key($key))
                 $setting->update(['value'=>$value]);
 
-        return redirect(route('setting.index'))->with('success', 'تغییرات اعمال شد');
+        return redirect(route('admin.setting.index'))->with('success', 'تغییرات اعمال شد');
     }
 }

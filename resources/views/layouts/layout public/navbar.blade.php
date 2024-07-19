@@ -1,9 +1,7 @@
 <header class="mb-4">
     <div class="header-top">
         <div class="container">
-            <div class="logo">
-                <a href="{{route('Home')}}"><img src="{{setting_with_key('logo')->value}}" alt="{{setting_with_key('logo_alt')->value}}"></a>
-            </div>
+            <a style="text-align: left" href="{{route('Home')}}"><img class="col-2" src="{{setting_with_key('logo')->value}}" alt="{{setting_with_key('logo_alt')->value}}"></a>
             <div class="header-top-right">
 
                 @if(auth()->check())

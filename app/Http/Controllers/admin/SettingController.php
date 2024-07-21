@@ -30,7 +30,11 @@ class SettingController extends Controller
         }
         foreach (collect($request->all())->forget(Setting::ArrayImages()) as $key =>  $value)
             if ($setting = setting_with_key($key))
-                $setting->update(['value'=>$value]);
+                if($value == "[]") {
+                    $setting->update(['value'=>json_decode($value,true)]);
+                }else{
+                    $setting->update(['value'=>$value]);
+                }
 
         return redirect(route('admin.setting.index'))->with('success', 'تغییرات اعمال شد');
     }

@@ -48,21 +48,24 @@
                     </div>
 
                     {{--child category--}}
-                    @php $firstChild = $childArticleCategories->where('parent_id',$parentArticleCategory->id)->first() @endphp
-                    <div class="col-md-4 col-sm-12">
-                        <div class="card">
-                            <a href="{{route('child.article.category',$firstChild->slug)}}">
-                                <div class="card-content">
-                                    <img class="card-img-top img-fluid p-2"
-                                         style="border-top-left-radius: 16px;border-top-right-radius: 16px"
-                                         src="{{$firstChild->image}}" alt="{{$firstChild->alt}}"/>
-                                    <div class="card-body p-1">
-                                        <h4 class="card-title text-center">{{$firstChild->name}}</h4>
+                    @php $firstChild = $childrenArticleCategories->where('parent_id',$parentArticleCategory->id)->first() @endphp
+
+                    @if($firstChild)
+                        <div class="col-md-4 col-sm-12">
+                            <div class="card">
+                                <a href="{{route('child.article.category',$firstChild->slug)}}">
+                                    <div class="card-content">
+                                        <img class="card-img-top img-fluid p-2"
+                                             style="border-top-left-radius: 16px;border-top-right-radius: 16px"
+                                             src="{{$firstChild->image}}" alt="{{$firstChild->alt}}"/>
+                                        <div class="card-body p-1">
+                                            <h4 class="card-title text-center">{{$firstChild->name}}</h4>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                    @endif
 
                 </div>
 
@@ -75,31 +78,37 @@
                    'image_url' => './public/img/obj/2.2.png',
                ])
                     <div class="row">
-                        @php $anotherChildren = $childArticleCategories->where('id','!=',$firstChild->id) @endphp
+                        @php $anotherChildren = $childrenArticleCategories->where('parent_id',$parentArticleCategory->id)->where('id','!=',$firstChild->id) @endphp
 
-                        @foreach( $anotherChildren as $key => $anotherChild)
-                            <div class="col-md-4 col-sm-12">
-                                <div class="card">
-                                    <div class="card-content">
-                                        <a href="{{route('child.article.category',$anotherChild->slug)}}">
-                                            <img class="card-img-top img-fluid p-2"
-                                                 style="border-top-left-radius: 16px;border-top-right-radius: 16px"
-                                                 src="{{$anotherChild->image}}" alt="{{$anotherChild->alt}}"/>
-                                            <div class="card-body p-1">
-                                                <h4 class="card-title text-center">{{$anotherChild->name}}</h4>
-                                            </div>
-                                        </a>
+                        @if($anotherChildren->isNotEmpty())
+
+                            @foreach( $anotherChildren as $key => $anotherChild)
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <a href="{{route('child.article.category',$anotherChild->slug)}}">
+                                                <img class="card-img-top img-fluid p-2"
+                                                     style="border-top-left-radius: 16px;border-top-right-radius: 16px"
+                                                     src="{{$anotherChild->image}}" alt="{{$anotherChild->alt}}"/>
+                                                <div class="card-body p-1">
+                                                    <h4 class="card-title text-center">{{$anotherChild->name}}</h4>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+
+                        @endif
+
                     </div>
                 </div>
 
             </div>
 
-    </div>
         @endforeach
+    </div>
+
 
 
 

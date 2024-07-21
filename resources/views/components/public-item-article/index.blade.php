@@ -8,7 +8,7 @@
                 <p class="text-center text-body">{{$article->description}}</p>
             </div>
         </div>
-        <a class="col-4 d-flex justify-content-end align-items-center py-2" href="{{route('article.detail',$article->slug)}}">
+        <a class="col-4 d-flex justify-content-start align-items-center py-2" href="{{route('article.detail',$article->slug)}}">
             <img style="border-radius: 8px" class="col-{{isset($side) ? '12' : '8'}}" src="{{$article->image}}" alt="{{$article->alt}}"/>
         </a>
     </div>

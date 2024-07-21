@@ -54,9 +54,11 @@
 
 
     <nav class="main-navbar">
-        <div class="d-flex justify-content-center container">
+        <div class="d-flex justify-content-between ">
+            <form  method="GET" action="{{ route('search') }}" class="form-inline">
+                <input value="{{request()->query('name') ?? ''}}" autoComplete="off" dir="rtl" class="form-control mr-sm-2" name="name" type="search" placeholder="جستحو" aria-label="جستحو">
+            </form>
             <ul>
-
                 @auth()
                     @can('admin')
 
@@ -74,15 +76,15 @@
                         class="menu-item  ">
                         <a href="{{$menu->url}}" class='menu-link'>
                             <span>
-{{--                                <i class="bi bi-grid-fill"></i>--}}
                                 {{$menu->name}}</span>
                         </a>
                     </li>
                 @endforeach
 
-
-
             </ul>
+
+
+
         </div>
     </nav>
 

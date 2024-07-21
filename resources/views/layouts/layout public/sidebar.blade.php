@@ -40,7 +40,7 @@
                 @foreach( \App\Models\Category::with('children')->where('parent_id','0')->get() as $key => $parentCategory)
                     <li
                         class="sidebar-item  has-sub">
-                        <a href="#" class='sidebar-link justify-content-end'>
+                        <a href="#" class='sidebar-link justify-content-evenly'>
                             <span>{{$parentCategory->name}}</span>
                         </a>
 

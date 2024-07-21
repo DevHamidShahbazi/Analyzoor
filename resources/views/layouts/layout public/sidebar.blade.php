@@ -13,6 +13,13 @@
 
         </div>
         <div class="sidebar-menu">
+
+            <div class="col-12 px-2">
+                <form  method="GET" action="{{ route('search') }}" class="form-inline">
+                    <input value="{{request()->query('name') ?? ''}}" autoComplete="off" dir="rtl" class="form-control mr-sm-2" name="name" type="search" placeholder="جستحو" aria-label="جستحو">
+                </form>
+            </div>
+
             <ul class="menu">
 
                 @foreach($menus as $key => $menu)

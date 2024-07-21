@@ -116,7 +116,7 @@
     <div class="col-12">
         <div class="bg-section-1-home" >
             <div class="row m-0 justify-content-center">
-                <a href="#" class="col-md-8 col-sm-10 col-12">
+                <a target="_blank" href="https://instagram.com/fanoram_ir" class="col-md-8 col-sm-10 col-12">
                     <img class="col-12" src="./public/img/obj/instagram.jpg" alt="فانورام">
                 </a>
             </div>

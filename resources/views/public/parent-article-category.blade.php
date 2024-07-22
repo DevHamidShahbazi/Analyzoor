@@ -16,7 +16,7 @@
     </div>
 
     <div class="col-12 text-center pb-3">
-        <h1>
+        <h1 dir="rtl">
             {{$category->name}}
         </h1>
     </div>

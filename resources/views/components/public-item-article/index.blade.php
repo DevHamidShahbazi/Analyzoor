@@ -5,7 +5,7 @@
                 <a href="{{route('article.detail',$article->slug)}}">
                     <h5 class="card-title text-center">{{$article->name}}</h5>
                 </a>
-                <p class="text-center text-body">{{$article->description}}</p>
+                <p class="text-center text-body overflow-hidden text-truncate">{{$article->description}}</p>
             </div>
         </div>
         <a class="col-4 d-flex justify-content-start align-items-center py-2" href="{{route('article.detail',$article->slug)}}">

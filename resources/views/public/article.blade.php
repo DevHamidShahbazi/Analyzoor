@@ -40,7 +40,13 @@
                         </div>
                     </div>
                     <div class="card-body" dir="rtl">
-                        {!! $article->body !!}
+                        <?php
+                        $body = $article->body;
+                        $body = preg_replace_callback('/<code>(.*?)<\/code>/s', function ($matches) {
+                            return '<code>' . htmlspecialchars($matches[1]) . '</code>';
+                        }, $body);
+                        ?>
+                        {!! $body !!}
                     </div>
                 </div>
                 @include('components.public-comment.index',['item'=>$article])

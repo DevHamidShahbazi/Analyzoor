@@ -1,3 +1,8 @@
+p, a {
+    direction: rtl;
+    text-align: right;
+}
+
 .glass {
     cursor: pointer;
     background: #1e1e2d6b;
@@ -57,7 +62,9 @@
 body {
     font-size: 16px; /* Default font-size */
 }
-
+pre {
+    direction: ltr;
+}
 h1,h2,h3,h4,h5,h6 {
     font-size: 2rem;
 }

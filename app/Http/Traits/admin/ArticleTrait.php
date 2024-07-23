@@ -45,4 +45,14 @@ trait ArticleTrait
         $img=$this->FileUploader($file,'/Upload/image/article/');
         $article->update(['image' => $img]);
     }
+
+    private function CheckFiles($article)
+    {
+        $checkFiles = $article->files()->get();
+        if (count($checkFiles) > 0){
+            foreach ($checkFiles as $value){
+                File::delete(public_path($value->image));
+            }
+        }
+    }
 }

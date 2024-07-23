@@ -78,9 +78,13 @@ class ArticleController extends Controller
 
     public function destroy(Article $article)
     {
-//        if ($article->comments()->count()){
-//            $article->comments()->delete();
-//        }
+        if ($article->comments()->count()){
+            $article->comments()->delete();
+        }
+        if ($article->files()->count()){
+            $this->CheckFiles($article);
+            $article->files()->delete();
+        }
         File::delete(public_path($article->image));
         $article->delete();
         return response()->json(['success' => true, 'id' => $article->id]);

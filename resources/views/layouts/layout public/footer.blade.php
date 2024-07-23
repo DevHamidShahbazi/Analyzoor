@@ -36,9 +36,8 @@
                     فانورام
                 </div>
                 <hr/>
-                {{--                @component('layouts.layout site.components.footer.categories')@endcomponent--}}
                 <p class="text-center">
-                    فثسف ثسف ثسفثس
+                    {{setting_with_key('body_footer')->value}}
                 </p>
             </div>
         </div>

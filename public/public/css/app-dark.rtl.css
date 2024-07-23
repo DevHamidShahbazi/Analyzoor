@@ -9889,6 +9889,11 @@ html[data-bs-theme=dark] .layout-horizontal .main-navbar .subsubmenu {
 }
 
 @media screen and (max-width: 1199px) {
+
+    .hidden-in-responsive {
+        display: none
+    }
+
     html[data-bs-theme=dark] .layout-horizontal .main-navbar {
         background-color: #f5f7fc;
         overflow: hidden;

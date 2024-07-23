@@ -2,7 +2,7 @@
 <html lang="fa" >
     <head>
         <meta charset="UTF-8">
-        @php $js='ver=0.0.1';$css='1.1'; @endphp
+        @php $js='ver=0.0.1';$css='1.2'; @endphp
         @php  @endphp
         <link rel="apple-touch-icon" sizes="76x76" href="{{setting_with_key('logo')->value}}">
         <link rel="icon" type="image/png" sizes="any" href="{{setting_with_key('logo')->value}}">

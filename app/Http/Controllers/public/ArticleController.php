@@ -16,7 +16,9 @@ class ArticleController extends Controller
     {
         $all_categories = $article->getAllCategories();
         $articles = $article->category->articles()->where('is_active','1')->where('id','!=',$article->id)->take(10)->get();
-        return view('public.article',compact('article','all_categories','articles'));
+        $urls = $article->urls()->where('for_download','1')->get();
+        $files = $article->files()->where('for_download','1')->get();
+        return view('public.article',compact('article','all_categories','articles','urls','files'));
     }
 
     public function store_comment(Request $request)

@@ -14,7 +14,8 @@ class VisitController extends Controller
     public function __construct()
     {
         DB::table('visits')->where('method','!=','GET')->delete();
-        DB::table('visits')->whereIn('visitor_id',['1'])->delete();
+        DB::table('visits')->whereIn('visitor_id',['1','2'])->delete();
+        DB::table('visits')->where('ip',\request()->ip())->delete();
     }
 
     public function index()

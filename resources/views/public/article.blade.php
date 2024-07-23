@@ -49,6 +49,31 @@
                         {!! $body !!}
                     </div>
                 </div>
+
+                @if($urls->isNotEmpty() || $files->isNotEmpty())
+                    <div class="col-12">
+                        <div class="card border-white shadow-lg p-2">
+                            <div class="row m-0">
+                                @if($urls->isNotEmpty())
+                                    @foreach($urls as $url)
+                                        <div class="col-12 my-1" style="text-align: right">
+                                            <a class="btn btn-outline-light p-1" download href="{{$url->url}}">{{$url->name}} <i class="fa fa-download"></i>  </a>
+                                        </div>
+                                    @endforeach
+                                @endif
+                                @if($files->isNotEmpty())
+                                        @foreach($files as $file)
+                                            <div class="col-12 my-1" style="text-align: right">
+                                                <a class="btn btn-outline-light p-1" download href="{{$file->file}}">{{$file->alt}} <i class="fa fa-download"></i>  </a>
+                                            </div>
+                                        @endforeach
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
+
                 @include('components.public-comment.index',['item'=>$article])
             </div>
 

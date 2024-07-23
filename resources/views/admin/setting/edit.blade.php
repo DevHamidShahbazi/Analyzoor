@@ -92,6 +92,19 @@
                     </div>
 
 
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-sm-12 control-label" >
+                                    توضیحات فوتر
+                                </label>
+                                <textarea name="body_footer" class="form-control" rows="3" placeholder="توضیحات فوتر">{{setting_with_key('body_footer')->value}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                     <input type="hidden" name="parent_categories_home" value="[]">
 
                     <div class="form-group">

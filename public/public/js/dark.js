@@ -55,7 +55,7 @@ window.addEventListener('DOMContentLoaded', () => {
     toggler.checked = theme === "dark"
 
     toggler.addEventListener("input", (e) => {
-      setTheme(e.target.checked ? "dark" : "light", true)
+      setTheme("dark" , true)
     })
   }
 

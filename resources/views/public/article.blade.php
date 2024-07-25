@@ -29,9 +29,10 @@
                             <img style="border-radius: 15px" class="col-md-6" src="{{$article->image}}" alt="{{$article->alt}}">
                         </div>
                         <div class="col-12 text-center py-3">
-                            <h1>
+                            <h1 dir="rtl">
                                 {{$article->h1 ?? $article->name}}
                             </h1>
+                            <br>
                             @if($article->h2)
                                 <h2>
                                     {{$article->h2}}

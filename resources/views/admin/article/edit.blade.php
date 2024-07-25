@@ -65,7 +65,7 @@
                     <div class="md-form mb-2">
                         <div class="col-lg-5">
                             <label class="m-0" >دسته بندی</label>
-                            <select class="form-control" name="article_category_id">
+                            <select class="form-control" name="category_id">
                                 @php $categories = \App\Models\Category::where('type','article')->get() @endphp
                                 @foreach ($categories as $value)
                                     <option {{ $article->category->id == $value->id ? 'selected' : ' ' }} value="{{ $value->id }}">{{ $value->name }}</option>

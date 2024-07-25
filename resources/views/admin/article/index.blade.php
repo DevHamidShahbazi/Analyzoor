@@ -4,7 +4,37 @@
 @section('Articles','active')
 @section('script')
     <script>
+
+        var UrlIs_active = "{{route('admin.article.is_active')}}";
+
         $(document).ready(function(){
+
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $(".is_active").change(function() {
+                var id = $(this).data('id');
+                var is_active = $(this).val();
+
+                if(is_active == 1){
+                    $(`#color-${id}`).removeClass('bg-danger').addClass('bg-success').html('نمایش');
+                }else if(is_active == 0){
+                    $(`#color-${id}`).removeClass('bg-success').addClass('bg-danger').html('عدم نمایش');
+                }
+
+                $.ajax({
+                    url:UrlIs_active ,
+                    type: 'POST',
+                    data: {id,is_active},
+                });
+            });
+
+
+
             $(".filter").change(function() {
                 $(".form").submit();
             });
@@ -52,6 +82,7 @@
                                 <th  class="text-center text-light" scope="col">ردیف</th>
                                 <th  class="text-center text-light" scope="col" >نام</th>
                                 <th  class="text-center text-light" scope="col" >دسته بندی</th>
+                                <th  class="text-center text-light" scope="col" >وضعیت</th>
                                 <th  class="text-center text-light" scope="col" >title</th>
                                 <th  class="text-center text-light" scope="col" >تاریخ ایجاد</th>
                                 <th  class="text-center text-light" scope="col" >تصویر</th>
@@ -65,6 +96,15 @@
                                         <td style="padding:1.5rem 0" class="Dlt text-center font-weight-bold">{{ $loop->count-$key }}</td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{$val->name}} @include('components.admin-is-active.index')</td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{$val->category->name}}</td>
+
+                                        <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >
+                                            <select class="is_active" name="is_active" data-id="{{$val->id}}">
+                                                <option class="text-danger" @if($val->is_active == 0)  selected  @endif value="0">عدم نمایش</option>
+                                                <option class="text-success" @if($val->is_active == 1)  selected  @endif value="1">نمایش</option>
+                                            </select>
+                                        </td>
+
+
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{$val->title}}</td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{ Verta::instance($val->created_at)->formatDate() }}</td>
                                         <td  style="padding:inherit" class="text-center" >
@@ -74,12 +114,15 @@
                                         </td>
                                         <td  style="padding:1.5rem 0" class="text-center  text-light ">
 
+                                            @include('components.admin-copy-item.index',['route'=>'admin.article.copy'])
+
+
                                             <a data-toggle="tooltip" data-placement="top" title="فایل ها" href="{{ route('admin.article-file.index',['id'=>$val->id ]) }}"  style="width: max-content;" class="btn-sm btn-secondary  col-lg-12">
                                                 <i>{{  count($val->files()->get()) ?? '' }}</i>
                                                 <i class="fas fa-file"></i>
                                             </a>
 
-                                            <a data-toggle="tooltip" data-placement="top" title="لینک های دانلود" href="{{ route('admin.article-url.index',['id'=>$val->id ]) }}"  style="width: max-content;" class="btn-sm btn-primary  col-lg-12">
+                                            <a data-toggle="tooltip" data-placement="top" title="لینک های دانلود" href="{{ route('admin.article-url.index',['id'=>$val->id ]) }}"  style="width: max-content;" class="btn-sm btn-warning  col-lg-12">
                                                 <i>{{  count($val->urls()->get()) ?? '' }}</i>
                                                 <i class="fas fa-download"></i>
                                             </a>

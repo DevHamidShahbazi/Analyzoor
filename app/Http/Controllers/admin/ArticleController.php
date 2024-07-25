@@ -76,6 +76,22 @@ class ArticleController extends Controller
     }
 
 
+    public function article_copy(Request $request)
+    {
+        $article_for_copy = Article::find($request['id']);
+        $ArrayData = $this->RequestsArray($article_for_copy);
+        $data = collect($ArrayData)->merge(['image'=>'https://fakeimg.pl/300','is_active'=>'0'])->toArray();
+        Article::create($data);
+        return redirect()->back()->with('success', 'کپی انجام شد');
+    }
+
+
+    public function article_is_active(Request $request)
+    {
+        Article::find($request['id'])->update(['is_active'=>$request['is_active']]);
+    }
+
+
     public function destroy(Article $article)
     {
         if ($article->comments()->count()){

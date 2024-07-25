@@ -32,7 +32,7 @@ trait ArticleTrait
             'title' => $request['title'],
             'keywords' => $request['keywords'],
             'description' => $request['description'],
-            'category_id' => $request['article_category_id'],
+            'category_id' => $request['category_id'],
             'alt' => $request['alt'],
         ];
     }

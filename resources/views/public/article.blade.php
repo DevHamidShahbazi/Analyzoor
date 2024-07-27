@@ -26,7 +26,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="d-flex justify-content-center">
-                            <img style="border-radius: 15px" class="col-md-6" src="{{$article->image}}" alt="{{$article->alt}}">
+                            <img style="border-radius: 15px" class="col-md-6 col-12" src="{{$article->image}}" alt="{{$article->alt}}">
                         </div>
                         <div class="col-12 text-center py-3">
                             <h1 dir="rtl">

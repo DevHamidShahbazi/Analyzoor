@@ -5,9 +5,9 @@
         @php $js='ver=0.0.1';$css='0.0.2'; @endphp
         @php  @endphp
 
-        <link rel="icon" type="image/png" sizes="16x16" href="image/favicon/16.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="image/favicon/32.png">
-        <link rel="icon" type="image/png" sizes="48x48" href="image/favicon/48.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon/16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon/32.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/image/favicon/48.png">
         <link rel="apple-touch-icon" sizes="76x76" href="{{setting_with_key('logo')->value}}">
         <link rel="icon" type="image/png" sizes="any" href="{{setting_with_key('logo')->value}}">
 
@@ -26,7 +26,7 @@
         @yield('style')
     </head>
     <body>
-    @php $menus = \App\Models\Menu::orderBy('sort','asc')->get() @endphp
+    @php $menus = \App\Models\Menu::orderBy('sort','desc')->get() @endphp
     <div id="app" class="layout-horizontal">
         @include('layouts.layout public.navbar')
         @include('layouts.layout public.sidebar')

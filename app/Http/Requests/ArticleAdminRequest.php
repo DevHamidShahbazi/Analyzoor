@@ -13,7 +13,7 @@ class ArticleAdminRequest extends FormRequest
             return [
                 'name'=>['required ',' unique:articles'],
                 'body' => 'required',
-                'article_category_id' => 'required',
+                'category_id' => 'required',
                 'image' => 'required|max:5000',
             ];
         }

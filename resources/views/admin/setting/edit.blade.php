@@ -20,6 +20,13 @@
 
             <!-- /.card-header -->
             <br>
+            <div class="col-12">
+                <a class="btn btn-primary" href="{{route('admin.sitemap')}}">
+                    <i class="fa fa-download"></i>
+                    sitemap
+                </a>
+            </div>
+            <br>
 
 
             <div class="col-12">

@@ -47,7 +47,9 @@
                             return '<code>' . htmlspecialchars($matches[1]) . '</code>';
                         }, $body);
                         ?>
-                        {!! $body !!}
+                        <article>
+                            {!! $body !!}
+                        </article>
                     </div>
                 </div>
 

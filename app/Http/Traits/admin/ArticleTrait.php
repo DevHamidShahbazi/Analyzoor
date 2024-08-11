@@ -51,7 +51,7 @@ trait ArticleTrait
         $checkFiles = $article->files()->get();
         if (count($checkFiles) > 0){
             foreach ($checkFiles as $value){
-                File::delete(public_path($value->image));
+                File::delete(public_path($value->file));
             }
         }
     }

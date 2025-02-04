@@ -16,7 +16,7 @@
                            <div class="dropdown">
                                <a class="user-dropdown d-flex align-items-center dropend dropdown-toggle gap-1" href="#" id="topbarUserDropdown"  data-bs-toggle="dropdown" aria-expanded="false">
                                    <div class=" hidden-in-responsive">
-                                       <h6 class="user-dropdown-name">{{auth()->user()->name}}</h6>
+                                       <p class="user-dropdown-name">{{auth()->user()->name}}</p>
                                    </div>
                                    <div class="avatar avatar-md2 m-0" >
                                        <img src="{{auth()->user()->image}}" alt="Avatar">

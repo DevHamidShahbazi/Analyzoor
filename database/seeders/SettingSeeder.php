@@ -37,22 +37,22 @@ class SettingSeeder extends Seeder
         $logo = [
             [
                 'key'     => 'logo',
-                'label'   => 'فانورام',
+                'label'   => 'آنالیزور',
                 'value'   =>  'https://fakeimg.pl/300/',
                 'section' => 'public'
             ],
             [
                 'key'     => 'logo_alt',
-                'label'   => 'فانورام',
-                'value'   => 'فانورام',
+                'label'   => 'آنالیزور',
+                'value'   => 'آنالیزور',
                 'section' => 'public'
             ],
         ];
         $banner = [
             [
                 'key'     => 'banner',
-                'label'   => 'فانورام',
-                'value'   =>  'فانورام',
+                'label'   => 'آنالیزور',
+                'value'   =>  'آنالیزور',
                 'section' => 'public'
             ],
         ];

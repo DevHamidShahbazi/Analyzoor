@@ -38,34 +38,34 @@
 
 
 
-                @foreach( \App\Models\Category::with('children')->where('parent_id','0')->get() as $key => $parentCategory)
-                    <li
-                        class="sidebar-item  has-sub">
-                        <a href="#" class='sidebar-link justify-content-evenly'>
-                            <span>{{$parentCategory->name}}</span>
-                        </a>
+{{--                @foreach( \App\Models\Category::with('children')->where('parent_id','0')->get() as $key => $parentCategory)--}}
+{{--                    <li--}}
+{{--                        class="sidebar-item  has-sub">--}}
+{{--                        <a href="#" class='sidebar-link justify-content-evenly'>--}}
+{{--                            <span>{{$parentCategory->name}}</span>--}}
+{{--                        </a>--}}
 
-                        <ul class="submenu ">
+{{--                        <ul class="submenu ">--}}
 
-                            <li class="submenu-item ">
-                                <a href="{{route('parent.article.category',$parentCategory->slug)}}" class="submenu-link py-3">
-                                    نمایش همه زیرمجموعه ها
-                                </a>
-                            </li>
+{{--                            <li class="submenu-item ">--}}
+{{--                                <a href="{{route('article.category',$parentCategory->slug)}}" class="submenu-link py-3">--}}
+{{--                                    نمایش همه زیرمجموعه ها--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
 
-                            @foreach($parentCategory->children()->get() as $key => $childCategory)
-                                <li class="submenu-item ">
-                                    <a href="{{route('child.article.category',$childCategory->slug)}}" class="submenu-link py-3">
-                                        {{$childCategory->name}}
-                                    </a>
-                                </li>
-                            @endforeach
+{{--                            @foreach($parentCategory->children()->get() as $key => $childCategory)--}}
+{{--                                <li class="submenu-item ">--}}
+{{--                                    <a href="{{route('article.category',$childCategory->slug)}}" class="submenu-link py-3">--}}
+{{--                                        {{$childCategory->name}}--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                            @endforeach--}}
 
-                        </ul>
+{{--                        </ul>--}}
 
 
-                    </li>
-                @endforeach
+{{--                    </li>--}}
+{{--                @endforeach--}}
 
             </ul>
         </div>

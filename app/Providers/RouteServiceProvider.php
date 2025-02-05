@@ -28,15 +28,9 @@ class RouteServiceProvider extends ServiceProvider
         });
 
 
-        /*ParentArticleCategory*/
-        Route::bind('parentArticleCategory',function ($value) {
-            return Category::where('parent_id',0)->where('type','article')->whereSlug($value)->firstOrFail();
-        });
-        /*ParentArticleCategory*/
-
         /*ChildArticleCategory*/
-        Route::bind('childArticleCategory',function ($value) {
-            return Category::where('parent_id','!=',0)->where('type','article')->whereSlug($value)->firstOrFail();
+        Route::bind('articleCategory',function ($value) {
+            return Category::where('type','article')->whereSlug($value)->firstOrFail();
         });
         /*ChildArticleCategory*/
 

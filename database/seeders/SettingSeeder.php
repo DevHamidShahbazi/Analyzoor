@@ -75,27 +75,8 @@ class SettingSeeder extends Seeder
             ],
         ];
 
-        $parent_categories_home = [
-            [
-                'key'     => 'parent_categories_home',
-                'label'   => 'دسته بندی های اصلی در صفحه اصلی',
-                'value'   =>  [],
-                'section' => 'public'
-            ],
-        ];
-
-        $children_categories_home = [
-            [
-                'key'     => 'children_categories_home',
-                'label'   => 'دسته بندی های فرعی در صفحه اصلی',
-                'value'   =>  [],
-                'section' => 'public'
-            ],
-        ];
 
         $this->storeItems(
-            $parent_categories_home,
-            $children_categories_home,
             $seo_home_page,
             $logo,
             $banner,

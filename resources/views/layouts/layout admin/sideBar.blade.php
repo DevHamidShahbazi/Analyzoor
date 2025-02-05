@@ -8,7 +8,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3">
                 <div  style="text-align: center"></div>
-                <a href="#" style="text-align: center" class="d-block">Fanoram</a>
+                <a href="#" style="text-align: center" class="d-block">Analyzoor</a>
             </div>
 
 

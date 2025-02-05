@@ -10,9 +10,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $parentArticleCategories = Category::whereIn('id',setting_with_key('parent_categories_home')->value)->get();
-        $childrenArticleCategories = Category::whereIn('id',setting_with_key('children_categories_home')->value)->get();
-
-        return view('public.Home',compact('childrenArticleCategories','parentArticleCategories'));
+        return view('public.Home');
     }
 }

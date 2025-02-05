@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\public\ChildCategoryController;
-use App\Http\Controllers\public\HomeController;
-use App\Http\Controllers\public\ParentCategoryController;
+use App\Http\Controllers\public\ArticleCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,5 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 // article categories
-Route::get('parent/article/category/{parentArticleCategory}', [ParentCategoryController::class, 'index'])->name('parent.article.category');
-Route::get('child/article/category/{childArticleCategory}', [ChildCategoryController::class, 'index'])->name('child.article.category');
+Route::get('article-category/{articleCategory}', [ArticleCategoryController::class, 'index'])->name('article.category');

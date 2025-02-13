@@ -1,12 +1,13 @@
 
 
-<div class="col-lg-12 text-center mt-5 py-1 no-print bg-primary">
-    <a id="GoTop" href="#top" class="text-white">
-        برگشت به بالا
-    </a>
-</div>
 
-<div  class="container-fluid bg-footer px-0 no-print bg-primary">
+
+<div  class="container-fluid bg-footer px-0 no-print bg_footer">
+    <div class="col-lg-12 text-center  py-1 no-print ">
+        <a id="GoTop" href="#top" class="text-white">
+            برگشت به بالا
+        </a>
+    </div>
     <div class="container-fluid">
         <div class="row text-white m-0">
 {{--            <div class="col-md-9 col-12">--}}
@@ -44,7 +45,7 @@
     </div>
     <hr>
 
-    <div  class="container-fluid">
+    <div  class="container-fluid ">
         <div class="row m-0">
             <div style="border-radius: 15px" class="col-12 text-center  my-4 text-white mb-3">
 

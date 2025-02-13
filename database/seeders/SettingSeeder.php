@@ -75,8 +75,17 @@ class SettingSeeder extends Seeder
             ],
         ];
 
+        $articles_home = [
+            [
+                'key'     => 'articles_home',
+                'label'   => 'مقالات در صفحه اصلی',
+                'value'   =>  [],
+                'section' => 'public'
+            ],
+        ];
 
         $this->storeItems(
+            $articles_home,
             $seo_home_page,
             $logo,
             $banner,

@@ -10,6 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('public.Home');
+        $articles = \App\Models\Article::whereIn('id',setting_with_key('articles_home')->value)->get();
+        return view('public.Home',compact('articles'));
     }
 }

@@ -1,4 +1,4 @@
-<header class="mb-4">
+<header >
     <div class="header-top p-3">
         <div class="container">
            <div class="col-12 p-0">
@@ -73,7 +73,7 @@
     </div>
 
 
-    <nav class="main-navbar">
+    <nav class="main-navbar royal">
         <div class="d-flex justify-content-between ">
             <form  method="GET" action="{{ route('search') }}" class="form-inline">
                 <input value="{{request()->query('name') ?? ''}}" autoComplete="off" dir="rtl" class="form-control mr-sm-2" name="name" type="search" placeholder="جستحو" aria-label="جستحو">

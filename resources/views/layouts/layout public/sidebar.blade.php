@@ -1,5 +1,5 @@
 <div id="sidebar">
-    <div class="sidebar-wrapper active">
+    <div class="sidebar-wrapper royal-dark active">
         <div class="sidebar-header position-relative">
 
 

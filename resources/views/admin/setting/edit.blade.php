@@ -132,25 +132,25 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
 
-{{--                    <input type="hidden" name="children_categories_home" value="[]">--}}
+                    <input type="hidden" name="articles_home" value="[]">
 
-{{--                    <div class="form-group">--}}
-{{--                        <label class="col-sm-12 control-label">دسته بندی های فرعی در صفحه اصلی </label>--}}
-{{--                        <div class="col-sm-6">--}}
-{{--                            <select name="children_categories_home[]" class="form-control select2"  multiple="multiple"--}}
-{{--                                    data-placeholder="دسته بندی های فرعی در صفحه اصلی"--}}
-{{--                                    style="width: 100%;text-align: right">--}}
-{{--                                @php $children_categories = \App\Models\Category::where('parent_id','!=','0')->get() @endphp--}}
-{{--                                @php $children_categories_home_specify = setting_with_key('children_categories_home')->value @endphp--}}
-{{--                                @foreach ($children_categories as $children_category)--}}
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">{{setting_with_key('articles_home')->label}}</label>
+                        <div class="col-sm-6">
+                            <select name="articles_home[]" class="form-control select2"  multiple="multiple"
+                                    data-placeholder="{{setting_with_key('articles_home')->label}}"
+                                    style="width: 100%;text-align: right">
+                                @php $articles_home = \App\Models\Article::where('is_active','1')->get() @endphp
+                                @php $articles_home_specify = setting_with_key('articles_home')->value @endphp
+                                @foreach ($articles_home as $article_home)
 
-{{--                                    <option {{ $children_categories_home_specify ? in_array($children_category->id ,$children_categories_home_specify ) ? 'selected' : ' ': ' '  }} value="{{ $children_category->id }}">--}}
-{{--                                        {{ $children_category->name }}</option>--}}
+                                    <option {{ $articles_home_specify ? in_array($article_home->id ,$articles_home_specify ) ? 'selected' : ' ': ' '  }} value="{{ $article_home->id }}">
+                                        {{ $article_home->name }}</option>
 
-{{--                                @endforeach--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
 
 
                     <div class="form-group">

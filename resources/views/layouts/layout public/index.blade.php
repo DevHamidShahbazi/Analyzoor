@@ -19,7 +19,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name=robots content="INDEX,FOLLOW"/>
         <link rel="stylesheet" href="/public/css/app.rtl.css?{{$css}}">
-        <link rel="stylesheet" href="/public/css/app-dark.rtl.css?{{$css}}">
+{{--        <link rel="stylesheet" href="/public/css/app-dark.rtl.css?{{$css}}">--}}
         <link rel="stylesheet" href="/public/css/font.min.css?{{$css}}">
         <link rel="stylesheet" href="/public/css/custom-style.css?{{$css}}">
 {{--        <link rel="stylesheet" href="/public/css/Aos.css?{{$css}}">--}}
@@ -34,7 +34,7 @@
         @include('layouts.layout public.footer')
     </div>
 {{--        <script type="text/javascript" src="/public/js/Aos.js?{{$js}}"></script>--}}
-        <script type="text/javascript" src="/public/js/dark.js?{{$js}}"></script>
+{{--        <script type="text/javascript" src="/public/js/dark.js?{{$js}}"></script>--}}
         <script type="text/javascript" src="/public/js/app.js?{{$js}}"></script>
     <script type="text/javascript" src="/public/js/custom.js?{{$js}}"></script>
     @yield('script')

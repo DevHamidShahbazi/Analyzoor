@@ -5,6 +5,7 @@
 {{--        </a>--}}
 {{--    </div>--}}
     <div class="container-fluid">
+        <br>
         <div class="row text-white m-0">
 {{--            <div class="col-md-9 col-12">--}}
 {{--                <div style="font-size: larger" class="col-12  text-center font-weight-bold mt-2">--}}
@@ -28,6 +29,7 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
+
             <div class="col-md-12 col-12 text-center">
 {{--                <hr/>--}}
                 <a href="https://www.instagram.com/analyzoor?igsh=NDZzM2RqNjJvazds" class="mx-2" target="_blank">

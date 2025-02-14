@@ -1,113 +1,79 @@
-<header >
-    <div class="header-top p-3">
-        <div class="container">
-           <div class="col-12 p-0">
-               <div class="d-flex justify-content-between">
+<nav class="header-top p-2 text-white navbar-top royal no-print">
+    <div class="d-flex justify-content-between flex-row-reverse">
 
+        <div class="d-flex justify-content-center align-items-center gap-2 p-1">
 
-                   <a class="col-md-3 col-8 p-0" style="text-align: left" href="{{route('Home')}}">
-                       <img class="col-2" src="{{setting_with_key('logo')->value}}" alt="{{setting_with_key('logo_alt')->value}}">
-                   </a>
+            @if(auth()->check())
+                <div class="dropdown">
+                    <a class="user-dropdown text-white d-flex align-items-center dropend dropdown-toggle gap-1" href="#"
+                       id="topbarUserDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class=" hidden-in-responsive">
+                            <p class="user-dropdown-name">{{auth()->user()->name}}</p>
+                        </div>
+                        <div class="avatar avatar-md2 m-0">
+                            <img src="{{auth()->user()->image}}" alt="Avatar">
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="topbarUserDropdown">
+                        <li><a class="dropdown-item" href="{{route('user-panel.dashboard')}}">
+                                پنل کاربری
+                                <i class="fa fa-user"></i>
+                            </a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
 
-
-                   <div class="header-top-right col-md-3 p-0">
-
-                        @if(auth()->check())
-                           <div class="dropdown">
-                               <a class="user-dropdown d-flex align-items-center dropend dropdown-toggle gap-1" href="#" id="topbarUserDropdown"  data-bs-toggle="dropdown" aria-expanded="false">
-                                   <div class=" hidden-in-responsive">
-                                       <p class="user-dropdown-name">{{auth()->user()->name}}</p>
-                                   </div>
-                                   <div class="avatar avatar-md2 m-0" >
-                                       <img src="{{auth()->user()->image}}" alt="Avatar">
-                                   </div>
-                               </a>
-                               <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="topbarUserDropdown">
-                                   <li><a class="dropdown-item" href="{{route('user-panel.dashboard')}}">
-                                           پنل کاربری
-                                           <i class="fa fa-user"></i>
-                                       </a></li>
-                                   <li><hr class="dropdown-divider"></li>
-
-                                   <li>
-                                       <a class="dropdown-item"
-                                          onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                          href="{{ route('logout') }}">
-                                           خروج
-                                           <i class="fa fa-power-off"></i>
-                                       </a>
-                                   </li>
-                               </ul>
-                           </div>
-                           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                               @csrf
-                           </form>
-
-                       @else
-                           <a href="{{route('login')}}" class="font-weight-bold">
-                               ورود / ثبت نام
-                           </a>
-                        @endif
-
-                   <!-- Burger button responsive -->
-                       <a href="#" class="burger-btn d-block d-xl-none">
-                           <i style="font-size: x-large" class="fa fa-bars"></i>
-                       </a>
-                   </div>
-                </div>
-
-              <div class="col-12 p-2 d-xl-none">
-
-                  <form  method="GET" action="{{ route('search') }}" class="form-inline">
-                      <div class="d-flex justify-content-center">
-                          <div class="col-md-6 col-10">
-                              <input value="{{request()->query('name') ?? ''}}" autoComplete="off" dir="rtl" class="form-control mr-sm-2" name="name" type="search" placeholder="جستحو" aria-label="جستحو">
-                          </div>
-                      </div>
-                  </form>
-
-              </div>
-
-           </div>
-        </div>
-    </div>
-
-
-    <nav class="main-navbar royal">
-        <div class="d-flex justify-content-between ">
-            <form  method="GET" action="{{ route('search') }}" class="form-inline">
-                <input value="{{request()->query('name') ?? ''}}" autoComplete="off" dir="rtl" class="form-control mr-sm-2" name="name" type="search" placeholder="جستحو" aria-label="جستحو">
-            </form>
-            <ul>
-                @auth()
-                    @can('admin')
-
-                        <li
-                            class="menu-item  ">
-                            <a target="_blank" href="{{url('/admin-panel')}}" class='menu-link'>
-                            <span>پنل مدیریت</span>
+                        <li>
+                            <a class="dropdown-item"
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                               href="{{ route('logout') }}">
+                                خروج
+                                <i class="fa fa-power-off"></i>
                             </a>
                         </li>
-                    @endcan
-                @endauth
+                    </ul>
+                </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
 
-                @foreach($menus as $key => $menu)
-                    <li
-                        class="menu-item  ">
-                        <a href="{{$menu->url}}" class='menu-link'>
-                            <span>
-                                {{$menu->name}}</span>
-                        </a>
-                    </li>
-                @endforeach
+            @else
+                <div style="margin-right: 10px;width: max-content" class="font-weight-bold text-white p-1">
+                    <a class="font-weight-bold text-white p-1" href="{{route('login')}}">ورود</a>
+                    /
+                    <a class="font-weight-bold text-white p-1" href="{{route('register')}}">ثبت نام</a>
+                </div>
+            @endif
 
-            </ul>
-
-
+            <a href="#" class="burger-btn d-block d-xl-none ml-2">
+                <i style="font-size: x-large" class="fa fa-bars text-white"></i>
+            </a>
 
         </div>
-    </nav>
 
-</header>
+        <ul class="d-flex align-items-center scroll-x col-sm-8 hidden-in-responsive px-0 col-lg-auto justify-content-center m-0"
+            style="font-size: 10px;gap: 25px">
+
+            @auth()
+                @can('admin')
+                    <li class="d-inline-block">
+                        <a class="text-white" href="{{ url('/admin-panel') }}">پنل ادمین</a>
+                    </li>
+                @endcan
+            @endauth
+
+
+            <li class="d-inline-block">
+                <a class="text-white" href="{{ route('Home') }}">صفحه اصلی</a>
+            </li>
+
+        </ul>
+
+        <div class="d-flex align-items-center p-2 mr-0">
+            <a class="text-end" href="{{route('Home')}}"><img class="col-lg-3 col-md-4 col-sm-5 col-6" src="/public/img/logo/logo-white-text.png" alt="{{setting_with_key('logo_alt')->value}}" srcset=""></a>
+        </div>
+
+    </div>
+</nav>
 
 @include('alert.default.index')

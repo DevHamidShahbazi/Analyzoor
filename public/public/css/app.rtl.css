@@ -22512,7 +22512,7 @@ body .bi:before, [class^=bi-]:before, [class*=" bi-"]:before {
     height: 100vh;
     position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: 25;
     overflow-y: auto;
     background-color: #fff;
     bottom: 0;
@@ -22526,7 +22526,7 @@ body .bi:before, [class^=bi-]:before, [class*=" bi-"]:before {
 }
 
 .sidebar-wrapper .sidebar-header img {
-    height: 1.2rem
+    height: 7.2rem
 }
 
 .sidebar-wrapper .sidebar-toggler.x {
@@ -22578,6 +22578,10 @@ body .bi:before, [class^=bi-]:before, [class*=" bi-"]:before {
 
 .sidebar-wrapper .menu .sidebar-link:hover {
     background-color: #f0f1f5
+}
+
+.sidebar-wrapper .menu .sidebar-link:hover span{
+    color: #25396f !important;
 }
 
 .sidebar-wrapper .menu .sidebar-item {
@@ -22685,6 +22689,7 @@ body .bi:before, [class^=bi-]:before, [class*=" bi-"]:before {
 }
 
 @media screen and (max-width: 1199px) {
+
     .sidebar-wrapper {
         position: fixed;
         right: -300px
@@ -23365,6 +23370,9 @@ body .bi:before, [class^=bi-]:before, [class*=" bi-"]:before {
 }
 
 @media screen and (max-width: 1199px) {
+    .hidden-in-responsive {
+        display: none !important;
+    }
     #main {
         margin-right: 0
     }

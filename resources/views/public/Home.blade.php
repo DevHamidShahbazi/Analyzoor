@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-lg-4 py-3">
                 <div class="img-place wow fadeInUp">
-                    <img src="/public/img/me.jpg" alt="">
+                    <img class="col-12" src="/public/img/me.jpg" alt="">
                 </div>
             </div>
             <div class="col-lg-6 offset-lg-1 wow fadeInRight">
@@ -133,6 +133,9 @@
                     </div>
                 @endforeach
 
+            </div>
+            <div class="col-12 text-center p-0 m-0">
+                <a class="font-weight-bold" href="{{route('article.index')}}">نمایش بیشتر</a>
             </div>
         </div>
     </div>

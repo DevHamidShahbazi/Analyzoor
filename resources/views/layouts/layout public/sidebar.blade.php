@@ -5,36 +5,39 @@
 
             <div class="d-flex justify-content-center align-items-center">
                 <div class="logo">
-                    <a class="col-12" href="{{route('Home')}}"><img class="col-12" src="{{setting_with_key('logo')->value}}" alt="{{setting_with_key('logo_alt')->value}}" srcset=""></a>
+                    <a class="col-6" href="{{route('Home')}}"><img class="col-12" src="{{setting_with_key('logo')->value}}" alt="{{setting_with_key('logo_alt')->value}}" srcset=""></a>
                 </div>
-
             </div>
 
-
+            <div class="sidebar-toggler  x">
+                <a href="#" class="sidebar-hide d-xl-none d-block"><i style="font-size: x-large" class="fas fa-times text-white"></i></a>
+            </div>
         </div>
         <div class="sidebar-menu">
 
             <ul class="menu">
 
+                @auth()
+                    @can('admin')
+                        <li class="sidebar-item ">
+                            <a target="_blank" href="{{url('/admin-panel')}}" class='sidebar-link justify-content-center'>
+                                <span class="text-white">پنل مدیریت</span>
+                            </a>
+                        </li>
+
+                    @endcan
+                @endauth
+
                 @foreach($menus as $key => $menu)
                     <li class="sidebar-item ">
                         <a target="_blank" href="{{$menu->url}}" class='sidebar-link justify-content-center'>
-                            <span>{{$menu->name}}</span>
+                            <span class="text-white">{{$menu->name}}</span>
                         </a>
                     </li>
                 @endforeach
 
 
-                    @auth()
-                        @can('admin')
-                            <li class="sidebar-item ">
-                                <a target="_blank" href="{{url('/admin-panel')}}" class='sidebar-link justify-content-center'>
-                                    <span>پنل مدیریت</span>
-                                </a>
-                            </li>
 
-                        @endcan
-                    @endauth
 
 
 

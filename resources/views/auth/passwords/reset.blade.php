@@ -5,7 +5,7 @@
 
 
     <div class="col-12">
-        <div class="d-flex justify-content-center align-items-center">
+        <div class="d-flex justify-content-center align-items-center vh-100">
             <div class="col-lg-3">
                 <h3 class="text-center"><b>بازیابی رمز</b></h3>
                 <div class="card p-3 border-white shadow-lg">

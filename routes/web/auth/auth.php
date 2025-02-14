@@ -24,8 +24,8 @@ Route::post('/refresh/captcha', [CaptchaController::class, 'refresh'])->name('re
 /*Refresh captcha*/
 
 /*Google Socialite*/
-Route::get('/auth/google/', [SocialiteController::class, 'redirectGoogle'])->name('auth.google');
-Route::get('/auth/google/callback/', [SocialiteController::class, 'callbackGoogle']);
+//Route::get('/auth/google/', [SocialiteController::class, 'redirectGoogle'])->name('auth.google');
+//Route::get('/auth/google/callback/', [SocialiteController::class, 'callbackGoogle']);
 /*Google Socialite*/
 
 /*Verify Sms*/
@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
 /*Verify Sms*/
 
 
-Route::get('/select-type/reset-password/', [ResetPasswordController::class, 'selectType'])->name('reset.password.selectType');
+//Route::get('/select-type/reset-password/', [ResetPasswordController::class, 'selectType'])->name('reset.password.selectType');
 
 //resetPassword with phone
 Route::get('/phone/password/reset', [ResetPasswordWithPhoneController::class, 'showLinkRequestForm'])->name('password.request.phone'); //show form request code
@@ -51,8 +51,8 @@ Route::post('/phone/password/reset/verify/', [ResetPasswordWithPhoneController::
 
 
 //resetPassword with email
-Route::get('/password/reset', [ResetPasswordController::class, 'showLinkRequestForm'])->name('password.request'); //show form request
-
-Route::middleware('throttle:5,2')->group(function () {
-    Route::post('/phone/password/reset/again/send/', [ResetPasswordWithPhoneController::class, 'passwordResetSmsAgainSend'])->name('password.reset.phone.again.send');
-});
+//Route::get('/password/reset', [ResetPasswordController::class, 'showLinkRequestForm'])->name('password.request'); //show form request
+//
+//Route::middleware('throttle:5,2')->group(function () {
+//    Route::post('/phone/password/reset/again/send/', [ResetPasswordWithPhoneController::class, 'passwordResetSmsAgainSend'])->name('password.reset.phone.again.send');
+//});

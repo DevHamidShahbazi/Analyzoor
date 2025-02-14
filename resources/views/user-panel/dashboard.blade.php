@@ -1,5 +1,5 @@
 @extends('layouts.layout user-panel.index')
-@section('dashboard','bg-primary')
+@section('dashboard','bg-primary text-white')
 @section('page')
     <section class="section">
         <div class="card">
@@ -32,15 +32,15 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <div class="form-group my-2">
-                                    <label for="basicInput">ایمیل</label>
-                                    <input value="{{auth()->user()->email ?? ''}}" disabled type="text" class="form-control" id="basicInput" placeholder="امکان ویرایش ایمیل وجود ندارد">
-                                </div>
-                            </div>
+{{--                            <div class="col-md-6">--}}
+{{--                                <div class="form-group my-2">--}}
+{{--                                    <label for="basicInput">ایمیل</label>--}}
+{{--                                    <input value="{{auth()->user()->email ?? ''}}" disabled type="text" class="form-control" id="basicInput" placeholder="امکان ویرایش ایمیل وجود ندارد">--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             <div class="col-12 text-center my-4">
-                                <button type="submit" class="btn btn-outline-light">ویرایش</button>
+                                <button type="submit" class="btn btn-outline-primary">ویرایش</button>
                             </div>
                         </div>
 

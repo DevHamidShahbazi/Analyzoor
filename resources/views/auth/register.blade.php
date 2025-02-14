@@ -12,12 +12,12 @@
 @section('content')
 
     <div class="col-12">
-        <div class="d-flex justify-content-center align-items-center">
+        <div class="d-flex justify-content-center align-items-center vh-100">
             <div class="col-lg-3">
-                <h1 class="text-center">ثبت نام</h1>
+
                 <div class="card p-3 border-white shadow-lg">
                     @include('alert.form.error')
-                    <p class="text-center">فرم زیر را تکمیل کنید و دکمه ثبت نام را بزنید</p>
+                    <h1 class="text-center mb-3">ثبت نام</h1>
                     <form method="POST" action="{{ route('register') }}">
 
                         <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
@@ -68,15 +68,15 @@
                             <i class="fas fa-sign-in-alt"></i>
                             ثبت نام
                         </button>
-                        <a href="{{ route('auth.google') }}" class="btn btn-block btn-outline-light font-weight-bold">
-                            <i class="fab fa-google"></i>
-                            ورود با اکانت گوگل
-                        </a>
+{{--                        <a href="{{ route('auth.google') }}" class="btn btn-block btn-warning font-weight-bold">--}}
+{{--                            <i class="fab fa-google"></i>--}}
+{{--                            ورود با اکانت گوگل--}}
+{{--                        </a>--}}
 
                     </form>
 
-                    <p class="mb-0 mt-4" style="text-align: end">
-                        <a dir="rtl" href="{{ route('login') }}" class="text-center ">من قبلا ثبت نام کرده ام!!</a>
+                    <p class="text-start mb-0 mt-4">
+                        <a  href="{{ route('login') }}" class="text-center ">من قبلا ثبت نام کرده ام!!</a>
                     </p>
 
                 </div>

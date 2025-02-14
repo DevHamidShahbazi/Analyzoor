@@ -12,7 +12,7 @@
 @section('content')
 
     <div class="col-12">
-        <div class="d-flex justify-content-center align-items-center">
+        <div class="d-flex justify-content-center align-items-center vh-100">
             <div class="col-lg-3">
                 <h3 class="text-center"><b>کد ارسال شده را وارد کنید</b></h3>
                 <div class="card p-3 border-white shadow-lg">
@@ -50,7 +50,7 @@
                         </button>
                     </form>
 
-                    <p class="mb-0 mt-4" style="text-align: end">
+                    <p class="text-start mb-0 mt-4">
                         <a href="{{ route('Home') }}" class="text-center">صفحه اصلی</a>
                     </p>
 

@@ -6,7 +6,7 @@
     @include('components.public-update-password.index')
     <section>
         <div class="container py-5" dir="rtl">
-            <div class="row">
+            <div class="row vh-100">
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
@@ -17,7 +17,7 @@
                             <h5 class="my-3">{{auth()->user()->name}}</h5>
                             <div class="d-flex justify-content-center mb-2">
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#updatePassword" type="button"
-                                   data-mdb-ripple-init class="btn btn-outline-light mx-1">تغییر رمز</a>
+                                   data-mdb-ripple-init class="btn btn-outline-secondary mx-1">تغییر رمز</a>
                             </div>
                         </div>
                     </div>

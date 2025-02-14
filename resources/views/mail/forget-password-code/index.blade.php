@@ -38,7 +38,7 @@
                             <tr>
                                 <td style="padding:0 35px;">
                                     <h1 style="@import url('https://v1.fontapi.ir/css/Vazir');color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">
-                                        کد تایید فروشگاه کا اس پی
+                                        کد تایید آنالیزور
                                     </h1>
                                     <span style="display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece;"/>
                                     <b
@@ -58,7 +58,7 @@
                 </tr>
                 <tr>
                     <td style="text-align:center;">
-                        <p style="font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">&copy; <strong>ksp-shop.com</strong></p>
+                        <p style="font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">&copy; <strong>Analyzoor.com</strong></p>
                     </td>
                 </tr>
                 <tr>

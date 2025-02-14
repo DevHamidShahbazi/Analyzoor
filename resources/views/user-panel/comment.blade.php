@@ -1,5 +1,5 @@
 @extends('layouts.layout user-panel.index')
-@section('comment','bg-primary')
+@section('comment','bg-primary text-white')
 @section('page')
     <div class="col-12">
        <div class="card">

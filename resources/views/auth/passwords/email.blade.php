@@ -16,7 +16,7 @@
 
 
     <div class="col-12">
-        <div class="d-flex justify-content-center align-items-center">
+        <div class="d-flex justify-content-center align-items-center vh-100">
             <div class="col-lg-3">
                 <h3 class="text-center"><b>ایمیل خود را وارد کنید</b></h3>
                 <div class="card p-3 border-white shadow-lg">
@@ -38,8 +38,8 @@
                             تایید
                         </button>
                     </form>
-                    <p class="mb-1 mt-3" style="text-align: end">
-                        <a dir="rtl" href="{{ route('reset.password.selectType') }}" class="text-center">بازگشت</a>
+                    <p class="text-start mb-1 mt-3">
+                        <a  href="{{ route('reset.password.selectType') }}" class="text-center">بازگشت</a>
                     </p>
 
                 </div>

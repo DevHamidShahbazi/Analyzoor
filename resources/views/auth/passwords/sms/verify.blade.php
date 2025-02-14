@@ -48,8 +48,8 @@
                         </button>
                     </form>
 
-                    <p class="mb-0 mt-4">
-                        <a dir="rtl" href="{{ route('password.request.phone') }}" class="text-center">بازگشت</a>
+                    <p class="text-start mb-0 mt-4">
+                        <a  href="{{ route('password.request.phone') }}" class="text-center">بازگشت</a>
                     </p>
 
                 </div>

@@ -54,6 +54,7 @@ class ResetPasswordWithPhoneController extends Controller
         $checkVerifyCode = ActiveCode::CheckCodeVerify($user,$code);
 
         if ($checkVerifyCode == 'success'){
+            $user->update(['verify' => '1']);
             auth()->loginUsingId($user->id);
             \request()->session()->forget('phone');
             return redirect()->route('Home');

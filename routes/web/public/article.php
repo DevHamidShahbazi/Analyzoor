@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('article/detail/{ArticleDetail}', [ArticleController::class, 'index'])->name('article.detail');
+Route::get('articles', [ArticleController::class, 'index'])->name('article.index');
+Route::get('article/detail/{ArticleDetail}', [ArticleController::class, 'detail'])->name('article.detail');
 
 #comments
 

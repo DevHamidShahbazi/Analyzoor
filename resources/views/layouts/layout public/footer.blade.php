@@ -1,13 +1,9 @@
-
-
-
-
 <div  class="container-fluid bg-footer px-0 no-print bg_footer">
-    <div class="col-lg-12 text-center  py-1 no-print ">
-        <a id="GoTop" href="#top" class="text-white">
-            برگشت به بالا
-        </a>
-    </div>
+{{--    <div class="col-lg-12 text-center  py-1 no-print ">--}}
+{{--        <a id="GoTop" href="#top" class="text-white">--}}
+{{--            برگشت به بالا--}}
+{{--        </a>--}}
+{{--    </div>--}}
     <div class="container-fluid">
         <div class="row text-white m-0">
 {{--            <div class="col-md-9 col-12">--}}
@@ -32,15 +28,24 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
-            <div class="col-md-12 col-12">
-{{--                <div style="font-size: larger" class="col-12  text-center font-weight-bold mt-2">--}}
-{{--                    آنالیزور--}}
-{{--                </div>--}}
-                <hr/>
-                <p class="text-center">
-                    {{setting_with_key('body_footer')->value}}
-                </p>
+            <div class="col-md-12 col-12 text-center">
+{{--                <hr/>--}}
+                <a href="https://www.instagram.com/analyzoor?igsh=NDZzM2RqNjJvazds" class="mx-2" target="_blank">
+                    <img  src="/image/icons/instagram.png" alt="اینستاگرام آنالیزور">
+                </a>
+                <a href="https://t.me/+BunooUTLng82OWQ0" class="mx-2" target="_blank">
+                    <img  src="/image/icons/telegram.png" alt="تلگرام آنالیزور" >
+                </a>
+                <a href="https://www.youtube.com/@analyzoor-23" target="_blank" class="mx-2">
+                    <img  src="/image/icons/youtube.png" alt="یوتیوب آنالیزور">
+                </a>
             </div>
+{{--            <div class="col-md-4 col-12">--}}
+{{--                <hr/>--}}
+{{--                <p class="text-center">--}}
+{{--                    {{setting_with_key('body_footer')->value}}--}}
+{{--                </p>--}}
+{{--            </div>--}}
         </div>
     </div>
     <hr>

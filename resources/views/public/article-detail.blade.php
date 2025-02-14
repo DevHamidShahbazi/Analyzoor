@@ -1,7 +1,7 @@
 @extends('layouts.layout public.index')
-@section('title'){{setting_with_key('article_title')->value}} @parent @endsection
-@section('description'){{setting_with_key('article_description')->value}}@endsection
-@section('keywords'){{setting_with_key('article_keywords')->value}}@endsection
+@section('title'){{$article->title}} @parent @endsection
+@section('description'){{$article->description}}@endsection
+@section('keywords'){{$article->keywords}}@endsection
 @section('content')
 
     <div class="col-12 text-center p-1">

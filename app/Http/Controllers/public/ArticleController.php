@@ -12,13 +12,19 @@ class ArticleController extends Controller
 {
     use CommentTrait;
 
-    public function index(Article $article)
+    public function index()
+    {
+        $articles = Article::where('is_active','1')->paginate(20);
+        return view('public.article',compact('articles'));
+    }
+
+    public function detail(Article $article)
     {
         $all_categories = $article->getAllCategories();
         $articles = $article->category->articles()->where('is_active','1')->where('id','!=',$article->id)->take(10)->get();
         $urls = $article->urls()->where('for_download','1')->get();
         $files = $article->files()->where('for_download','1')->get();
-        return view('public.article',compact('article','all_categories','articles','urls','files'));
+        return view('public.article-detail',compact('article','all_categories','articles','urls','files'));
     }
 
     public function store_comment(Request $request)

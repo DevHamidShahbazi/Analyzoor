@@ -34,6 +34,7 @@ class SettingSeeder extends Seeder
             ],
         ];
 
+
         $logo = [
             [
                 'key'     => 'logo',
@@ -75,6 +76,27 @@ class SettingSeeder extends Seeder
             ],
         ];
 
+        $seo_article_page = [
+            [
+                'key'     => 'article_description',
+                'label'   => 'description صفحه مقالات',
+                'value'   =>  'test test test',
+                'section' => 'public'
+            ],
+            [
+                'key'     => 'article_keywords',
+                'label'   => 'keywords صفحه مقالات',
+                'value'   =>  'test test test',
+                'section' => 'public'
+            ],
+            [
+                'key'     => 'article_title',
+                'label'   => 'title صفحه مقالات',
+                'value'   =>  'test test test',
+                'section' => 'public'
+            ],
+        ];
+
         $articles_home = [
             [
                 'key'     => 'articles_home',
@@ -87,6 +109,7 @@ class SettingSeeder extends Seeder
         $this->storeItems(
             $articles_home,
             $seo_home_page,
+            $seo_article_page,
             $logo,
             $banner,
             $phone,

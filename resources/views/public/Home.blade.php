@@ -116,8 +116,28 @@
         </div>
     </div>--}}
 
+    <img class="col-12 mt-1" src="/public/img/t_footer.jpg" alt="آموزش برنامه نویسی برای بازارکار">
 
-    <section class="col-12 img-fix-home my-3 p-5">
+
+
+
+    @include('components.public-grid-background.index')
+
+    <div class="d-flex justify-content-center">
+        <div class="col-10 m-0 p-3">
+            <div class="row justify-content-evenly m-0">
+
+                @foreach($articles as $key => $article)
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                        @include('components.public-item-article.index',['article'=>$article,'side'=>true])
+                    </div>
+                @endforeach
+
+            </div>
+        </div>
+    </div>
+
+    <section class="col-12 img-fix-home mt-3 p-5">
         <div class="container">
             <div class="row justify-content-center align-items-center">
 
@@ -146,25 +166,6 @@
     </section>
 
 
-
-    @include('components.public-grid-background.index')
-
-    <div class="d-flex justify-content-center">
-        <div class="col-10 m-0 p-3">
-            <div class="row justify-content-evenly m-0">
-
-                @foreach($articles as $key => $article)
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        @include('components.public-item-article.index',['article'=>$article,'side'=>true])
-                    </div>
-                @endforeach
-
-            </div>
-        </div>
-    </div>
-
-
-    <img class="col-12 mt-1" src="/public/img/t_footer.jpg" alt="آموزش برنامه نویسی برای بازارکار">
 
     {{--    <div class="col-12">--}}
     {{--        <div class="bg-section-1-home">--}}

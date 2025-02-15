@@ -1,5 +1,7 @@
 @extends('layouts.layout public.index')
-
+@section('title') ثبت نام @parent @endsection
+@section('description'){{setting_with_key('description')->value}}@endsection
+@section('keywords'){{setting_with_key('keywords')->value}}@endsection
 @section('style')
     <style>
 

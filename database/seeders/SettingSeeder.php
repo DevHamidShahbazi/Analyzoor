@@ -17,19 +17,19 @@ class SettingSeeder extends Seeder
             [
                 'key'     => 'description',
                 'label'   => 'description',
-                'value'   =>  'test test test',
+                'value'   => 'آموزش برنامه نویسی و طراحی اختصاصی سایت از صفر تا بازار کار بدون پیش نیاز',
                 'section' => 'public'
             ],
             [
                 'key'     => 'keywords',
                 'label'   => 'keywords',
-                'value'   =>  'test test test',
+                'value'   =>  'برنامه نویسی,آموزش برنامه نویسی,آموزش طراحی سایت',
                 'section' => 'public'
             ],
             [
                 'key'     => 'title',
                 'label'   => 'title',
-                'value'   =>  'test test test',
+                'value'   =>  'آموزش برنامه نویسی سایت از صفر تا بازار کار',
                 'section' => 'public'
             ],
         ];

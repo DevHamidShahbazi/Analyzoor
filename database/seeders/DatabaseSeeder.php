@@ -23,9 +23,9 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
             UserSeeder::class,
         ]);
-        Category::factory()->count(10)->create();
-        Article::factory()->count(10)->create();
-        Comment::factory()->count(150)->create();
-        Message::factory()->count(3)->create();
+//        Category::factory()->count(10)->create();
+//        Article::factory()->count(10)->create();
+//        Comment::factory()->count(150)->create();
+//        Message::factory()->count(3)->create();
     }
 }

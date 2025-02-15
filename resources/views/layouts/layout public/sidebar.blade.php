@@ -28,6 +28,12 @@
                     @endcan
                 @endauth
 
+                    <li class="sidebar-item ">
+                        <a target="_blank" href="{{route('Home')}}" class='sidebar-link justify-content-center'>
+                            <span class="text-white">صفحه اصلی</span>
+                        </a>
+                    </li>
+
                 @foreach($menus as $key => $menu)
                     <li class="sidebar-item ">
                         <a target="_blank" href="{{$menu->url}}" class='sidebar-link justify-content-center'>

@@ -20,11 +20,10 @@ class ArticleController extends Controller
 
     public function detail(Article $article)
     {
-        $all_categories = $article->getAllCategories();
         $articles = $article->category->articles()->where('is_active','1')->where('id','!=',$article->id)->take(10)->get();
         $urls = $article->urls()->where('for_download','1')->get();
         $files = $article->files()->where('for_download','1')->get();
-        return view('public.article-detail',compact('article','all_categories','articles','urls','files'));
+        return view('public.article-detail',compact('article','articles','urls','files'));
     }
 
     public function store_comment(Request $request)

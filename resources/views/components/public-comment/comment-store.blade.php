@@ -37,9 +37,9 @@
             <p class="text-center my-3">
                 برای ثبت نظر خود نیاز هست که ثبت نام کنید
             </p>
-            <button class="btn btn-primary">
+            <a href="{{route('register')}}" class="btn btn-primary">
                 ورود / ثبت نام
-            </button>
+            </a>
         </div>
     @endif
 </div>

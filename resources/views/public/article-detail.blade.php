@@ -4,16 +4,10 @@
 @section('keywords'){{$article->keywords}}@endsection
 @section('content')
 
-    <div class="col-12 text-center p-1">
+    <div class="col-12 text-center p-1 mt-3">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb" dir="rtl">
                 <li class="breadcrumb-item"><a href="{{route('Home')}}">صفحه اصلی</a></li>
-                @foreach($all_categories as $category)
-                    <li class="breadcrumb-item"><a
-                            href="{{route($category->parent ? 'child.article.category' : 'parent.article.category',$category->slug)}}"
-                        >
-                            {{$category->name}}</a></li>
-                @endforeach
                 <li class="breadcrumb-item active" aria-current="page">{{$article->name}}</li>
             </ol>
         </nav>
@@ -26,18 +20,12 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="d-flex justify-content-center">
-                            <img style="border-radius: 15px" class="col-md-6 col-12" src="{{$article->image}}" alt="{{$article->alt}}">
+                            <img style="border-radius: 15px" class="col-md-4 col-sm-6 col-12" src="{{$article->image}}" alt="{{$article->alt}}">
                         </div>
                         <div class="col-12 text-center py-3">
                             <h1 dir="rtl">
-                                {{$article->h1 ?? $article->name}}
+                                {{$article->name}}
                             </h1>
-                            <br>
-                            @if($article->h2)
-                                <h2>
-                                    {{$article->h2}}
-                                </h2>
-                            @endif
                         </div>
                     </div>
                     <div class="card-body" dir="rtl">
@@ -60,14 +48,14 @@
                                 @if($urls->isNotEmpty())
                                     @foreach($urls as $url)
                                         <div class="col-12 my-1" style="text-align: right">
-                                            <a class="btn btn-outline-light p-1" download href="{{$url->url}}">{{$url->name}} <i class="fa fa-download"></i>  </a>
+                                            <a class="btn btn-outline-primary p-1" download href="{{$url->url}}">{{$url->name}} <i class="fa fa-download"></i>  </a>
                                         </div>
                                     @endforeach
                                 @endif
                                 @if($files->isNotEmpty())
                                         @foreach($files as $file)
                                             <div class="col-12 my-1" style="text-align: right">
-                                                <a class="btn btn-outline-light p-1" download href="{{$file->file}}">{{$file->alt}} <i class="fa fa-download"></i>  </a>
+                                                <a class="btn btn-outline-primary p-1" download href="{{$file->file}}">{{$file->alt}} <i class="fa fa-download"></i>  </a>
                                             </div>
                                         @endforeach
                                 @endif
@@ -85,13 +73,13 @@
                 <div class="row flex-row-reverse m-0">
                     @foreach($articles->take(5) as $key => $article_child)
                         <div class="col-md-12">
-                            @include('components.public-item-article.index',['article'=>$article_child,'side'=>true])
+                            @include('components.public-item-side-article.index',['article'=>$article_child])
                         </div>
                     @endforeach
 
                     @foreach($articles->skip(5)->take(5) as $key => $article_child)
                         <div class="col-md-12">
-                            @include('components.public-item-article.index',['article'=>$article_child,'side'=>true])
+                            @include('components.public-item-side-article.index',['article'=>$article_child])
                         </div>
                     @endforeach
 

@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 // article categories
-Route::get('article-category/{articleCategory}', [ArticleCategoryController::class, 'index'])->name('article.category');
+//Route::get('article-category/{articleCategory}', [ArticleCategoryController::class, 'index'])->name('article.category');

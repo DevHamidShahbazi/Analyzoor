@@ -21,7 +21,7 @@
 
 
 
-    <div class="col-12 ">
+    <div class="col-12 vh-100">
         <div class="d-flex justify-content-center">
             <div class="col-12 m-0 p-3">
                 <div class="row justify-content-evenly m-0">

@@ -93,7 +93,7 @@
                     <div class="form-group">
                         <label  class="col-sm-12 control-label">{{setting_with_key('article_title')->label}}</label>
                         <div class="col-sm-6">
-                            <input type="text" value="{{setting_with_key('article_title')->value}}" name="title" class="form-control"
+                            <input type="text" value="{{setting_with_key('article_title')->value}}" name="article_title" class="form-control"
                                    placeholder="title">
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                                     <span class="badge bg-primary count" id="count">0</span>
                                     {{setting_with_key('article_description')->label}}
                                 </label>
-                                <textarea id="description" name="description" class="form-control description" rows="3" placeholder="description">{{setting_with_key('article_description')->value}}</textarea>
+                                <textarea id="description" name="article_description" class="form-control description" rows="3" placeholder="description">{{setting_with_key('article_description')->value}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                     <div class="form-group">
                         <label class="col-sm-12 control-label">{{setting_with_key('article_keywords')->label}}</label>
                         <div class="col-sm-6">
-                            <input type="text" value="{{setting_with_key('article_keywords')->value}}" name="keywords" class="form-control"
+                            <input type="text" value="{{setting_with_key('article_keywords')->value}}" name="article_keywords" class="form-control"
                                    placeholder="keywords">
                         </div>
                     </div>

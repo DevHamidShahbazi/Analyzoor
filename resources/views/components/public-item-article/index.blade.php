@@ -6,7 +6,7 @@
         <div style="height: 7vh" class="col-12 card-body {{isset($side) ? 'p-2' : ''}}">
             <div class="d-flex flex-column justify-content-evenly height-100">
                 <a href="{{route('article.detail',$article->slug)}}">
-                    <h5 title="{{$article->name}}" style="font-size: 120%" class=" text-center">{{Illuminate\Support\Str::words($article->name, 6, '...')}}</h5>
+                    <h5 title="{{$article->name}}" style="font-size: 120%" class=" text-center">{{Illuminate\Support\Str::words($article->name, 8, '...')}}</h5>
                 </a>
 {{--                <p class="text-center text-body overflow-hidden text-truncate">{{$article->description}}</p>--}}
             </div>

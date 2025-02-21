@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
-axios.defaults.baseURL = 'https://analyzoor.ir/';
+axios.defaults.baseURL = 'https://analyzoor.com/';
 // axios.defaults.baseURL = 'http://localhost:8000/';
 import VisitAll from "./VisitAll/VisitAll";
 export function Chart () {

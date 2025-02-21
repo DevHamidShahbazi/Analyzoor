@@ -2,7 +2,7 @@
 <html lang="fa" >
     <head>
         <meta charset="UTF-8">
-        @php $js='ver=0.0.2';$css='0.0.3'; @endphp
+        @php $js='ver=0.0.2';$css='0.0.5'; @endphp
 
         <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon/16.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon/32.png">

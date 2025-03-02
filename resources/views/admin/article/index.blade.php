@@ -94,7 +94,11 @@
                                 @foreach($articles as $key=> $val)
                                     <tr class="item{{$val->id}}">
                                         <td style="padding:1.5rem 0" class="Dlt text-center font-weight-bold">{{ $loop->count-$key }}</td>
-                                        <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{$val->name}} @include('components.admin-is-active.index')</td>
+                                        <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >
+                                            <a target="_blank" href="{{route('article.detail',$val->slug)}}">
+                                                {{$val->name}}
+                                            </a>
+                                            @include('components.admin-is-active.index')</td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{$val->category->name}}</td>
 
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >

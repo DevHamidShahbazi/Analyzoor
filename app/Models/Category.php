@@ -41,7 +41,10 @@ class Category extends Model
     {
         return $this->hasMany(Article::class);
     }
-
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
 
     public function allDescendants()
     {

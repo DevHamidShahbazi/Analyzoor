@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Notifications\ResetPassword;
+use Hekmatinasser\Verta\Facades\Verta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -50,4 +51,21 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class, 'course_user');
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+    public function getCreatedDateAttribute()
+    {
+        return Verta::instance($this->attributes['created_at'])->format('Y-n-j');
+    }
+    public function getCreatedHourAttribute()
+    {
+        return Verta::instance($this->attributes['created_at'])->format('H:i');
+    }
 }

@@ -20,4 +20,9 @@ return [
         'ابزار' => 'tool',
         'مقاله' => 'article',
     ],
+    'courseStatus'=> [
+        'به زودی' => 'coming soon',
+        'درحال برگزاری' => 'tool',
+        'تکمیل' => 'complete',
+    ],
 ];

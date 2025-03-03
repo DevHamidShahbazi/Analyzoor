@@ -6,10 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('courses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('slug')->unique();
             $table->unsignedBigInteger('category_id');
@@ -18,12 +20,10 @@ return new class extends Migration
                 ->on('categories')
                 ->onDelete('cascade');
             $table->text('name');
-            $table->string('price');
-            $table->string('time');
+            $table->enum('status',config('fanoram.courseStatus'))->nullable();
             $table->text('title')->nullable();
             $table->text('description')->nullable();
             $table->text('keywords')->nullable();
-            $table->enum('is_active',['0','1'])->nullable();
             $table->text('body');
             $table->text('alt')->nullable();
             $table->text('image')->nullable();
@@ -31,8 +31,11 @@ return new class extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('courses');
     }
 };

@@ -56,7 +56,7 @@
                                         <div class="form-group">
                                             <label class="m-0">وضعیت موبایل</label>
                                             <select name="verify" class="form-control">
-                                                @foreach(config('fanoram.userVerify') as $key => $verify)
+                                                @foreach(config('static_array.userVerify') as $key => $verify)
                                                     <option
                                                         {{ auth()->user()->checkVerifyUser($val)  ? 'selected' : '' }}
                                                         value="{{$key}}">
@@ -84,7 +84,7 @@
                                             <label class="m-0">نوع</label>
                                             <select name="level" class="form-control">
 
-                                                @foreach(config('fanoram.userLevel') as $persian_name => $real_name)
+                                                @foreach(config('static_array.userLevel') as $persian_name => $real_name)
                                                     <option {{ $val->level == $real_name ? 'selected' : '' }}
                                                             value="{{$real_name}}">{{$persian_name}}</option>
                                                 @endforeach

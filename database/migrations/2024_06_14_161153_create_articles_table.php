@@ -18,8 +18,6 @@ return new class extends Migration
                 ->on('categories')
                 ->onDelete('cascade');
             $table->text('name');
-            $table->string('price');
-            $table->string('time');
             $table->text('title')->nullable();
             $table->text('description')->nullable();
             $table->text('keywords')->nullable();

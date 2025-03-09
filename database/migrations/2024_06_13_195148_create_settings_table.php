@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('key');
             $table->json('value');
             $table->string('label');
-            $table->enum('section', config('fanoram.setting'))->default('admin');
+            $table->enum('section', config('static_array.setting'))->default('admin');
             $table->timestamps();
         });
     }

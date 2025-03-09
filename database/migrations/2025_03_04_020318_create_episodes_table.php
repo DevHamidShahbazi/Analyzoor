@@ -13,11 +13,21 @@ return new class extends Migration
     {
         Schema::create('episodes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('slug')->unique();
             $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')
                 ->references('id')
                 ->on('courses')
                 ->onDelete('cascade');
+            $table->text('name');
+            $table->enum('type',config('static_array.courseType'))->nullable();
+            $table->string('time')->nullable();
+            $table->text('video')->nullable();
+            $table->text('file')->nullable();
+            $table->text('title')->nullable();
+            $table->text('description')->nullable();
+            $table->text('keywords')->nullable();
+            $table->text('body')->nullable();
             $table->timestamps();
         });
     }

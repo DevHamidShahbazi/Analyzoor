@@ -14,7 +14,7 @@ class Course extends Model
 
     protected $fillable = [
         'slug', 'category_id', 'name', 'status', 'title',
-        'description', 'keywords', 'body', 'alt', 'image',
+        'description', 'keywords', 'body', 'alt', 'image','type','price'
     ];
 
     public function sluggable():array

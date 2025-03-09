@@ -37,7 +37,7 @@
                     </div>
                     @include('admin.category.create')
                 </div>
-            @include('components.admin-select-box-filter-with-static-value.index',['name_checkbox'=>'type','value_selectBox'=>config('fanoram.categoryType'),'label'=>'نوع دسته بندی'])
+            @include('components.admin-select-box-filter-with-static-value.index',['name_checkbox'=>'type','value_selectBox'=>config('static_array.categoryType'),'label'=>'نوع دسته بندی'])
                 <!-- /.card-header -->
                 تعداد مقالات {{ $categories->count() }}
                 <div class="card-body table-responsive p-0">
@@ -57,7 +57,7 @@
                                 <tr class="item{{$val->id}}">
                                     <td style="padding:1.5rem 0" class="Dlt text-center font-weight-bold">{{ $val->id }}</td>
                                     <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{$val->name}}</td>
-                                    <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{array_search($val->type,config('fanoram.categoryType'))}}</td>
+                                    <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{array_search($val->type,config('static_array.categoryType'))}}</td>
                                     <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >
                                         @if($val->parent_id == '0')
 

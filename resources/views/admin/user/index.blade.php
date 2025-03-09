@@ -40,7 +40,7 @@
                             </div>
                             @include('admin.user.create')
                         </div>
-                        @include('components.admin-select-box-filter-with-static-value.index',['name_checkbox'=>'status','value_selectBox'=>config('fanoram.userLevel'),'label'=>'نوع کاربر'])
+                        @include('components.admin-select-box-filter-with-static-value.index',['name_checkbox'=>'status','value_selectBox'=>config('static_array.userLevel'),'label'=>'نوع کاربر'])
                     </div>
                 </div>
                 <!-- /.card-header -->
@@ -86,7 +86,7 @@
                                         </span>
                                     </td>
                                     <td  class="text-center font-weight-bold" >
-                                        {{array_search($val->level,config('fanoram.userLevel'))}}
+                                        {{array_search($val->level,config('static_array.userLevel'))}}
                                     </td>
 
                                     <td class="text-center font-weight-bold iranyekan" >

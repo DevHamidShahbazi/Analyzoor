@@ -15,8 +15,6 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-//        User::factory(10)->create();
-
         //create user Developer
         User::factory()->count(1)->create([
             'name'=>'حمید شهبازی',

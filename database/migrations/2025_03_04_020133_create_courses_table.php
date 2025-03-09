@@ -14,13 +14,16 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('slug')->unique();
+            $table->text('name');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')
                 ->onDelete('cascade');
-            $table->text('name');
-            $table->enum('status',config('fanoram.courseStatus'))->nullable();
+            $table->enum('status',config('static_array.courseStatus'))->nullable();
+            $table->enum('type',config('static_array.courseType'))->nullable();
+            $table->string('price')->nullable();
+            $table->string('time')->nullable();
             $table->text('title')->nullable();
             $table->text('description')->nullable();
             $table->text('keywords')->nullable();

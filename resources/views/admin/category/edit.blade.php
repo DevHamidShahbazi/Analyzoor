@@ -55,7 +55,7 @@
                                 <div class="md-form mb-2">
                                     <label class="m-0" >نوع دسته بندی</label>
                                     <select class="form-control" name="type" >
-                                        @foreach (config('fanoram.categoryType') as $name => $value)
+                                        @foreach (config('static_array.categoryType') as $name => $value)
                                             <option {{ $val->type == $value ? 'selected' :' ' }}
                                                     value="{{ $value }}">{{ $name }}
                                             </option>

@@ -21,8 +21,12 @@ return [
         'مقاله' => 'article',
     ],
     'courseStatus'=> [
-        'به زودی' => 'coming soon',
-        'درحال برگزاری' => 'tool',
+        'به زودی' => 'comingSoon',
+        'درحال برگزاری' => 'Currently',
         'تکمیل' => 'complete',
+    ],
+    'courseType'=> [
+        'نقدی' => 'premium',
+        'رایگان' => 'free',
     ],
 ];

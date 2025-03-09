@@ -6,7 +6,10 @@ namespace Database\Seeders;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Course;
+use App\Models\Episode;
 use App\Models\Message;
+use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Crypt;
@@ -23,9 +26,13 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
             UserSeeder::class,
         ]);
-//        Category::factory()->count(10)->create();
-//        Article::factory()->count(10)->create();
-//        Comment::factory()->count(150)->create();
-//        Message::factory()->count(3)->create();
+        User::factory(50)->create();
+        Message::factory()->count(3)->create();
+        Category::factory()->count(10)->create();
+        Article::factory()->count(10)->create();
+        Course::factory()->count(5)->create();
+        Episode::factory()->count(5)->create();
+        Comment::factory()->count(150)->create();
+        Payment::factory()->count(5)->create();
     }
 }

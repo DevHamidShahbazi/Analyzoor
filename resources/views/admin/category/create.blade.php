@@ -40,7 +40,7 @@
                                 <div class="md-form mb-2">
                                     <label class="m-0" >نوع دسته بندی</label>
                                     <select class="form-control" name="type">
-                                        @foreach (config('fanoram.categoryType') as $name => $category)
+                                        @foreach (config('static_array.categoryType') as $name => $category)
                                             <option value="{{ $category }}">{{ $name }}</option>
                                         @endforeach
                                     </select>
@@ -50,7 +50,7 @@
                                     <label class="m-0" >زیر مجموعه</label>
                                     <select class="form-control" name="parent_id" id="parent_id">
                                         <option style="text-align: center;" value="0">دسته بندی اصلی</option>
-                                        @foreach (config('fanoram.categoryType') as $name => $category)
+                                        @foreach (config('static_array.categoryType') as $name => $category)
                                             <optgroup label="{{ $name.' ها ' }}">
                                                 @foreach ($categories_select_box->where('type',$category) as $k => $value)
                                                     @if($value->parent_id == '0')

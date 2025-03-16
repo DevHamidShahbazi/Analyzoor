@@ -1,7 +1,5 @@
 <div class="col-12 my-2">
     <div  class="row justify-content-center align-items-center">
-
-
         <div class="col-5">
 
            <div class="d-flex justify-content-center align-items-center">
@@ -19,8 +17,6 @@
            </div>
 
         </div>
-
-
         <div class="col-7">
             <div class="p-0 d-flex justify-content-center align-items-center">
                 <div class="col-12">

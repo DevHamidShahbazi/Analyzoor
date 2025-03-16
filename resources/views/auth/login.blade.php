@@ -14,6 +14,7 @@
 
 @section('content')
 
+
     <div class="col-12 ">
         <div class="d-flex justify-content-center align-items-center vh-100">
             <div class="col-lg-3">

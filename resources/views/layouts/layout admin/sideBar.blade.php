@@ -47,6 +47,15 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="{{ route('admin.course.index') }}" class="nav-link @section('course') @show">
+                            <i class="fa fa-book-open"></i>
+                            <p>
+                                دوره ها
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href="{{ route('admin.category.index') }}" class="nav-link @section('category') @show">
                             <i class="nav-icon fa fa-list-ol"></i>
                             <p>

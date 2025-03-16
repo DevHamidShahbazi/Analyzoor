@@ -20,7 +20,7 @@ return new class extends Migration
                 ->on('courses')
                 ->onDelete('cascade');
             $table->text('name');
-            $table->enum('type',config('static_array.courseType'))->nullable();
+            $table->enum('type',config('static_array.episodeType'))->nullable();
             $table->string('time')->nullable();
             $table->text('video')->nullable();
             $table->text('file')->nullable();

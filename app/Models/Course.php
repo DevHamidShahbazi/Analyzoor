@@ -14,7 +14,7 @@ class Course extends Model
 
     protected $fillable = [
         'slug', 'category_id', 'name', 'status', 'title',
-        'description', 'keywords', 'body', 'alt', 'image','type','price'
+        'description', 'keywords', 'body', 'alt', 'image','type','price','discount'
     ];
 
     public function sluggable():array
@@ -36,11 +36,20 @@ class Course extends Model
         return $this->morphMany(Comment::class,'commentable');
     }
 
+    public function episodes()
+    {
+        return $this->belongsTo(Episode::class);
+    }
+
     public function users()
     {
         return $this->belongsToMany(User::class, 'course_user');
     }
 
+    public function payments()
+    {
+        return $this->belongsTo(Payment::class);
+    }
 
     public function getCreatedDateAttribute()
     {

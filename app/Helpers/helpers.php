@@ -3,6 +3,7 @@
 use App\Models\Comment;
 use App\Models\Setting;
 use App\Models\User;
+use Carbon\CarbonInterval;
 
 if (!function_exists('to_english_numbers')) {
 
@@ -14,6 +15,25 @@ if (!function_exists('to_english_numbers')) {
         return str_replace($allPersianDigits, $replaces , $string);
     }
 }
+
+if (!function_exists('time_course')) {
+    function time_course($times)
+    {
+        $totalSeconds = 0;
+
+        foreach ($times as $time) {
+            list($hours, $minutes, $seconds) = explode(':', $time);
+            $totalSeconds += ($hours * 3600) + ($minutes * 60) + $seconds;
+        }
+
+        $totalTime = CarbonInterval::seconds($totalSeconds)->cascade();
+
+        $formattedTime = sprintf('%02d:%02d:%02d', $totalTime->hours, $totalTime->minutes, $totalTime->seconds);
+
+        echo $formattedTime;
+    }
+}
+
 
 if (!function_exists('notify_user_new')) {
     function notify_user_new()

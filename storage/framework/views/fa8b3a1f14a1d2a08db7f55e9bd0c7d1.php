@@ -47,6 +47,15 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="<?php echo e(route('admin.course.index')); ?>" class="nav-link <?php $__env->startSection('course'); ?> <?php echo $__env->yieldSection(); ?>">
+                            <i class="fa fa-book-open"></i>
+                            <p>
+                                دوره ها
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a href="<?php echo e(route('admin.category.index')); ?>" class="nav-link <?php $__env->startSection('category'); ?> <?php echo $__env->yieldSection(); ?>">
                             <i class="nav-icon fa fa-list-ol"></i>
                             <p>

@@ -22,9 +22,13 @@ return [
     ],
     'courseStatus'=> [
         'به زودی' => 'comingSoon',
-        'درحال برگزاری' => 'Currently',
+        'درحال برگزاری' => 'currently',
         'تکمیل' => 'complete',
     ],
+    'episodeType'=> [
+        'نقدی' => 'premium',
+        'رایگان' => 'free',
+        ],
     'courseType'=> [
         'نقدی' => 'premium',
         'رایگان' => 'free',

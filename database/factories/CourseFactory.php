@@ -23,6 +23,7 @@ class CourseFactory extends Factory
             'type' => $this->faker->randomElement(config('static_array.courseType')),
             'title' => $this->faker->title,
             'price' => $this->faker->numberBetween(),
+            'discount' => $this->faker->numberBetween(),
             'description' => $this->faker->paragraph,
             'keywords' => implode(', ', $this->faker->words(5)),
             'body' => $this->faker->text(500),

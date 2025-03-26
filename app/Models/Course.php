@@ -38,7 +38,7 @@ class Course extends Model
 
     public function episodes()
     {
-        return $this->belongsTo(Episode::class);
+        return $this->hasMany(Episode::class);
     }
 
     public function users()

@@ -3,62 +3,48 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\Episode;
 use Illuminate\Http\Request;
 
 class EpisodeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-        //
+        $course_id = $request['course_id'];
+        $course = Course::find($course_id);
+        $episodes = $course->episodes()->get();
+        return view('admin.course.episode.index',compact('episodes','course_id','course'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $course_id = $request['course_id'];
+        $course = Course::find($course_id);
+        return view('admin.course.episode.create',compact('course_id','course'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Episode $episode)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Episode $episode)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Episode $episode)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Episode $episode)
     {
         //

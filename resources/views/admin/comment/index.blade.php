@@ -1,3 +1,4 @@
+
 @extends('layouts.layout admin.index')
 
 @section('Header','نظر ها')

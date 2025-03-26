@@ -26,6 +26,11 @@ class Episode extends Model
         ];
     }
 
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
     public function comments()
     {
         return $this->morphMany(Comment::class,'commentable');

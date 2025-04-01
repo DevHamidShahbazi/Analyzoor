@@ -4,9 +4,12 @@
 @section('course','active')
 @section('address')
     <li class="breadcrumb-item">
-        <a href="{{ route('admin.course.index') }}">لیست دوره ها</a>
+        <a href="{{ route('admin.course.index') }}">کل دوره ها</a>
     </li>
-    <li class="breadcrumb-item"> ویرایش دوره {{ $course->name }}</li>
+    <li class="breadcrumb-item">
+        <a href="{{ route('admin.episode.index',['course_id'=>$course_id]) }}"> قسمت های {{$course->name}} </a>
+    </li>
+    <li class="breadcrumb-item"> ویرایش قسمت {{ $episode->name }}</li>
 @endsection
 
 @section('content')
@@ -16,7 +19,7 @@
         <!-- Horizontal Form -->
         <div class="card card-info">
             <div class="card-header text-center" style="background-color: #343a40">
-                <h3 class="card-title">ویرایش دوره {{ $course->name }}</h3>
+                <h3 class="card-title">ویرایش قسمت {{ $episode->name }}</h3>
             </div>
 
         @include('alert.toastr.error')
@@ -49,7 +52,7 @@
         @endif
 
         <!-- form start -->
-            <form method="POST" action="{{ route('admin.course.update',$course->id) }}"  enctype="multipart/form-data" >
+            <form method="POST" action="{{ route('admin.episode.update',['episode'=>$episode->id,'course_id'=>$course_id]) }}"  enctype="multipart/form-data" >
                 @csrf
                 {{ method_field('PATCH') }}
                 <div class="modal-body mb-1 te">
@@ -57,7 +60,7 @@
                     <div class="md-form mb-2">
                         <div class="col-lg-5">
                             <label class="m-0">نام</label>
-                            <input required value="{{$course->name}}" type="text"
+                            <input required value="{{$episode->name}}" type="text"
                                    class="form-control" name="name" >
                         </div>
                     </div>

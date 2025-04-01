@@ -1,11 +1,11 @@
-<?php $__env->startSection('Header','افزودن دوره آموزشی'); ?>
+<?php $__env->startSection('Header','افزودن قسمت به دوره آموزشی '.$course->name); ?>
 <?php $__env->startSection('course','active'); ?>
 <?php $__env->startSection('address'); ?>
     <li class="breadcrumb-item">
         <a href="<?php echo e(route('admin.course.index')); ?>">کل دوره ها</a>
     </li>
     <li class="breadcrumb-item">
-        <a href="<?php echo e(route('admin.episode.index',['course_id'=>$course_id])); ?>"> دوره های <?php echo e($course->name); ?> </a>
+        <a href="<?php echo e(route('admin.episode.index',['course_id'=>$course_id])); ?>"> قسمت های <?php echo e($course->name); ?> </a>
     </li>
     <li class="breadcrumb-item">افزودن دوره</li>
 <?php $__env->stopSection(); ?>

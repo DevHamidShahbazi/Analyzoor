@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::resource('episode', EpisodeController::class);
+Route::get('/video/show/{episode_id}', [EpisodeController::class, 'video_show'])->name('video.show');

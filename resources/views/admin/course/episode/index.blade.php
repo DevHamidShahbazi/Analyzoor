@@ -50,8 +50,20 @@
                                             </a>
                                             <span class="badge bg-{{$val->type == 'free' ? 'success-gradient':'primary-gradient'}}">{{array_search($val->type,config('static_array.episodeType'))}}</span>
                                            </td>
-                                        <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >@if($val->video) <span  class="badge bg-success" >دارد</span> @else <span class="badge bg-danger" >ندارد</span> @endif</td>
-                                        <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >@if($val->file) <span  class="badge bg-success" >دارد</span> @else <span class="badge bg-danger" >ندارد</span> @endif</td>
+                                        <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >
+                                            @if($val->video)
+                                                <img src="{{route('admin.video.show',['episode_id'=>$val->id])}}" alt="test" width="150">
+                                            @else
+                                                <span class="badge bg-danger" >ندارد</span>
+                                            @endif
+                                        </td>
+                                        <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >
+                                            @if($val->file)
+                                                <a href="{{ Storage::url($val->file) }}" class="text-primary">دانلود</a>
+                                            @else
+                                                <span class="badge bg-danger" >ندارد</span>
+                                            @endif
+                                        </td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{ $val->created_date }}</td>
                                         <td  style="padding:1.5rem 0" class="text-center  text-light ">
 

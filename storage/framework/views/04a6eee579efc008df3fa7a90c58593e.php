@@ -49,8 +49,20 @@
                                             </a>
                                             <span class="badge bg-<?php echo e($val->type == 'free' ? 'success-gradient':'primary-gradient'); ?>"><?php echo e(array_search($val->type,config('static_array.episodeType'))); ?></span>
                                            </td>
-                                        <td style="padding:1.5rem 0"  class="text-center font-weight-bold " ><?php if($val->video): ?> <span  class="badge bg-success" >دارد</span> <?php else: ?> <span class="badge bg-danger" >ندارد</span> <?php endif; ?></td>
-                                        <td style="padding:1.5rem 0"  class="text-center font-weight-bold " ><?php if($val->file): ?> <span  class="badge bg-success" >دارد</span> <?php else: ?> <span class="badge bg-danger" >ندارد</span> <?php endif; ?></td>
+                                        <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >
+                                            <?php if($val->video): ?>
+                                                <img src="<?php echo e(route('admin.video.show',['episode_id'=>$val->id])); ?>" alt="test" width="150">
+                                            <?php else: ?>
+                                                <span class="badge bg-danger" >ندارد</span>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >
+                                            <?php if($val->file): ?>
+                                                <a href="<?php echo e(Storage::url($val->file)); ?>" class="text-primary">دانلود</a>
+                                            <?php else: ?>
+                                                <span class="badge bg-danger" >ندارد</span>
+                                            <?php endif; ?>
+                                        </td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold" ><?php echo e($val->created_date); ?></td>
                                         <td  style="padding:1.5rem 0" class="text-center  text-light ">
 

@@ -1,15 +1,15 @@
 @extends('layouts.layout admin.index')
 
-@section('Header','افزودن دوره آموزشی')
+@section('Header','افزودن قسمت به دوره آموزشی '.$course->name)
 @section('course','active')
 @section('address')
     <li class="breadcrumb-item">
         <a href="{{ route('admin.course.index') }}">کل دوره ها</a>
     </li>
     <li class="breadcrumb-item">
-        <a href="{{ route('admin.episode.index',['course_id'=>$course_id]) }}"> دوره های {{$course->name}} </a>
+        <a href="{{ route('admin.episode.index',['course_id'=>$course_id]) }}"> قسمت های {{$course->name}} </a>
     </li>
-    <li class="breadcrumb-item">افزودن دوره</li>
+    <li class="breadcrumb-item">افزودن قسمت</li>
 @endsection
 
 @section('content')
@@ -23,6 +23,7 @@
             </div>
         @include('alert.toastr.error')
         @include('alert.toastr.success')
+
         @include('alert.form.error')
             <br>
 

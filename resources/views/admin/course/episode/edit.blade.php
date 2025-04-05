@@ -37,19 +37,19 @@
             </div>
             <br>
 
-            @if($course->image==null)
-                <div class="col-12">
-                    <div class="alert alert-warning alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <h5><i class="icon fa fa-warning"></i> توجه!</h5>
-                        هنوز عکسی انتخاب نشده است
-                    </div>
-                </div>
-            @else
-                <div class="text-center">
-                    <img src="{{$course->image}}" class="rounded col-lg-3" alt="{{$course->alt}}">
-                </div>
-        @endif
+{{--            @if($course->image==null)--}}
+{{--                <div class="col-12">--}}
+{{--                    <div class="alert alert-warning alert-dismissible">--}}
+{{--                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>--}}
+{{--                        <h5><i class="icon fa fa-warning"></i> توجه!</h5>--}}
+{{--                        هنوز عکسی انتخاب نشده است--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            @else--}}
+{{--                <div class="text-center">--}}
+{{--                    <img src="{{$course->image}}" class="rounded col-lg-3" alt="{{$course->alt}}">--}}
+{{--                </div>--}}
+{{--        @endif--}}
 
         <!-- form start -->
             <form method="POST" action="{{ route('admin.episode.update',['episode'=>$episode->id,'course_id'=>$course_id]) }}"  enctype="multipart/form-data" >
@@ -65,76 +65,34 @@
                         </div>
                     </div>
 
+
                     <div class="md-form mb-2">
                         <div class="col-lg-5">
-                            <label class="m-0" >دسته بندی</label>
-                            <select class="form-control" name="category_id">
-                                @php $categories = \App\Models\Category::where('type','course')->get() @endphp
-                                @foreach ($categories as $value)
-                                    <option {{ $course->category->id == $value->id ? 'selected' : ' ' }} value="{{ $value->id }}">{{ $value->name }}</option>
+                            <label class="m-0" >نوع </label>
+                            <select  class="form-control" name="type">
+                                @foreach(config('static_array.episodeType') as $key => $value)
+                                    <option {{ $value == $episode ? 'selected' : '' }} value="{{$value}}">{{$key}}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
 
 
-
-                    <div class="md-form mb-2">
-                        <div class="col-lg-5">
-                            <label class="m-0" >وضعیت</label>
-                            <select class="form-control" name="status">
-                                @foreach(config('static_array.courseStatus') as $persian_name => $real_name)
-                                    <option {{ $course->status == $real_name ? 'selected' : '' }} value="{{$real_name}}">{{$persian_name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-
-
-                    <div class="md-form mb-2">
-                        <div class="col-lg-5">
-                            <label class="m-0" >نوع</label>
-                            <select class="form-control" name="type">
-                                @foreach(config('static_array.courseType') as $persian_name => $real_name)
-                                    <option {{ $course->type == $real_name ? 'selected' : '' }} value="{{$real_name}}">{{$persian_name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-
-
-                    <div class="md-form mb-2">
-                        <div class="col-lg-5">
-                            <label class="m-0 parent">قیمت</label>
-                            <span class="priceStatus1 parent"><span class="iranyekan mx-2 priceResult1"></span>تومان</span>
-                            <input value="{{ $course->price  }}" type="number"
-                                   class="form-control parent priceInput1" autocomplete="off" name="price" >
-                        </div>
-                    </div>
-
-                    <div class="md-form mb-2 row">
-                        <div class="col-lg-5">
-                            <label class="m-0 parent text-danger">قیمت با تخفیف</label>
-                            <span class="priceStatus2 parent"><span class="iranyekan mx-2 priceResult2"></span>تومان</span>
-                            <input value="{{ $course->discount  }}" type="number"
-                                   class="form-control parent priceInput2" autocomplete="off" name="discount" >
-                        </div>
-
-                    </div>
 
                     <div class="form-group">
                         <div class="col-lg-5">
                             <label  class="col-sm-12 control-label">زمان</label>
-                            <input type="text" value="{{$course->time}}" name="time" class="form-control"
-                                   placeholder="زمان کل دوره">
+                            <input required type="text" value="{{$episode->time ?? old('time')}}" name="time" class="form-control"
+                                   placeholder="زمان">
                         </div>
-
                     </div>
+
+
 
                     <div class="form-group">
                         <div class="col-lg-5">
                             <label  class="col-sm-12 control-label">title</label>
-                            <input type="text" value="{{$course->title}}" name="title" class="form-control"
+                            <input type="text" value="{{$episode->title}}" name="title" class="form-control"
                                    placeholder="title">
                         </div>
 
@@ -147,7 +105,7 @@
                                     <span class="badge bg-primary count" id="count">0</span>
                                     description
                                 </label>
-                                <textarea id="description" name="description" class="form-control description" rows="3" placeholder="description">{{$course->description}}</textarea>
+                                <textarea id="description" name="description" class="form-control description" rows="3" placeholder="description">{{$episode->description}}</textarea>
                             </div>
                         </div>
 
@@ -158,7 +116,7 @@
                     <div class="form-group">
                         <div class="col-lg-5">
                             <label class="col-sm-12 control-label">keywords</label>
-                            <input type="text" value="{{$course->keywords}}" name="keywords" class="form-control"
+                            <input type="text" value="{{$episode->keywords}}" name="keywords" class="form-control"
                                    placeholder="keywords">
                         </div>
 
@@ -167,37 +125,41 @@
 
                     <div class="form-group">
                         <div class="col-lg-5">
-                            <label  class="col-sm-2 control-label">alt</label>
-                            <input type="text" value="{{$course->alt}}" name="alt" class="form-control"
-                                   placeholder="alt">
+                            <label class="col-sm-2 control-label" for="exampleInputFile">ویدیو آموزش</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input  name="video" type="file" class="custom-file-input" id="exampleInputFile">
+                                    <label class="custom-file-label" for="exampleInputFile">انتخاب ویدیو</label>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
+
 
                     <div class="form-group">
                         <div class="col-lg-5">
-                            <label class="col-sm-2 control-label" for="exampleInputFile">تصویر</label>
+                            <label class="col-sm-2 control-label" for="exampleInputFile">فایل آموزش</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input name="image" type="file" class="custom-file-input" id="exampleInputFile">
+                                    <input  name="file" type="file" class="custom-file-input" id="exampleInputFile">
                                     <label class="custom-file-label" for="exampleInputFile">انتخاب فایل</label>
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
 
                     <div class="col-md-12 text-center my-4">
                         <h5>توضیحات</h5>
                         <div class="md-form mb-0">
-                            <textarea required name="body" class="ckeditor">{{$course->body}}</textarea>
+                            <textarea required name="body" class="ckeditor">{{$episode->body}}</textarea>
                         </div>
                     </div>
 
                     <div class="text-center mt-2">
                         <div class="col-lg-12">
                             <button type="submit" class="btn btn-primary btn-sm">اعمال ویرایش</button>
-                            <a href="{{ route('admin.course.index') }}"  class="btn btn-danger btn-sm">لغو</a>
+                            <a href="{{ route('admin.episode.index',['course_id'=>$course_id ]) }}"  class="btn btn-danger btn-sm">لغو</a>
                         </div>
 
                     </div>

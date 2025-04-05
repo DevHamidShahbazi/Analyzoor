@@ -2,8 +2,7 @@
 
 namespace App\Http\Traits\admin;
 
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 trait EpisodeTrait
 {
@@ -26,14 +25,13 @@ trait EpisodeTrait
         return $request->file($requestName)->store($directory);
     }
 
-    private function updateFile($request,$Path,$requestName,$directory)
+    private function updateFile($request,$oldItem,$requestName,$directory)
     {
         if ($request->hasFile($requestName)) {
-            $oldPath = storage_path('app/uploads/' . $Path);
-            if (file_exists($oldPath)) {
-                unlink($oldPath);
-            }
-            return $request->file($requestName)->store($directory);
+            File::delete(storage_path('app/uploads/'.$oldItem->$requestName));
+            $oldItem->update([
+               $requestName =>  $request->file($requestName)->store($directory)
+            ]);
         }
     }
 }

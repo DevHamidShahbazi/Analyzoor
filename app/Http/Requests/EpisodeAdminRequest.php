@@ -14,17 +14,17 @@ class EpisodeAdminRequest extends FormRequest
                 'name'=>['required ',' unique:episodes'],
                 'type' => 'in:free,premium',
                 'course_id' => 'required',
-//                'video' => 'required|file|mimes:mp4,mov,avi,wmv,flv,webm,ogg,3gp,3g2,mkv',
+                'video' => 'required|file|mimes:mp4,mov,avi,wmv,flv,webm,ogg,3gp,3g2,mkv',
                 'file' => 'nullable|file',
             ];
         }
 
         if(Str::contains($this->route()->getName(),'update')){
             return [
-                'name'=>['required ',' unique:episodes,name,'.$this->route('course')->id],
+                'name'=>['required ',' unique:episodes,name,'.$this->route('episode')->id],
                 'course_id' => 'required',
                 'type' => 'in:free,premium',
-//                'video' => 'file|mimes:mp4,mov,avi,wmv,flv,webm,ogg,3gp,3g2,mkv',
+                'video' => 'file|mimes:mp4,mov,avi,wmv,flv,webm,ogg,3gp,3g2,mkv',
                 'file' => 'nullable|file',
             ];
         }

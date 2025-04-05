@@ -51,14 +51,17 @@
                                            </td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >
                                             <?php if($val->video): ?>
-                                                <img src="<?php echo e(route('admin.video.show',['episode_id'=>$val->id])); ?>" alt="test" width="150">
+                                                <video width="320" height="240" controls>
+                                                    <source src="<?php echo e(route('admin.episode.video.show',['episode_id'=>$val->id])); ?>" type="video/mp4">
+                                                    مرورگر شما امکان پخش این ویدیو را ندارد لطفا از chrome استفاده کنید
+                                                </video>
                                             <?php else: ?>
                                                 <span class="badge bg-danger" >ندارد</span>
                                             <?php endif; ?>
                                         </td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >
                                             <?php if($val->file): ?>
-                                                <a href="<?php echo e(Storage::url($val->file)); ?>" class="text-primary">دانلود</a>
+                                                <a href="<?php echo e(route('admin.episode.file.show',['episode_id'=>$val->id])); ?>" class="text-primary">دانلود</a>
                                             <?php else: ?>
                                                 <span class="badge bg-danger" >ندارد</span>
                                             <?php endif; ?>
@@ -67,7 +70,7 @@
                                         <td  style="padding:1.5rem 0" class="text-center  text-light ">
 
 
-                                            <a data-toggle="tooltip" data-placement="top" title="ویرایش" href="<?php echo e(route('admin.episode.edit',$val->id)); ?>"  style="width: max-content;" class="btn-sm btn-info col-lg-12">
+                                            <a data-toggle="tooltip" data-placement="top" title="ویرایش" href="<?php echo e(route('admin.episode.edit',['episode'=>$val->id,'course_id'=>$course_id])); ?>"  style="width: max-content;" class="btn-sm btn-info col-lg-12">
                                                 <i class="fa fa-edit"></i>
                                             </a>
 

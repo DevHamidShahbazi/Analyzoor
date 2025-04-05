@@ -92,16 +92,6 @@
 
                     </div>
 
-
-                    <div class="form-group">
-                        <div class="col-lg-5">
-                            <label  class="col-sm-2 control-label">alt</label>
-                            <input type="text" value="{{old('alt')}}" name="alt" class="form-control"
-                                   placeholder="alt">
-                        </div>
-
-                    </div>
-
                     <div class="form-group">
                         <div class="col-lg-5">
                             <label class="col-sm-2 control-label" for="exampleInputFile">ویدیو آموزش</label>

@@ -60,6 +60,18 @@
 
                     </div>
 
+                    <div class="md-form mb-2">
+                        <div class="col-lg-5">
+                            <label class="m-0" >انتخاب فصل</label>
+                            <select  class="form-control" name="chapter_id">
+                                <?php $__currentLoopData = $course?->chapters()?->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $chapter): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($chapter->id); ?>"><?php echo e($chapter->name); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
+                        </div>
+                    </div>
+
+
                     <div class="form-group">
                         <div class="col-lg-5">
                             <label  class="col-sm-12 control-label">title</label>

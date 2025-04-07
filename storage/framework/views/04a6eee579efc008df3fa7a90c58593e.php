@@ -31,6 +31,7 @@
                             <tr style="background-color: #343a40;" >
                                 <th  class="text-center text-light" scope="col">ردیف</th>
                                 <th  class="text-center text-light" scope="col" >نام</th>
+                                <th  class="text-center text-light" scope="col" >فصل</th>
                                 <th  class="text-center text-light" scope="col" >ویدیو</th>
                                 <th  class="text-center text-light" scope="col" >فایل</th>
                                 <th  class="text-center text-light" scope="col" >تاریخ ایجاد</th>
@@ -48,7 +49,11 @@
 
                                             </a>
                                             <span class="badge bg-<?php echo e($val->type == 'free' ? 'success-gradient':'primary-gradient'); ?>"><?php echo e(array_search($val->type,config('static_array.episodeType'))); ?></span>
-                                           </td>
+                                       </td>
+
+                                        <td style="padding:1.5rem 0"  class="text-center font-weight-bold" ><?php echo e($val->chapter->name ?? 'انتخاب نشده'); ?></td>
+
+
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >
                                             <?php if($val->video): ?>
                                                 <video width="320" height="240" controls>

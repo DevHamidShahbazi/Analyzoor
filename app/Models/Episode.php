@@ -13,7 +13,7 @@ class Episode extends Model
     use Sluggable;
 
     protected $fillable = [
-        'slug', 'time', 'name', 'title','course_id',
+        'slug', 'time', 'name', 'title','course_id','chapter_id',
         'description', 'keywords', 'body','type','video','file'
     ];
 
@@ -29,6 +29,11 @@ class Episode extends Model
     public function course()
     {
         return $this->belongsTo(Course::class);
+    }
+
+    public function chapter()
+    {
+        return $this->belongsTo(Chapter::class);
     }
 
     public function comments()

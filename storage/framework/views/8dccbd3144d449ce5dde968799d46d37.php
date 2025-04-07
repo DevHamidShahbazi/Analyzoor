@@ -57,6 +57,12 @@
                                                 <i class="fas fa-video"></i>
                                             </a>
 
+                                            <a data-toggle="tooltip" data-placement="top" title="فصل ها" href="<?php echo e(route('admin.chapter.index',['course_id'=>$val->id ])); ?>"  style="width: max-content;" class="btn-sm btn-warning  col-lg-12">
+                                                <i><?php echo e(count($val->chapters()->get()) ?? ''); ?></i>
+                                                <i class="fas fa-bar-chart"></i>
+                                            </a>
+
+
                                             <a data-toggle="tooltip" data-placement="top" title="ویرایش" href="<?php echo e(route('admin.course.edit',$val->id)); ?>"  style="width: max-content;" class="btn-sm btn-info col-lg-12">
                                                 <i class="fa fa-edit"></i>
                                             </a>

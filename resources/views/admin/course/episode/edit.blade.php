@@ -88,6 +88,18 @@
                     </div>
 
 
+                    <div class="md-form mb-2">
+                        <div class="col-lg-5">
+                            <label class="m-0" >انتخاب فصل</label>
+                            <select  class="form-control" name="chapter_id">
+                                @foreach($course?->chapters()?->get() as  $chapter)
+                                    <option {{$episode?->chapter?->id == $chapter->id ? 'selected' : ''}} value="{{$chapter->id}}">{{$chapter->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+
 
                     <div class="form-group">
                         <div class="col-lg-5">

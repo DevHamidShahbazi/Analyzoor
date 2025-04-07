@@ -62,6 +62,18 @@
 
                     </div>
 
+                    <div class="md-form mb-2">
+                        <div class="col-lg-5">
+                            <label class="m-0" >انتخاب فصل</label>
+                            <select  class="form-control" name="chapter_id">
+                                @foreach($course?->chapters()?->get() as  $chapter)
+                                    <option value="{{$chapter->id}}">{{$chapter->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+
                     <div class="form-group">
                         <div class="col-lg-5">
                             <label  class="col-sm-12 control-label">title</label>

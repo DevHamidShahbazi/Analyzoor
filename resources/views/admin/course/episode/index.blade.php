@@ -33,6 +33,7 @@
                             <tr style="background-color: #343a40;" >
                                 <th  class="text-center text-light" scope="col">ردیف</th>
                                 <th  class="text-center text-light" scope="col" >نام</th>
+                                <th  class="text-center text-light" scope="col" >فصل</th>
                                 <th  class="text-center text-light" scope="col" >ویدیو</th>
                                 <th  class="text-center text-light" scope="col" >فایل</th>
                                 <th  class="text-center text-light" scope="col" >تاریخ ایجاد</th>
@@ -49,7 +50,11 @@
                                                 {{$val->name}}
                                             </a>
                                             <span class="badge bg-{{$val->type == 'free' ? 'success-gradient':'primary-gradient'}}">{{array_search($val->type,config('static_array.episodeType'))}}</span>
-                                           </td>
+                                       </td>
+
+                                        <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{ $val->chapter->name ?? 'انتخاب نشده' }}</td>
+
+
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >
                                             @if($val->video)
                                                 <video width="320" height="240" controls>

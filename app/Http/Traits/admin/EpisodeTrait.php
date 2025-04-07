@@ -13,6 +13,7 @@ trait EpisodeTrait
             'body' => $request['body'],
             'time' => $request['time'],
             'type' => $request['type'],
+            'chapter_id' => $request['chapter_id'],
             'title' => $request['title'],
             'keywords' => $request['keywords'],
             'description' => $request['description'],

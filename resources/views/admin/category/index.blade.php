@@ -55,7 +55,7 @@
                         @if(!empty($categories ))
                             @foreach($categories as $key=> $val)
                                 <tr class="item{{$val->id}}">
-                                    <td style="padding:1.5rem 0" class="Dlt text-center font-weight-bold">{{ $val->id }}</td>
+                                    <td style="padding:1.5rem 0" class="Dlt text-center font-weight-bold">{{ $loop->count-$key }}</td>
                                     <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{$val->name}}</td>
                                     <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{array_search($val->type,config('static_array.categoryType'))}}</td>
                                     <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >

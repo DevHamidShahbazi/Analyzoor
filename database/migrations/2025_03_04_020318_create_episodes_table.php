@@ -14,11 +14,19 @@ return new class extends Migration
         Schema::create('episodes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('slug')->unique();
+
             $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')
                 ->references('id')
                 ->on('courses')
                 ->onDelete('cascade');
+
+            $table->unsignedBigInteger('chapter_id')->nullable();
+            $table->foreign('chapter_id')
+                ->references('id')
+                ->on('chapters')
+                ->onDelete('cascade');
+
             $table->text('name');
             $table->enum('type',config('static_array.episodeType'))->nullable();
             $table->string('time')->nullable();

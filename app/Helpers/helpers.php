@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Comment;
+use App\Models\Payment;
 use App\Models\Setting;
 use App\Models\User;
 use Carbon\CarbonInterval;
@@ -46,6 +47,14 @@ if (!function_exists('setting_with_key')) {
     function setting_with_key($key)
     {
         return Setting::where('key',$key)->first();
+    }
+}
+
+if (!function_exists('notify_payment_new')) {
+    function notify_payment_new()
+    {
+
+        return count(Payment::where('status','1')->whereDate('created_at','>',Carbon\Carbon::now()->subDays(2))->get());
     }
 }
 

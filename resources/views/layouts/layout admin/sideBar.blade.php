@@ -102,11 +102,23 @@
                         </a>
                     </li>
 
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="{{ route('admin.private-file.index') }}" class="nav-link @section('private_files') @show">--}}
+{{--                            <i class="fas fa-lock"></i>--}}
+{{--                            <p>--}}
+{{--                                بارگذاری های خصوصی--}}
+{{--                            </p>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+
                     <li class="nav-item">
-                        <a href="{{ route('admin.private-file.index') }}" class="nav-link @section('private_files') @show">
-                            <i class="fas fa-lock"></i>
+                        <a href="{{ route('admin.payment.index') }}" class="nav-link @section('payments') @show">
+                            <i class="fas fa-credit-card"></i>
+                            @if(notify_payment_new())
+                                <span class="badge badge-danger right">{{ notify_payment_new() }}</span>
+                            @endif
                             <p>
-                                بارگذاری های خصوصی
+                                تراکنش ها
                             </p>
                         </a>
                     </li>

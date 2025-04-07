@@ -102,11 +102,23 @@
                         </a>
                     </li>
 
+
+
+
+
+
+
+
+
+
                     <li class="nav-item">
-                        <a href="<?php echo e(route('admin.private-file.index')); ?>" class="nav-link <?php $__env->startSection('private_files'); ?> <?php echo $__env->yieldSection(); ?>">
-                            <i class="fas fa-lock"></i>
+                        <a href="<?php echo e(route('admin.payment.index')); ?>" class="nav-link <?php $__env->startSection('payments'); ?> <?php echo $__env->yieldSection(); ?>">
+                            <i class="fas fa-credit-card"></i>
+                            <?php if(notify_payment_new()): ?>
+                                <span class="badge badge-danger right"><?php echo e(notify_payment_new()); ?></span>
+                            <?php endif; ?>
                             <p>
-                                بارگذاری های خصوصی
+                                تراکنش ها
                             </p>
                         </a>
                     </li>

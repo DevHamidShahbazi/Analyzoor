@@ -121,6 +121,13 @@
       0 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
     ),
   ),
+  'spatie/laravel-query-builder' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Spatie\\QueryBuilder\\QueryBuilderServiceProvider',
+    ),
+  ),
   'stevebauman/location' => 
   array (
     'aliases' => 

@@ -9384,9 +9384,7 @@ html[data-bs-theme=dark] .sidebar-wrapper .sidebar-header {
     font-weight: 700
 }
 
-html[data-bs-theme=dark] .sidebar-wrapper .sidebar-header img {
-    height: 5rem
-}
+
 
 html[data-bs-theme=dark] .sidebar-wrapper .sidebar-toggler.x {
     position: absolute;

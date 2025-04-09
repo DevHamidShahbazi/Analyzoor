@@ -5,7 +5,7 @@
 
             <div class="d-flex justify-content-center align-items-center">
                 <div class="logo">
-                    <a class="col-6" href="<?php echo e(route('Home')); ?>"><img class="col-12" src="<?php echo e(setting_with_key('logo')->value); ?>" alt="<?php echo e(setting_with_key('logo_alt')->value); ?>" srcset=""></a>
+                    <a class="col-6" href="<?php echo e(route('Home')); ?>"><img class="col-12" src="/public/img/logo/logo-white-text.png" alt="<?php echo e(setting_with_key('logo_alt')->value); ?>" srcset=""></a>
                 </div>
             </div>
 

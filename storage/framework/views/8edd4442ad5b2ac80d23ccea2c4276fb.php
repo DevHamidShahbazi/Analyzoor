@@ -9,12 +9,79 @@
         class="area py-5 ">
 
         <div class="col-12 center_area">
-            <h1 class="text-white text-center text-shadow"> آموزش و <span class="text-purple">برنامه نویسی</span> وب
-                سایت </h1> <br>
-            <h2 style="font-size: larger" class="text-white text-center text-shadow">طراحی سایت اختصاصی و آموزش تخصصی وب
-                و اپلیکیشن</h2>
+            <h1 class="text-white text-center text-shadow">
+                آموزش
+                <span class="text-purple">برنامه نویسی</span>
+                و هوش مصنوعی
+            </h1>
+            <br>
+            <h2 style="font-size: larger" class="text-white text-center text-shadow">
+                وقتی هنوز نمی‌دونی قراره چی بشی ، اون موقع بهترین زمان شروعه
+            </h2>
         </div>
     </div>
+
+
+    <div class="container my-5">
+        <section>
+            <div class="row">
+
+                <div class="col-md-4 my-2">
+                    <div class="px-3 my-5">
+                        <div
+                            class="circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
+                            style="width: 60px;height: 60px; background-color: #9B5DE5">
+                            <i class="fas fa-briefcase" style="font-size: larger"></i>
+                        </div>
+                        <div class="px-3 text-center pb-3">
+                            <h5 class="text-uppercase" style="font-weight: 600">توسعه مهارت‌ها برای بازار کار</h5>
+                            <p class="font-weight-light text-center my-3">
+                                وقتی پایه‌ها رو یاد گرفتی و چند پروژه ساختی، نوبت ارتقاء مهارت‌هاست. اینجا یاد می‌گیری با ابزارهای حرفه‌ای کار کنی. همه‌ی آموزش‌ها با هدف آمادگی برای بازار کار طراحی شدن، دقیق، کاربردی
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 my-2">
+                    <div class="px-3 my-5">
+                        <div
+                            class="circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
+                            style="width: 60px;height: 60px; background-color: #9B5DE5">
+                            <i class="fas fa-code" style="font-size: larger"></i>
+                        </div>
+                        <div class="px-3 text-center pb-3">
+                            <h5 class="text-uppercase" style="font-weight: 600">تمرین با پروژه‌های واقعی</h5>
+                            <p class="font-weight-light text-center my-3">
+                                یادگیری بدون تمرین هیچ فایده‌ای نداره! ما توی آموزش‌هامون تمرکز اصلی رو گذاشتیم روی ساخت پروژه‌های واقعی و کاربردی. یعنی همزمان با آموزش، چیزهایی می‌سازی که واقعاً توی دنیای واقعی استفاده می‌شن.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 my-2">
+                    <div class="px-3 my-5">
+                        <div class="circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
+                             style="width: 60px;height: 60px; background-color: #9B5DE5">
+                            <i class="fas fa-book-open" style="font-size: larger"></i>
+                        </div>
+                        <div class="px-3 text-center pb-3">
+                            <h5 class="text-uppercase" style="font-weight: 600">یادگیری اصول و مفاهیم پایه</h5>
+                            <p class="font-weight-light text-center my-3">
+                                برای شروع هرچیزی، نیازی نیست همه‌چیز رو بدونی. توی این مرحله، مفاهیم پایه رو با زبانی ساده و کاربردی یاد می‌گیری. مطالب اضافی یا تئوری‌های پیچیده رو کنار گذاشتیم تا سریع و مؤثر وارد دنیای موضوع بشی.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    
+    <!--container-->
+
+    <hr>
+
+    
 
 
     <div class="container py-5">

@@ -54,6 +54,14 @@
         <ul class="d-flex align-items-center scroll-x col-sm-8 hidden-in-responsive px-0 col-lg-auto justify-content-center m-0"
             style="font-size: 10px;gap: 25px">
 
+            <?php if($menus->isNotEmpty()): ?>
+                <?php $__currentLoopData = $menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <li class="d-inline-block">
+                        <a class="text-white" href="<?php echo e($menu->url); ?>"><?php echo e($menu->name); ?></a>
+                    </li>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
+
             <?php if(auth()->guard()->check()): ?>
                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin')): ?>
                     <li class="d-inline-block">

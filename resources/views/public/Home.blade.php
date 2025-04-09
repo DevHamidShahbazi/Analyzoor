@@ -10,12 +10,329 @@
         class="area py-5 ">
 
         <div class="col-12 center_area">
-            <h1 class="text-white text-center text-shadow"> آموزش و <span class="text-purple">برنامه نویسی</span> وب
-                سایت </h1> <br>
-            <h2 style="font-size: larger" class="text-white text-center text-shadow">طراحی سایت اختصاصی و آموزش تخصصی وب
-                و اپلیکیشن</h2>
+            <h1 class="text-white text-center text-shadow">
+                آموزش
+                <span class="text-purple">برنامه نویسی</span>
+                و هوش مصنوعی
+            </h1>
+            <br>
+            <h2 style="font-size: larger" class="text-white text-center text-shadow">
+                وقتی هنوز نمی‌دونی قراره چی بشی ، اون موقع بهترین زمان شروعه
+            </h2>
         </div>
     </div>
+
+
+    <div class="container my-5">
+        <section>
+            <div class="row">
+
+                <div class="col-md-4 my-2">
+                    <div class="px-3 my-5">
+                        <div
+                            class="circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
+                            style="width: 60px;height: 60px; background-color: #9B5DE5">
+                            <i class="fas fa-briefcase" style="font-size: larger"></i>
+                        </div>
+                        <div class="px-3 text-center pb-3">
+                            <h5 class="text-uppercase" style="font-weight: 600">توسعه مهارت‌ها برای بازار کار</h5>
+                            <p class="font-weight-light text-center my-3">
+                                وقتی پایه‌ها رو یاد گرفتی و چند پروژه ساختی، نوبت ارتقاء مهارت‌هاست. اینجا یاد می‌گیری با ابزارهای حرفه‌ای کار کنی. همه‌ی آموزش‌ها با هدف آمادگی برای بازار کار طراحی شدن، دقیق، کاربردی
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 my-2">
+                    <div class="px-3 my-5">
+                        <div
+                            class="circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
+                            style="width: 60px;height: 60px; background-color: #9B5DE5">
+                            <i class="fas fa-code" style="font-size: larger"></i>
+                        </div>
+                        <div class="px-3 text-center pb-3">
+                            <h5 class="text-uppercase" style="font-weight: 600">تمرین با پروژه‌های واقعی</h5>
+                            <p class="font-weight-light text-center my-3">
+                                یادگیری بدون تمرین هیچ فایده‌ای نداره! ما توی آموزش‌هامون تمرکز اصلی رو گذاشتیم روی ساخت پروژه‌های واقعی و کاربردی. یعنی همزمان با آموزش، چیزهایی می‌سازی که واقعاً توی دنیای واقعی استفاده می‌شن.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 my-2">
+                    <div class="px-3 my-5">
+                        <div class="circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
+                             style="width: 60px;height: 60px; background-color: #9B5DE5">
+                            <i class="fas fa-book-open" style="font-size: larger"></i>
+                        </div>
+                        <div class="px-3 text-center pb-3">
+                            <h5 class="text-uppercase" style="font-weight: 600">یادگیری اصول و مفاهیم پایه</h5>
+                            <p class="font-weight-light text-center my-3">
+                                برای شروع هرچیزی، نیازی نیست همه‌چیز رو بدونی. توی این مرحله، مفاهیم پایه رو با زبانی ساده و کاربردی یاد می‌گیری. مطالب اضافی یا تئوری‌های پیچیده رو کنار گذاشتیم تا سریع و مؤثر وارد دنیای موضوع بشی.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    {{--<div class="container py-2">
+        <h2 class="font-weight-light text-center text-muted py-3">Bootstrap 5 Timeline</h2>
+
+        <!-- timeline item 1 -->
+        <div class="row">
+            <!-- timeline item 1 left dot -->
+            <div class="col-auto text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                    <div class="col">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+                <h5 class="m-2">
+                    <span class="badge rounded-pill bg-light border">&nbsp;</span>
+                </h5>
+                <div class="row h-50">
+                    <div class="col border-end">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+            </div>
+            <!-- timeline item 1 event content -->
+            <div class="col py-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="float-right text-muted">Mon, Jan 9th 2020 7:00 AM</div>
+                        <h4 class="card-title text-muted">Day 1 Orientation</h4>
+                        <p class="card-text">Welcome to the campus, introduction and get started with the tour.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/row-->
+        <!-- timeline item 2 -->
+        <div class="row">
+            <div class="col-auto text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                    <div class="col border-end">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+                <h5 class="m-2">
+                    <span class="badge rounded-pill bg-success">&nbsp;</span>
+                </h5>
+                <div class="row h-50">
+                    <div class="col border-end">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+            </div>
+            <div class="col py-2">
+                <div class="card border-success shadow">
+                    <div class="card-body">
+                        <div class="float-right text-success">Tue, Jan 10th 2019 8:30 AM</div>
+                        <h4 class="card-title text-success">Day 2 Sessions</h4>
+                        <p class="card-text">Sign-up for the lessons and speakers that coincide with your course syllabus. Meet and greet with instructors.</p>
+                        <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-target="#t2_details" data-bs-toggle="collapse">Show Details ▼</button>
+                        <div class="collapse border" id="t2_details">
+                            <div class="p-2 font-monospace">
+                                <div>08:30 - 09:00 Breakfast in CR 2A</div>
+                                <div>09:00 - 10:30 Live sessions in CR 3</div>
+                                <div>10:30 - 10:45 Break</div>
+                                <div>10:45 - 12:00 Live sessions in CR 3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/row-->
+        <!-- timeline item 3 -->
+        <div class="row">
+            <div class="col-auto text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                    <div class="col border-end">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+                <h5 class="m-2">
+                    <span class="badge rounded-pill bg-light border">&nbsp;</span>
+                </h5>
+                <div class="row h-50">
+                    <div class="col border-end">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+            </div>
+            <div class="col py-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="float-right text-muted">Wed, Jan 11th 2019 8:30 AM</div>
+                        <h4 class="card-title">Day 3 Sessions</h4>
+                        <p>Shoreditch vegan artisan Helvetica. Tattooed Codeply Echo Park Godard kogi, next level irony ennui twee squid fap selvage. Meggings flannel Brooklyn literally small batch, mumblecore PBR try-hard kale chips. Brooklyn vinyl lumbersexual
+                            bicycle rights, viral fap cronut leggings squid chillwave pickled gentrify mustache. 3 wolf moon hashtag church-key Odd Future. Austin messenger bag normcore, Helvetica Williamsburg sartorial tote bag distillery Portland before
+                            they sold out gastropub taxidermy Vice.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/row-->
+        <!-- timeline item 4 -->
+        <div class="row">
+            <div class="col-auto text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                    <div class="col border-end">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+                <h5 class="m-2">
+                    <span class="badge rounded-pill bg-light border">&nbsp;</span>
+                </h5>
+                <div class="row h-50">
+                    <div class="col">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+            </div>
+            <div class="col py-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="float-right text-muted">Thu, Jan 12th 2019 11:30 AM</div>
+                        <h4 class="card-title">Day 4 Wrap-up</h4>
+                        <p>Join us for lunch in Bootsy's cafe across from the Campus Center.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/row-->
+    </div>--}}
+    <!--container-->
+
+    <hr>
+
+    {{--<div class="container py-2">
+
+        <!-- timeline item 1 -->
+        <div class="row no-gutters">
+            <div class="col-sm">
+                <!--spacer-->
+            </div>
+            <!-- timeline item 1 center dot -->
+            <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                    <div class="col">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+                <h5 class="m-2">
+                    <span class="badge rounded-pill bg-light border">&nbsp;</span>
+                </h5>
+                <div class="row h-50">
+                    <div class="col border-end">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+            </div>
+            <!-- timeline item 1 event content -->
+            <div class="col-sm py-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="float-right text-muted small">Jan 9th 2019 7:00 AM</div>
+                        <h4 class="card-title text-muted">Day 1 Orientation</h4>
+                        <p class="card-text">Welcome to the campus, introduction and get started with the tour.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/row-->
+        <!-- timeline item 2 -->
+        <div class="row no-gutters">
+            <div class="col-sm py-2">
+                <div class="card border-success shadow">
+                    <div class="card-body">
+                        <div class="float-right text-success small">Jan 10th 2019 8:30 AM</div>
+                        <h4 class="card-title text-success">Day 2 Sessions</h4>
+                        <p class="card-text">Sign-up for the lessons and speakers that coincide with your course syllabus. Meet and greet with instructors.</p>
+                        <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-target="#t22_details" data-bs-toggle="collapse">Show Details ▼</button>
+                        <div class="collapse border" id="t22_details">
+                            <div class="p-2 font-monospace">
+                                <div>08:30 - 09:00 Breakfast in CR 2A</div>
+                                <div>09:00 - 10:30 Live sessions in CR 3</div>
+                                <div>10:30 - 10:45 Break</div>
+                                <div>10:45 - 12:00 Live sessions in CR 3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                    <div class="col border-end">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+                <h5 class="m-2">
+                    <span class="badge rounded-pill bg-success">&nbsp;</span>
+                </h5>
+                <div class="row h-50">
+                    <div class="col border-end">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <!--spacer-->
+            </div>
+        </div>
+        <!--/row-->
+        <!-- timeline item 3 -->
+        <div class="row no-gutters">
+            <div class="col-sm">
+                <!--spacer-->
+            </div>
+            <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                    <div class="col border-end">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+                <h5 class="m-2">
+                    <span class="badge rounded-pill bg-light border">&nbsp;</span>
+                </h5>
+                <div class="row h-50">
+                    <div class="col border-end">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+            </div>
+            <div class="col-sm py-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="float-right text-muted small">Jan 11th 2019 8:30 AM</div>
+                        <h4 class="card-title">Day 3 Sessions</h4>
+                        <p>Shoreditch vegan artisan Helvetica. Tattooed Codeply Echo Park Godard kogi, next level irony ennui twee squid fap selvage. Meggings flannel Brooklyn literally small batch, mumblecore PBR try-hard kale chips. Brooklyn vinyl lumbersexual
+                            bicycle rights, viral fap cronut leggings squid chillwave pickled gentrify mustache.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/row-->
+        <!-- timeline item 4 -->
+        <div class="row no-gutters">
+            <div class="col-sm py-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="float-right text-muted small">Jan 12th 2019 11:30 AM</div>
+                        <h4 class="card-title">Day 4 Wrap-up</h4>
+                        <p>Join us for lunch in Bootsy's cafe across from the Campus Center.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                    <div class="col border-end">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+                <h5 class="m-2">
+                    <span class="badge rounded-pill bg-light border">&nbsp;</span>
+                </h5>
+                <div class="row h-50">
+                    <div class="col">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <!--spacer-->
+            </div>
+        </div>
+        <!--/row-->
+    </div>--}}
 
 
     <div class="container py-5">

@@ -22525,10 +22525,6 @@ body .bi:before, [class^=bi-]:before, [class*=" bi-"]:before {
     font-weight: 700
 }
 
-.sidebar-wrapper .sidebar-header img {
-    height: 7.2rem
-}
-
 .sidebar-wrapper .sidebar-toggler.x {
     position: absolute;
     left: 1.75rem;

@@ -1,67 +1,32 @@
-<div  class="container-fluid bg-footer px-0 no-print bg_footer">
+<div class="container-fluid px-0 no-print bg_footer py-3">
 
 
-
-
-
-    <div class="container-fluid">
-        <br>
-        <div class="row text-white m-0">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="col-md-12 col-12 text-center">
-
-                <a href="https://www.instagram.com/analyzoor?igsh=NDZzM2RqNjJvazds" class="mx-2" target="_blank">
-                    <img  src="/image/icons/instagram.png" alt="اینستاگرام آنالیزور">
-                </a>
-                <a href="https://t.me/+BunooUTLng82OWQ0" class="mx-2" target="_blank">
-                    <img  src="/image/icons/telegram.png" alt="تلگرام آنالیزور" >
-                </a>
-                <a href="https://www.youtube.com/@analyzoor-23" target="_blank" class="mx-2">
-                    <img  src="/image/icons/youtube.png" alt="یوتیوب آنالیزور">
-                </a>
-            </div>
-
-
-
-
-
-
-        </div>
+    <div class="col-12 text-center">
+        <?php if($menus->isNotEmpty()): ?>
+            <?php $__currentLoopData = $menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <a class="text-white mx-2" href="<?php echo e($menu->url); ?>"><?php echo e($menu->name); ?></a>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php endif; ?>
     </div>
     <hr>
+    <footer class="container d-flex flex-wrap justify-content-between align-items-center  ">
+        <br>
+        <div class="nav col-md-4 justify-content-center list-unstyled d-flex py-3">
 
-    <div  class="container-fluid ">
-        <div class="row m-0">
-            <div style="border-radius: 15px" class="col-12 text-center  my-4 text-white mb-3">
+            <a href="https://www.instagram.com/analyzoor?igsh=NDZzM2RqNjJvazds" class="mx-2" target="_blank">
+                <li style="font-size: x-large" class="fab fa-instagram mx-3 text-white-50"></li>
+            </a>
+            <a href="https://t.me/+BunooUTLng82OWQ0" class="mx-2" target="_blank">
+                <li style="font-size: x-large" class="fab fa-telegram mx-3 text-white-50"></li>
+            </a>
+            <a href="https://www.youtube.com/@analyzoor-23" target="_blank" class="mx-2">
+                <li style="font-size: x-large" class="fab fa-youtube mx-3 text-white-50"></li>
+            </a>
 
-                استفاده از مطالب این سایت فقط برای مقاصد غیرتجاری و با ذکر منبع بلامانع است. کلیه حقوق این سایت متعلق به <span class="font-weight-bold "><a class='text-white' href="<?php echo e(route('Home')); ?>">آنالیزور</a></span> می‌باشد
-
-
-            </div>
         </div>
-    </div>
+
+        <br>
+    </footer>
 </div>
 
 

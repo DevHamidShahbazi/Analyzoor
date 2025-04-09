@@ -54,6 +54,14 @@
         <ul class="d-flex align-items-center scroll-x col-sm-8 hidden-in-responsive px-0 col-lg-auto justify-content-center m-0"
             style="font-size: 10px;gap: 25px">
 
+            @if($menus->isNotEmpty())
+                @foreach($menus as $key => $menu)
+                    <li class="d-inline-block">
+                        <a class="text-white" href="{{$menu->url}}">{{$menu->name}}</a>
+                    </li>
+                @endforeach
+            @endif
+
             @auth()
                 @can('admin')
                     <li class="d-inline-block">

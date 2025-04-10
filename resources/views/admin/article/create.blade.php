@@ -116,7 +116,7 @@
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input name="image" type="file" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">انتخاب فایل</label>
+                                    <label class="custom-file-label" for="exampleInputFile">انتخاب تصویر</label>
                                 </div>
                             </div>
                         </div>

@@ -140,9 +140,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                     <div class="col-md-12 text-center my-4">
                         <h5>توضیحات</h5>
                         <div class="md-form mb-0">

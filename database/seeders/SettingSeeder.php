@@ -106,7 +106,17 @@ class SettingSeeder extends Seeder
             ],
         ];
 
+        $courses_home = [
+            [
+                'key'     => 'courses_home',
+                'label'   => 'دوره ها در صفحه اصلی',
+                'value'   =>  [],
+                'section' => 'public'
+            ],
+        ];
+
         $this->storeItems(
+            $courses_home,
             $articles_home,
             $seo_home_page,
             $seo_article_page,

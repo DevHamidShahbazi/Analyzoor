@@ -7531,7 +7531,7 @@ textarea.form-control-lg {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1030
+    z-index: 20
 }
 
 .fixed-bottom {
@@ -22851,10 +22851,7 @@ body .bi:before, [class^=bi-]:before, [class*=" bi-"]:before {
     --bs-gutter-x: 1.5rem
 }
 
-.layout-horizontal .header-top {
-    background-color: #fff;
-    padding: 1.1rem .4rem
-}
+
 
 .layout-horizontal .header-top .container {
     display: flex;

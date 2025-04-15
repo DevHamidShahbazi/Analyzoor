@@ -20,11 +20,11 @@
         <link rel="stylesheet" href="/public/css/app.rtl.css?{{$css}}">
 {{--        <link rel="stylesheet" href="/public/css/app-dark.rtl.css?{{$css}}">--}}
         <link rel="stylesheet" href="/public/css/font.min.css?{{$css}}">
+        <link rel="stylesheet" href="/public/plugin/aos/aos.css?{{$css}}">
         <link rel="stylesheet" href="/public/css/custom-style.css?{{$css}}">
-{{--        <link rel="stylesheet" href="/public/css/Aos.css?{{$css}}">--}}
         @yield('style')
     </head>
-    <body>
+    <body class="index-page">
     @php $menus = \App\Models\Menu::orderBy('sort','desc')->get() @endphp
     <div id="app" class="layout-horizontal">
         @include('layouts.layout public.navbar')
@@ -32,9 +32,10 @@
         @yield('content')
         @include('layouts.layout public.footer')
     </div>
-{{--        <script type="text/javascript" src="/public/js/Aos.js?{{$js}}"></script>--}}
+
 {{--        <script type="text/javascript" src="/public/js/dark.js?{{$js}}"></script>--}}
         <script type="text/javascript" src="/public/js/app.js?{{$js}}"></script>
+    <script type="text/javascript" src="/public/plugin/aos/aos.js?{{$js}}"></script>
     <script type="text/javascript" src="/public/js/custom.js?{{$js}}"></script>
     @yield('script')
     </body>

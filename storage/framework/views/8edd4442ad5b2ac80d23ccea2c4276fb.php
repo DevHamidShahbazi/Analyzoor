@@ -4,30 +4,82 @@
 <?php $__env->startSection('content'); ?>
 
 
-    <div
-        style="background-image: linear-gradient(180deg, rgba(62, 57, 57, 0.8), rgba(62, 57, 57, 0.8)), url(/public/img/bg/bg_1.jpg)"
-        class="area py-5 ">
+    <section class="royal py-5 ">
+        <div class="container">
+            <div class="row m-0">
 
-        <div class="col-12 center_area">
-            <h1 class="text-white text-center text-shadow">
-                آموزش
-                <span class="text-purple">برنامه نویسی</span>
-                و هوش مصنوعی
-            </h1>
-            <br>
-            <h2 style="font-size: larger" class="text-white text-center text-shadow">
-                وقتی هنوز نمی‌دونی قراره چی بشی ، اون موقع بهترین زمان شروعه
-            </h2>
+                <div class="col-lg-6 text-center" data-aos="zoom-out" data-aos-delay="200">
+                    <img src="public/img/vectors/td-home.png" class="col-lg-10 col-md-8 col-12 my-5 animated" alt="logo">
+                </div>
+
+                <div class="col-lg-6 d-flex flex-column justify-content-center">
+                    <h1 class="text-white text-center text-shadow" data-aos="fade-up" data-aos-delay="200">
+                        آموزش
+                        <span class="text-purple">برنامه نویسی</span>
+                        و هوش مصنوعی
+                    </h1>
+                    <p style="font-size: larger" class="text-white text-center text-shadow mt-2" data-aos="fade-up" data-aos-delay="250">
+                        زیبایی یادگیری در این است که هیچ‌کس نمی‌تواند آن را از تو بگیرد
+                    </p>
+                </div>
+
+
+
+
+
+            </div>
         </div>
-    </div>
 
+    </section>
+
+
+    <?php echo $__env->make('components.public-grid-background.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+    <section class=" py-5 ">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="300">
+                    <h4 dir="rtl" class="text-shadow" style="font-size: xx-large">
+                        از کجا شروع کنم؟؟
+                    </h4>
+                    <p style="font-size: larger" class="text-shadow mt-2">
+                        وقتی هنوز نمی‌دونی قراره چی بشی ، اون موقع بهترین زمان شروعه،
+                        <br>
+                        چون توی همین لحظه‌ست که می‌تونی بدون ترس، تجربه کنی، یاد بگیری و راه‌ خودت رو پیدا کنی.
+                        <br>
+                        لازم نیست از همون اول بدونی قراره برنامه‌نویس بشی، طراح، یا حتی کارآفرین.
+                        <br>
+                        مهم اینه که شروع کنی...
+                        <br>
+                        قدم اول همیشه سخت‌ترینه، اما اگه بلد باشی از کجا شروع کنی، همه چیز ساده‌تر می‌شه.
+                    </p>
+                </div>
+
+                <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="350">
+                    <img src="public/img/vectors/hat.png" class="col-lg-10 col-md-6 col-6 my-3" alt="logo">
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <img class="col-12 mt-1" src="/public/img/t_footer.jpg"  alt="آموزش برنامه نویسی برای بازارکار">
 
     <div class="container my-5">
+        <h3 class="text-center" data-aos="fade-up">
+            مراحل آموزشی
+        </h3>
+        <br>
         <section>
             <div class="row">
 
-                <div class="col-md-4 my-2">
-                    <div class="px-3 my-5">
+                <div class="col-md-4 my-2"  data-aos="fade-up" data-aos-delay="100">
+                    <div class="px-3">
                         <div
                             class="circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
                             style="width: 60px;height: 60px; background-color: #9B5DE5">
@@ -42,8 +94,8 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 my-2">
-                    <div class="px-3 my-5">
+                <div class="col-md-4 my-2"  data-aos="fade-up" data-aos-delay="200">
+                    <div class="px-3">
                         <div
                             class="circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
                             style="width: 60px;height: 60px; background-color: #9B5DE5">
@@ -58,8 +110,8 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 my-2">
-                    <div class="px-3 my-5">
+                <div class="col-md-4 my-2"  data-aos="fade-up" data-aos-delay="300">
+                    <div class="px-3">
                         <div class="circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4"
                              style="width: 60px;height: 60px; background-color: #9B5DE5">
                             <i class="fas fa-book-open" style="font-size: larger"></i>
@@ -76,64 +128,8 @@
         </section>
     </div>
 
-    
-
-    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    <img class="col-12 mt-1" src="/public/img/t_footer.jpg" alt="آموزش برنامه نویسی برای بازارکار">
-
-
-
-
-    <?php echo $__env->make('components.public-grid-background.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <div class="d-flex justify-content-center">
         <div class="col-10 m-0 p-3">
@@ -152,33 +148,7 @@
         </div>
     </div>
 
-    <section class="col-12 img-fix-home mt-3 p-5">
-        <div class="container">
-            <div class="row justify-content-center align-items-center">
-
-                <div class="col-sm-5 text-center">
-
-                </div>
-
-                <div class="col-sm-7 text-center">
-                    <p style="font-size: large" class="text-justify text-white">
-                        چیزی که برام همیشه جای سوال بود این بود چرا دوره های آموزشی که در این مدت دیدم همیشه به فکر یاد
-                        دادن کد بودند و به اصل ماجرا که بازار کار بود نمی پرداختند
-                        <br>
-                        مشکل آموزش در کشور ما نهادینه شده و به نوعی همه ما قربانی آموزش اشتباه هستیم ، اما از طرفی هم به
-                        اساتید دوره های آموزشی حق میدم ، چون بازار تکنولوژی در ایران در بهترین حالت ممکن 10 سال است که
-                        فراگیر شده و تجربه ای در این موضوع نبوده
-                        <br>
-                        توی این مدت تصمیم گرفتم تا دوره آموزشی رو فراهم کنم تا ابزاری باشه برای کسانی که علاقه به برنامه
-                        نویسی دارند و شاید دانش کافی ندارند و نمی دانند از کجا باید شروع کنند
-                        <br>
-                        تا بعد از مشاهده این دوره به راحتی وارد بازارکار شوند
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
+    
 
 
 

@@ -279,11 +279,7 @@ hue-6-2: #e6c07b
     overflow: hidden;
     z-index: 2;
 }
-.navbar-top {
-    z-index: 20;
-    position: sticky;
-    top: 0;
-}
+
 .container .img-place {
     width: 70%;
     /*height: 350px;*/
@@ -312,7 +308,7 @@ hue-6-2: #e6c07b
 }
 
 .royal{
-    background-color: #213854 !important;
+    background-color: #37517e !important;
     color: #eee !important;
 }
 .royal-dark{
@@ -338,3 +334,32 @@ hue-6-2: #e6c07b
     background-repeat: no-repeat;
     z-index: 1;
 }
+
+/* Index Page Header on Scroll
+------------------------------*/
+.index-page.scrolled .header {
+    --background-color: #213854f2;
+}
+
+.header {
+    --background-color: #37517e ;
+    --heading-color: #ffffff;
+    background-color: var(--background-color);
+    padding: 15px 0;
+    transition: all 0.5s;
+}
+
+.animated {
+    animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+@keyframes up-down {
+    0% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+

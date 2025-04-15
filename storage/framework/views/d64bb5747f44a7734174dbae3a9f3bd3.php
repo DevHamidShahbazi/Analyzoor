@@ -20,11 +20,11 @@
         <link rel="stylesheet" href="/public/css/app.rtl.css?<?php echo e($css); ?>">
 
         <link rel="stylesheet" href="/public/css/font.min.css?<?php echo e($css); ?>">
+        <link rel="stylesheet" href="/public/plugin/aos/aos.css?<?php echo e($css); ?>">
         <link rel="stylesheet" href="/public/css/custom-style.css?<?php echo e($css); ?>">
-
         <?php echo $__env->yieldContent('style'); ?>
     </head>
-    <body>
+    <body class="index-page">
     <?php $menus = \App\Models\Menu::orderBy('sort','desc')->get() ?>
     <div id="app" class="layout-horizontal">
         <?php echo $__env->make('layouts.layout public.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -35,6 +35,7 @@
 
 
         <script type="text/javascript" src="/public/js/app.js?<?php echo e($js); ?>"></script>
+    <script type="text/javascript" src="/public/plugin/aos/aos.js?<?php echo e($js); ?>"></script>
     <script type="text/javascript" src="/public/js/custom.js?<?php echo e($js); ?>"></script>
     <?php echo $__env->yieldContent('script'); ?>
     </body>

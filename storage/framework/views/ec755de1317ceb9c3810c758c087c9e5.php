@@ -1,4 +1,4 @@
-<nav class="header-top p-2 text-white navbar-top royal no-print">
+<header id="header" class="header header-top p-2 text-white fixed-top  no-print">
     <div class="d-flex justify-content-between flex-row-reverse">
 
         <div class="d-flex justify-content-center align-items-center gap-2 p-1">
@@ -82,7 +82,10 @@
         </div>
 
     </div>
-</nav>
+</header>
 
 <?php echo $__env->make('alert.default.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+
+
 <?php /**PATH C:\xampp\htdocs\Analyzoor\resources\views/layouts/layout public/navbar.blade.php ENDPATH**/ ?>

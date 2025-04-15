@@ -7,18 +7,31 @@ use App\Http\Traits\pub\CommentTrait;
 use App\Models\Article;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class ArticleController extends Controller
 {
     use CommentTrait;
 
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::where('is_active','1')->paginate(20);
+        $query = QueryBuilder::for(Article::class)
+            ->allowedIncludes('features')
+            ->where('is_active', '1');
+
+        if ($request->has('filter.name') && $request['filter.name'] != null) {
+            $query->allowedFilters([
+                AllowedFilter::partial('name'),
+            ]);
+        }
+
+        $articles = $query->paginate(20);
+
         return view('public.article',compact('articles'));
     }
 
-    public function detail(Article $article)
+    public function detail(Article $article,Request $request)
     {
         $articles = $article->category->articles()->where('is_active','1')->where('id','!=',$article->id)->take(10)->get();
         $urls = $article->urls()->where('for_download','1')->get();

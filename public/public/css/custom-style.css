@@ -362,4 +362,33 @@ hue-6-2: #e6c07b
     }
 }
 
+.widget-item {
+    direction: rtl;
+    margin-bottom: 30px;
+    background-color: color-mix(in srgb, var(--default-color), transparent 98%);
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.widget-item:last-child {
+    margin-bottom: 0;
+}
+
+
+.widget-title {
+    color: var(--heading-color);
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0 10px 0 0;
+    margin: 0 0 20px 0;
+    border-right: 4px solid #37517e;
+}
+
+.widget-item {
+    margin-bottom: 30px;
+    border: 1px solid color-mix(in srgb, #444444, transparent 90%);
+    padding: 30px;
+    border-radius: 5px;
+}
 

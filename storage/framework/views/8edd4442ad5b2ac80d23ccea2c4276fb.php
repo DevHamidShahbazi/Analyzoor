@@ -4,33 +4,11 @@
 <?php $__env->startSection('content'); ?>
 
 
-    <section class="royal py-5 ">
-        <div class="container">
-            <div class="row m-0">
-
-                <div class="col-lg-6 text-center" data-aos="zoom-out" data-aos-delay="200">
-                    <img src="public/img/vectors/td-home.png" class="col-lg-10 col-md-8 col-12 my-5 animated" alt="logo">
-                </div>
-
-                <div class="col-lg-6 d-flex flex-column justify-content-center">
-                    <h1 class="text-white text-center text-shadow" data-aos="fade-up" data-aos-delay="200">
-                        آموزش
-                        <span class="text-purple">برنامه نویسی</span>
-                        و هوش مصنوعی
-                    </h1>
-                    <p style="font-size: larger" class="text-white text-center text-shadow mt-2" data-aos="fade-up" data-aos-delay="250">
-                        زیبایی یادگیری در این است که هیچ‌کس نمی‌تواند آن را از تو بگیرد
-                    </p>
-                </div>
-
-
-
-
-
-            </div>
-        </div>
-
-    </section>
+    <?php echo $__env->make('components.public-slider.index',[
+    'image'=>'public/img/vectors/td-home.png',
+    'title'=>'آموزش برنامه نویسی و هوش مصنوعی',
+    'description'=>'زیبایی یادگیری در این است که هیچ‌کس نمی‌تواند آن را از تو بگیرد',
+    ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
     <?php echo $__env->make('components.public-grid-background.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

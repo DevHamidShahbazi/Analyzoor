@@ -23,12 +23,14 @@ class CourseFactory extends Factory
             'type' => $this->faker->randomElement(config('static_array.courseType')),
             'title' => $this->faker->title,
             'price' => $this->faker->numberBetween(),
+            'time' => $this->faker->time(),
+            'paragraph' => $this->faker->paragraph,
             'discount' => $this->faker->numberBetween(),
             'description' => $this->faker->paragraph,
             'keywords' => implode(', ', $this->faker->words(5)),
             'body' => $this->faker->text(500),
             'alt' => $this->faker->sentence,
-            'image' => 'https://fakeimg.pl/300',
+            'image' => 'https://fakeimg.pl/265x160/',
         ];
     }
 }

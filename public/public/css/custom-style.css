@@ -392,3 +392,44 @@ hue-6-2: #e6c07b
     border-radius: 5px;
 }
 
+
+.hover-zoom-in  img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.hover-zoom-in :hover img {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.course-card {
+    margin-top: 20px;
+}
+
+.course-card .card-img-block {
+    width: 91%;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+    border-radius: 8px 8px 0 0;
+}
+
+.course-card h5 {
+    font-weight: 800;
+}
+
+.course-card p {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.article-card h5 {
+    font-weight: 800;
+}
+
+.article-card p {
+    font-size: 14px;
+    font-weight: 300;
+}

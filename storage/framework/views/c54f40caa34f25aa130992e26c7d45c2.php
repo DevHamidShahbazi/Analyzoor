@@ -4,7 +4,7 @@
     <div class="col-12 text-center">
         <?php if($menus->isNotEmpty()): ?>
             <?php $__currentLoopData = $menus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <a class="text-white mx-2" href="<?php echo e($menu->url); ?>"><?php echo e($menu->name); ?></a>
+                <a class="btn btn-outline-white font-weight-bold mx-2" href="<?php echo e($menu->url); ?>"><?php echo e($menu->name); ?></a>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <?php endif; ?>
     </div>

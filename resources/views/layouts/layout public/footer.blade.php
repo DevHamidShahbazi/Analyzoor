@@ -4,7 +4,7 @@
     <div class="col-12 text-center">
         @if($menus->isNotEmpty())
             @foreach($menus as $key => $menu)
-                <a class="text-white mx-2" href="{{$menu->url}}">{{$menu->name}}</a>
+                <a class="btn btn-outline-white font-weight-bold mx-2" href="{{$menu->url}}">{{$menu->name}}</a>
             @endforeach
         @endif
     </div>

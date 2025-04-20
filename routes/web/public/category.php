@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 // article categories
 //Route::get('article-category/{articleCategory}', [ArticleCategoryController::class, 'index'])->name('article.category');
+
+
+// course categories
+//Route::get('course-category/{courseCategory}', [ArticleCategoryController::class, 'index'])->name('article.category');

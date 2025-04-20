@@ -16,6 +16,7 @@ trait CourseTrait
             'time' => $request['time'],
             'status' => $request['status'],
             'type' => $request['type'],
+            'paragraph' => $request['paragraph'],
             'title' => $request['title'],
             'keywords' => $request['keywords'],
             'description' => $request['description'],

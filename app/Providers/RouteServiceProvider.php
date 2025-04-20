@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Course;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -27,6 +28,17 @@ class RouteServiceProvider extends ServiceProvider
             $this->mapUserPanelRoutes();
         });
 
+        /*CourseDetail*/
+        Route::bind('CourseDetail',function ($value) {
+            return Course::whereSlug($value)->firstOrFail();
+        });
+        /*CourseDetail*/
+
+        /*CourseCategory*/
+//        Route::bind('courseCategory',function ($value) {
+//            return Category::where('type','course')->whereSlug($value)->firstOrFail();
+//        });
+        /*CourseCategory*/
 
         /*ChildArticleCategory*/
         Route::bind('articleCategory',function ($value) {

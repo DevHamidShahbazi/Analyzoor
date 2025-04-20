@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             SettingSeeder::class,
             UserSeeder::class,
+            MenuSeeder::class,
         ]);
         User::factory(50)->create();
         Message::factory()->count(3)->create();

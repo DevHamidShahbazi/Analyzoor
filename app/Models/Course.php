@@ -13,7 +13,7 @@ class Course extends Model
     use Sluggable;
 
     protected $fillable = [
-        'slug', 'category_id', 'name', 'status', 'title',
+        'slug', 'category_id', 'name', 'status', 'title','paragraph',
         'description', 'keywords', 'body', 'alt', 'image','type','price','discount'
     ];
 

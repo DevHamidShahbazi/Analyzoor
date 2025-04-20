@@ -40,7 +40,7 @@
                                             <a target="_blank" href="{{--{{route('course.detail',$val->slug)}}--}}">
                                                 {{$val->name}}
                                             </a>
-                                            <span class="badge bg-{{$val->status == 'comingSoon' ? 'warning': ($val->status=='Currently'?'danger-gradient':'success')}}">{{array_search($val->status,config('static_array.courseStatus'))}}</span>
+                                            <span class="badge bg-{{$val->status == 'comingSoon' ? 'warning': ($val->status=='currently'?'danger-gradient':'success')}}">{{array_search($val->status,config('static_array.courseStatus'))}}</span>
                                             <span class="badge bg-{{$val->type == 'free' ? 'secondary-gradient':'primary-gradient'}}">{{array_search($val->type,config('static_array.courseType'))}}</span>
                                            </td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >{{$val->category->name}}</td>

@@ -39,7 +39,7 @@
                                                 <?php echo e($val->name); ?>
 
                                             </a>
-                                            <span class="badge bg-<?php echo e($val->status == 'comingSoon' ? 'warning': ($val->status=='Currently'?'danger-gradient':'success')); ?>"><?php echo e(array_search($val->status,config('static_array.courseStatus'))); ?></span>
+                                            <span class="badge bg-<?php echo e($val->status == 'comingSoon' ? 'warning': ($val->status=='currently'?'danger-gradient':'success')); ?>"><?php echo e(array_search($val->status,config('static_array.courseStatus'))); ?></span>
                                             <span class="badge bg-<?php echo e($val->type == 'free' ? 'secondary-gradient':'primary-gradient'); ?>"><?php echo e(array_search($val->type,config('static_array.courseType'))); ?></span>
                                            </td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold " ><?php echo e($val->category->name); ?></td>

@@ -129,6 +129,14 @@
 
                     <div class="form-group">
                         <div class="col-lg-5">
+                            <label  class="col-sm-12 control-label">پاراگراف</label>
+                            <input type="text" value="<?php echo e($course->paragraph); ?>" name="paragraph" class="form-control"
+                                   placeholder="پاراگراف">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-5">
                             <label  class="col-sm-12 control-label">title</label>
                             <input type="text" value="<?php echo e($course->title); ?>" name="title" class="form-control"
                                    placeholder="title">

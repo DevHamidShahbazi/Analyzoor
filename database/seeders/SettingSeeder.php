@@ -97,6 +97,27 @@ class SettingSeeder extends Seeder
             ],
         ];
 
+        $seo_course_page = [
+            [
+                'key'     => 'course_description',
+                'label'   => 'description صفحه دوره ها',
+                'value'   =>  'test test test',
+                'section' => 'public'
+            ],
+            [
+                'key'     => 'course_keywords',
+                'label'   => 'keywords صفحه دوره ها',
+                'value'   =>  'test test test',
+                'section' => 'public'
+            ],
+            [
+                'key'     => 'course_title',
+                'label'   => 'title صفحه دوره ها',
+                'value'   =>  'test test test',
+                'section' => 'public'
+            ],
+        ];
+
         $articles_home = [
             [
                 'key'     => 'articles_home',
@@ -116,6 +137,7 @@ class SettingSeeder extends Seeder
         ];
 
         $this->storeItems(
+            $seo_course_page,
             $courses_home,
             $articles_home,
             $seo_home_page,

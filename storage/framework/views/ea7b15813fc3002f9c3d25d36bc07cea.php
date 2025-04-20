@@ -1,6 +1,6 @@
-<div class="card shadow mb-3" style="height: 100%">
+<div class="card article-card hover-zoom-in shadow mb-3" style="height: 100%">
 
-    <a class="col-12 d-flex justify-content-start align-items-center" href="<?php echo e(route('article.detail',$article->slug)); ?>">
+    <a class="col-12 overflow-hidden d-flex justify-content-start align-items-center" href="<?php echo e(route('article.detail',$article->slug)); ?>">
         <img style="border-radius: 8px 8px 0 0" class="col-<?php echo e(isset($side) ? '12' : '8'); ?>" src="<?php echo e($article->image); ?>" alt="<?php echo e($article->alt); ?>"/>
     </a>
         <div style="height: 7vh" class="col-12 card-body <?php echo e(isset($side) ? 'p-2' : ''); ?>">

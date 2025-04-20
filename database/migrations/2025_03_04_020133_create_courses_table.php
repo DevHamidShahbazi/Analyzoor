@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('price')->nullable();
             $table->string('discount')->nullable();
             $table->string('time')->nullable();
+            $table->text('paragraph')->nullable();
             $table->text('title')->nullable();
             $table->text('description')->nullable();
             $table->text('keywords')->nullable();

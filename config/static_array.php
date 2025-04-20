@@ -23,7 +23,7 @@ return [
     'courseStatus'=> [
         'به زودی' => 'comingSoon',
         'درحال برگزاری' => 'currently',
-        'تکمیل' => 'complete',
+        'تکمیل ظبط' => 'complete',
     ],
     'episodeType'=> [
         'نقدی' => 'premium',

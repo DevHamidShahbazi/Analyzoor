@@ -101,11 +101,18 @@
 
                     <div class="form-group">
                         <div class="col-lg-5">
+                            <label  class="col-sm-12 control-label">پاراگراف</label>
+                            <input type="text" value="{{old('paragraph')}}" name="paragraph" class="form-control"
+                                   placeholder="پاراگراف">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-5">
                             <label  class="col-sm-12 control-label">title</label>
                             <input type="text" value="{{old('title')}}" name="title" class="form-control"
                                    placeholder="title">
                         </div>
-
                     </div>
 
                     <div class="form-group">

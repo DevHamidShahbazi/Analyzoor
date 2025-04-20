@@ -35,6 +35,17 @@ if (!function_exists('time_course')) {
     }
 }
 
+if (!function_exists('percent')) {
+    function percent($price,$discount)
+    {
+        $disc = 100*$discount;
+        $x =  $disc / $price;
+        $dar100_discount=100-$x;
+        $explode=explode('.',$dar100_discount);
+        return $explode[0];
+    }
+}
+
 
 if (!function_exists('notify_user_new')) {
     function notify_user_new()

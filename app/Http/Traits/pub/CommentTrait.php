@@ -10,7 +10,7 @@ trait CommentTrait
             'commentable_id' => ['required','numeric','regex:/^[0-9]+$/'],
             'comment' => ['required'],
         ], [
-            'commentable_id.required' => 'لطفا مقاله را وارد کنید',
+            'commentable_id.required' => 'لطفا موضوع را وارد کنید',
             'comment.required' => 'لطفا نظر را وارد کنید',
         ]);
     }
@@ -22,8 +22,8 @@ trait CommentTrait
             'parent_id' => ['required','numeric','regex:/^[0-9]+$/'],
             'comment' => ['required'],
         ], [
-            'commentable_id.required' => 'لطفا مقاله را وارد کنید',
-            'parent_id.required' => 'لطفا مقاله اصلی را وارد کنید',
+            'commentable_id.required' => 'لطفا موضوع را وارد کنید',
+            'parent_id.required' => 'لطفا نظر اصلی را وارد کنید',
             'comment.required' => 'لطفا نظر را وارد کنید',
         ]);
     }

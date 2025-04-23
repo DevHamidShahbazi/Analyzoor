@@ -62,19 +62,26 @@
 
         <div class="col-lg-3">
 
-            <div class="widgets-container" >
+            <form action="{{\Illuminate\Support\Facades\URL::current()}}" method="GET">
+                <div class="widgets-container" >
 
-                <div class="search-widget widget-item p-3" data-aos="fade-up" data-aos-delay="200">
+                    <button data-aos="fade-up" data-aos-delay="150" class="btn btn-primary mb-3 col-12" type="submit">
+                        اعمال فیلتر
+                        <i class="fas fa-filter"></i>
+                    </button>
 
-                    <p class="widget-title text-start font-weight-bold" style="font-size: larger">جستجو</p>
+
+                    <div class="search-widget widget-item p-3" data-aos="fade-up" data-aos-delay="200">
+
+                        <p class="widget-title text-start font-weight-bold" style="font-size: larger">جستجو</p>
 
 
-                    <form class="filter" method="GET" action="{{\Illuminate\Support\Facades\URL::current()}}">
+
 
                         <div class="row align-items-center justify-content-center m-0">
                             <div class="col-lg-12 text-center">
                                 <div class="input-group">
-                                    <input  value="{{request()->has('filter') ? request()->get('filter')['name'] :''}}" placeholder="جستجو" dir="rtl"  type="search" class="form-control" name="filter[name][]" >
+                                    <input  value="{{ request()->input('filter.name') }}" placeholder="جستجو" dir="rtl"  type="search" class="form-control" name="filter[name]" >
                                     <button class="btn btn-outline-primary p-2">
                                         <i class="fas fa-search" ></i>
                                     </button>
@@ -83,54 +90,81 @@
 
 
                         </div>
-                    </form>
 
-                </div>
-
-
-                <div class="categories-widget widget-item p-3" data-aos="fade-up" data-aos-delay="300">
-
-                    <p class="widget-title text-start font-weight-bold" style="font-size: larger">دسته بندی</p>
+                    </div>
 
 
-                    <form action="/courses" method="GET">
+                    <div class="categories-widget widget-item p-3" data-aos="fade-up" data-aos-delay="400">
+
+                        <p class="widget-title text-start font-weight-bold" style="font-size: larger">نوع دوره آموزشی</p>
+
+
+                        <div class="d-flex flex-column gap-2">
+
+
+                            @foreach (config('static_array.courseType') as $name => $value)
+
+                                <div class="form-check">
+                                    <input  {{ in_array($value, (array) request()->input('filter.type', [])) ? 'checked' : '' }} class="form-check-input" type="checkbox" name="filter[type][]" value="{{$value}}" id="typeDraft-{{$loop->index}}">
+                                    <label class="form-check-label" for="typeDraft-{{$loop->index}}">{{$name}}</label>
+                                </div>
+                            @endforeach
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="categories-widget widget-item p-3" data-aos="fade-up" data-aos-delay="300">
+
+                        <p class="widget-title text-start font-weight-bold" style="font-size: larger">وضعیت دوره آموزشی</p>
+
+
+
 
                         <div class="d-flex flex-column gap-2">
                             @foreach (config('static_array.courseStatus') as $name => $value)
 
                                 <div class="form-check">
-                                    <input {{request()->has('filter') ? (request()->get('filter')['status'] == $value ? 'checked' :'') :''}} class="form-check-input" type="checkbox" name="filter[status][]" value="{{$value}}" id="statusDraft-{{$loop->index}}">
+                                    <input  {{ in_array($value, request()->input('filter.status', [])) ? 'checked' : '' }} class="form-check-input" type="checkbox" name="filter[status][]" value="{{$value}}" id="statusDraft-{{$loop->index}}">
                                     <label class="form-check-label" for="statusDraft-{{$loop->index}}">{{$name}}</label>
                                 </div>
                             @endforeach
 
-                            @foreach (config('static_array.courseType') as $name => $value)
 
-                                <div class="form-check">
-                                    <input {{request()->has('filter') ? (request()->get('filter')['type'] == $value ? 'checked' :'') :''}} class="form-check-input" type="checkbox" name="filter[type][]" value="{{$value}}" id="typeDraft-{{$loop->index}}">
-                                    <label class="form-check-label" for="typeDraft-{{$loop->index}}">{{$name}}</label>
-                                </div>
-                            @endforeach
-                            <hr>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="categories-widget widget-item p-3" data-aos="fade-up" data-aos-delay="450">
+
+                        <p class="widget-title text-start font-weight-bold" style="font-size: larger">دسته بندی</p>
+
+
+
+
+                        <div class="d-flex flex-column gap-2">
+
                             @foreach ($categories as $key => $category)
-
                                 <div class="form-check">
-                                    <input {{request()->has('filter') ? (request()->get('filter')['category_id']['id'] ? 'checked' :'') :''}} class="form-check-input" type="checkbox" name="filter[category_id][]" value="{{$category->id}}" id="categoryDraft-{{$loop->index}}">
-                                    <label class="form-check-label" for="categoryDraft-{{$loop->index}}">{{$category->name}}</label>
+                                    <input class="form-check-input" type="checkbox" name="filter[category_id][]" value="{{ $category->id }}" id="categoryDraft-{{ $loop->index }}"
+                                        {{ in_array($category->id, (array) request()->input('filter.category_id', [])) ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="categoryDraft-{{ $loop->index }}">
+                                        {{ $category->name }}
+                                    </label>
                                 </div>
                             @endforeach
                         </div>
 
-                        <button class="btn btn-primary mt-3 col-12" type="submit">
-                            اعمال فیلتر
-                            <i class="fas fa-filter"></i>
-                        </button>
-                    </form>
+                    </div>
 
                 </div>
 
+            </form>
 
-            </div>
 
         </div>
 
@@ -138,3 +172,4 @@
 </div>
 
 @endsection
+

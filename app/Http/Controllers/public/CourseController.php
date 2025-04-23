@@ -25,9 +25,10 @@ class CourseController extends Controller
                 AllowedFilter::exact('status'),
                 AllowedFilter::custom('category_id', new CategoryFilter()),
                 AllowedFilter::custom('type', new TypeFilter()),
-                AllowedFilter::partial('name'),
+                AllowedFilter::partial('name')->nullable(),
             ])
             ->paginate(20);
+
         $categories = Category::where('type','course')->get();
         return view('public.course',compact('courses','categories'));
     }

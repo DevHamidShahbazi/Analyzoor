@@ -62,19 +62,26 @@
 
         <div class="col-lg-3">
 
-            <div class="widgets-container" >
+            <form action="<?php echo e(\Illuminate\Support\Facades\URL::current()); ?>" method="GET">
+                <div class="widgets-container" >
 
-                <div class="search-widget widget-item p-3" data-aos="fade-up" data-aos-delay="200">
+                    <button data-aos="fade-up" data-aos-delay="150" class="btn btn-primary mb-3 col-12" type="submit">
+                        اعمال فیلتر
+                        <i class="fas fa-filter"></i>
+                    </button>
 
-                    <p class="widget-title text-start font-weight-bold" style="font-size: larger">جستجو</p>
+
+                    <div class="search-widget widget-item p-3" data-aos="fade-up" data-aos-delay="200">
+
+                        <p class="widget-title text-start font-weight-bold" style="font-size: larger">جستجو</p>
 
 
-                    <form class="filter" method="GET" action="<?php echo e(\Illuminate\Support\Facades\URL::current()); ?>">
+
 
                         <div class="row align-items-center justify-content-center m-0">
                             <div class="col-lg-12 text-center">
                                 <div class="input-group">
-                                    <input  value="<?php echo e(request()->has('filter') && request()->get('filter')['name'] ? request()->get('filter')['name'] :''); ?>" placeholder="جستجو" dir="rtl"  type="search" class="form-control" name="filter[name][]" >
+                                    <input  value="<?php echo e(request()->input('filter.name')); ?>" placeholder="جستجو" dir="rtl"  type="search" class="form-control" name="filter[name]" >
                                     <button class="btn btn-outline-primary p-2">
                                         <i class="fas fa-search" ></i>
                                     </button>
@@ -83,54 +90,83 @@
 
 
                         </div>
-                    </form>
 
-                </div>
-
-
-                <div class="categories-widget widget-item p-3" data-aos="fade-up" data-aos-delay="300">
-
-                    <p class="widget-title text-start font-weight-bold" style="font-size: larger">دسته بندی</p>
+                    </div>
 
 
-                    <form action="/courses" method="GET">
+                    <div class="categories-widget widget-item p-3" data-aos="fade-up" data-aos-delay="400">
+
+                        <p class="widget-title text-start font-weight-bold" style="font-size: larger">نوع دوره آموزشی</p>
+
+
+                        <div class="d-flex flex-column gap-2">
+
+
+                            <?php $__currentLoopData = config('static_array.courseType'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                                <div class="form-check">
+                                    <input  <?php echo e(in_array($value, (array) request()->input('filter.type', [])) ? 'checked' : ''); ?> class="form-check-input" type="checkbox" name="filter[type][]" value="<?php echo e($value); ?>" id="typeDraft-<?php echo e($loop->index); ?>">
+                                    <label class="form-check-label" for="typeDraft-<?php echo e($loop->index); ?>"><?php echo e($name); ?></label>
+                                </div>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                        </div>
+
+
+                    </div>
+
+                    
+                    <div class="categories-widget widget-item p-3" data-aos="fade-up" data-aos-delay="300">
+
+                        <p class="widget-title text-start font-weight-bold" style="font-size: larger">وضعیت دوره آموزشی</p>
+
+
+
 
                         <div class="d-flex flex-column gap-2">
                             <?php $__currentLoopData = config('static_array.courseStatus'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                                 <div class="form-check">
-                                    <input <?php echo e(request()->has('filter') ? (request()->get('filter')['status'] == $value ? 'checked' :'') :''); ?> class="form-check-input" type="checkbox" name="filter[status][]" value="<?php echo e($value); ?>" id="statusDraft-<?php echo e($loop->index); ?>">
+                                    <input  <?php echo e(in_array($value, request()->input('filter.status', [])) ? 'checked' : ''); ?> class="form-check-input" type="checkbox" name="filter[status][]" value="<?php echo e($value); ?>" id="statusDraft-<?php echo e($loop->index); ?>">
                                     <label class="form-check-label" for="statusDraft-<?php echo e($loop->index); ?>"><?php echo e($name); ?></label>
                                 </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                            <?php $__currentLoopData = config('static_array.courseType'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                                <div class="form-check">
-                                    <input <?php echo e(request()->has('filter') ? (request()->get('filter')['type'] == $value ? 'checked' :'') :''); ?> class="form-check-input" type="checkbox" name="filter[type][]" value="<?php echo e($value); ?>" id="typeDraft-<?php echo e($loop->index); ?>">
-                                    <label class="form-check-label" for="typeDraft-<?php echo e($loop->index); ?>"><?php echo e($name); ?></label>
-                                </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <hr>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="categories-widget widget-item p-3" data-aos="fade-up" data-aos-delay="450">
+
+                        <p class="widget-title text-start font-weight-bold" style="font-size: larger">دسته بندی</p>
+
+
+
+
+                        <div class="d-flex flex-column gap-2">
+
                             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
                                 <div class="form-check">
-                                    <input <?php echo e(request()->has('filter') ? (request()->get('filter')['category_id']['id'] ? 'checked' :'') :''); ?> class="form-check-input" type="checkbox" name="filter[category_id][]" value="<?php echo e($category->id); ?>" id="categoryDraft-<?php echo e($loop->index); ?>">
-                                    <label class="form-check-label" for="categoryDraft-<?php echo e($loop->index); ?>"><?php echo e($category->name); ?></label>
+                                    <input class="form-check-input" type="checkbox" name="filter[category_id][]" value="<?php echo e($category->id); ?>" id="categoryDraft-<?php echo e($loop->index); ?>"
+                                        <?php echo e(in_array($category->id, (array) request()->input('filter.category_id', [])) ? 'checked' : ''); ?>>
+                                    <label class="form-check-label" for="categoryDraft-<?php echo e($loop->index); ?>">
+                                        <?php echo e($category->name); ?>
+
+                                    </label>
                                 </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </div>
 
-                        <button class="btn btn-primary mt-3 col-12" type="submit">
-                            اعمال فیلتر
-                            <i class="fas fa-filter"></i>
-                        </button>
-                    </form>
+                    </div>
 
                 </div>
 
+            </form>
 
-            </div>
 
         </div>
 
@@ -138,5 +174,6 @@
 </div>
 
 <?php $__env->stopSection(); ?>
+
 
 <?php echo $__env->make('layouts.layout public.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Analyzoor\resources\views/public/course.blade.php ENDPATH**/ ?>

@@ -61,77 +61,109 @@ article {
     font-weight: bold !important;
 }
 
-body {
-    font-size: 16px; /* Default font-size */
-}
 pre {
     direction: ltr;
 }
-h1,h2,h3 {
-    font-size: 2rem;
-}
-h4,h5,h6 {
-    font-size: 1.5rem;
-}
-p,a {
-    font-size: 1.1rem;
+
+
+html {
+    font-size: 16px; /* پایه ۱۶px */
 }
 
-@media (max-width: 1200px) {
-    body {
-        font-size: 15px;
-    }
+h1 {
+    font-size: 2.5rem; /* 40px */
+}
 
-    h1,h2,h3,h4,h5,h6 {
-        font-size: 1.8rem;
-    }
+h2 {
+    font-size: 2rem; /* 32px */
+}
 
-    p,a {
-        font-size: 1rem;
-    }
+h3 {
+    font-size: 1.75rem; /* 28px */
+}
+
+h4 {
+    font-size: 1.5rem; /* 24px */
+}
+
+h5 {
+    font-size: 1.25rem; /* 20px */
+}
+
+h6 {
+    font-size: 1rem; /* 16px */
+}
+
+p, a {
+    font-size: 1rem; /* 16px */
 }
 
 @media (max-width: 992px) {
-    body {
-        font-size: 14px;
+    h1 {
+        font-size: 2rem;
     }
-
-    h1,h2,h3,h4,h5,h6 {
-        font-size: 1.6rem;
+    h2 {
+        font-size: 1.75rem;
     }
-
-    p,a {
+    h3 {
+        font-size: 1.5rem;
+    }
+    h4 {
+        font-size: 1.25rem;
+    }
+    h5 {
         font-size: 1.1rem;
+    }
+    h6 {
+        font-size: 1rem;
+    }
+    p, a {
+        font-size: 0.95rem;
     }
 }
 
 @media (max-width: 768px) {
-    body {
-        font-size: 13px;
+    h1 {
+        font-size: 1.75rem;
     }
-
-    h1,h2,h3,h4,h5,h6 {
-        font-size: 1.4rem;
+    h2 {
+        font-size: 1.5rem;
     }
-
-    p,a {
+    h3 {
+        font-size: 1.25rem;
+    }
+    h4 {
+        font-size: 1.1rem;
+    }
+    h5 {
         font-size: 1rem;
+    }
+    h6 {
+        font-size: 0.95rem;
+    }
+    p, a {
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 576px) {
-    body {
-        font-size: 12px;
+    h1 {
+        font-size: 1.5rem;
     }
-
-    h1,h2,h3,h4,h5,h6 {
-        font-size: 1.2rem;
+    h2 {
+        font-size: 1.25rem;
     }
-
-    p,a {
-        font-size: .9rem;
+    h3 {
+        font-size: 1.1rem;
+    }
+    h4, h5, h6 {
+        font-size: 1rem;
+    }
+    p, a {
+        font-size: 0.85rem;
     }
 }
+
 
 /*highlight css*/
 pre code.hljs {

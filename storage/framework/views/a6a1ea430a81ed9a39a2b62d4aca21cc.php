@@ -31,12 +31,12 @@
 
                                 <div class="md-form mb-2">
                                     <label class="m-0">عنوان</label>
-                                    <input  required value="<?php echo e($val->title); ?>" type="text" class="form-control" name="title" >
+                                    <input  required value="<?php echo e($val->title); ?>"  type="text" class="form-control" name="title" >
                                 </div>
 
                                 <div class="form-group">
                                     <label  class="col-sm-12 control-label">ترتیب</label>
-                                    <input type="number" value="<?php echo e($val->sort); ?>" name="sort" class="form-control"
+                                    <input type="number" value="<?php echo e($val->sort); ?>" required name="sort" class="form-control"
                                            placeholder="ترتیب">
                                 </div>
 

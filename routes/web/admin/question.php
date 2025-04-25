@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\ArticleController;
 use App\Http\Controllers\admin\ChapterController;
 use App\Http\Controllers\admin\EpisodeController;
 use App\Http\Controllers\admin\FileArticleController;
+use App\Http\Controllers\admin\QuestionController;
 use App\Http\Controllers\admin\UrlArticleController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::resource('chapter', ChapterController::class)->except(['show','create','edit']);
+Route::resource('question', QuestionController::class)->except(['show','create','edit']);

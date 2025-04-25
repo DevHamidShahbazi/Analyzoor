@@ -56,6 +56,11 @@ class Course extends Model
         return $this->hasMany(Chapter::class);
     }
 
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
+
     public function getCreatedDateAttribute()
     {
         return Verta::instance($this->attributes['created_at'])->format('Y-n-j');

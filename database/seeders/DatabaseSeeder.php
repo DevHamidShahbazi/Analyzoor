@@ -11,6 +11,7 @@ use App\Models\Course;
 use App\Models\Episode;
 use App\Models\Message;
 use App\Models\Payment;
+use App\Models\Question;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Crypt;
@@ -35,6 +36,7 @@ class DatabaseSeeder extends Seeder
         Course::factory()->count(5)->create();
         Episode::factory()->count(5)->create();
         Chapter::factory()->count(50)->create();
+        Question::factory()->count(50)->create();
         Comment::factory()->count(150)->create();
         Payment::factory()->count(5)->create();
     }

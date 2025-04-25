@@ -8,7 +8,7 @@
     <li class="breadcrumb-item">
         <a href="<?php echo e(route('admin.episode.index',['course_id'=>$course_id])); ?>"> لیست قسمت ها <?php echo e($course->name); ?></a>
     </li>
-    <li class="breadcrumb-item"><?php echo e(' فصل های آموزشی '.$course->name); ?></li>
+    <li class="breadcrumb-item"><?php echo e(' سوالات متداول '.$course->name); ?></li>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -24,42 +24,34 @@
                     <div style="text-align: initial;" class="m-b-30 text-light mb-2">
                         <a data-toggle="modal" data-target="#AddList" type="button"  class="btn  btn-primary btn-sm">
                             <i class="fa fa-plus"></i>
-                            <i  style="margin: inherit; ">افزودن فصل</i></a>
+                            <i  style="margin: inherit; ">افزودن سوال متداول</i></a>
                     </div>
-                    <?php echo $__env->make('admin.course.chapter.create', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    <?php echo $__env->make('admin.course.question.create', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover">
                         <tr style="background-color: #343a40;" >
                             <th  class="text-center text-light" scope="col">ردیف</th>
-                            <th  class="text-center text-light" scope="col">نام</th>
                             <th  class="text-center text-light" scope="col">عنوان</th>
-                            <th  class="text-center text-light" scope="col">قسمت ها</th>
-                            <th  class="text-center text-light" scope="col">ترتیب</th>
+                            <th  class="text-center text-light" scope="col">توضیحات</th>
                             <th  class="text-center text-light" scope="col">ویرایش</th>
                             <th  class="text-center text-light" scope="col">حذف</th>
                         </tr>
 
-                        <?php if(!empty($chapters)): ?>
-                            <?php $__currentLoopData = $chapters; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if(!empty($questions)): ?>
+                            <?php $__currentLoopData = $questions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr class="item<?php echo e($val->id); ?>">
                                     <td style="padding:1.5rem 0" class="Dlt text-center font-weight-bold"><?php echo e($loop->count-$key); ?></td>
-                                    <td style="padding:1.5rem 0"  class="text-center font-weight-bold" ><?php echo e($val->name); ?></td>
                                     <td style="padding:1.5rem 0"  class="text-center font-weight-bold" ><?php echo e($val->title); ?></td>
-                                    <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >
-                                        <?php $__currentLoopData = $val->episodes()->get(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <span class="badge bg-primary" style="font-size: 100%"><?php echo e($v->name); ?></span>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    </td>
-                                    <td style="padding:1.5rem 0"  class="text-center font-weight-bold" ><?php echo e($val->sort); ?></td>
+                                    <td style="padding:1.5rem 0"  class="text-center font-weight-bold" ><?php echo e($val->description); ?></td>
                                     <td style="padding:1.5rem 0" class="text-center font-weight-bold">
                                         <button data-toggle="modal" data-target="#EditList<?php echo e($key); ?>" type="button" style="width: max-content;" class="btn btn-info btn-sm"><i class="fa fa-edit"></i><i style="margin: inherit;">ویرایش</i></button>
                                     </td>
-                                    <?php echo $__env->make('admin.course.chapter.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                                    <?php echo $__env->make('admin.course.question.edit', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
                                     <td  style="padding:1.5rem 0" class="text-center  text-light ">
-                                        <a href="#" data-id="<?php echo e($val->id); ?>" data-route="<?php echo e(route('admin.chapter.destroy',['chapter'=>$val->id,'course_id'=>$course_id])); ?>"  type="submit" style="width: max-content;" class="btn-sm btn-danger btnDelete" ><i style="margin: 0 0 0 5px;" class="fa fa-trash"></i><i style="margin: inherit;">حذف</i></a>
+                                        <a href="#" data-id="<?php echo e($val->id); ?>" data-route="<?php echo e(route('admin.question.destroy',['question'=>$val->id,'course_id'=>$course_id])); ?>"  type="submit" style="width: max-content;" class="btn-sm btn-danger btnDelete" ><i style="margin: 0 0 0 5px;" class="fa fa-trash"></i><i style="margin: inherit;">حذف</i></a>
                                     </td>
                                 </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -74,4 +66,4 @@
 
 
 
-<?php echo $__env->make('layouts.layout admin.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Analyzoor\resources\views/admin/course/chapter/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.layout admin.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Analyzoor\resources\views/admin/course/question/index.blade.php ENDPATH**/ ?>

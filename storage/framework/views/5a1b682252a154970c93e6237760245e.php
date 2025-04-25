@@ -13,7 +13,7 @@
                     <li class="nav-item ">
                         <a class="nav-link text-light" data-toggle="tab" href="#panel17" role="tab">
                             <i class="fa fa-plus"></i>
-                            اضافه کردن فصل
+                            اضافه کردن سوال متداول
                         </a>
                     </li>
                 </ul>
@@ -23,16 +23,10 @@
                     <!-- Panel 17 -->
 
                     <div class="tab-pane fade in show active" id="panel17" role="tabpanel">
-                        <form method="POST" action="<?php echo e(route('admin.chapter.store',['course_id'=>$course_id])); ?>"  enctype="multipart/form-data" >
+                        <form method="POST" action="<?php echo e(route('admin.question.store',['course_id'=>$course_id])); ?>"  enctype="multipart/form-data" >
                             <?php echo csrf_field(); ?>
 
                             <div class="modal-body mb-1">
-
-                                <div class="md-form mb-2">
-                                    <label class="m-0">نام</label>
-                                    <input required value="<?php echo e(old('name')); ?>"  dir="rtl" id="name" type="text" class="form-control" name="name" >
-                                </div>
-
 
                                 <div class="form-group">
                                     <label  class="col-sm-12 control-label">عنوان</label>
@@ -41,9 +35,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label  class="col-sm-12 control-label">ترتیب</label>
-                                    <input type="number" value="<?php echo e(old('sort')); ?>" name="sort" required class="form-control"
-                                           placeholder="ترتیب">
+                                    <label  class="col-sm-12 control-label">توضیحات</label>
+                                    <textarea class="form-control" placeholder="توضیحات" name="description" cols="30" rows="10"><?php echo e(old('description')); ?></textarea>
                                 </div>
 
                                 <div class="text-center mt-2">
@@ -69,4 +62,4 @@
 
     </div>
 </div>
-<?php /**PATH C:\xampp\htdocs\Analyzoor\resources\views/admin/course/chapter/create.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\Analyzoor\resources\views/admin/course/question/create.blade.php ENDPATH**/ ?>

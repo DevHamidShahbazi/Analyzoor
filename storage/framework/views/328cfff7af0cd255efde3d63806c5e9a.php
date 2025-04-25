@@ -115,7 +115,7 @@
 
                     </div>
 
-                    
+
                     <div class="categories-widget widget-item p-3" data-aos="fade-up" data-aos-delay="300">
 
                         <p class="widget-title text-start font-weight-bold" style="font-size: larger">وضعیت دوره آموزشی</p>
@@ -137,7 +137,6 @@
 
 
                     </div>
-
 
 
                     <div class="categories-widget widget-item p-3" data-aos="fade-up" data-aos-delay="450">

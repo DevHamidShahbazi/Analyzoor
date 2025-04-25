@@ -36,13 +36,13 @@
 
                                 <div class="form-group">
                                     <label  class="col-sm-12 control-label">عنوان</label>
-                                        <input type="text" value="{{old('title')}}" name="title" class="form-control"
+                                        <input type="text" value="{{old('title')}}" name="title" required class="form-control"
                                                placeholder="عنوان">
                                 </div>
 
                                 <div class="form-group">
                                     <label  class="col-sm-12 control-label">ترتیب</label>
-                                    <input type="number" value="{{old('sort')}}" name="sort" class="form-control"
+                                    <input type="number" value="{{old('sort')}}" name="sort" required class="form-control"
                                            placeholder="ترتیب">
                                 </div>
 

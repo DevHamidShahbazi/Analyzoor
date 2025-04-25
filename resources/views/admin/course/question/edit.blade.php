@@ -17,32 +17,26 @@
                 <div class="tab-content">
 
                     <div class="tab-pane fade in show active" id="panel17" role="tabpanel">
-                        <form method="POST" action="{{ route('admin.chapter.update',['chapter'=>$val->id,'course_id'=>$course_id]) }}"  enctype="multipart/form-data" >
+                        <form method="POST" action="{{ route('admin.question.update',['question'=>$val->id,'course_id'=>$course_id]) }}"  enctype="multipart/form-data" >
                             @csrf
                             {{ method_field('PATCH') }}
                             <div class="modal-body mb-1">
 
-                                <div class="md-form mb-2">
-                                    <label class="m-0">نام</label>
-                                    <input  required value="{{ $val->name  }}" type="text" class="form-control" name="name" >
-                                </div>
-
-                                <div class="md-form mb-2">
-                                    <label class="m-0">عنوان</label>
-                                    <input  required value="{{ $val->title  }}"  type="text" class="form-control" name="title" >
+                                <div class="form-group">
+                                    <label  class="col-sm-12 control-label">عنوان</label>
+                                    <input type="text" value="{{$val->title}}" name="title" required class="form-control"
+                                           placeholder="عنوان">
                                 </div>
 
                                 <div class="form-group">
-                                    <label  class="col-sm-12 control-label">ترتیب</label>
-                                    <input type="number" value="{{$val->sort}}" required name="sort" class="form-control"
-                                           placeholder="ترتیب">
+                                    <label  class="col-sm-12 control-label">توضیحات</label>
+                                    <textarea class="form-control" placeholder="توضیحات" name="description" cols="30" rows="10">{{$val->description}}</textarea>
                                 </div>
 
                                 <div class="text-center mt-2">
                                     <button type="submit" class="btn btn-primary btn-sm ">ویرایش</button>
                                     <button id="closed"  class="btn btn-danger btn-sm"  data-dismiss="modal"  data-toggle="tooltip" data-placement="bottom" data-html="true"  data-original-title="خروج">لغو</button>
                                 </div>
-
 
                             </div>
 

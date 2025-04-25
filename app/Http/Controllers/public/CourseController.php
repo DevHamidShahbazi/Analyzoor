@@ -33,6 +33,12 @@ class CourseController extends Controller
         return view('public.course',compact('courses','categories'));
     }
 
+    public function detail(Course $course)
+    {
+        $episodes = $course->episodes()->get();
+        return view('public.course-detail',compact('course','episodes'));
+    }
+
 
     public function store_comment(Request $request)
     {

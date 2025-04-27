@@ -9,7 +9,7 @@
                 </button>
                 <h5 class="modal-title te" id="myModalLabel1">پاسخ به {{ $comment?->user?->name }}</h5>
             </div>
-            <form method="POST" action="{{ route('article.result.comment') }}"  enctype="multipart/form-data" >
+            <form method="POST" action="{{ route($type_route.'.result.comment') }}"  enctype="multipart/form-data" >
                 @csrf
                 <div class="modal-body">
                     <div class="tab-pane fade in show active" id="panel17" role="tabpanel">

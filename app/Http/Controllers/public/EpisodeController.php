@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Storage;
 
 class EpisodeController extends Controller
 {
+
+    public function detail(Episode $episode)
+    {
+        return $episode;
+    }
+
     public function downloadVideo(Episode $episode)
     {
         // بررسی کنید که آیا کاربر مجوز دانلود این ویدیو را دارد یا خیر

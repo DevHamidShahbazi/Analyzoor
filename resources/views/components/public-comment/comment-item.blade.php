@@ -1,4 +1,4 @@
-<div class="card col-12 border-white" id="{{$comment->id}}">
+<div class="card col-12 mb-2" id="{{$comment->id}}">
     <div class="row p-2">
         <div class="col-lg-12">
             <div class="d-flex justify-content-between">

@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Episode;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -34,6 +35,13 @@ class RouteServiceProvider extends ServiceProvider
         });
         /*CourseDetail*/
 
+
+        /*EpisodeDetail*/
+        Route::bind('EpisodeDetail',function ($value) {
+            return Episode::whereSlug($value)->firstOrFail();
+        });
+        /*EpisodeDetail*/
+
         /*CourseCategory*/
 //        Route::bind('courseCategory',function ($value) {
 //            return Category::where('type','course')->whereSlug($value)->firstOrFail();
@@ -55,7 +63,6 @@ class RouteServiceProvider extends ServiceProvider
             return Article::where('is_active','1')->whereSlug($value)->firstOrFail();
         });
         /*ArticleDetail*/
-
 
     }
 

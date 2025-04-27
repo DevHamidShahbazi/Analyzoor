@@ -34,6 +34,7 @@
     </div>
 
 {{--        <script type="text/javascript" src="/public/js/dark.js?{{$js}}"></script>--}}
+
         <script type="text/javascript" src="/public/js/app.js?{{$js}}"></script>
     <script type="text/javascript" src="/public/plugin/aos/aos.js?{{$js}}"></script>
     <script type="text/javascript" src="/public/js/custom.js?{{$js}}"></script>

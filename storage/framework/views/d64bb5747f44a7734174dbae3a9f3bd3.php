@@ -34,6 +34,7 @@
     </div>
 
 
+
         <script type="text/javascript" src="/public/js/app.js?<?php echo e($js); ?>"></script>
     <script type="text/javascript" src="/public/plugin/aos/aos.js?<?php echo e($js); ?>"></script>
     <script type="text/javascript" src="/public/js/custom.js?<?php echo e($js); ?>"></script>

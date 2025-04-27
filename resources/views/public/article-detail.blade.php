@@ -66,7 +66,7 @@
                 @endif
 
 
-                @include('components.public-comment.index',['item'=>$article])
+                @include('components.public-comment.index',['item'=>$article,'type_route'=>'article'])
             </div>
 
             <div class="col-12 col-sm-12 col-md-12 col-lg-4 pr-lg-3">

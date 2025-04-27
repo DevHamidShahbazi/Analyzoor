@@ -39,8 +39,6 @@
                                     <button type="submit" class="btn btn-primary btn-sm ">ویرایش</button>
                                     <button id="closed"  class="btn btn-danger btn-sm"  data-dismiss="modal"  data-toggle="tooltip" data-placement="bottom" data-html="true"  data-original-title="خروج">لغو</button>
                                 </div>
-                                <?php echo e($val->description); ?>
-
 
                             </div>
 

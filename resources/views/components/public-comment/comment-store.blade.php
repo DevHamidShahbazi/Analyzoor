@@ -1,6 +1,6 @@
 <div class="card-body">
     @if(auth()->check())
-        <form action="{{ route('article.store.comment') }}" method="post" class="comment">
+        <form action="{{ route($type_route.'.store.comment') }}" method="post" class="comment">
             @csrf
             <input type="number" hidden value="{{$item->id}}" name="commentable_id">
 

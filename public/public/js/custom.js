@@ -24,7 +24,19 @@
     }
     window.addEventListener('load', aosInit);
 
+    $('.collapse').collapse()
+
 })();
+
+$(".show-more").click(function () {
+    if($(".content-exp").hasClass("show-more-height")) {
+        $(this).text("بستن");
+    } else {
+        $(this).text("بیشتر");
+    }
+
+    $(".content-exp").toggleClass("show-more-height");
+});
 
 AOS.init();
 

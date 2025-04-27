@@ -28,7 +28,7 @@ class CourseFactory extends Factory
             'discount' => $this->faker->numberBetween(),
             'description' => $this->faker->paragraph,
             'keywords' => implode(', ', $this->faker->words(5)),
-            'body' => $this->faker->text(500),
+            'body' => $this->faker->text(5000),
             'alt' => $this->faker->sentence,
             'image' => 'https://fakeimg.pl/265x160/',
         ];

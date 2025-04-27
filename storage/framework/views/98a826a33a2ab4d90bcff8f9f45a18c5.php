@@ -1,6 +1,6 @@
 <div class="card-body">
     <?php if(auth()->check()): ?>
-        <form action="<?php echo e(route('article.store.comment')); ?>" method="post" class="comment">
+        <form action="<?php echo e(route($type_route.'.store.comment')); ?>" method="post" class="comment">
             <?php echo csrf_field(); ?>
             <input type="number" hidden value="<?php echo e($item->id); ?>" name="commentable_id">
 

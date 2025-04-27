@@ -10,7 +10,7 @@
             <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $question): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="border border-secondary border-1 rounded-2 border-opacity-50 my-2 ">
                     <h5 class="accordion-header rounded-2" id="heading<?php echo e($key); ?>">
-                        <button dir="rtl" class="accordion-button collapsed rounded-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo e($key); ?>" aria-expanded="false" aria-controls="collapse<?php echo e($key); ?>">
+                        <button dir="rtl" class="accordion-button collapsed font-weight-bold rounded-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo e($key); ?>" aria-expanded="false" aria-controls="collapse<?php echo e($key); ?>">
                             <?php echo e($question->title); ?>
 
                         </button>

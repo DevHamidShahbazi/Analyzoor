@@ -121,15 +121,6 @@
 
                     <div class="form-group">
                         <div class="col-lg-5">
-                            <label  class="col-sm-12 control-label">زمان</label>
-                            <input type="text" value="{{$course->time}}" name="time" class="form-control"
-                                   placeholder="زمان کل دوره">
-                        </div>
-
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-lg-5">
                             <label  class="col-sm-12 control-label">پاراگراف</label>
                             <input type="text" value="{{$course->paragraph}}" name="paragraph" class="form-control"
                                    placeholder="پاراگراف">

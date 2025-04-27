@@ -36,15 +36,17 @@ class CourseController extends Controller
     public function detail(Course $course)
     {
         $episodes = $course->episodes()->get();
-        return view('public.course-detail',compact('course','episodes'));
+        $questions = $course->questions()->get();
+        $chapters = $course->chapters()->get();
+        return view('public.course-detail',compact('course','episodes','questions','chapters'));
     }
 
 
     public function store_comment(Request $request)
     {
         $this->validate_store();
-        $article = Course::find($request['commentable_id']);
-        if(!$article) {
+        $course = Course::find($request['commentable_id']);
+        if(!$course) {
             return redirect()->back()->with('error', 'دوره ای پیدا نشد');
         }
 
@@ -57,15 +59,15 @@ class CourseController extends Controller
             'comment'=>$request['comment']
         ]);
 
-        return redirect(route('article.detail',$article->slug))->with('success','نظر شما با موفقیت ثبت شد بعد از تایید به نمایش گذاشته می شود');
+        return redirect(route('course.detail',$course->slug))->with('success','نظر شما با موفقیت ثبت شد بعد از تایید به نمایش گذاشته می شود');
     }
 
     public function result_comment(Request $request)
     {
         $this->validate_result();
-        $article = Course::find($request['commentable_id']);
+        $course = Course::find($request['commentable_id']);
 
-        if(!$article) {
+        if(!$course) {
             return redirect()->back()->with('error', 'دوره ای پیدا نشد');
         }
 
@@ -78,6 +80,6 @@ class CourseController extends Controller
             'comment'=>$request['comment']
         ]);
 
-        return redirect(route('article.detail',$article->slug))->with('success','نظر شما با موفقیت ثبت شد بعد از تایید به نمایش گذاشته می شود');
+        return redirect(route('course.detail',$course->slug))->with('success','نظر شما با موفقیت ثبت شد بعد از تایید به نمایش گذاشته می شود');
     }
 }

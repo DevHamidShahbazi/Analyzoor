@@ -13,7 +13,6 @@ trait CourseTrait
             'body' => $request['body'],
             'price' => $request['price'],
             'discount' => $request['discount'],
-            'time' => $request['time'],
             'status' => $request['status'],
             'type' => $request['type'],
             'paragraph' => $request['paragraph'],

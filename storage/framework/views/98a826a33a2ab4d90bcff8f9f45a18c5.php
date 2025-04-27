@@ -1,4 +1,4 @@
-<div class="card-body">
+<div class="card-body ">
     <?php if(auth()->check()): ?>
         <form action="<?php echo e(route($type_route.'.store.comment')); ?>" method="post" class="comment">
             <?php echo csrf_field(); ?>

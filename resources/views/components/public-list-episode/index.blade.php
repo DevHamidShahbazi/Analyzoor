@@ -2,20 +2,20 @@
     <div class="col-12">
         <div dir="rtl" class="d-flex justify-content-between">
             <div>
-                <span class="fs-5 font-weight-bold">
+                <span class="fs-lg-5 fs-6 font-weight-bold">
                     جلسه
                     {{$loop->index+1}}
                 </span>
-                <span class="mx-3">|</span>
-                <a href="{{route('episode.detail',$episode->slug)}}" class="fs-5">{{$episode->name}}</a>
+                <span class="mx-sm-3 mx-1">|</span>
+                <a href="{{route('episode.detail',$episode->slug)}}" class="fs-lg-5 fs-6">{{$episode->name}}</a>
             </div>
 
-            <div>
+            <div class="d-sm-block d-grid" style="min-width: fit-content">
                 <span class="fs-6">
-                    {{$episode->time}}
                     <i class="fas fa-clock"></i>
+                    {{$episode->time}}
                 </span>
-                <span class="mx-1"></span>
+                <span class="mx-1 d-sm-none"></span>
                 <a href="{{route('episode.detail',$episode->slug)}}" class="btn btn-sm btn-outline-{{$episode->type == 'free' ? 'primary' : 'danger'}} ">
                     {{$episode->type == 'free' ? 'مشاهده' : 'نقدی'}}
                     <i class="fas fa-{{$episode->type == 'free' ? 'eye' : 'lock'}}"></i>

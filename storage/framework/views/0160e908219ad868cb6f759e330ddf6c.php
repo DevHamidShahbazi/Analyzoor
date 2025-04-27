@@ -1,4 +1,4 @@
-<div class="modal fade text-left" id="ResultComment<?php echo e($comment->id); ?>" tabindex="-1" role="dialog"
+<div class="modal modal-lg fade text-left" id="ResultComment<?php echo e($comment->id); ?>" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
@@ -24,12 +24,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn" data-bs-dismiss="modal">
-                        <i class="bx bx-x d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">لغو</span>
+                        <span class="d-block">لغو</span>
                     </button>
                     <button  type="submit" class="btn btn-primary ms-1" data-bs-dismiss="modal">
-                        <i class="bx bx-check d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">ثبت نظر</span>
+                        <span class="d-block">ثبت نظر</span>
                     </button>
                 </div>
             </form>

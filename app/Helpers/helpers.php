@@ -23,17 +23,35 @@ if (!function_exists('time_course')) {
         $totalSeconds = 0;
 
         foreach ($times as $time) {
-            list($hours, $minutes, $seconds) = explode(':', $time);
+            $parts = explode(':', $time);
+
+            if (count($parts) == 3) {
+                $hours = (int) $parts[0];
+                $minutes = (int) $parts[1];
+                $seconds = (int) $parts[2];
+            } elseif (count($parts) == 2) {
+                $hours = 0;
+                $minutes = (int) $parts[0];
+                $seconds = (int) $parts[1];
+            } else {
+                // فرمت اشتباه - صفر بگذار
+                $hours = 0;
+                $minutes = 0;
+                $seconds = 0;
+            }
+
             $totalSeconds += ($hours * 3600) + ($minutes * 60) + $seconds;
         }
 
-        $totalTime = CarbonInterval::seconds($totalSeconds)->cascade();
+        // تبدیل کل ثانیه به ساعت/دقیقه/ثانیه
+        $hours = floor($totalSeconds / 3600);
+        $minutes = floor(($totalSeconds % 3600) / 60);
+        $seconds = $totalSeconds % 60;
 
-        $formattedTime = sprintf('%02d:%02d:%02d', $totalTime->hours, $totalTime->minutes, $totalTime->seconds);
-
-        echo $formattedTime;
+        return sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
     }
 }
+
 
 if (!function_exists('percent')) {
     function percent($price,$discount)

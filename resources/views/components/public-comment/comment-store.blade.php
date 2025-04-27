@@ -1,4 +1,4 @@
-<div class="card-body">
+<div class="card-body ">
     @if(auth()->check())
         <form action="{{ route($type_route.'.store.comment') }}" method="post" class="comment">
             @csrf

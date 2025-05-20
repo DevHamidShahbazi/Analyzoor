@@ -4,11 +4,7 @@
 <?php $__env->startSection('content'); ?>
 
 
-    <?php echo $__env->make('components.public-slider.index',[
-    'image'=>'public/img/vectors/td-article.png',
-    'title'=>'برنامه‌ نویسی، تنها نوشتن کد نیست؛ ',
-    'description'=>'تلفیقی‌ست از دانش، خلاقیت و تفکر سیستمی ، با مطالعه‌ی مداوم و درک مفاهیم هوش مصنوعی، می‌توان جهانی هوشمندتر ساخت و هم‌زمان با پیشرفت فناوری، هم‌قدم شد',
-    ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+   
 
 
 <div class="container">

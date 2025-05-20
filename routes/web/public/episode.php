@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('episode/detail/{EpisodesDetail}', [EpisodeController::class, 'detail'])->name('episode.detail');
+Route::get('episode/detail/{EpisodeDetail}', [EpisodeController::class, 'detail'])->name('episode.detail');
 
 Route::get('episodes/{episode}/download', [EpisodeController::class, 'downloadVideo'])->name('episodes.download');
 

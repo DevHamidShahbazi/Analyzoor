@@ -12,7 +12,9 @@ class EpisodeController extends Controller
 
     public function detail(Episode $episode)
     {
-        return $episode;
+        $course = $episode->course;
+        $episodes = $course->episodes()->get();
+        return view('public.episode-detail',compact('episode','course','episodes'));
     }
 
     public function downloadVideo(Episode $episode)

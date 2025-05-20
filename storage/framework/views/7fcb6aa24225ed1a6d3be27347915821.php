@@ -1,57 +1,43 @@
-<?php $__env->startSection('title'); ?><?php echo e($course->title); ?> <?php echo \Illuminate\View\Factory::parentPlaceholder('title'); ?> <?php $__env->stopSection(); ?>
-<?php $__env->startSection('description'); ?><?php echo e($course->description); ?><?php $__env->stopSection(); ?>
-<?php $__env->startSection('keywords'); ?><?php echo e($course->keywords); ?><?php $__env->stopSection(); ?>
-
-
-<?php $__env->startSection('style'); ?>
-    <style>
-        .show-more {
-            position:relative;
-            text-align: center;
-            cursor: pointer;
-        }
-        .show-more-height {
-            height: 375px;
-            overflow:hidden;
-        }
-    </style>
-<?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('script'); ?>
-    <script type="text/javascript" src="/public/js/jquery.min.js"></script>
-    <script>
-        $(".show-more").click(function () {
-            if($(".content-exp").hasClass("show-more-height")) {
-                $(this).addClass('d-none');
-            }
-            $(".content-exp").toggleClass("show-more-height");
-        });
-    </script>
-<?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?><?php echo e($episode->title); ?> <?php echo \Illuminate\View\Factory::parentPlaceholder('title'); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('description'); ?><?php echo e($episode->description); ?><?php $__env->stopSection(); ?>
+<?php $__env->startSection('keywords'); ?><?php echo e($episode->keywords); ?><?php $__env->stopSection(); ?>
 
 
 <?php $__env->startSection('content'); ?>
 
     <section class="pb-0 py-4">
         <div class="container">
-            <?php echo $__env->make('components.public-course-top-price.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+            <div class="card shadow rounded-2 mb-2 p-4">
+                <div class="col-12">
+                    <div class="row">
+
+                        <div class="position-relative w-100" style="min-height: 70vh; background-image: url('/public/img/bg/bg_episode_video.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center" style="background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px);">
+                                <div class="bg-white bg-opacity-75 text-dark rounded-lg p-4 p-md-5 text-center shadow" style="max-width: 400px; width: 90%;">
+                                    <div class="d-flex justify-content-center align-items-center height-100">
+                                        <a href="#" class="btn btn-primary">
+                                            <?php echo e($course->type == 'free' ? 'ثبت نام در ':'خرید '); ?> دوره آموزشی
+                                            <i class="fas fa-graduation-cap"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                            <h1 class="text-lg-start text-md-start text-center mt-2"><?php echo e($episode->name); ?></h1>
+                    </div>
+                </div>
+            </div>
+
+
+
+
             <div class="row">
                     <!-- Main content START -->
                 <div class="order-1 col-lg-9">
-
-                    <div  class="card shadow rounded-2 mb-2 p-4">
-                            <article  class="col-12 text-start content-exp show-more-height" >
-                               <?php echo $course->body; ?>
-
-                            </article>
-                        <div class="col-12 text-center">
-                            <div class="btn btn-md btn-outline-primary font-weight-bold show-more">
-                                <i class="fas fa-eye"></i>
-                                ادامه مطلب
-                            </div>
-                        </div>
-                        <?php echo $__env->make('components.public-questions.index',['data'=>$questions], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                    </div>
 
                     <div class="card shadow rounded-2 mb-2 p-4">
                         <div class="col-12 text-start">
@@ -59,7 +45,11 @@
                                 جلسات دوره
                             </span>
                             <hr>
-                            <?php echo $__env->make('components.public-list-chapter.index',['chapters'=>$chapters,'episodes'=>$episodes], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                            <?php echo $__env->make('components.public-list-chapter.index', [
+                                        'chapters' => $course->chapters()->get(),
+                                        'episodes' => $episodes,
+                                        'currentEpisode' => $episode
+                                    ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         </div>
                     </div>
 
@@ -69,10 +59,10 @@
                     <div class="card shadow rounded-2 mb-2 p-4">
                         <div class="col-12 text-start">
                             <span class="fs-4 font-weight-bold mb-2 text-primary">
-                                نظرات دوره
+                                نظرات
                             </span>
                             <hr>
-                            <?php echo $__env->make('components.public-comment.index',['item'=>$course,'type_route'=>'course'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                            <?php echo $__env->make('components.public-comment.index',['item'=>$episode,'type_route'=>'episode'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         </div>
                     </div>
 
@@ -107,7 +97,7 @@
                                             <span><?php echo e(array_search($course->type,config('static_array.courseType'))); ?></span>
                                         </li>
                                     </ul>
-                                    <div class="col-12 my-1 d-lg-none d-sm-block">
+                                    <div class="col-12 my-1  d-sm-block">
                                         <br>
                                         <div class="d-flex justify-content-center align-items-center height-100">
                                             <a href="#" class="btn btn-primary">
@@ -115,7 +105,10 @@
                                                 <i class="fas fa-graduation-cap"></i>
                                             </a>
                                         </div>
-
+                                        <br>
+                                        <div class="d-flex justify-content-center">
+                                            <?php echo $__env->make('components.public-price.index',['value'=>$course], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- Course info END -->
@@ -133,4 +126,4 @@
     Page content END -->
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.layout public.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Analyzoor\resources\views/public/course-detail.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.layout public.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\Analyzoor\resources\views/public/episode-detail.blade.php ENDPATH**/ ?>

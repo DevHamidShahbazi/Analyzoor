@@ -26,7 +26,7 @@
                         <div class="col-sm-6 col-12 my-1">
                             <div class="d-flex justify-content-center align-items-center height-100">
                                 <a href="#" class="btn btn-primary">
-                                    خرید دوره آموزشی
+                                    <?php echo e($course->type == 'free' ? 'ثبت نام در ':'خرید '); ?> دوره آموزشی
                                     <i class="fas fa-graduation-cap"></i>
                                 </a>
                             </div>

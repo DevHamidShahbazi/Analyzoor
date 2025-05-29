@@ -23,7 +23,7 @@ class CategoryFactory extends Factory
             'description' => $this->faker->text(50),
             'alt' => $this->faker->text(15),
             'keywords' => $this->faker->text(20),
-            'image' => 'https://fakeimg.pl/300/',
+            'image' => 'https://picsum.photos/300',
             'created_at' => now(),
             'updated_at' => now(),
         ];

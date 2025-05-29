@@ -17,7 +17,7 @@
                 <div class="d-flex justify-content-between text-start">
                     <div class="d-flex align-items-center ">
                         <span class="badge bg-light-secondary" style="height: fit-content">
-                        {{$course->time}}
+                        {{time_course($course->episodes()->get()->pluck('time'))}}
                         <i class="fas fa-clock"></i>
                     </span>
                     </div>

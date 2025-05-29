@@ -29,7 +29,7 @@ class CourseFactory extends Factory
             'keywords' => implode(', ', $this->faker->words(5)),
             'body' => $this->faker->text(5000),
             'alt' => $this->faker->sentence,
-            'image' => 'https://fakeimg.pl/265x160/',
+            'image' => 'https://picsum.photos/265/160',
         ];
     }
 }

@@ -18,7 +18,7 @@
                 <div class="d-flex justify-content-between text-start">
                     <div class="d-flex align-items-center ">
                         <span class="badge bg-light-secondary" style="height: fit-content">
-                        <?php echo e(time_course($course->episodes()->get()->pluck('time'))); ?>
+                        <?php echo e($course->time); ?>
 
                         <i class="fas fa-clock"></i>
                     </span>
@@ -28,4 +28,4 @@
             </div>
         </div>
 </div>
-<?php /**PATH C:\xampp\htdocs\Analyzoor\resources\views/components/public-item-course/index.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp8.1\htdocs\Analyzoor\resources\views/components/public-item-course/index.blade.php ENDPATH**/ ?>

@@ -4,7 +4,6 @@ use App\Models\Comment;
 use App\Models\Payment;
 use App\Models\Setting;
 use App\Models\User;
-use Carbon\CarbonInterval;
 
 if (!function_exists('to_english_numbers')) {
 
@@ -34,7 +33,7 @@ if (!function_exists('time_course')) {
                 $minutes = (int) $parts[0];
                 $seconds = (int) $parts[1];
             } else {
-                // فرمت اشتباه - صفر بگذار
+                // فرمت اشتباه
                 $hours = 0;
                 $minutes = 0;
                 $seconds = 0;

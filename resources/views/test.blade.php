@@ -1,415 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Platform Architecture & Implementation - Black Whale Dev</title>
+    <meta name="description" content="Black Whale Dev offers expert Online Platform Architecture & Implementation services in America, including Web Development, eCommerce Solutions, Mobile App Development, SEO, MVP Development, and UI/UX Design. Get high-quality, affordable solutions for your next project.">
+    <meta name="keywords" content="Online Platform Architecture, Online Platform Implementation, Web Development America, eCommerce Solutions America, Mobile App Development America, SEO Services America, MVP Development America, UI/UX Design America, affordable web development, high quality web development, Black Whale Dev">
+    <link rel="canonical" href="https://blackwhaledev.com/blog/online-platform-architecture-implementation">
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1, h2, h3 { color: #2c3e50; }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ul { list-style: none; padding: 0; }
+        ul li { margin-bottom: 10px; }
+        .cta { background-color: #28a745; color: white; padding: 15px 25px; text-align: center; border-radius: 5px; margin-top: 30px; display: inline-block; }
+        .cta:hover { background-color: #218838; text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Online Platform Architecture & Implementation</h1>
 
-<div class="col-12 text-center">
-    <img class="my-1 col-lg-3 col-md-4 col-sm-6 col-6" src="https://analyzoor.ir/Upload/files/articles/x6Cfe-Analyzoor.png" alt="زبان نشانه گذاری html">
+    <p>In today's interconnected world, a robust and well-conceived online platform is the cornerstone of success for businesses and individuals alike. For companies and innovators across America, the journey from an initial concept to a fully functional and thriving digital presence requires expertise, precision, and a partner who understands the intricacies of modern <a href="https://blackwhaledev.com/">Online Platform Architecture & Implementation</a>. At Black Whale Dev, we specialize in transforming your visions into high-quality, affordable, and scalable digital realities.</p>
+
+    <h2>Why Online Platform Architecture Matters</h2>
+    <p>Effective online platform architecture goes beyond just coding; it's about building a solid foundation that ensures your platform is secure, efficient, scalable, and user-friendly. Without a strong architectural design, even the most innovative ideas can falter under the weight of technical debt, performance issues, or security vulnerabilities. Our approach focuses on creating resilient structures that support your current needs while providing ample room for future growth and adaptation.</p>
+
+    <h2>Our Comprehensive Services for Your Digital Success</h2>
+    <p>At Black Whale Dev, we offer a full suite of services designed to cover every aspect of your online platform's lifecycle, from initial concept to ongoing maintenance and optimization. We pride ourselves on delivering top-tier solutions with a commitment to affordability, making cutting-edge technology accessible to businesses of all sizes in America.</p>
+
+    <h3><a href="https://blackwhaledev.com/">Web Development</a>: Building Your Online Foundation</h3>
+    <p>At the heart of almost every online platform is a powerful website. Our <a href="https://blackwhaledev.com/">Web Development</a> services are tailored to create responsive, intuitive, and high-performing websites that captivate your audience and drive engagement. Whether you need a simple informational site or a complex web application, we utilize the latest technologies and best practices to deliver a solution that perfectly aligns with your objectives. For a deeper dive into our offerings, explore our article on <a href="https://blackwhaledev.com/blog/website-development-services-4">Website Development Services</a>.</p>
+
+    <h3><a href="https://blackwhaledev.com/">eCommerce Solutions</a>: Powering Your Online Store</h3>
+    <p>For businesses looking to sell products or services online, our expertise in <a href="https://blackwhaledev.com/">eCommerce Solutions</a> is invaluable. We build secure, user-friendly, and conversion-optimized online stores that provide seamless shopping experiences for your customers. From product catalog management to secure payment gateways, we handle every detail to help you maximize your online sales potential.</p>
+
+    <h3><a href="https://blackwhaledev.com/">Mobile App Development</a>: Reaching Your Audience on the Go</h3>
+    <p>In an increasingly mobile-first world, a dedicated mobile application can significantly enhance your reach and user engagement. Our <a href="https://blackwhaledev.com/">Mobile App Development</a> team crafts intuitive and feature-rich applications for both iOS and Android platforms, ensuring your brand is accessible wherever your customers are.</p>
+
+    <h3><a href="https://blackwhaledev.com/">SEO Services</a>: Enhancing Your Visibility</h3>
+    <p>Even the most brilliantly designed platform needs to be discoverable. Our comprehensive <a href="https://blackwhaledev.com/">SEO Services</a> are designed to improve your online visibility, drive organic traffic, and help your platform rank higher in search engine results. We implement strategic SEO techniques that ensure your target audience can easily find you.</p>
+
+    <h3><a href="https://blackwhaledev.com/">MVP Development</a>: Launching Faster, Learning Sooner</h3>
+    <p>For startups and innovative projects, launching a Minimum Viable Product (MVP) is a strategic way to test your concept and gather early user feedback. Our <a href="https://blackwhaledev.com/">MVP Development</a> services focus on building core functionalities efficiently, allowing you to validate your idea in the market quickly and iterate based on real-world insights.</p>
+
+    <h3><a href="https://blackwhaledev.com/">UI/UX Design</a>: Crafting Exceptional User Experiences</h3>
+    <p>The success of any online platform heavily relies on its user experience. Our <a href="https://blackwhaledev.com/">UI/UX Design</a> experts focus on creating visually appealing and intuitively navigable interfaces that delight users and encourage prolonged engagement. We believe that a thoughtful design is not just about aesthetics but about functionality and user satisfaction. For more insights into how design impacts your online presence, read our article on <a href="https://blackwhaledev.com/blog/digital-presence-engineering-solutions">Digital Presence Engineering Solutions</a>.</p>
+
+    <h2>Why Choose Black Whale Dev?</h2>
+    <ul>
+        <li><strong>High Quality:</strong> We are committed to delivering solutions that are not only functional but also robust, secure, and built to last.</li>
+        <li><strong>Affordable Prices:</strong> We believe that exceptional digital solutions shouldn't break the bank. Our pricing models are designed to provide maximum value without compromising on quality.</li>
+        <li><strong>American Focus:</strong> We understand the unique needs and market dynamics of companies and individuals living in America, tailoring our services to resonate with your specific audience.</li>
+        <li><strong>Expert Team:</strong> Our team comprises experienced developers, designers, and strategists passionate about technology and dedicated to your success.</li>
+        <li><strong>Client-Centric Approach:</strong> Your goals are our priority. We work closely with you throughout the entire project lifecycle, ensuring transparency and alignment.</li>
+    </ul>
+
+    <h2>Ready to Build Your Next Online Platform?</h2>
+    <p>Whether you're looking to launch a new venture, revamp an existing platform, or enhance your digital capabilities, Black Whale Dev is your trusted partner. We bring innovation, expertise, and a commitment to excellence to every project. Let's discuss how our <a href="https://blackwhaledev.com/">Online Platform Architecture & Implementation</a> services can help you achieve your business objectives in America.</p>
+
+    <p class="cta"><a href="https://blackwhaledev.com/#contact" style="color: white; text-decoration: none;">Get a Free Consultation Today!</a></p>
 </div>
-
-
-<p>همیشه برای یادگیری بهتر و اطلاع داشتن و آپدیت ها و ریز تغییراتی که در زبان های برنامه نویسی ارائه میشود ، بهتره که از منابع رسمی استفاده کرد تا دقیق تر و ساده تر از قابلیت های جدید مطلع شد</p>
-
-<p>&nbsp;</p>
-
-<div class="col-12 text-center"><img alt="زبان نشانه گذاری html" class="col-6 col-lg-3 col-md-4 col-sm-6 my-1" src="https://analyzoor.ir/Upload/files/articles/x6Cfe-Analyzoor.png" /></div>
-
-<p>&nbsp;</p>
-
-<h5>زبان نشانه گذاری html</h5>
-
-<p>وب سایت <a href="https://www.w3schools.com/html/default.asp" target="_blank">w3schools</a> که یکی از منابع قدیمی در حیطه آموزش هست که حتما اسمش رو شنیدید یکی از منابع معتبر و بروز برای یادگیری Html هستش</p>
-
-<p>&nbsp;</p>
-
-<div class="col-12 text-center"><img alt="زبان نشانه گذاری css" class="col-6 col-lg-3 col-md-4 col-sm-6 my-1" src="https://analyzoor.ir/Upload/files/articles/wTVMc-Analyzoor.png" /></div>
-
-<p>&nbsp;</p>
-
-<h5>زبان نشانه گذاری css</h5>
-
-<p>اگر به دنبال یادگیری کدنویسی از صفر یا بهبود مهارت&zwnj;های css خود هستید، <a href="https://www.codecademy.com/learn/learn-css" target="_blank">Codecademy</a> می&zwnj;تواند یک انتخاب عالی باشد. اما اگر به آموزش&zwnj;های عمیق&zwnj;تر یا پروژه&zwnj;های واقعی نیاز دارید، ممکن است نیاز به منابع مکمل داشته باشید.</p>
-
-<p>&nbsp;</p>
-
-<div class="col-12 text-center"><img alt="زبان برنامه نویسی javascript" class="col-6 col-lg-3 col-md-4 col-sm-6 my-1" src="https://analyzoor.ir/Upload/files/articles/e2pLj-Analyzoor.png" /></div>
-
-<p>&nbsp;</p>
-
-<h5>زبان javascript</h5>
-
-<p>سایت <a href="https://javascript.info/" target="_blank">JavaScript.info </a> یکی از بهترین منابع برای یادگیری JavaScript است. این سایت آموزش&zwnj;های کاملی را از مفاهیم پایه تا پیشرفته JavaScript ارائه می&zwnj;دهد و به دلیل توضیحات دقیق و مثال&zwnj;های کاربردی، مورد توجه بسیاری از برنامه&zwnj;نویسان قرار گرفته است.</p>
-
-<p>JavaScript.info بیشتر برای کسانی مناسب است که می&zwnj;خواهند به&zwnj;صورت عمیق و مفهومی JavaScript را یاد بگیرند.</p>
-
-<p>&nbsp;</p>
-
-<div class="col-12 text-center"><img alt="زبان برنامه نویسی php" class="col-6 col-lg-3 col-md-4 col-sm-6 my-1" src="https://analyzoor.ir/Upload/files/articles/Adqqu-Analyzoor.png" /></div>
-
-<p>&nbsp;</p>
-
-<h5>زبان php</h5>
-
-<p>سایت <a href="https://php.net/" target="_blank">php.net</a> رو خیلی ها میشناسند ، یکی از منابع شناخته شده برای یادگیری هست به همراه مثال های متنوع و کاربردی</p>
-
-<p>&nbsp;</p>
-
-<div class="col-12 text-center"><img alt="مدیریت ورژن git" class="col-6 col-lg-3 col-md-4 col-sm-6 my-1" src="https://analyzoor.ir/Upload/files/articles/0EvzC-Analyzoor.png" /></div>
-
-<p>&nbsp;</p>
-
-<h5>git</h5>
-
-<p>سایت <a href="https://learngitbranching.js.org/">learngitbranching</a> تمامی دستورات git رو در خودش جای داده و یکی از کامل ترین منابع آموزشی برای git است</p>
-
-
-
-
-{{--<div class="container py-2">
-        <h2 class="font-weight-light text-center text-muted py-3">Bootstrap 5 Timeline</h2>
-
-        <!-- timeline item 1 -->
-        <div class="row">
-            <!-- timeline item 1 left dot -->
-            <div class="col-auto text-center flex-column d-none d-sm-flex">
-                <div class="row h-50">
-                    <div class="col">&nbsp;</div>
-                    <div class="col">&nbsp;</div>
-                </div>
-                <h5 class="m-2">
-                    <span class="badge rounded-pill bg-light border">&nbsp;</span>
-                </h5>
-                <div class="row h-50">
-                    <div class="col border-start">&nbsp;</div>
-                    <div class="col">&nbsp;</div>
-                </div>
-            </div>
-            <!-- timeline item 1 event content -->
-            <div class="col py-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="float-right text-muted">Mon, Jan 9th 2020 7:00 AM</div>
-                        <h4 class="card-title text-muted">Day 1 Orientation</h4>
-                        <p class="card-text">Welcome to the campus, introduction and get started with the tour.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/row-->
-        <!-- timeline item 2 -->
-        <div class="row">
-            <div class="col-auto text-center flex-column d-none d-sm-flex">
-                <div class="row h-50">
-                    <div class="col border-start">&nbsp;</div>
-                    <div class="col">&nbsp;</div>
-                </div>
-                <h5 class="m-2">
-                    <span class="badge rounded-pill bg-success">&nbsp;</span>
-                </h5>
-                <div class="row h-50">
-                    <div class="col border-start">&nbsp;</div>
-                    <div class="col">&nbsp;</div>
-                </div>
-            </div>
-            <div class="col py-2">
-                <div class="card border-success shadow">
-                    <div class="card-body">
-                        <div class="float-right text-success">Tue, Jan 10th 2019 8:30 AM</div>
-                        <h4 class="card-title text-success">Day 2 Sessions</h4>
-                        <p class="card-text">Sign-up for the lessons and speakers that coincide with your course syllabus. Meet and greet with instructors.</p>
-                        <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-target="#t2_details" data-bs-toggle="collapse">Show Details ▼</button>
-                        <div class="collapse border" id="t2_details">
-                            <div class="p-2 font-monospace">
-                                <div>08:30 - 09:00 Breakfast in CR 2A</div>
-                                <div>09:00 - 10:30 Live sessions in CR 3</div>
-                                <div>10:30 - 10:45 Break</div>
-                                <div>10:45 - 12:00 Live sessions in CR 3</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/row-->
-        <!-- timeline item 3 -->
-        <div class="row">
-            <div class="col-auto text-center flex-column d-none d-sm-flex">
-                <div class="row h-50">
-                    <div class="col border-start">&nbsp;</div>
-                    <div class="col">&nbsp;</div>
-                </div>
-                <h5 class="m-2">
-                    <span class="badge rounded-pill bg-light border">&nbsp;</span>
-                </h5>
-                <div class="row h-50">
-                    <div class="col border-start">&nbsp;</div>
-                    <div class="col">&nbsp;</div>
-                </div>
-            </div>
-            <div class="col py-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="float-right text-muted">Wed, Jan 11th 2019 8:30 AM</div>
-                        <h4 class="card-title">Day 3 Sessions</h4>
-                        <p>Shoreditch vegan artisan Helvetica. Tattooed Codeply Echo Park Godard kogi, next level irony ennui twee squid fap selvage. Meggings flannel Brooklyn literally small batch, mumblecore PBR try-hard kale chips. Brooklyn vinyl lumbersexual
-                            bicycle rights, viral fap cronut leggings squid chillwave pickled gentrify mustache. 3 wolf moon hashtag church-key Odd Future. Austin messenger bag normcore, Helvetica Williamsburg sartorial tote bag distillery Portland before
-                            they sold out gastropub taxidermy Vice.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/row-->
-        <!-- timeline item 4 -->
-        <div class="row">
-            <div class="col-auto text-center flex-column d-none d-sm-flex">
-                <div class="row h-50">
-                    <div class="col border-start">&nbsp;</div>
-                    <div class="col">&nbsp;</div>
-                </div>
-                <h5 class="m-2">
-                    <span class="badge rounded-pill bg-light border">&nbsp;</span>
-                </h5>
-                <div class="row h-50">
-                    <div class="col">&nbsp;</div>
-                    <div class="col">&nbsp;</div>
-                </div>
-            </div>
-            <div class="col py-2">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="float-right text-muted">Thu, Jan 12th 2019 11:30 AM</div>
-                        <h4 class="card-title">Day 4 Wrap-up</h4>
-                        <p>Join us for lunch in Bootsy's cafe across from the Campus Center.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/row-->
-    </div>--}}
-
-{{--<div class="container py-2">
-
-    <!-- timeline item 1 -->
-    <div class="row no-gutters">
-        <div class="col-sm">
-            <!--spacer-->
-        </div>
-        <!-- timeline item 1 center dot -->
-        <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
-            <div class="row h-50">
-                <div class="col">&nbsp;</div>
-                <div class="col">&nbsp;</div>
-            </div>
-            <h5 class="m-2">
-                <span class="badge rounded-pill bg-light border">&nbsp;</span>
-            </h5>
-            <div class="row h-50">
-                <div class="col border-start">&nbsp;</div>
-                <div class="col">&nbsp;</div>
-            </div>
-        </div>
-        <!-- timeline item 1 event content -->
-        <div class="col-sm py-2">
-            <div class="card">
-                <div class="card-body">
-                    <div class="float-right text-muted small">Jan 9th 2019 7:00 AM</div>
-                    <h4 class="card-title text-muted">Day 1 Orientation</h4>
-                    <p class="card-text">Welcome to the campus, introduction and get started with the tour.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--/row-->
-    <!-- timeline item 2 -->
-    <div class="row no-gutters">
-        <div class="col-sm py-2">
-            <div class="card border-success shadow">
-                <div class="card-body">
-                    <div class="float-right text-success small">Jan 10th 2019 8:30 AM</div>
-                    <h4 class="card-title text-success">Day 2 Sessions</h4>
-                    <p class="card-text">Sign-up for the lessons and speakers that coincide with your course syllabus. Meet and greet with instructors.</p>
-                    <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-target="#t22_details" data-bs-toggle="collapse">Show Details ▼</button>
-                    <div class="collapse border" id="t22_details">
-                        <div class="p-2 font-monospace">
-                            <div>08:30 - 09:00 Breakfast in CR 2A</div>
-                            <div>09:00 - 10:30 Live sessions in CR 3</div>
-                            <div>10:30 - 10:45 Break</div>
-                            <div>10:45 - 12:00 Live sessions in CR 3</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
-            <div class="row h-50">
-                <div class="col border-start">&nbsp;</div>
-                <div class="col">&nbsp;</div>
-            </div>
-            <h5 class="m-2">
-                <span class="badge rounded-pill bg-success">&nbsp;</span>
-            </h5>
-            <div class="row h-50">
-                <div class="col border-start">&nbsp;</div>
-                <div class="col">&nbsp;</div>
-            </div>
-        </div>
-        <div class="col-sm">
-            <!--spacer-->
-        </div>
-    </div>
-    <!--/row-->
-    <!-- timeline item 3 -->
-    <div class="row no-gutters">
-        <div class="col-sm">
-            <!--spacer-->
-        </div>
-        <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
-            <div class="row h-50">
-                <div class="col border-start">&nbsp;</div>
-                <div class="col">&nbsp;</div>
-            </div>
-            <h5 class="m-2">
-                <span class="badge rounded-pill bg-light border">&nbsp;</span>
-            </h5>
-            <div class="row h-50">
-                <div class="col border-start">&nbsp;</div>
-                <div class="col">&nbsp;</div>
-            </div>
-        </div>
-        <div class="col-sm py-2">
-            <div class="card">
-                <div class="card-body">
-                    <div class="float-right text-muted small">Jan 11th 2019 8:30 AM</div>
-                    <h4 class="card-title">Day 3 Sessions</h4>
-                    <p>Shoreditch vegan artisan Helvetica. Tattooed Codeply Echo Park Godard kogi, next level irony ennui twee squid fap selvage. Meggings flannel Brooklyn literally small batch, mumblecore PBR try-hard kale chips. Brooklyn vinyl lumbersexual
-                        bicycle rights, viral fap cronut leggings squid chillwave pickled gentrify mustache.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--/row-->
-    <!-- timeline item 4 -->
-    <div class="row no-gutters">
-        <div class="col-sm py-2">
-            <div class="card">
-                <div class="card-body">
-                    <div class="float-right text-muted small">Jan 12th 2019 11:30 AM</div>
-                    <h4 class="card-title">Day 4 Wrap-up</h4>
-                    <p>Join us for lunch in Bootsy's cafe across from the Campus Center.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
-            <div class="row h-50">
-                <div class="col border-start">&nbsp;</div>
-                <div class="col">&nbsp;</div>
-            </div>
-            <h5 class="m-2">
-                <span class="badge rounded-pill bg-light border">&nbsp;</span>
-            </h5>
-            <div class="row h-50">
-                <div class="col">&nbsp;</div>
-                <div class="col">&nbsp;</div>
-            </div>
-        </div>
-        <div class="col-sm">
-            <!--spacer-->
-        </div>
-    </div>
-    <!--/row-->
-</div>--}}
-
-
-{{--<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-4 py-3">
-            <div class="img-place wow fadeInUp">
-                <img class="col-12" src="/public/img/me.jpg" alt="">
-            </div>
-        </div>
-        <div class="col-lg-6 offset-lg-1 wow fadeInRight">
-            <h4 dir="rtl" style="font-size: x-large">حمید شهبازی</h4>
-            <p class="text-muted">
-                                    برنامه نویس فرانت اند و بک اند ، وب و اندروید با هفت سال تجربه در توسعه و طراحی وب سرویس ها و اپلیکیشن های شرکت ها و پروژه های مختلف
-                                    <br>
-                بعد از عشق و علاقه زیادم به حل مسئله و کمک به بهبود کسب کار ها ، وارد برنامه نویسی شدم
-                <br>
-                اوایل فعالیتم به صورت فریلنسر شروع بکار کردم
-                در طول مدت کارم که پر از چالش و یادگیری بود، به عنوان یک فرد مستقل باید می آموختم چگونه مذاکره کنم،
-                چگونه مدیریت کنم ،
-                و چگونه کار را به نحو احسنت به انجام برسانم و چطور آن چیزی که کارفرما میخواست رو کامل پیاده سازی کنم
-                <br>
-                <span class="text-purple">این هفت سال برای من بسیار سخت و جذاب بود</span>،
-                در طول این هفت سال حدود به 16 وب سایت برای کسب و کار های کوچک و متوسط طراحی کردم، علت کم بودن تعداد
-                پروژه ها کمال گرایی من بود که همچنان دوست و بعضی اوقات دشمن من است، که البته من بیشتر آنرا به چشم
-                دوست میبینم ;)
-                <br>
-
-
-            </p>
-                            <br>
-                            <p class="text-muted">
-                                مخاطب های شما باید در سطح کشور باشند تا شما بتوانید درآمد حداکثری داشته باشید
-                                <br>
-                                با پیشرفت تکنولوژی که امروزه لحظه به لحظه شده داشتن یک وب سایت لازمه کار شماست
-                            </p>
-                            <ul class="theme-list" dir="rtl">
-                                <li><b>استان:</b>تهران/کرج</li>
-                                <li><b>Lives In:</b> Texas, US</li>
-                                <li><b>Age:</b> 25</li>
-                                <li><b>Gender:</b> Male</li>
-                            </ul>
-        </div>
-    </div>
-</div>--}}
-
-
-
-{{--<div class="vg-page page-service" id="services">
-    <h5 class="text-center text-white" style="visibility: visible; animation-name: fadeInUp;">طراحی وب سایت
-        اختصاصی</h5>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-4 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                <div class="card card-body">
-                    <h4 style="font-size: 170%" class="text-purple text-center">کد نویسی صفر تا صد</h4>
-                    <p class=" text-justify">
-                        بستگی به نیاز شما که در حیطه های مختلف فعالیت می کنید ، به صورت کاملا اختصاصی صفرتاصد وب
-                        سایت شما کدنویسی می شود
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                <div class="card card-body">
-                    <h4 style="font-size: 170%" class="text-purple text-center">SEO</h4>
-                    <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                <div class="card card-body">
-                    <h4 style="font-size: 170%" class="text-purple text-center">Web Development</h4>
-                    <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                <div class="card card-body">
-                    <h4 style="font-size: 170%" class="text-purple text-center">Web Design</h4>
-                    <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                <div class="card card-body">
-                    <h4 style="font-size: 170%" class="text-purple text-center">SEO</h4>
-                    <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                <div class="card card-body">
-                    <h4 style="font-size: 170%" class="text-purple text-center">Web Development</h4>
-                    <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>--}}
+</body>
+</html>

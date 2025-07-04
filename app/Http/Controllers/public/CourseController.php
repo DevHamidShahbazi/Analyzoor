@@ -30,7 +30,7 @@ class CourseController extends Controller
             ->paginate(20);
 
         $categories = Category::where('type','course')->get();
-        return view('public.course',compact('courses','categories'));
+        return view('public.course.course',compact('courses','categories'));
     }
 
     public function detail(Course $course)
@@ -38,7 +38,7 @@ class CourseController extends Controller
         $episodes = $course->episodes()->get();
         $questions = $course->questions()->get();
         $chapters = $course->chapters()->get();
-        return view('public.course-detail',compact('course','episodes','questions','chapters'));
+        return view('public.course.course-detail',compact('course','episodes','questions','chapters'));
     }
 
 

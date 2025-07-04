@@ -28,7 +28,7 @@ class ArticleController extends Controller
 
         $articles = $query->paginate(20);
 
-        return view('public.article',compact('articles'));
+        return view('public.article.article',compact('articles'));
     }
 
     public function detail(Article $article,Request $request)
@@ -36,7 +36,7 @@ class ArticleController extends Controller
         $articles = $article->category->articles()->where('is_active','1')->where('id','!=',$article->id)->take(10)->get();
         $urls = $article->urls()->where('for_download','1')->get();
         $files = $article->files()->where('for_download','1')->get();
-        return view('public.article-detail',compact('article','articles','urls','files'));
+        return view('public.article.article-detail',compact('article','articles','urls','files'));
     }
 
     public function store_comment(Request $request)

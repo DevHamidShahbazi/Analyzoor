@@ -1,4 +1,4 @@
-<div class="container-fluid px-0 no-print bg_footer py-3">
+<div class="container-fluid px-0 no-print bg_footer py-3 mt-2">
 
 
     <div class="col-12 text-center">

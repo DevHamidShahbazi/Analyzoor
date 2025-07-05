@@ -8,24 +8,24 @@
   ),
   'ghasedak/laravel' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Ghasedak\\Laravel\\GhasedakServiceProvider',
-    ),
     'aliases' => 
     array (
       'Ghasedak' => 'Ghasedak\\Laravel\\GhasedakFacade',
     ),
+    'providers' => 
+    array (
+      0 => 'Ghasedak\\Laravel\\GhasedakServiceProvider',
+    ),
   ),
   'hekmatinasser/verta' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Hekmatinasser\\Verta\\Laravel\\VertaServiceProvider',
-    ),
     'aliases' => 
     array (
       'Verta' => 'Hekmatinasser\\Verta\\Verta',
+    ),
+    'providers' => 
+    array (
+      0 => 'Hekmatinasser\\Verta\\Laravel\\VertaServiceProvider',
     ),
   ),
   'laravel/sail' => 
@@ -101,13 +101,13 @@
   ),
   'shetabit/visitor' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Shetabit\\Visitor\\Provider\\VisitorServiceProvider',
-    ),
     'aliases' => 
     array (
       'Visitor' => 'Shetabit\\Visitor\\Facade\\Visitor',
+    ),
+    'providers' => 
+    array (
+      0 => 'Shetabit\\Visitor\\Provider\\VisitorServiceProvider',
     ),
   ),
   'spatie/laravel-ignition' => 

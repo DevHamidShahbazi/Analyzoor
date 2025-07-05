@@ -30,6 +30,16 @@
             <form method="POST" action="{{ route('admin.episode.store',['course_id'=>$course_id]) }}"  enctype="multipart/form-data" >
                 @csrf
 
+                <!-- Preserve uploaded files on validation errors -->
+                @if(old('video_path'))
+                    <input type="hidden" name="video_path" value="{{ old('video_path') }}">
+                    <input type="hidden" name="video_is_new" value="{{ old('video_is_new', '1') }}">
+                @endif
+                @if(old('file_path'))
+                    <input type="hidden" name="file_path" value="{{ old('file_path') }}">
+                    <input type="hidden" name="file_is_new" value="{{ old('file_is_new', '1') }}">
+                @endif
+
                 <div class="modal-body mb-1 te">
 
                     <div class="md-form mb-2">
@@ -105,27 +115,30 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-lg-5">
-                            <label class="col-sm-2 control-label" for="exampleInputFile">ویدیو آموزش</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input required name="video" type="file" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">انتخاب ویدیو</label>
-                                </div>
-                            </div>
+                        <div class="col-lg-8">
+                            <label class="col-sm-12 control-label">ویدیو آموزش</label>
+                            <x-chunked-upload
+                                type="video"
+                                name="video"
+                                accept="video/*"
+                                :required="true"
+                                label="ویدیو آموزش"
+                                :existingFile="old('video_path')"
+                            />
                         </div>
                     </div>
 
-
                     <div class="form-group">
-                        <div class="col-lg-5">
-                            <label class="col-sm-2 control-label" for="exampleInputFile">فایل آموزش</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input  name="file" type="file" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">انتخاب فایل</label>
-                                </div>
-                            </div>
+                        <div class="col-lg-8">
+                            <label class="col-sm-12 control-label">فایل آموزش</label>
+                            <x-chunked-upload
+                                type="file"
+                                name="file"
+                                accept="*/*"
+                                :required="false"
+                                label="فایل آموزش"
+                                :existingFile="old('file_path')"
+                            />
                         </div>
                     </div>
 
@@ -150,5 +163,9 @@
         <!-- /.card -->
     </div>
 
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('admin/js/chunked-uploader.js') }}"></script>
 @endsection
 

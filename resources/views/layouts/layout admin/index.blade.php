@@ -52,5 +52,7 @@
     <script type="text/javascript" src="/admin/js/custom.js"></script>
     <script src="{{ asset('react/js/app.js') }}" > </script>
     @yield('script')
+    @yield('scripts')
+
     </body>
 </html>

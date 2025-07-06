@@ -22,6 +22,8 @@
         <link rel="stylesheet" href="/public/css/font.min.css?<?php echo e($css); ?>">
         <link rel="stylesheet" href="/public/plugin/aos/aos.css?<?php echo e($css); ?>">
         <link rel="stylesheet" href="/public/css/custom-style.css?<?php echo e($css); ?>">
+        <link rel="stylesheet" href="/admin/css/sweet-alert.css">
+        <link rel="stylesheet" href="/admin/css/toastr.css">
         <?php echo $__env->yieldContent('style'); ?>
     </head>
     <body class="index-page">
@@ -37,6 +39,8 @@
 
         <script type="text/javascript" src="/public/js/app.js?<?php echo e($js); ?>"></script>
     <script type="text/javascript" src="/public/plugin/aos/aos.js?<?php echo e($js); ?>"></script>
+    <script type="text/javascript" src="/admin/js/sweet-alert.min.js"></script>
+    <script type="text/javascript" src="/admin/js/toastr.js"></script>
     <script type="text/javascript" src="/public/js/custom.js?<?php echo e($js); ?>"></script>
     <?php echo $__env->yieldContent('script'); ?>
     </body>

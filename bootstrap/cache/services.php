@@ -43,7 +43,6 @@
     39 => 'App\\Providers\\AuthServiceProvider',
     40 => 'App\\Providers\\EventServiceProvider',
     41 => 'App\\Providers\\RouteServiceProvider',
-    42 => 'App\\Helpers\\Cart\\provider\\CartServiceProvider',
   ),
   'eager' => 
   array (
@@ -74,7 +73,6 @@
     24 => 'App\\Providers\\AuthServiceProvider',
     25 => 'App\\Providers\\EventServiceProvider',
     26 => 'App\\Providers\\RouteServiceProvider',
-    27 => 'App\\Helpers\\Cart\\provider\\CartServiceProvider',
   ),
   'deferred' => 
   array (

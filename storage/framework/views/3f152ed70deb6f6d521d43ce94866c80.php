@@ -110,12 +110,15 @@
                                     <div class="col-12 my-1 d-lg-none d-sm-block">
                                         <br>
                                         <div class="d-flex justify-content-center align-items-center height-100">
-                                            <a href="#" class="btn btn-primary">
-                                                <?php echo e($course->type == 'free' ? 'ثبت نام در ':'خرید '); ?> دوره آموزشی
-                                                <i class="fas fa-graduation-cap"></i>
-                                            </a>
+                                            <form method="POST" action="<?php echo e(route('payment.set-product')); ?>" style="display: inline;">
+                                                <?php echo csrf_field(); ?>
+                                                <input type="hidden" name="course_id" value="<?php echo e($course->id); ?>">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <?php echo e($course->type == 'free' ? 'ثبت نام در ':'خرید '); ?> دوره آموزشی
+                                                    <i class="fas fa-graduation-cap"></i>
+                                                </button>
+                                            </form>
                                         </div>
-
                                     </div>
                                 </div>
                                 <!-- Course info END -->

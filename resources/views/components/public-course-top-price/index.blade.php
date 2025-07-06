@@ -24,12 +24,15 @@
                         </div>
                         <div class="col-sm-6 col-12 my-1">
                             <div class="d-flex justify-content-center align-items-center height-100">
-                                <a href="#" class="btn btn-primary">
-                                    {{$course->type == 'free' ? 'ثبت نام در ':'خرید '}} دوره آموزشی
-                                    <i class="fas fa-graduation-cap"></i>
-                                </a>
+                                <form method="POST" action="{{ route('payment.set-product') }}" style="display: inline;">
+                                    @csrf
+                                    <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{$course->type == 'free' ? 'ثبت نام در ':'خرید '}} دوره آموزشی
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </button>
+                                </form>
                             </div>
-
                         </div>
                     </div>
 

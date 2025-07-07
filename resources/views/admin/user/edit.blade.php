@@ -71,9 +71,10 @@
                                     <div class="md-form mb-2">
                                         <div style="text-align: right;direction: rtl" >
                                             <label class="m-0">رمز عبور</label>
-                                            <input required placeholder="رمز عبور جدید را وارد کنید" value="{{ Crypt::decrypt($val->crypt) }}"
+                                            <input placeholder="رمز عبور جدید را وارد کنید (اختیاری)" value=""
                                                    dir="rtl" id="password" class="form-control" name="password" >
                                         </div>
+                                        <small class="form-text text-muted">اگر می‌خواهید رمز عبور را تغییر دهید، آن را وارد کنید</small>
                                         @if($errors->has('password'))
                                             <p style="color: red">{{$errors->first('password')}}</p>
                                         @endif
@@ -89,6 +90,24 @@
                                                             value="{{$real_name}}">{{$persian_name}}</option>
                                                 @endforeach
                                             </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="md-form mb-2">
+                                        <div class="form-group">
+                                            <label class="m-0">دوره‌های کاربر</label>
+                                            <select name="courses[]" id="courses-select-{{$val->id}}" class="form-control" multiple>
+                                                @php 
+                                                    $courses = \App\Models\Course::select('id', 'name', 'type', 'status')->where('status', '!=', 'comingSoon')->orderBy('name')->get();
+                                                    $userCourseIds = $val->courses()->pluck('course_id')->toArray();
+                                                @endphp
+                                                @foreach($courses as $course)
+                                                    <option value="{{ $course->id }}" {{ in_array($course->id, $userCourseIds) ? 'selected' : '' }}>
+                                                        {{ $course->name }} ({{ array_search($course->type, config('static_array.courseType')) }})
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <small class="form-text text-muted">می‌توانید چندین دوره را انتخاب کنید</small>
                                         </div>
                                     </div>
 

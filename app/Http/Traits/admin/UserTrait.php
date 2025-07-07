@@ -26,14 +26,40 @@ trait UserTrait
 
     private function arrayRequest($request) : array
     {
-        return [
+        $data = [
             'name' => $request['name'],
             'phone' => $request['phone'],
             'level' => $request['level'],
             'email' => $request['email'],
             'verify' => $request['verify'],
-            'password' => Hash::make($request['password']),
-            'crypt' => Crypt::encrypt($request['password']),
         ];
+
+        // فقط اگر password تغییر کرده باشد، آن را hash کن
+        if ($request->has('password') && !empty($request['password'])) {
+            $data['password'] = Hash::make($request['password']);
+            $data['crypt'] = Crypt::encrypt($request['password']);
+        }
+
+        return $data;
+    }
+
+    private function syncUserCourses($user, $courseIds)
+    {
+        if (is_array($courseIds)) {
+            $user->courses()->sync($courseIds);
+        }
+    }
+
+    private function getCoursesForSelect()
+    {
+        return \App\Models\Course::select('id', 'name', 'type', 'status')
+            ->where('status', '!=', 'comingSoon')
+            ->orderBy('name')
+            ->get();
+    }
+
+    private function getUserSelectedCourses($user)
+    {
+        return $user->courses()->pluck('course_id')->toArray();
     }
 }

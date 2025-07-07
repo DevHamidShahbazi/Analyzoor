@@ -18,6 +18,13 @@
                 });
             });
 
+            // Initialize Select2 for courses
+            $('select[name="courses[]"]').select2({
+                placeholder: 'دوره‌ها را انتخاب کنید...',
+                allowClear: true,
+                dir: 'rtl',
+                width: '100%'
+            });
         });
     </script>
 @endsection
@@ -114,8 +121,8 @@
                                         <a href="{{ route('admin.course.index', ['user_id' => $val->id]) }}" type="button" style="width: max-content;" class="btn btn-success btn-sm">
                                             <i class="fas fa-graduation-cap"></i>
                                             <i style="margin: inherit;">دوره‌ها</i>
-                                            @if($val->courses()->count() > 0)
-                                                <span class="badge badge-light">{{ $val->courses()->count() }}</span>
+                                            @if($val->courses->count() > 0)
+                                                <span class="badge badge-light">{{ $val->courses->count() }}</span>
                                             @endif
                                         </a>
                                     </td>

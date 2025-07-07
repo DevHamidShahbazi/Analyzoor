@@ -17,7 +17,7 @@ class CourseController extends Controller
 
     public function index(Request $request)
     {
-        $query = Course::query();
+        $query = Course::with(['users', 'category']);
 
         if ($request->has('user_id')) {
             $userId = $request->user_id;

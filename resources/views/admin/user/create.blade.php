@@ -79,6 +79,21 @@
                                     </div>
                                 </div>
 
+                                <div class="md-form mb-2">
+                                    <div class="form-group">
+                                        <label class="m-0">دوره‌های کاربر</label>
+                                        <select name="courses[]" id="courses-select" class="form-control" multiple>
+                                            @php $courses = \App\Models\Course::select('id', 'name', 'type', 'status')->where('status', '!=', 'comingSoon')->orderBy('name')->get() @endphp
+                                            @foreach($courses as $course)
+                                                <option value="{{ $course->id }}">
+                                                    {{ $course->name }} ({{ array_search($course->type, config('static_array.courseType')) }})
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <small class="form-text text-muted">می‌توانید چندین دوره را انتخاب کنید</small>
+                                    </div>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-8 mt-4">
                                         <div class="checkbox ">

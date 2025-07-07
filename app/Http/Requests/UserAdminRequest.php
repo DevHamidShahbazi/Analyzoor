@@ -18,6 +18,8 @@ class UserAdminRequest extends FormRequest
                 'level' => ['required'],
                 'password' => ['required', 'string', 'min:4'],
                 'email' => [$this->request->get('email') != null ? 'unique:users' : ''],
+                'courses' => ['nullable', 'array'],
+                'courses.*' => ['exists:courses,id'],
             ];
         }
 
@@ -26,7 +28,10 @@ class UserAdminRequest extends FormRequest
                 'name' => ['required'],
                 'verify' => ['required'],
                 'level' => ['required'],
+                'password' => ['nullable', 'string', 'min:4'],
                 'email' => ['unique:users,email,'.$this->route('user')->id],
+                'courses' => ['nullable', 'array'],
+                'courses.*' => ['exists:courses,id'],
             ];
         }
 

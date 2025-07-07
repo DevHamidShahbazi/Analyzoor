@@ -27,7 +27,7 @@ class UserController extends Controller
                 return view('admin.user.index',compact('users','checkbox'));
             }
         }else{
-            $users = User::latest()->get();
+            $users = User::with('courses')->latest()->get();
             return view('admin.user.index',compact('users'));
         }
     }
@@ -35,6 +35,11 @@ class UserController extends Controller
     public function store(UserAdminRequest $request)
     {
         $user = User::create($this->arrayRequest($request));
+
+        // اضافه کردن دوره‌ها
+        if ($request->has('courses')) {
+            $this->syncUserCourses($user, $request->courses);
+        }
 
         if ($request->has('sendCode')){
             $user->notify(new CreateUserNotification($request['phone'],$request['password']));
@@ -46,6 +51,12 @@ class UserController extends Controller
     public function update(UserAdminRequest $request, User $user)
     {
         $user->update($this->arrayRequest($request));
+
+        // بروزرسانی دوره‌ها
+        if ($request->has('courses')) {
+            $this->syncUserCourses($user, $request->courses);
+        }
+
         return redirect()->back()->with('success','تغییرات اعمال شد');
     }
 

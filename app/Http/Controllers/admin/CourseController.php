@@ -15,9 +15,18 @@ class CourseController extends Controller
     use UploadFileTrait;
     use CourseTrait;
 
-    public function index()
+    public function index(Request $request)
     {
-        $courses = Course::latest()->get();
+        $query = Course::query();
+
+        if ($request->has('user_id')) {
+            $userId = $request->user_id;
+            $query->whereHas('users', function($q) use ($userId) {
+                $q->where('user_id', $userId);
+            });
+        }
+
+        $courses = $query->latest()->get();
         return view('admin.course.index',compact('courses'));
     }
 

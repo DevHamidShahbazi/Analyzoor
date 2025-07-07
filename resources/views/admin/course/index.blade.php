@@ -39,6 +39,9 @@
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >
                                             <a target="_blank" href="{{--{{route('course.detail',$val->slug)}}--}}">
                                                 {{$val->name}}
+                                                @if($val->users()->count() > 0)
+                                                    <span class="badge badge-info" data-toggle="tooltip" data-placement="top" title="تعداد کاربران: {{ $val->users()->count() }}">{{ $val->users()->count() }}</span>
+                                                @endif
                                             </a>
                                             <span class="badge bg-{{$val->status == 'comingSoon' ? 'warning': ($val->status=='currently'?'danger-gradient':'success')}}">{{array_search($val->status,config('static_array.courseStatus'))}}</span>
                                             <span class="badge bg-{{$val->type == 'free' ? 'secondary-gradient':'primary-gradient'}}">{{array_search($val->type,config('static_array.courseType'))}}</span>

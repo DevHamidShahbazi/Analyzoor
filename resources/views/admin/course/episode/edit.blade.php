@@ -136,27 +136,30 @@
 
 
                     <div class="form-group">
-                        <div class="col-lg-5">
-                            <label class="col-sm-2 control-label" for="exampleInputFile">ویدیو آموزش</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input  name="video" type="file" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">انتخاب ویدیو</label>
-                                </div>
-                            </div>
+                        <div class="col-lg-8">
+                            <label class="col-sm-12 control-label">ویدیو آموزش</label>
+                            <x-chunked-upload
+                                type="video"
+                                name="video"
+                                accept="video/*"
+                                :required="false"
+                                :existingFile="$episode->video"
+                                label="ویدیو آموزش"
+                            />
                         </div>
                     </div>
 
-
                     <div class="form-group">
-                        <div class="col-lg-5">
-                            <label class="col-sm-2 control-label" for="exampleInputFile">فایل آموزش</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input  name="file" type="file" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">انتخاب فایل</label>
-                                </div>
-                            </div>
+                        <div class="col-lg-8">
+                            <label class="col-sm-12 control-label">فایل آموزش</label>
+                            <x-chunked-upload
+                                type="file"
+                                name="file"
+                                accept="*/*"
+                                :required="false"
+                                :existingFile="$episode->file"
+                                label="فایل آموزش"
+                            />
                         </div>
                     </div>
 
@@ -182,4 +185,8 @@
         <!-- /.card -->
     </div>
 
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('admin/js/chunked-uploader.js') }}"></script>
 @endsection

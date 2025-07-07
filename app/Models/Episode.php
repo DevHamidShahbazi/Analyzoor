@@ -14,7 +14,15 @@ class Episode extends Model
 
     protected $fillable = [
         'slug', 'time', 'name', 'title','course_id','chapter_id',
-        'description', 'keywords', 'body','type','video','file'
+        'description', 'keywords', 'body','type','video','file',
+        'thumbnail', 'video_info', 'video_optimized', 'processed_at',
+        'processing_failed', 'processing_error'
+    ];
+
+    protected $casts = [
+        'video_info' => 'array',
+        'processed_at' => 'datetime',
+        'processing_failed' => 'boolean',
     ];
 
     public function sluggable():array

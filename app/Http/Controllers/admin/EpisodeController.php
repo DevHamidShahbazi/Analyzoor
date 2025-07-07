@@ -7,6 +7,7 @@ use App\Http\Requests\EpisodeAdminRequest;
 use App\Http\Traits\admin\EpisodeTrait;
 use App\Models\Course;
 use App\Models\Episode;
+use App\Jobs\ProcessVideoJob;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -35,10 +36,35 @@ class EpisodeController extends Controller
     {
         $episode = Episode::create($this->RequestsArray($request));
 
+        // Handle chunked uploads
+        $videoPath = null;
+        $filePath = null;
+
+        // Handle video upload
+        if ($request->filled('video_path') && $request->input('video_is_new') == '1') {
+            $videoPath = $this->moveChunkedFile($request->input('video_path'), 'courses/'.$request['course_id'].'/'.$episode->id);
+        } elseif ($request->hasFile('video')) {
+            // Fallback to traditional upload
+            $videoPath = $this->storeFile($request, 'video', 'courses/'.$request['course_id'].'/'.$episode->id);
+        }
+
+        // Handle file upload
+        if ($request->filled('file_path') && $request->input('file_is_new') == '1') {
+            $filePath = $this->moveChunkedFile($request->input('file_path'), 'courses/'.$request['course_id'].'/'.$episode->id);
+        } elseif ($request->hasFile('file')) {
+            // Fallback to traditional upload
+            $filePath = $this->storeFile($request, 'file', 'courses/'.$request['course_id'].'/'.$episode->id);
+        }
+
         $episode->update([
-            'video'=>$request->hasFile('video') ? $this->storeFile($request,'video','courses/'.$request['course_id'].'/'.$episode->id) : null,
-            'file'=>$request->hasFile('file') ? $this->storeFile($request,'file','courses/'.$request['course_id'].'/'.$episode->id) : null
+            'video' => $videoPath,
+            'file' => $filePath
         ]);
+
+        // Dispatch video processing job if video was uploaded
+        if ($videoPath) {
+            ProcessVideoJob::dispatch($episode, $videoPath);
+        }
 
         return redirect()->back()->with('success','اضافه شد');
     }
@@ -58,8 +84,42 @@ class EpisodeController extends Controller
     public function update(EpisodeAdminRequest $request, Episode $episode)
     {
         $episode->update($this->RequestsArray($request));
-        $this->updateFile($request,$episode,'video','courses/'.$request['course_id'].'/'.$episode->id);
-        $this->updateFile($request,$episode,'file','courses/'.$request['course_id'].'/'.$episode->id);
+
+        // Handle chunked uploads for video
+        $newVideoPath = null;
+        if ($request->filled('video_path') && $request->input('video_is_new') == '1') {
+            // Delete old video if exists
+            if ($episode->video) {
+                File::delete(storage_path('app/uploads/'.$episode->video));
+            }
+            // Move new chunked video
+            $newVideoPath = $this->moveChunkedFile($request->input('video_path'), 'courses/'.$request['course_id'].'/'.$episode->id);
+            $episode->update(['video' => $newVideoPath]);
+        } elseif ($request->hasFile('video')) {
+            // Fallback to traditional upload
+            $this->updateFile($request, $episode, 'video', 'courses/'.$request['course_id'].'/'.$episode->id);
+            $newVideoPath = $episode->video;
+        }
+
+        // Handle chunked uploads for file
+        if ($request->filled('file_path') && $request->input('file_is_new') == '1') {
+            // Delete old file if exists
+            if ($episode->file) {
+                File::delete(storage_path('app/uploads/'.$episode->file));
+            }
+            // Move new chunked file
+            $filePath = $this->moveChunkedFile($request->input('file_path'), 'courses/'.$request['course_id'].'/'.$episode->id);
+            $episode->update(['file' => $filePath]);
+                } elseif ($request->hasFile('file')) {
+            // Fallback to traditional upload
+            $this->updateFile($request, $episode, 'file', 'courses/'.$request['course_id'].'/'.$episode->id);
+        }
+
+        // Dispatch video processing job if video was uploaded/updated
+        if ($newVideoPath) {
+            ProcessVideoJob::dispatch($episode, $newVideoPath);
+        }
+
         return redirect()->back()->with('success','ویرایش شد');
     }
 
@@ -96,5 +156,33 @@ class EpisodeController extends Controller
         }
 
         return response()->file($path);
+    }
+
+    /**
+     * Move chunked file from temp location to final location
+     */
+    private function moveChunkedFile($tempPath, $finalDirectory)
+    {
+        $tempFullPath = storage_path('app/uploads/' . $tempPath);
+
+        if (!File::exists($tempFullPath)) {
+            return null;
+        }
+
+        // Create final directory if it doesn't exist
+        $finalDir = storage_path('app/uploads/' . $finalDirectory);
+        if (!File::exists($finalDir)) {
+            File::makeDirectory($finalDir, 0755, true);
+        }
+
+        // Generate final filename
+        $filename = basename($tempPath);
+        $finalPath = $finalDirectory . '/' . $filename;
+        $finalFullPath = storage_path('app/uploads/' . $finalPath);
+
+        // Move file from temp to final location
+        File::move($tempFullPath, $finalFullPath);
+
+        return $finalPath;
     }
 }

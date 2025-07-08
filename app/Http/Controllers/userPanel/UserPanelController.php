@@ -16,6 +16,30 @@ class UserPanelController extends Controller
         return view('user-panel.dashboard');
     }
 
+    public function courses()
+    {
+        $user = auth()->user();
+
+        $courses = $user->courses()
+            ->with(['category', 'episodes'])
+            ->orderBy('pivot_created_at', 'desc')
+            ->get();
+
+        return view('user-panel.courses', compact('courses'));
+    }
+
+    public function payments()
+    {
+        $user = auth()->user();
+        
+        $payments = $user->payments()
+            ->with('course')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('user-panel.payments', compact('payments'));
+    }
+
     public function update_profile(Request $request)
     {
         $user = auth()->user();

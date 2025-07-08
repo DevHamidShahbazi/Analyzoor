@@ -81,9 +81,9 @@
                         <i class="fas fa-graduation-cap text-muted" style="font-size: 4rem;"></i>
                         <h5 class="text-muted mt-3">هنوز در هیچ دوره‌ای ثبت نام نکرده‌اید</h5>
                         <p class="text-muted text-center">برای مشاهده دوره‌های موجود، به صفحه اصلی مراجعه کنید</p>
-                        <a href="{{ route('Home') }}" class="btn btn-primary">
+                        <a href="{{ route('courses') }}" class="btn btn-primary">
                             <i class="fas fa-home ml-1"></i>
-                            بازگشت به صفحه اصلی
+                            دوره های آموزشی
                         </a>
                     </div>
                 @endif

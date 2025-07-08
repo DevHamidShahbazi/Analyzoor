@@ -16,6 +16,12 @@
                                 <i class="fas fa-graduation-cap"></i>
                             </div>
                         </a>
+                        <a class="list-group-item-action text-center my-1 p-2 border-white @section('payments') @show" href="{{route('user-panel.payments')}}">
+                            <div class="d-flex justify-content-between align-items-center px-2">
+                                <p class="m-0">پرداخت‌ها</p>
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                        </a>
                         <a class="list-group-item-action text-center my-1 p-2 border-white @section('comment') @show" href="{{route('user-panel.comment')}}">
                             <div class="d-flex justify-content-between align-items-center px-2">
                                 <p class="m-0">نظرات شما</p>

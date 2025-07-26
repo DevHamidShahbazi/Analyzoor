@@ -14,7 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('payment/set-product', [PaymentController::class, 'setProductSession'])->name('payment.set-product');
+
+Route::get('payment/pre-payment', [PaymentController::class, 'prePayment'])->name('payment.pre-payment');
+
 Route::middleware(['auth'])->group(function () {
-    Route::get('payment/pre-payment', [PaymentController::class, 'prePayment'])->name('payment.pre-payment');
-    Route::post('payment/set-product', [PaymentController::class, 'setProductSession'])->name('payment.set-product');
-}); 
+    Route::post('payment/process', [PaymentController::class, 'processPayment'])->name('payment.process');
+    Route::post('payment/enroll-free', [PaymentController::class, 'enrollFree'])->name('payment.enroll-free');
+});
+
+// Callback route (no auth required as it's called by payment gateway)
+Route::get('payment/callback', [PaymentController::class, 'callback'])->name('payment.callback'); 

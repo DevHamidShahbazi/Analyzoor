@@ -8,13 +8,13 @@
   ),
   'ghasedak/laravel' => 
   array (
-    'aliases' => 
-    array (
-      'Ghasedak' => 'Ghasedak\\Laravel\\GhasedakFacade',
-    ),
     'providers' => 
     array (
       0 => 'Ghasedak\\Laravel\\GhasedakServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Ghasedak' => 'Ghasedak\\Laravel\\GhasedakFacade',
     ),
   ),
   'hekmatinasser/verta' => 
@@ -97,6 +97,17 @@
     'providers' => 
     array (
       0 => 'Termwind\\Laravel\\TermwindServiceProvider',
+    ),
+  ),
+  'shetabit/payment' => 
+  array (
+    'aliases' => 
+    array (
+      'Payment' => 'Shetabit\\Payment\\Facade\\Payment',
+    ),
+    'providers' => 
+    array (
+      0 => 'Shetabit\\Payment\\Provider\\PaymentServiceProvider',
     ),
   ),
   'shetabit/visitor' => 

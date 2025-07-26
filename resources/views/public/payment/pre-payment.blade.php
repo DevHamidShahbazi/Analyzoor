@@ -111,15 +111,21 @@
                             <!-- Payment Button -->
                             <div class="text-center">
                                 @if($course->type == 'premium')
-                                    <button class="btn btn-primary btn-lg w-100" onclick="processPayment()">
-                                        پرداخت
-                                        <i class="fas fa-credit-card ml-2"></i>
-                                    </button>
+                                    <form action="{{ route('payment.process') }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                                            پرداخت
+                                            <i class="fas fa-credit-card ml-2"></i>
+                                        </button>
+                                    </form>
                                 @else
-                                    <button class="btn btn-success btn-lg w-100" onclick="enrollFree()">
-                                        ثبت نام رایگان
-                                        <i class="fas fa-user-plus ml-2"></i>
-                                    </button>
+                                    <form action="{{ route('payment.enroll-free') }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success btn-lg w-100">
+                                            ثبت نام رایگان
+                                            <i class="fas fa-user-plus ml-2"></i>
+                                        </button>
+                                    </form>
                                 @endif
                             </div>
 
@@ -130,34 +136,4 @@
         </div>
     </section>
 
-@endsection
-
-@section('script')
-    <script>
-        function processPayment() {
-            // Here you can implement the actual payment gateway integration
-            swal({
-                title: "در حال انتقال",
-                text: "در حال انتقال به درگاه پرداخت...",
-                type: "info",
-                showCancelButton: false,
-                confirmButtonText: "باشه",
-                closeOnConfirm: true
-            });
-            // Example: window.location.href = '/payment/gateway';
-        }
-
-        function enrollFree() {
-            // Here you can implement free course enrollment
-            swal({
-                title: "ثبت نام موفق",
-                text: "ثبت نام در دوره رایگان با موفقیت انجام شد",
-                type: "success",
-                showCancelButton: false,
-                confirmButtonText: "باشه",
-                closeOnConfirm: true
-            });
-            // Example: window.location.href = '/course/enroll-free';
-        }
-    </script>
 @endsection

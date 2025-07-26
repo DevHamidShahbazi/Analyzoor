@@ -74,6 +74,11 @@ class LoginController extends Controller
 
     public function redirectPath()
     {
+        // Check if user has product session, redirect to prepayment
+        if (session('product')) {
+            return route('payment.pre-payment');
+        }
+
         if (method_exists($this, 'redirectTo')) {
             return $this->redirectTo();
         }

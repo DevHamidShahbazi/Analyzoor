@@ -25,6 +25,7 @@
                                 <th  class="text-center text-light" scope="col">ردیف</th>
                                 <th  class="text-center text-light" scope="col" >نام</th>
                                 <th  class="text-center text-light" scope="col" >دسته بندی</th>
+                                <th  class="text-center text-light" scope="col" >قیمت</th>
                                 <th  class="text-center text-light" scope="col" >تعداد فروش</th>
                                 <th  class="text-center text-light" scope="col" >تاریخ ایجاد</th>
                                 <th  class="text-center text-light" scope="col" >تصویر</th>
@@ -47,6 +48,19 @@
                                             <span class="badge bg-{{$val->type == 'free' ? 'secondary-gradient':'primary-gradient'}}">{{array_search($val->type,config('static_array.courseType'))}}</span>
                                            </td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >{{$val->category->name}}</td>
+                                        <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >
+                                            @if($val->type == 'free')
+                                                <span class="badge bg-success">رایگان</span>
+                                            @else
+                                                @if($val->discount)
+                                                    <span class="text-decoration-line-through text-muted">{{ number_format($val->price) }} تومان</span>
+                                                    <br>
+                                                    <span class="badge bg-danger">{{ number_format($val->discount) }} تومان</span>
+                                                @else
+                                                    <span class="badge bg-primary">{{ number_format($val->price) }} تومان</span>
+                                                @endif
+                                            @endif
+                                        </td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >{{count($val->payments()->where('status','1')->get())}}</td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{ Verta::instance($val->created_at)->formatDate() }}</td>
                                         <td  style="padding:inherit" class="text-center" >

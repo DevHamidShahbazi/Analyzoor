@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.5",
         "mews/captcha": "^3.2",
+        "shetabit/payment": "^6.2",
         "shetabit/visitor": "^4.3",
         "spatie/laravel-query-builder": "^5.7",
         "stevebauman/location": "^7.2"

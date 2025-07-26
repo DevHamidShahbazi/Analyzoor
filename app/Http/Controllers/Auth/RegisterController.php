@@ -78,6 +78,21 @@ class RegisterController extends Controller
             : redirect($this->redirectPath());
     }
 
+    /**
+     * Get the post-registration redirect path.
+     *
+     * @return string
+     */
+    protected function redirectPath()
+    {
+        // Check if user has product session, redirect to prepayment
+        if (session('product')) {
+            return route('payment.pre-payment');
+        }
+
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : RouteServiceProvider::HOME;
+    }
+
     protected function validator(array $data)
     {
 

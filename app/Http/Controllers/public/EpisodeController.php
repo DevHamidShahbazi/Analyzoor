@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\public;
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\pub\CommentTrait;
+use App\Models\Comment;
 use App\Models\Episode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class EpisodeController extends Controller
 {
+    use CommentTrait;
 
     public function detail(Episode $episode)
     {
@@ -22,6 +25,47 @@ class EpisodeController extends Controller
         }
         
         return view('public.episode.episode-detail',compact('episode','course','episodes','isEnrolled'));
+    }
+
+    public function store_comment(Request $request)
+    {
+        $this->validate_store();
+        $episode = Episode::find($request['commentable_id']);
+        if(!$episode) {
+            return redirect()->back()->with('error', 'اپیزودی پیدا نشد');
+        }
+
+        Comment::create([
+            'commentable_id' => $request['commentable_id'],
+            'commentable_type' => Episode::class,
+            'parent_id'=>'0',
+            'is_active'=>'0',
+            'user_id'=>auth()->user()->id,
+            'comment'=>$request['comment']
+        ]);
+
+        return redirect(route('episode.detail',$episode->id))->with('success','نظر شما با موفقیت ثبت شد بعد از تایید به نمایش گذاشته می شود');
+    }
+
+    public function result_comment(Request $request)
+    {
+        $this->validate_result();
+        $episode = Episode::find($request['commentable_id']);
+
+        if(!$episode) {
+            return redirect()->back()->with('error', 'اپیزودی پیدا نشد');
+        }
+
+        Comment::create([
+            'commentable_id' => $request['commentable_id'],
+            'commentable_type' => Episode::class,
+            'parent_id'=>$request['parent_id'],
+            'is_active'=>'0',
+            'user_id'=>auth()->user()->id,
+            'comment'=>$request['comment']
+        ]);
+
+        return redirect(route('episode.detail',$episode->id))->with('success','نظر شما با موفقیت ثبت شد بعد از تایید به نمایش گذاشته می شود');
     }
 
     public function downloadVideo(Episode $episode)

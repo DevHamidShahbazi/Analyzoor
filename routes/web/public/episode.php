@@ -21,7 +21,7 @@ Route::get('episodes/{episode}/download', [EpisodeController::class, 'downloadVi
 
 #comments
 
-//Route::middleware(['auth','throttle:100,2'])->group(function () {
-//    Route::post('article/store/comment', [ArticleController::class, 'store_comment'])->name('article.store.comment');
-//    Route::post('article/result/comment', [ArticleController::class, 'result_comment'])->name('article.result.comment');
-//});
+Route::middleware(['auth','throttle:100,2'])->group(function () {
+    Route::post('episode/store/comment', [EpisodeController::class, 'store_comment'])->name('episode.store.comment');
+    Route::post('episode/result/comment', [EpisodeController::class, 'result_comment'])->name('episode.result.comment');
+});

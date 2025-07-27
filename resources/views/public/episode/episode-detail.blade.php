@@ -17,14 +17,21 @@
                             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center" style="background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px);">
                                 <div class="bg-white bg-opacity-75 text-dark rounded-lg p-4 p-md-5 text-center shadow" style="max-width: 400px; width: 90%;">
                                     <div class="d-flex justify-content-center align-items-center height-100">
-                                        <form method="POST" action="{{ route('payment.set-product') }}" style="display: inline;">
-                                            @csrf
-                                            <input type="hidden" name="course_id" value="{{ $course->id }}">
-                                            <button type="submit" class="btn btn-primary">
-                                                {{$course->type == 'free' ? 'ثبت نام در ':'خرید '}} دوره آموزشی
-                                                <i class="fas fa-graduation-cap"></i>
-                                            </button>
-                                        </form>
+                                        @if($isEnrolled)
+                                            <div class="alert alert-success d-flex align-items-center" role="alert">
+                                                <i class="fas fa-check-circle me-2"></i>
+                                                <span>شما در این دوره ثبت نام کرده اید</span>
+                                            </div>
+                                        @else
+                                            <form method="POST" action="{{ route('payment.set-product') }}" style="display: inline;">
+                                                @csrf
+                                                <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                                <button type="submit" class="btn btn-primary">
+                                                    {{$course->type == 'free' ? 'ثبت نام در ':'خرید '}} دوره آموزشی
+                                                    <i class="fas fa-graduation-cap"></i>
+                                                </button>
+                                            </form>
+                                        @endif
                                     </div>
                                 </div>
 
@@ -105,14 +112,21 @@
                                     <div class="col-12 my-1  d-sm-block">
                                         <br>
                                         <div class="d-flex justify-content-center align-items-center height-100">
-                                            <form method="POST" action="{{ route('payment.set-product') }}" style="display: inline;">
-                                                @csrf
-                                                <input type="hidden" name="course_id" value="{{ $course->id }}">
-                                                <button type="submit" class="btn btn-primary">
-                                                    {{$course->type == 'free' ? 'ثبت نام در ':'خرید '}} دوره آموزشی
-                                                    <i class="fas fa-graduation-cap"></i>
-                                                </button>
-                                            </form>
+                                            @if($isEnrolled)
+                                                <div class="alert alert-success d-flex align-items-center" role="alert">
+                                                    <i class="fas fa-check-circle me-2"></i>
+                                                    <span>شما در این دوره ثبت نام کرده اید</span>
+                                                </div>
+                                            @else
+                                                <form method="POST" action="{{ route('payment.set-product') }}" style="display: inline;">
+                                                    @csrf
+                                                    <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        {{$course->type == 'free' ? 'ثبت نام در ':'خرید '}} دوره آموزشی
+                                                        <i class="fas fa-graduation-cap"></i>
+                                                    </button>
+                                                </form>
+                                            @endif
                                         </div>
                                         <br>
                                         <div class="d-flex justify-content-center">

@@ -74,8 +74,37 @@ class LoginController extends Controller
 
     public function redirectPath()
     {
-        // Check if user has product session, redirect to prepayment
+        // Check if user has product session
         if (session('product')) {
+            $courseId = session('product');
+            $course = \App\Models\Course::find($courseId);
+            
+            // If course is free, enroll user directly and redirect back
+            if ($course && $course->type !== 'premium') {
+                // Check if user already has this course
+                if (auth()->user()->courses()->where('course_id', $courseId)->exists()) {
+                    session()->forget('product');
+                    return redirect()->back()->with('success', 'شما قبلا در این دوره ثبت نام کرده‌اید');
+                }
+                
+                // Add course to user
+                auth()->user()->courses()->attach($courseId);
+                
+                // Clear session
+                session()->forget('product');
+                
+                // Redirect to intended URL or course detail
+                $intendedUrl = session('intended_url');
+                session()->forget('intended_url');
+                
+                if ($intendedUrl) {
+                    return $intendedUrl;
+                }
+                
+                return route('course.detail', $course->slug);
+            }
+            
+            // For premium courses, redirect to pre-payment
             return route('payment.pre-payment');
         }
 

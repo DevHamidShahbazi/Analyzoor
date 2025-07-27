@@ -38,7 +38,14 @@ class CourseController extends Controller
         $episodes = $course->episodes()->get();
         $questions = $course->questions()->get();
         $chapters = $course->chapters()->get();
-        return view('public.course.course-detail',compact('course','episodes','questions','chapters'));
+        
+        // Check if user is enrolled in this course
+        $isEnrolled = false;
+        if (auth()->check()) {
+            $isEnrolled = auth()->user()->courses()->where('course_id', $course->id)->exists();
+        }
+        
+        return view('public.course.course-detail',compact('course','episodes','questions','chapters','isEnrolled'));
     }
 
 

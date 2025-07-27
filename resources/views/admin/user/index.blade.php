@@ -62,8 +62,8 @@
                             <th  class="text-center text-light" scope="col" >نوع</th>
                             <th  class="text-center text-light" scope="col" >تاریخ ثبت نام</th>
                             <th  class="text-center text-light" scope="col" >کد تایید</th>
-                            <th  class="text-center text-light" scope="col" >ویرایش</th>
                             <th  class="text-center text-light" scope="col" >دوره‌ها</th>
+                            <th  class="text-center text-light" scope="col" >ویرایش</th>
                             <th  class="text-center text-light" scope="col" >حذف</th>
                         </tr>
 
@@ -112,10 +112,7 @@
                                          {{ $val->activeCode()->where('expire_at','>',now())->first()->code ?? '__' }}
                                     </td>
 
-                                    <td class="text-center font-weight-bold">
-                                        <button data-toggle="modal" data-target="#modalLRFormDemo{{$key}}" type="button" style="width: max-content;" class="btn btn-info btn-sm"><i class="fa fa-edit"></i><i style="margin: inherit;">ویرایش</i></button>
-                                    </td>
-                                    @include('admin.user.edit',['key'=>$key])
+
 
                                     <td class="text-center font-weight-bold">
                                         <a href="{{ route('admin.course.index', ['user_id' => $val->id]) }}" type="button" style="width: max-content;" class="btn btn-success btn-sm">
@@ -126,6 +123,11 @@
                                             @endif
                                         </a>
                                     </td>
+
+                                    <td class="text-center font-weight-bold">
+                                        <button data-toggle="modal" data-target="#modalLRFormDemo{{$key}}" type="button" style="width: max-content;" class="btn btn-info btn-sm"><i class="fa fa-edit"></i><i style="margin: inherit;">ویرایش</i></button>
+                                    </td>
+                                    @include('admin.user.edit',['key'=>$key])
 
                                     <td  class="text-center  text-light ">
                                         <a href="#!" data-id="{{ $val->id }}" data-route="{{ route('admin.user.destroy',$val->id) }}"  type="submit" style="width: max-content;" class="btn-sm btn-danger btnDelete" ><i style="margin: 0 0 0 5px;" class="fa fa-trash"></i><i style="margin: inherit;">حذف</i></a>

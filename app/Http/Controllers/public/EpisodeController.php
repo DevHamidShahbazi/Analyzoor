@@ -14,7 +14,14 @@ class EpisodeController extends Controller
     {
         $course = $episode->course;
         $episodes = $course->episodes()->get();
-        return view('public.episode.episode-detail',compact('episode','course','episodes'));
+        
+        // Check if user is enrolled in this course
+        $isEnrolled = false;
+        if (auth()->check()) {
+            $isEnrolled = auth()->user()->courses()->where('course_id', $course->id)->exists();
+        }
+        
+        return view('public.episode.episode-detail',compact('episode','course','episodes','isEnrolled'));
     }
 
     public function downloadVideo(Episode $episode)
@@ -35,6 +42,6 @@ class EpisodeController extends Controller
             return auth()->check();
         }
         //برای ویدیو های پولی بررسی کنید که کاربر دوره را خریداری کرده است
-        return auth()->check() && auth()->user()->purchases()->where('course_id', $episode->course_id)->exists();
+        return auth()->check() && auth()->user()->courses()->where('course_id', $episode->course_id)->exists();
     }
 }

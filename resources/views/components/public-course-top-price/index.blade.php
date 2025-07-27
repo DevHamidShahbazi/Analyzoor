@@ -24,14 +24,21 @@
                         </div>
                         <div class="col-sm-6 col-12 my-1">
                             <div class="d-flex justify-content-center align-items-center height-100">
-                                <form method="POST" action="{{ route('payment.set-product') }}" style="display: inline;">
-                                    @csrf
-                                    <input type="hidden" name="course_id" value="{{ $course->id }}">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{$course->type == 'free' ? 'ثبت نام در ':'خرید '}} دوره آموزشی
-                                        <i class="fas fa-graduation-cap"></i>
-                                    </button>
-                                </form>
+                                @if($isEnrolled)
+                                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                                        <i class="fas fa-check-circle m-2"></i>
+                                        <span>شما در این دوره ثبت نام کرده اید</span>
+                                    </div>
+                                @else
+                                    <form method="POST" action="{{ route('payment.set-product') }}" style="display: inline;">
+                                        @csrf
+                                        <input type="hidden" name="course_id" value="{{ $course->id }}">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{$course->type == 'free' ? 'ثبت نام در ':'خرید '}} دوره آموزشی
+                                            <i class="fas fa-graduation-cap"></i>
+                                        </button>
+                                    </form>
+                                @endif
                             </div>
                         </div>
                     </div>

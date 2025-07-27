@@ -16,6 +16,12 @@
                             <i class="fa fa-plus"></i>
                             <i  style="margin: inherit; ">افزودن دوره</i>
                         </a>
+                        @if(request()->has('user_id'))
+                            <a href="{{ route('admin.course.index') }}" type="button" class="btn btn-warning btn-sm ml-2">
+                                <i class="fa fa-times"></i>
+                                <i style="margin: inherit;">حذف فیلتر</i>
+                            </a>
+                        @endif
                     </div>
 
                     <!-- /.card-header -->

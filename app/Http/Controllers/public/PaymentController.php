@@ -33,8 +33,33 @@ class PaymentController extends Controller
             'course_id' => 'required|exists:courses,id'
         ]);
 
-        // Store course ID in session
-        session(['product' => $request->course_id]);
+        $courseId = $request->course_id;
+        $course = Course::findOrFail($courseId);
+
+        // Check if course is free
+        if ($course->type !== 'premium') {
+            // Check if user is authenticated
+            if (!auth()->check()) {
+                // Store course ID in session for redirect after registration
+                session(['product' => $courseId]);
+                session(['intended_url' => url()->previous()]);
+                
+                return redirect()->route('register')->with('info', 'برای ثبت نام در دوره رایگان، ابتدا باید وارد حساب کاربری خود شوید');
+            }
+
+            // User is authenticated, check if they already have this course
+            if (auth()->user()->courses()->where('course_id', $courseId)->exists()) {
+                return redirect()->back()->with('success', 'شما قبلا در این دوره ثبت نام کرده‌اید');
+            }
+
+            // Add course to user directly
+            auth()->user()->courses()->attach($courseId);
+
+            return redirect()->back()->with('success', 'دوره با موفقیت به حساب شما اضافه شد');
+        }
+
+        // For premium courses, store course ID in session and redirect to pre-payment
+        session(['product' => $courseId]);
 
         return redirect()->route('payment.pre-payment');
     }

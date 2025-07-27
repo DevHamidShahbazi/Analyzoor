@@ -19,6 +19,7 @@ class CourseController extends Controller
     {
         $query = Course::with(['users', 'category']);
 
+        // Filter by user_id
         if ($request->has('user_id')) {
             $userId = $request->user_id;
             $query->whereHas('users', function($q) use ($userId) {
@@ -26,8 +27,36 @@ class CourseController extends Controller
             });
         }
 
+        // Filter by category_id
+        if ($request->has('category_id') && $request->category_id != '0') {
+            $query->where('category_id', $request->category_id);
+        }
+
+        // Filter by status
+        if ($request->has('status') && $request->status != '') {
+            $query->where('status', $request->status);
+        }
+
+        // Filter by type
+        if ($request->has('type') && $request->type != '') {
+            $query->where('type', $request->type);
+        }
+
+        // Filter by name (search)
+        if ($request->has('name') && $request->name != '') {
+            $query->where('name', 'like', '%' . $request->name . '%');
+        }
+
         $courses = $query->latest()->get();
-        return view('admin.course.index',compact('courses'));
+        
+        // Check if any filters are applied
+        $hasFilters = $request->has('user_id') || 
+                     ($request->has('category_id') && $request->category_id != '0') ||
+                     ($request->has('status') && $request->status != '') ||
+                     ($request->has('type') && $request->type != '') ||
+                     ($request->has('name') && $request->name != '');
+        
+        return view('admin.course.index', compact('courses', 'hasFilters'));
     }
 
     public function create()

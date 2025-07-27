@@ -114,8 +114,8 @@
                                         <div class="d-flex justify-content-center align-items-center height-100">
                                             @if($isEnrolled)
                                                 <div class="alert alert-success d-flex align-items-center" role="alert">
-                                                    <i class="fas fa-check-circle me-2"></i>
-                                                    <span>شما در این دوره ثبت نام کرده اید</span>
+                                                    <i class="fas fa-check-circle m-2"></i>
+                                                    <span>شما ثبت نام کرده اید</span>
                                                 </div>
                                             @else
                                                 <form method="POST" action="{{ route('payment.set-product') }}" style="display: inline;">

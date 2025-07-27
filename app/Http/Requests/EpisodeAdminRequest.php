@@ -12,7 +12,7 @@ class EpisodeAdminRequest extends FormRequest
     {
         if(Str::contains($this->route()->getName(),'store')){
             return [
-                'name'=>['required ',' unique:episodes'],
+                'name' => ['required', 'unique:episodes'],
                 'type' => 'in:free,premium',
                 'course_id' => 'required',
                 'chapter_id' => 'nullable',
@@ -27,7 +27,7 @@ class EpisodeAdminRequest extends FormRequest
 
         if(Str::contains($this->route()->getName(),'update')){
             return [
-                'name'=>['required ',' unique:episodes,name,'.$this->route('episode')->id],
+                'name' => ['required', Rule::unique('episodes')->ignore($this->route('episode')->id)],
                 'course_id' => 'required',
                 'type' => 'in:free,premium',
                 'chapter_id' => 'nullable',

@@ -17,13 +17,13 @@ class EpisodeController extends Controller
     {
         $course = $episode->course;
         $episodes = $course->episodes()->get();
-        
+
         // Check if user is enrolled in this course
         $isEnrolled = false;
         if (auth()->check()) {
             $isEnrolled = auth()->user()->courses()->where('course_id', $course->id)->exists();
         }
-        
+
         return view('public.episode.episode-detail',compact('episode','course','episodes','isEnrolled'));
     }
 
@@ -44,7 +44,7 @@ class EpisodeController extends Controller
             'comment'=>$request['comment']
         ]);
 
-        return redirect(route('episode.detail',$episode->id))->with('success','نظر شما با موفقیت ثبت شد بعد از تایید به نمایش گذاشته می شود');
+        return redirect(route('episode.detail',$episode->slug))->with('success','نظر شما با موفقیت ثبت شد بعد از تایید به نمایش گذاشته می شود');
     }
 
     public function result_comment(Request $request)
@@ -65,7 +65,7 @@ class EpisodeController extends Controller
             'comment'=>$request['comment']
         ]);
 
-        return redirect(route('episode.detail',$episode->id))->with('success','نظر شما با موفقیت ثبت شد بعد از تایید به نمایش گذاشته می شود');
+        return redirect(route('episode.detail',$episode->slug))->with('success','نظر شما با موفقیت ثبت شد بعد از تایید به نمایش گذاشته می شود');
     }
 
     public function downloadVideo(Episode $episode)

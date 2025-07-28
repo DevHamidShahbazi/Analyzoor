@@ -59,7 +59,7 @@
                                 جلسات دوره
                             </span>
                             <hr>
-                            @include('components.public-list-chapter.index',['chapters'=>$chapters,'episodes'=>$episodes])
+                            @include('components.public-list-chapter.index',['chapters'=>$chapters,'episodes'=>$episodes,'isEnrolled'=>$isEnrolled])
                         </div>
                     </div>
 

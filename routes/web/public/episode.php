@@ -17,11 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('episode/detail/{EpisodeDetail}', [EpisodeController::class, 'detail'])->name('episode.detail');
 
-Route::get('episodes/{episode}/download', [EpisodeController::class, 'downloadVideo'])->name('episodes.download');
-
 #comments
 
 Route::middleware(['auth','throttle:100,2'])->group(function () {
     Route::post('episode/store/comment', [EpisodeController::class, 'store_comment'])->name('episode.store.comment');
     Route::post('episode/result/comment', [EpisodeController::class, 'result_comment'])->name('episode.result.comment');
 });
+
+# Secure download routes
+Route::middleware(['auth'])->group(function () {
+    Route::post('episode/{episode}/generate-video-token', [EpisodeController::class, 'generateVideoDownloadToken'])->name('episode.generate.video.token');
+    Route::post('episode/{episode}/generate-file-token', [EpisodeController::class, 'generateFileDownloadToken'])->name('episode.generate.file.token');
+});
+
+# Secure download access (no auth required as token validates access)
+Route::get('episode/download/{token}', [EpisodeController::class, 'secureDownload'])->name('episode.secure.download');

@@ -81,6 +81,9 @@
                     <div class="existing-file-name">فایل موجود</div>
                     <div class="existing-file-actions">
                         <button type="button" class="btn btn-sm btn-primary change-existing-file">تغییر فایل</button>
+                        @if($type === 'file')
+                        <button type="button" class="btn btn-sm btn-danger delete-existing-file">حذف فایل</button>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -91,6 +94,7 @@
     <input type="file" id="file-input-{{ $name }}" accept="{{ $accept }}" style="display: none;" {{ $required ? 'required' : '' }}>
     <input type="hidden" id="uploaded-file-{{ $name }}" name="{{ $name }}_path" value="">
     <input type="hidden" id="is-new-upload-{{ $name }}" name="{{ $name }}_is_new" value="0">
+    <input type="hidden" id="delete-file-{{ $name }}" name="{{ $name }}_delete" value="0">
 </div>
 
 <style>
@@ -322,6 +326,11 @@
 .upload-area.error {
     border-color: #dc3545;
     background-color: #fff5f5;
+}
+
+.upload-area.file-deleted {
+    border-color: #ffc107;
+    background-color: #fffbf0;
 }
 
 @media (max-width: 768px) {

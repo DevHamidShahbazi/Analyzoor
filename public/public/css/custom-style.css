@@ -591,3 +591,185 @@ hue-6-2: #e6c07b
         padding: 12px;
     }
 }
+
+/* Episode Detail Page Styles */
+.episode-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.episode-meta {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.download-section {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* وقتی فقط یک کارت وجود دارد، آن را در وسط قرار می‌دهیم */
+.download-grid:has(.download-item:only-child) {
+    display: flex;
+    justify-content: center;
+}
+
+.download-grid:has(.download-item:only-child) .download-item {
+    max-width: 420px;
+    width: 100%;
+}
+
+/* راه حل جایگزین برای مرورگرهایی که از :has() پشتیبانی نمی‌کنند */
+.download-grid.single-item {
+    display: flex;
+    justify-content: center;
+}
+
+.download-grid.single-item .download-item {
+    max-width: 420px;
+    width: 100%;
+}
+
+.download-item {
+    background: white;
+    border-radius: 10px;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.download-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.download-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.download-icon.video {
+    color: #2c3e50;
+}
+
+.download-icon.file {
+    color: #2c3e50;
+}
+
+.download-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.download-info {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+.download-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 25px;
+    padding: 0.6rem 1.5rem;
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.download-btn:hover {
+    background: linear-gradient(45deg, #764ba2, #667eea);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    color: white;
+    text-decoration: none;
+}
+
+.download-btn:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.access-denied {
+    background: rgba(102, 126, 234, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid #667eea;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.access-denied p {
+    margin-bottom: 1.5rem;
+    color: #5a6c7d;
+    font-size: 0.95rem;
+}
+
+.enroll-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 25px;
+    padding: 0.8rem 2rem;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.enroll-btn:hover {
+    background: linear-gradient(45deg, #764ba2, #667eea);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.loading-spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .episode-title {
+        font-size: 1.5rem;
+    }
+
+    .download-section {
+        padding: 1rem;
+    }
+
+    .download-grid {
+        grid-template-columns: 1fr;
+    }
+}

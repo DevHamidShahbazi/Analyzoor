@@ -22,6 +22,7 @@ class EpisodeAdminRequest extends FormRequest
                 'file' => 'nullable|file',
                 'file_path' => 'nullable|string',
                 'file_is_new' => 'nullable|in:0,1',
+                'file_delete' => 'nullable|in:0,1',
             ];
         }
 
@@ -37,6 +38,7 @@ class EpisodeAdminRequest extends FormRequest
                 'file' => 'nullable|file',
                 'file_path' => 'nullable|string',
                 'file_is_new' => 'nullable|in:0,1',
+                'file_delete' => 'nullable|in:0,1',
             ];
         }
     }

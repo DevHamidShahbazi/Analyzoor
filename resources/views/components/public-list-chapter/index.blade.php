@@ -24,7 +24,8 @@
                     <div class="accordion-body">
                         @include('components.public-list-episode.index', [
                             'episodes' => $chapterEpisodes,
-                            'currentEpisode' => $currentEpisode ?? null
+                            'currentEpisode' => $currentEpisode ?? null,
+                            'isEnrolled' => $isEnrolled ?? false
                         ])
                     </div>
                 </div>
@@ -34,6 +35,7 @@
 @else
     @include('components.public-list-episode.index', [
         'episodes' => $episodes,
-        'currentEpisode' => $currentEpisode ?? null
+        'currentEpisode' => $currentEpisode ?? null,
+        'isEnrolled' => $isEnrolled ?? false
     ])
 @endif

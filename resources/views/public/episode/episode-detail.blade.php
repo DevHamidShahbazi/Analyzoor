@@ -4,48 +4,142 @@
 @section('keywords'){{$episode->keywords}}@endsection
 
 
+
+@section('script')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle video download
+    document.getElementById('downloadVideoBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        generateDownloadToken('video');
+    });
+
+    // Handle file download
+    document.getElementById('downloadFileBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        generateDownloadToken('file');
+    });
+
+    function generateDownloadToken(fileType) {
+        const button = fileType === 'video' ? document.getElementById('downloadVideoBtn') : document.getElementById('downloadFileBtn');
+        const spinner = button.querySelector('.loading-spinner');
+        const originalText = button.innerHTML;
+
+        // Show loading state
+        button.disabled = true;
+        spinner.style.display = 'inline-block';
+        button.innerHTML = '<div class="loading-spinner"></div> در حال آماده‌سازی...';
+
+        const url = fileType === 'video'
+            ? '{{ route("episode.generate.video.token", $episode) }}'
+            : '{{ route("episode.generate.file.token", $episode) }}';
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Redirect to download
+                window.location.href = data.download_url;
+            } else {
+                toastr.error(data.message, 'خطا در آماده‌سازی دانلود!')
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            toastr.error('خطا در ارتباط با سرور', 'خطا')
+        })
+        .finally(() => {
+            // Reset button state
+            button.disabled = false;
+            button.innerHTML = originalText;
+        });
+    }
+});
+</script>
+@endsection
+
 @section('content')
 
     <section class="pb-0 py-4">
         <div class="container">
 
-            <div class="card shadow rounded-2 mb-2 p-4">
-                <div class="col-12">
-                    <div class="row">
+            <!-- Download Section -->
+            <div class="download-section">
+                @if($isEnrolled)
+                    <div class="download-grid {{ !$episode->file ? 'single-item' : '' }}">
 
-                        <div class="position-relative w-100" style="min-height: 70vh; background-image: url('/public/img/bg/bg_episode_video.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center" style="background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px);">
-                                <div class="bg-white bg-opacity-75 text-dark rounded-lg p-4 p-md-5 text-center shadow" style="max-width: 400px; width: 90%;">
-                                    <div class="d-flex justify-content-center align-items-center height-100">
-                                        @if($isEnrolled)
-                                            <div class="alert alert-success d-flex align-items-center" role="alert">
-                                                <i class="fas fa-check-circle me-2"></i>
-                                                <span>شما در این دوره ثبت نام کرده اید</span>
-                                            </div>
-                                        @else
-                                            <form method="POST" action="{{ route('payment.set-product') }}" style="display: inline;">
-                                                @csrf
-                                                <input type="hidden" name="course_id" value="{{ $course->id }}">
-                                                <button type="submit" class="btn btn-primary">
-                                                    {{$course->type == 'free' ? 'ثبت نام در ':'خرید '}} دوره آموزشی
-                                                    <i class="fas fa-graduation-cap"></i>
-                                                </button>
-                                            </form>
-                                        @endif
-                                    </div>
+                        @if($episode->file)
+                            <div class="download-item">
+                                <div class="download-icon file">
+                                    <i class="fas fa-file-alt"></i>
                                 </div>
+                                <div class="download-title">فایل آموزشی</div>
+                                <div class="download-info">فایل تکمیلی دوره</div>
+                                <button id="downloadFileBtn" class="download-btn">
+                                    <i class="fas fa-download"></i>
+                                    دانلود فایل
+                                    <div class="loading-spinner"></div>
+                                </button>
+                            </div>
+                        @endif
 
+                        @if($episode->video)
+                            <div class="download-item">
+                                <div class="download-icon video">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div class="download-title">فایل ویدیو</div>
+                                <div class="download-info">مدت زمان: {{$episode->time}}</div>
+                                <button id="downloadVideoBtn" class="download-btn">
+                                    <i class="fas fa-download"></i>
+                                    دانلود ویدیو
+                                    <div class="loading-spinner"></div>
+                                </button>
+                            </div>
+                        @endif
+
+
+                    </div>
+
+                    @if(!$episode->video && !$episode->file)
+                        <div class="text-center">
+                            <div class="alert alert-info mb-0">
+                                <i class="fas fa-info-circle me-2"></i>
+                                در حال حاضر فایلی برای دانلود موجود نیست
                             </div>
                         </div>
+                    @endif
 
-
-                            <h1 class="text-lg-start text-md-start text-center mt-2">{{$episode->name}}</h1>
+                @else
+                    <div class="access-denied">
+                        <p class="text-center">برای دانلود فایل‌های این جلسه، ابتدا باید در دوره ثبت نام کنید</p>
+                        <form method="POST" action="{{ route('payment.set-product') }}" class="d-inline">
+                            @csrf
+                            <input type="hidden" name="course_id" value="{{ $course->id }}">
+                            <button type="submit" class="enroll-btn">
+                                {{$course->type == 'free' ? 'ثبت نام رایگان' : 'خرید دوره'}}
+                                <i class="fas fa-graduation-cap ms-2"></i>
+                            </button>
+                        </form>
                     </div>
-                </div>
+                @endif
             </div>
 
-
-
+            <!-- Episode Content for SEO -->
+            @if($episode->body)
+                <div class="card rounded-2 shadow p-4 mb-4">
+                    <h1 class="episode-title text-center m-0">{{$episode->name}}</h1>
+                    <br>
+                    {!! $episode->body !!}
+                </div>
+            @endif
 
             <div class="row">
                     <!-- Main content START -->
@@ -60,7 +154,8 @@
                             @include('components.public-list-chapter.index', [
                                         'chapters' => $course->chapters()->get(),
                                         'episodes' => $episodes,
-                                        'currentEpisode' => $episode
+                                        'currentEpisode' => $episode,
+                                        'isEnrolled' => $isEnrolled
                                     ])
                         </div>
                     </div>

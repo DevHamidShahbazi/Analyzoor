@@ -18,9 +18,9 @@
                     <i class="fas fa-clock"></i>
                     {{$episode->time}}
                 </span>
-                <a href="{{route('episode.detail',$episode->slug)}}" class="episode-btn btn btn-sm btn-outline-{{$episode->type == 'free' ? 'primary' : 'danger'}}">
-                    {{$episode->type == 'free' ? 'مشاهده' : 'نقدی'}}
-                    <i class="fas fa-{{$episode->type == 'free' ? 'eye' : 'lock'}}"></i>
+                <a href="{{route('episode.detail',$episode->slug)}}" class="episode-btn btn btn-sm btn-outline-{{($episode->type == 'free' || $isEnrolled) ? 'primary' : 'danger'}}">
+                    {{($episode->type == 'free' || $isEnrolled) ? 'مشاهده' : 'نقدی'}}
+                    <i class="fas fa-{{($episode->type == 'free' || $isEnrolled) ? 'eye' : 'lock'}}"></i>
                 </a>
             </div>
         </div>

@@ -110,9 +110,15 @@ class EpisodeController extends Controller
             // Move new chunked file
             $filePath = $this->moveChunkedFile($request->input('file_path'), 'courses/'.$request['course_id'].'/'.$episode->id);
             $episode->update(['file' => $filePath]);
-                } elseif ($request->hasFile('file')) {
+        } elseif ($request->hasFile('file')) {
             // Fallback to traditional upload
             $this->updateFile($request, $episode, 'file', 'courses/'.$request['course_id'].'/'.$episode->id);
+        } elseif ($request->input('file_delete') == '1') {
+            // Delete existing file
+            if ($episode->file) {
+                File::delete(storage_path('app/uploads/'.$episode->file));
+            }
+            $episode->update(['file' => null]);
         }
 
         // Dispatch video processing job if video was uploaded/updated

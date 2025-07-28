@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Traits\pub\CommentTrait;
 use App\Models\Comment;
 use App\Models\Episode;
+use App\Models\DownloadToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -25,6 +26,123 @@ class EpisodeController extends Controller
         }
 
         return view('public.episode.episode-detail',compact('episode','course','episodes','isEnrolled'));
+    }
+
+    /**
+     * Generate secure download token for video
+     */
+    public function generateVideoDownloadToken(Episode $episode)
+    {
+        // Check if user has access to this episode
+        if (!$this->userHasAccessToEpisode($episode)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'شما مجوز دانلود این ویدیو را ندارید'
+            ], 403);
+        }
+
+        // Check if video exists
+        if (!$episode->video) {
+            return response()->json([
+                'success' => false,
+                'message' => 'فایل ویدیو موجود نیست'
+            ], 404);
+        }
+
+        // Generate secure download token
+        $token = DownloadToken::generateToken(
+            auth()->id(),
+            $episode->id,
+            'video',
+            2 // 2 hours expiration
+        );
+
+        return response()->json([
+            'success' => true,
+            'download_url' => route('episode.secure.download', $token->token)
+        ]);
+    }
+
+    /**
+     * Generate secure download token for file
+     */
+    public function generateFileDownloadToken(Episode $episode)
+    {
+        // Check if user has access to this episode
+        if (!$this->userHasAccessToEpisode($episode)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'شما مجوز دانلود این فایل را ندارید'
+            ], 403);
+        }
+
+        // Check if file exists
+        if (!$episode->file) {
+            return response()->json([
+                'success' => false,
+                'message' => 'فایل آموزشی موجود نیست'
+            ], 404);
+        }
+
+        // Generate secure download token
+        $token = DownloadToken::generateToken(
+            auth()->id(),
+            $episode->id,
+            'file',
+            2 // 2 hours expiration
+        );
+
+        return response()->json([
+            'success' => true,
+            'download_url' => route('episode.secure.download', $token->token)
+        ]);
+    }
+
+    /**
+     * Secure download using token
+     */
+    public function secureDownload($token)
+    {
+        // Find the token
+        $downloadToken = DownloadToken::where('token', $token)->first();
+
+        if (!$downloadToken) {
+            abort(404, 'لینک دانلود نامعتبر است');
+        }
+
+        // Check if token is valid
+        if (!$downloadToken->isValid()) {
+            abort(403, 'لینک دانلود منقضی شده یا قبلاً استفاده شده است');
+        }
+
+        // Check if user is authenticated and matches token
+        if (!auth()->check() || auth()->id() !== $downloadToken->user_id) {
+            abort(403, 'شما مجوز دانلود این فایل را ندارید');
+        }
+
+        // Additional security: Check if IP matches (optional, can be disabled for mobile users)
+        // if (!$downloadToken->isFromSameIp()) {
+        //     abort(403, 'دسترسی از آدرس IP متفاوت غیرمجاز است');
+        // }
+
+        // Get file path
+        $filePath = $downloadToken->getFilePath();
+
+        if (!$filePath) {
+            abort(404, 'فایل مورد نظر یافت نشد');
+        }
+
+        // Check if file exists in storage
+        $fullPath = storage_path('app/uploads/' . $filePath);
+        if (!file_exists($fullPath)) {
+            abort(404, 'فایل در سرور موجود نیست');
+        }
+
+        // Mark token as used
+        $downloadToken->markAsUsed();
+
+        // Return file download
+        return response()->download($fullPath, $downloadToken->getFileName());
     }
 
     public function store_comment(Request $request)
@@ -68,24 +186,19 @@ class EpisodeController extends Controller
         return redirect(route('episode.detail',$episode->slug))->with('success','نظر شما با موفقیت ثبت شد بعد از تایید به نمایش گذاشته می شود');
     }
 
-    public function downloadVideo(Episode $episode)
-    {
-        // بررسی کنید که آیا کاربر مجوز دانلود این ویدیو را دارد یا خیر
-        if ($this->userHasAccessToEpisode($episode)) {
-            return Storage::download($episode->video, basename($episode->video));
-        }
-
-        return abort(403, 'شما مجوز دانلود این ویدیو را ندارید.');
-    }
-
     private function userHasAccessToEpisode(Episode $episode)
     {
-        // منطق شما برای بررسی دسترسی کاربر به اپیزود
-        // برای ویدیو های رایگان فقط بررسی کنید که کاربر احراز هویت شده است
-        if($episode->type == "free"){
-            return auth()->check();
+        // Check if user is authenticated
+        if (!auth()->check()) {
+            return false;
         }
-        //برای ویدیو های پولی بررسی کنید که کاربر دوره را خریداری کرده است
-        return auth()->check() && auth()->user()->courses()->where('course_id', $episode->course_id)->exists();
+
+        // Check if course is free
+        if ($episode->course->type === 'free') {
+            return true;
+        }
+
+        // Check if user is enrolled in the course
+        return auth()->user()->courses()->where('course_id', $episode->course_id)->exists();
     }
 }

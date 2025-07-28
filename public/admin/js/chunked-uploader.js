@@ -40,6 +40,7 @@ class ChunkedUploader {
         this.fileInput = this.container.querySelector(`#file-input-${this.name}`);
         this.uploadedFileInput = this.container.querySelector(`#uploaded-file-${this.name}`);
         this.isNewUploadInput = this.container.querySelector(`#is-new-upload-${this.name}`);
+        this.deleteFileInput = this.container.querySelector(`#delete-file-${this.name}`);
 
         // Store original required state
         this.originallyRequired = this.fileInput.hasAttribute('required');
@@ -70,6 +71,7 @@ class ChunkedUploader {
         this.cancelButton = this.container.querySelector('.cancel-upload');
         this.changeFileButton = this.container.querySelector('.change-file');
         this.changeExistingFileButton = this.container.querySelector('.change-existing-file');
+        this.deleteExistingFileButton = this.container.querySelector('.delete-existing-file');
     }
 
     setupEventListeners() {
@@ -104,6 +106,13 @@ class ChunkedUploader {
         if (this.changeExistingFileButton) {
             this.changeExistingFileButton.addEventListener('click', () => {
                 this.showUploadArea();
+            });
+        }
+
+        // Delete existing file button
+        if (this.deleteExistingFileButton) {
+            this.deleteExistingFileButton.addEventListener('click', () => {
+                this.deleteExistingFile();
             });
         }
     }
@@ -377,6 +386,29 @@ class ChunkedUploader {
         }
 
         this.showUploadArea();
+    }
+
+    deleteExistingFile() {
+        // Set delete flag
+        this.deleteFileInput.value = '1';
+        
+        // Clear uploaded file path
+        this.uploadedFileInput.value = '';
+        this.isNewUploadInput.value = '0';
+        
+        // Hide existing file area and show upload area
+        if (this.existingFileArea) {
+            this.existingFileArea.style.display = 'none';
+        }
+        
+        // Show upload content
+        this.showUploadArea();
+        
+        // Add visual feedback
+        this.uploadArea.classList.add('file-deleted');
+        setTimeout(() => {
+            this.uploadArea.classList.remove('file-deleted');
+        }, 2000);
     }
 
     handleUploadError(error) {

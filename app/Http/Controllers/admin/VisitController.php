@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\admin\VisitResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Shetabit\Visitor\Models\Visit;
+use App\Models\Visit;
 use Stevebauman\Location\Facades\Location;
 
 class VisitController extends Controller

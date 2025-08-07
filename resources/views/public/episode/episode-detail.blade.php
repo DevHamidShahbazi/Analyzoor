@@ -73,15 +73,15 @@ document.addEventListener('DOMContentLoaded', function() {
             <!-- Download Section -->
             <div class="download-section">
                 @if($isEnrolled)
-                    <div class="download-grid {{ !$episode->file ? 'single-item' : '' }}">
+                    <div class="download-grid {{ !$episode->hasFile() ? 'single-item' : '' }}">
 
-                        @if($episode->file)
+                        @if($episode->hasFile())
                             <div class="download-item">
                                 <div class="download-icon file">
                                     <i class="fas fa-file-alt"></i>
                                 </div>
                                 <div class="download-title">فایل آموزشی</div>
-                                <div class="download-info">فایل تکمیلی دوره</div>
+                                <div class="download-info">فایل تکمیلی دوره ({{ $episode->getFormattedFileSize() }})</div>
                                 <button id="downloadFileBtn" class="download-btn">
                                     <i class="fas fa-download"></i>
                                     دانلود فایل
@@ -90,13 +90,13 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         @endif
 
-                        @if($episode->video)
+                        @if($episode->hasVideoFile())
                             <div class="download-item">
                                 <div class="download-icon video">
                                     <i class="fas fa-video"></i>
                                 </div>
                                 <div class="download-title">فایل ویدیو</div>
-                                <div class="download-info">مدت زمان: {{$episode->time}}</div>
+                                <div dir="rtl" class="download-info">مدت زمان: {{$episode->time}} | حجم: {{ $episode->getFormattedVideoSize() }}</div>
                                 <button id="downloadVideoBtn" class="download-btn">
                                     <i class="fas fa-download"></i>
                                     دانلود ویدیو
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     </div>
 
-                    @if(!$episode->video && !$episode->file)
+                    @if(!$episode->hasVideoFile() && !$episode->hasFile())
                         <div class="text-center">
                             <div class="alert alert-info mb-0">
                                 <i class="fas fa-info-circle me-2"></i>

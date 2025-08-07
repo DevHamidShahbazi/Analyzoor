@@ -56,20 +56,34 @@
 
 
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >
-                                            @if($val->video)
+                                            @if($val->hasVideoFile())
                                                 <video width="320" height="240" controls>
                                                     <source src="{{route('admin.episode.video.show',['episode_id'=>$val->id])}}" type="video/mp4">
                                                     مرورگر شما امکان پخش این ویدیو را ندارد لطفا از chrome استفاده کنید
                                                 </video>
+                                                <div class="mt-1">
+                                                    <small class="text-muted">{{ $val->getFormattedVideoSize() }}</small>
+                                                </div>
                                             @else
-                                                <span class="badge bg-danger" >ندارد</span>
+                                                @if($val->video)
+                                                    <span class="badge bg-warning" title="فایل در دیتابیس موجود است اما در سرور یافت نشد">فایل گم شده</span>
+                                                @else
+                                                    <span class="badge bg-danger" >ندارد</span>
+                                                @endif
                                             @endif
                                         </td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold " >
-                                            @if($val->file)
+                                            @if($val->hasFile())
                                                 <a href="{{route('admin.episode.file.show',['episode_id'=>$val->id])}}" class="text-primary">دانلود</a>
+                                                <div class="mt-1">
+                                                    <small class="text-muted">{{ $val->getFormattedFileSize() }}</small>
+                                                </div>
                                             @else
-                                                <span class="badge bg-danger" >ندارد</span>
+                                                @if($val->file)
+                                                    <span class="badge bg-warning" title="فایل در دیتابیس موجود است اما در سرور یافت نشد">فایل گم شده</span>
+                                                @else
+                                                    <span class="badge bg-danger" >ندارد</span>
+                                                @endif
                                             @endif
                                         </td>
                                         <td style="padding:1.5rem 0"  class="text-center font-weight-bold" >{{ $val->created_date }}</td>

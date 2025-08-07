@@ -33,6 +33,9 @@ class DownloadToken extends Model
      */
     public static function generateToken($userId, $episodeId, $fileType, $expiresInHours = 2)
     {
+        // Clean up expired tokens for this user
+        self::removeExpiredTokens($userId);
+        
         // Clean up any existing tokens for this user and episode
         self::where('user_id', $userId)
             ->where('episode_id', $episodeId)
@@ -49,6 +52,16 @@ class DownloadToken extends Model
             'ip_address' => request()->ip(),
             'user_agent' => request()->userAgent(),
         ]);
+    }
+
+    /**
+     * Remove expired tokens for a user (similar to ActiveCode removeDuplicates)
+     */
+    private static function removeExpiredTokens($userId)
+    {
+        if (self::where('user_id', $userId)->where('expires_at', '<=', now())->first()) {
+            self::where('user_id', $userId)->where('expires_at', '<=', now())->delete();
+        }
     }
 
     /**

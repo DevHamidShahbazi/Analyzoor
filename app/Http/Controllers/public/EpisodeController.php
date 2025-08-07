@@ -42,14 +42,14 @@ class EpisodeController extends Controller
         }
 
         // Check if video exists
-        if (!$episode->video) {
+        if (!$episode->hasVideoFile()) {
             return response()->json([
                 'success' => false,
                 'message' => 'فایل ویدیو موجود نیست'
             ], 404);
         }
 
-        // Generate secure download token
+        // Generate secure download token (expired tokens will be cleaned up automatically)
         $token = DownloadToken::generateToken(
             auth()->id(),
             $episode->id,
@@ -77,14 +77,14 @@ class EpisodeController extends Controller
         }
 
         // Check if file exists
-        if (!$episode->file) {
+        if (!$episode->hasFile()) {
             return response()->json([
                 'success' => false,
                 'message' => 'فایل آموزشی موجود نیست'
             ], 404);
         }
 
-        // Generate secure download token
+        // Generate secure download token (expired tokens will be cleaned up automatically)
         $token = DownloadToken::generateToken(
             auth()->id(),
             $episode->id,

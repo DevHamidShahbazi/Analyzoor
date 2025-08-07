@@ -143,24 +143,24 @@ class EpisodeController extends Controller
     public function video_show($episode_id)
     {
         $episode = Episode::find($episode_id);
-        $path = storage_path('app/uploads/' . $episode->video);
-
-        if (!file_exists($path)) {
-            abort(404);
+        
+        if (!$episode || !$episode->hasVideoFile()) {
+            abort(404, 'فایل ویدیو یافت نشد');
         }
 
+        $path = storage_path('app/uploads/' . $episode->video);
         return response()->file($path);
     }
 
     public function file_show($episode_id)
     {
         $episode = Episode::find($episode_id);
-        $path = storage_path('app/uploads/' . $episode->file);
-
-        if (!file_exists($path)) {
-            abort(404);
+        
+        if (!$episode || !$episode->hasFile()) {
+            abort(404, 'فایل آموزشی یافت نشد');
         }
 
+        $path = storage_path('app/uploads/' . $episode->file);
         return response()->file($path);
     }
 

@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon/16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon/32.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/image/favicon/48.png">
         <link rel="stylesheet" href="/admin/css/sweet-alert.css">
         <link rel="stylesheet" href="/admin/css/font.min.css">
         <link rel="stylesheet" href="/admin/css/select2.min.css">

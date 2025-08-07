@@ -14,8 +14,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         
-        // Clean up expired download tokens daily at 2 AM
-        $schedule->command('download-tokens:cleanup')->dailyAt('02:00');
+        // Download tokens cleanup is now handled automatically on each request
+        // No scheduler needed - similar to ActiveCode system
     }
 
     /**

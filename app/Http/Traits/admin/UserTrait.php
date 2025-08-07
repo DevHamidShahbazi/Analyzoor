@@ -30,9 +30,15 @@ trait UserTrait
             'name' => $request['name'],
             'phone' => $request['phone'],
             'level' => $request['level'],
-            'email' => $request['email'],
             'verify' => $request['verify'],
         ];
+
+        // Handle email field - only include if not empty
+        if ($request->has('email') && !empty($request['email'])) {
+            $data['email'] = $request['email'];
+        } else {
+            $data['email'] = null;
+        }
 
         // فقط اگر password تغییر کرده باشد، آن را hash کن
         if ($request->has('password') && !empty($request['password'])) {

@@ -65,6 +65,9 @@
                                                 @endforeach
                                             </select>
                                         </div>
+                                        @if($errors->has('verify'))
+                                            <p style="color: red">{{$errors->first('verify')}}</p>
+                                        @endif
                                     </div>
 
 
@@ -91,6 +94,9 @@
                                                 @endforeach
                                             </select>
                                         </div>
+                                        @if($errors->has('level'))
+                                            <p style="color: red">{{$errors->first('level')}}</p>
+                                        @endif
                                     </div>
 
                                     <div class="md-form mb-2">

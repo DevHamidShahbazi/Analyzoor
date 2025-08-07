@@ -34,17 +34,26 @@
                                 <div class="md-form mb-2">
                                     <label class="m-0">نام</label>
                                     <input required value="{{ old('name')  }}"  dir="rtl" id="name" type="text" class="form-control" name="name" >
+                                    @if($errors->has('name'))
+                                        <p style="color: red">{{$errors->first('name')}}</p>
+                                    @endif
                                 </div>
 
                                 <div class="md-form mb-2">
                                     <label class="m-0" >شماره مویابل</label>
                                     <input required value="{{ old('phone')  }}" type="text" class="form-control" name="phone" >
+                                    @if($errors->has('phone'))
+                                        <p style="color: red">{{$errors->first('phone')}}</p>
+                                    @endif
                                 </div>
 
 
                                 <div class="md-form mb-2">
                                     <label class="m-0">ایمیل</label>
                                     <input value="{{ old('email')  }}" type="email" class="form-control" name="email" >
+                                    @if($errors->has('email'))
+                                        <p style="color: red">{{$errors->first('email')}}</p>
+                                    @endif
                                 </div>
 
                                 <div class="md-form mb-2">
@@ -56,6 +65,9 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    @if($errors->has('verify'))
+                                        <p style="color: red">{{$errors->first('verify')}}</p>
+                                    @endif
                                 </div>
 
 
@@ -65,6 +77,9 @@
                                         <input required placeholder="رمز عبور جدید را وارد کنید" value="{{ old('password') }}"
                                                dir="rtl" id="password" class="form-control" name="password" >
                                     </div>
+                                    @if($errors->has('password'))
+                                        <p style="color: red">{{$errors->first('password')}}</p>
+                                    @endif
                                 </div>
 
 
@@ -77,6 +92,9 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    @if($errors->has('level'))
+                                        <p style="color: red">{{$errors->first('level')}}</p>
+                                    @endif
                                 </div>
 
                                 <div class="md-form mb-2">

@@ -3105,7 +3105,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-axios.defaults.baseURL = 'https://analyzoor.com/';
+axios.defaults.baseURL = 'https://analyzoor.ir/';
 // axios.defaults.baseURL = 'http://localhost:8000/';
 
 

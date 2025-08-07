@@ -33,6 +33,7 @@ class ActiveCode extends Model
             ]);
         }
 
+
         return $code;
     }
 

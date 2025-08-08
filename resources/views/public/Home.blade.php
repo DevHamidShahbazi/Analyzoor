@@ -110,22 +110,25 @@
 
 
 
-    <div class="d-flex justify-content-center">
-        <div class="col-10 m-0 p-3">
-            <div class="row justify-content-evenly m-0">
-
-                @foreach($articles as $key => $article)
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        @include('components.public-item-article.index',['article'=>$article,'side'=>true])
-                    </div>
-                @endforeach
-
-            </div>
-            <div class="col-12 text-center p-0 m-0">
-                <a class="font-weight-bold" href="{{route('article.index')}}">نمایش بیشتر</a>
-            </div>
+<div class="d-flex justify-content-center">
+    <div class="col-10 m-0 p-3">
+        <div class="row justify-content-evenly m-0">
+            @foreach($articles as $key => $article)
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 my-2">
+                    @include('components.public-item-article.index',['article'=>$article,'side'=>true])
+                </div>
+            @endforeach
+        </div>
+        <div class="show-more-container">
+            <a href="{{route('article.index')}}" class="show-more-btn">
+                <span class="btn-text">نمایش بیشتر</span>
+                <span class="btn-icon">
+                    <i class="fas fa-arrow-left"></i>
+                </span>
+            </a>
         </div>
     </div>
+</div>
 
     {{--<section class="col-12 img-fix-home mt-3 p-5">
         <div class="container">

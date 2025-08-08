@@ -10,6 +10,12 @@
         <link rel="apple-touch-icon" sizes="76x76" href="{{setting_with_key('logo')->value}}">
         <link rel="icon" type="image/png" sizes="any" href="{{setting_with_key('logo')->value}}">
 
+        <!-- Mobile Theme Color -->
+        <meta name="theme-color" content="#37517e">
+        <meta name="msapplication-navbutton-color" content="#37517e">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>@section('title') - {{setting_with_key('banner')->value}} @show</title>
